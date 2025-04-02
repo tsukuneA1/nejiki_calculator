@@ -1,17 +1,7 @@
-import Image from "next/image";
 import { MainLayout } from "@/layouts/main/main-layout";
 import { useEffect, useState } from "react";
-
-type Move = {
-  id: number;
-  name: string;
-  type: string;
-  power: number;
-  accuracy: number;
-  pp: number;
-  super: number;
-  
-}
+import { Move } from "@/types/move";
+import { MoveCard } from "@/components/move-card";
 
 export default function Home() {
   const [moves, setMoves] = useState<Move[]>([]);
@@ -28,7 +18,7 @@ export default function Home() {
       <ol>
         {moves.map((move) => (
           <li key={move.id}>
-            <strong>{move.name} - Type: {move.type}, Power: {move.power ?? 'N/A'}, Accuracy: {move.accuracy ?? 'N/A'}</strong> 
+            <MoveCard move={move} />
           </li>
         ))}
       </ol>
