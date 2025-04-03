@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Move } from "@/types/move";
 import { MoveCard } from "@/components/move-card";
 import { Pokemon } from "@/types/pokemon";
+import Image from "next/image";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Home() {
   const [moves, setMoves] = useState<Move[]>([]);
@@ -28,7 +30,10 @@ export default function Home() {
       <ol>
         {pokemons.map((pokemon) => (
           <li key={pokemon.id}>
-            <div>{pokemon.name}</div>
+            <Avatar className="border-2">
+              <AvatarImage src={pokemon.imageSrc} />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
           </li>
         ))}
       </ol>

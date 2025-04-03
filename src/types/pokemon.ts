@@ -12,5 +12,5 @@ export type Pokemon = {
     weight: number;
     ability1: string;
     ability2: string;
-    imgSrc: string;
+    imageSrc: string;
 }
