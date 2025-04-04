@@ -31,7 +31,7 @@ model Pokemon {
 model Factory_Pokemon {
   id        Int     @id @default(autoincrement())
   name      String
-  pokeId    Int     @unique
+  pokeId    Int
   pokemon   Pokemon @relation(fields: [pokeId], references: [id])
   hp        Int
   attack    Int
@@ -41,6 +41,7 @@ model Factory_Pokemon {
   speed     Int
   item      String?
   nature    String
+  group     Int
   moves     PokemonMove[]
 }
 
