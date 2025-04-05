@@ -1,16 +1,16 @@
 import { FactoryPokemon } from './factoryPokemon';
 
 export type Defender = {
-  factoryPokemon: FactoryPokemon;
+  factoryPokemon: FactoryPokemon | null;
   act: {
     hp: number;
     attack: number;
     defense: number;
-    specialAttack: number;
-    specialDefense: number;
+    spAttack: number;
+    spDefense: number;
     speed: number;
   };
-  ability: string;
-  item: string;
+  ability: string | null;
+  item: string | null;
   defenseRank: number;
 };

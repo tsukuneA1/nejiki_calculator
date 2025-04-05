@@ -1,0 +1,29 @@
+import { calculateDamage } from '@/functions/calculate_damage';
+import { RootState } from '@/store/store';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
+export const Damage = () => {
+  const attacker = useSelector((state: RootState) => state.attacker[0]);
+  const defender = useSelector((state: RootState) => state.defender);
+
+  const damage = calculateDamage(attacker, defender, 100, {
+    weather: 'clear',
+    wall: false,
+  });
+  return (
+    <div>
+      {damage ? damage : 'ダメージを計算してください'}
+      <br />
+      {attacker.factoryPokemon
+        ? attacker.factoryPokemon.pokemon.name
+        : '攻撃ポケモンを選択してください'}
+      <br />
+      {defender.factoryPokemon
+        ? defender.factoryPokemon.pokemon.name
+        : '防御ポケモンを選択してください'}{' '}
+      <br />
+      {attacker.move ? attacker.move.name : '攻撃技を選択してください'}
+    </div>
+  );
+};

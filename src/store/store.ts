@@ -1,28 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-
-const initialState = {
-  defender: {
-    pokemon: null,
-    ability: null,
-    item: null,
-    defenseRank: 0,
-  },
-  attackerList: [
-    {
-      pokemon: null,
-      ability: null,
-      item: null,
-      attackRank: 0,
-      move: null,
-      criticalHit: false,
-      burned: false,
-    },
-  ],
-};
+import attackerReducer from './slices/attackerSlice';
+import defenderReducer from './slices/defenderSlice';
 
 export const store = configureStore({
   reducer: {
-    // counter: counterReducer,
+    attacker: attackerReducer,
+    defender: defenderReducer,
   },
 });
 

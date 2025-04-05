@@ -2,19 +2,19 @@ import { FactoryPokemon } from './factoryPokemon';
 import { Move } from './move';
 
 export type Attacker = {
-  factoryPokemon: FactoryPokemon;
+  factoryPokemon: FactoryPokemon | null;
   act: {
     hp: number;
     attack: number;
     defense: number;
-    specialAttack: number;
-    specialDefense: number;
+    spAttack: number;
+    spDefense: number;
     speed: number;
   };
-  ability: string;
-  item: string;
+  ability: string | null;
+  item: string | null;
   attackRank: number;
-  move: Move;
+  move: Move | null;
   criticalHit: boolean;
   burned: boolean;
 };

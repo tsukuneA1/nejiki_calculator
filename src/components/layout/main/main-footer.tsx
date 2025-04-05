@@ -1,3 +1,10 @@
+import { Damage } from '@/components/damage';
+
 export const MainFooter = () => {
-  return <footer>© 2025 Pokémon Damage Calculator</footer>;
+  return (
+    <footer className="sticky bottom-0 bg-white">
+      <Damage />
+      <p>© 2025 Pokémon Damage Calculator</p>
+    </footer>
+  );
 };

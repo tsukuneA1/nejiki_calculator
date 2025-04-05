@@ -15,7 +15,7 @@ export const calculateMC = (
       mc *= 1.2;
     }
 
-    if (['ハードロック', 'フィルター'].includes(defender.ability)) {
+    if (['ハードロック', 'フィルター'].includes(defender.ability!)) {
       mc *= 0.75;
     }
   }

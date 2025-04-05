@@ -13,6 +13,13 @@ import {
 } from './ui/command';
 import { useMediaQuery } from '@mui/material';
 import { Drawer, DrawerContent, DrawerTrigger } from './ui/drawer';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from './ui/card';
 
 export const AutoComplete = ({
   setPokemon,
@@ -113,7 +120,7 @@ function StatusList({
                 setOpen(false);
               }}
             >
-              {factoryPokemon.pokemon.name}
+              <SuggestionCard factoryPokemon={factoryPokemon} />
             </CommandItem>
           ))}
         </CommandGroup>
@@ -127,5 +134,17 @@ const SuggestionCard = ({
 }: {
   factoryPokemon: FactoryPokemon;
 }) => {
-  return <></>;
+  return (
+    <Card className="flex flex-grow">
+      <CardHeader>
+        <CardTitle>{factoryPokemon.pokemon.name}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <CardDescription>
+          {factoryPokemon.item}
+          {factoryPokemon.group}
+        </CardDescription>
+      </CardContent>
+    </Card>
+  );
 };

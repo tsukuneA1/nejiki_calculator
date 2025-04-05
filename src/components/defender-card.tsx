@@ -4,28 +4,21 @@ import { Badge } from './ui/badge';
 import { FactoryPokemon } from '@/types/factoryPokemon';
 import { Avatar } from '@radix-ui/react-avatar';
 import { AvatarFallback, AvatarImage } from './ui/avatar';
-import { MoveCard } from './move-card';
 import { AutoComplete } from './auto-complete';
-import { Move } from '@/types/move';
-import { setAttacker } from '@/store/slices/attackerSlice';
 import { useDispatch } from 'react-redux';
-export const PokemonCard = ({
+import { setDefender } from '@/store/slices/defenderSlice';
+export const DefenderCard = ({
   initialPokemon,
 }: {
   initialPokemon: FactoryPokemon;
 }) => {
   const [pokemon, setPokemon] = useState<FactoryPokemon>(initialPokemon);
-  const [move, setMove] = useState<Move>(initialPokemon.moves[0]);
 
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
     setPokemon(pokemon);
-    dispatch(setAttacker({ factoryPokemon: pokemon }));
-  };
-
-  const handleMoveChange = (move: Move) => {
-    setMove(move);
+    dispatch(setDefender(pokemon));
   };
 
   const data = pokemon.pokemon;
@@ -50,28 +43,6 @@ export const PokemonCard = ({
           <Badge>種族値</Badge> {data.hp}-{data.attack}-{data.defense}-
           {data.spAttack}-{data.spDefense}-{data.speed}
         </strong>
-        <div className="md:grid md:grid-cols-2 gap-2 ">
-          <MoveCard
-            move={pokemon.moves[0]}
-            handleMoveChange={handleMoveChange}
-            isSelected={move === pokemon.moves[0]}
-          />
-          <MoveCard
-            move={pokemon.moves[1]}
-            handleMoveChange={handleMoveChange}
-            isSelected={move === pokemon.moves[1]}
-          />
-          <MoveCard
-            move={pokemon.moves[2]}
-            handleMoveChange={handleMoveChange}
-            isSelected={move === pokemon.moves[2]}
-          />
-          <MoveCard
-            move={pokemon.moves[3]}
-            handleMoveChange={handleMoveChange}
-            isSelected={move === pokemon.moves[3]}
-          />
-        </div>
       </CardContent>
     </Card>
   );

@@ -12,18 +12,22 @@ export const calculateDamage = (
   level: number,
   env: Env
 ) => {
-  const atPoke = attacker.factoryPokemon;
-  const dfPoke = defender.factoryPokemon;
+  if (attacker.factoryPokemon == null || attacker.move == null) {
+    return 0;
+  }
+
+  const atPoke = attacker.factoryPokemon!;
+  const dfPoke = defender.factoryPokemon!;
 
   const typePower =
-    attacker.move.type == atPoke.pokemon.type1 ||
-    attacker.move.type == atPoke.pokemon.type2
+    attacker.move!.type == atPoke.pokemon.type1 ||
+    attacker.move!.type == atPoke.pokemon.type2
       ? 1.5
       : 1;
   const compatibility = atPoke.pokemon.type2
-    ? calculateCompatibility(attacker.move, dfPoke.pokemon.type1) *
-      calculateCompatibility(attacker.move, dfPoke.pokemon.type2)
-    : calculateCompatibility(attacker.move, dfPoke.pokemon.type1);
+    ? calculateCompatibility(attacker.move!, dfPoke.pokemon.type1) *
+      calculateCompatibility(attacker.move!, dfPoke.pokemon.type2)
+    : calculateCompatibility(attacker.move!, dfPoke.pokemon.type1);
 
   const ma = calculateMA(attacker, defender, env);
   const mb = calculateMB(attacker, defender);
@@ -33,7 +37,7 @@ export const calculateDamage = (
     Math.floor(
       (Math.floor(
         (Math.floor((level * 2) / 5 + 2) *
-          attacker.move.power! *
+          attacker.move!.power! *
           attacker.act.attack) /
           defender.act.defense
       ) /
@@ -45,5 +49,6 @@ export const calculateDamage = (
     typePower *
     compatibility *
     mc;
+
   return Math.floor(damage);
 };

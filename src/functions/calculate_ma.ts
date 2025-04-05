@@ -8,7 +8,7 @@ export const calculateMA = (
   env: Env
 ) => {
   let ma = 1;
-  const move = attacker.move;
+  const move = attacker.move!;
   if (attacker.burned && move.classification == '物理') {
     ma = 0.5;
   }

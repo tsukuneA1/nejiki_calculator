@@ -2,6 +2,7 @@ import { MainLayout } from '@/layouts/main/main-layout';
 import { useEffect, useState } from 'react';
 import { FactoryPokemon } from '@/types/factoryPokemon';
 import { PokemonCard } from '@/components/pokemon-card';
+import { DefenderCard } from '@/components/defender-card';
 
 export default function Home() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
@@ -17,12 +18,13 @@ export default function Home() {
 
   return (
     <MainLayout>
-      <ol className="ml-5">
-        {factoryPokemons.slice(930, 940).map((factoryPokemon) => (
-          <li key={factoryPokemon.id}>
-            <PokemonCard initialPokemon={factoryPokemon} />
-          </li>
-        ))}
+      <ol className="ml-5 2xl:flex">
+        <li key={factoryPokemons[0].id}>
+          <PokemonCard initialPokemon={factoryPokemons[0]} />
+        </li>
+        <li key={factoryPokemons[1].id}>
+          <DefenderCard initialPokemon={factoryPokemons[1]} />
+        </li>
       </ol>
     </MainLayout>
   );
