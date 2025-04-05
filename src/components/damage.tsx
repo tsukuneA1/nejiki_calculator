@@ -1,6 +1,5 @@
 import { calculateDamage } from '@/functions/calculate_damage';
 import { RootState } from '@/store/store';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 export const Damage = () => {
