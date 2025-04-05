@@ -5,10 +5,16 @@
 
 ## 使用技術
 フレームワーク:Next.js
+
 UIライブラリ:shadcn:ui
+
 データベース:supabase
+
 ORM:prisma
+
 言語:typescript
+
+デプロイ:vercel
 
 ## Deploy on Vercel
 
