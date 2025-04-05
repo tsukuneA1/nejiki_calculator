@@ -8,7 +8,7 @@ export const MoveCard = ({ move }: { move: Move }) => {
 
   return (
     <Card
-      className={`my-2 max-w-sm cursor-pointer transition-all duration-300 
+      className={`my-2 max-w-md cursor-pointer transition-all duration-300 
         ${selected ? "border-2 border-blue-500 bg-blue-100 shadow-lg hover:scale-105" : "hover:scale-105"}
       `}
       onClick={() => setSelected((prev) => !prev)}
