@@ -5,6 +5,7 @@ import { PokemonCard } from "@/components/pokemon-card";
 
 export default function Home() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
+  
   useEffect(() => {
     fetch("/api/factory_pokemon")
       .then((res) => res.json())
@@ -17,7 +18,7 @@ export default function Home() {
       <ol className="ml-5">
         {factoryPokemons.slice(930, 940).map((factoryPokemon) => (
           <li key={factoryPokemon.id}>
-             <PokemonCard pokemon={factoryPokemon} />
+             <PokemonCard initialPokemon={factoryPokemon} />
           </li>
         ))}
       </ol>
