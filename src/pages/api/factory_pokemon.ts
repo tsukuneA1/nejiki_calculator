@@ -4,7 +4,10 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const data = await prisma.factory_Pokemon.findMany({
     select: {
       id: true,
@@ -29,17 +32,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               accuracy: true,
               pp: true,
               classification: true,
-              super: true
-            }
-          }
-        }
-      }
-    }
+              super: true,
+            },
+          },
+        },
+      },
+    },
   });
 
-  const cleanedData = data.map(fp => ({
+  const cleanedData = data.map((fp) => ({
     ...fp,
-    moves: fp.moves.map(m => m.move)
+    moves: fp.moves.map((m) => m.move),
   }));
 
   res.status(200).json(cleanedData);

@@ -1,16 +1,20 @@
-import { Attacker } from "@/types/attacker";
-import { Defender } from "@/types/defender";
+import { Attacker } from '@/types/attacker';
+import { Defender } from '@/types/defender';
 
-export const calculateMB = (attacker: Attacker, defender: Defender, consecutive: number = 1) => {
-    let mb = 1; 
-    if (attacker.criticalHit) {
-        mb *= 2;
-    }
-    if (attacker.item == "いのちのたま"){
-        mb *= 1.3;
-    }
-    if (attacker.item == "メトロノーム"){
-        mb *= (1+(consecutive)*0.1);
-    }
-    return Math.floor(mb);
-}
+export const calculateMB = (
+  attacker: Attacker,
+  defender: Defender,
+  consecutive: number = 1
+) => {
+  let mb = 1;
+  if (attacker.criticalHit) {
+    mb *= 2;
+  }
+  if (attacker.item == 'いのちのたま') {
+    mb *= 1.3;
+  }
+  if (attacker.item == 'メトロノーム') {
+    mb *= 1 + consecutive * 0.1;
+  }
+  return Math.floor(mb);
+};

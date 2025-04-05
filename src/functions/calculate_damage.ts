@@ -1,28 +1,49 @@
-import { Attacker } from "@/types/attacker";
-import { Defender } from "@/types/defender";
-import { calculateMA } from "./calculate_ma";
-import { calculateMB } from "./calculate_mb";
-import { calculateMC } from "./calculate_mc";
-import { Env } from "@/types/env";
-import { calculateCompatibility } from "./calculate_compatibility";
+import { Attacker } from '@/types/attacker';
+import { Defender } from '@/types/defender';
+import { calculateMA } from './calculate_ma';
+import { calculateMB } from './calculate_mb';
+import { calculateMC } from './calculate_mc';
+import { Env } from '@/types/env';
+import { calculateCompatibility } from './calculate_compatibility';
 
-export const calculateDamage = (attacker: Attacker, defender: Defender, level: number, env: Env) => {
-    const atPoke = attacker.factoryPokemon;
-    const dfPoke = defender.factoryPokemon;
+export const calculateDamage = (
+  attacker: Attacker,
+  defender: Defender,
+  level: number,
+  env: Env
+) => {
+  const atPoke = attacker.factoryPokemon;
+  const dfPoke = defender.factoryPokemon;
 
-    const typePower = attacker.move.type == atPoke.pokemon.type1 || attacker.move.type == atPoke.pokemon.type2 ? 1.5 : 1;
-    const compatibility = atPoke.pokemon.type2 ? calculateCompatibility(attacker.move, dfPoke.pokemon.type1) * calculateCompatibility(attacker.move, dfPoke.pokemon.type2) : calculateCompatibility(attacker.move, dfPoke.pokemon.type1);
+  const typePower =
+    attacker.move.type == atPoke.pokemon.type1 ||
+    attacker.move.type == atPoke.pokemon.type2
+      ? 1.5
+      : 1;
+  const compatibility = atPoke.pokemon.type2
+    ? calculateCompatibility(attacker.move, dfPoke.pokemon.type1) *
+      calculateCompatibility(attacker.move, dfPoke.pokemon.type2)
+    : calculateCompatibility(attacker.move, dfPoke.pokemon.type1);
 
-    const ma = calculateMA(attacker, defender, env);
-    const mb = calculateMB(attacker, defender);
-    const mc = calculateMC(attacker, defender, compatibility);
-    
-    const damage = Math.floor(
-        Math.floor(
-            Math.floor(level*2/5+2)
-            *attacker.move.power!*attacker.act.attack/defender.act.defense)
-        /50*ma+2)
-    *mb*typePower*compatibility*mc;
-    return Math.floor(damage);
-}
+  const ma = calculateMA(attacker, defender, env);
+  const mb = calculateMB(attacker, defender);
+  const mc = calculateMC(attacker, defender, compatibility);
 
+  const damage =
+    Math.floor(
+      (Math.floor(
+        (Math.floor((level * 2) / 5 + 2) *
+          attacker.move.power! *
+          attacker.act.attack) /
+          defender.act.defense
+      ) /
+        50) *
+        ma +
+        2
+    ) *
+    mb *
+    typePower *
+    compatibility *
+    mc;
+  return Math.floor(damage);
+};

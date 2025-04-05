@@ -1,7 +1,4 @@
 export type Env = {
-    weather: string;
-    wall: boolean;
-    
-}
-
-
+  weather: string;
+  wall: boolean;
+};
