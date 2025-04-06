@@ -18,7 +18,7 @@ export const DefenderCard = ({
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
     setPokemon(pokemon);
-    dispatch(setDefender(pokemon));
+    dispatch(setDefender({ pokemon: pokemon }));
   };
 
   const data = pokemon.pokemon;

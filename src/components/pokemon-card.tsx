@@ -7,25 +7,27 @@ import { AvatarFallback, AvatarImage } from './ui/avatar';
 import { MoveCard } from './move-card';
 import { AutoComplete } from './auto-complete';
 import { Move } from '@/types/move';
-import { setAttacker } from '@/store/slices/attackerSlice';
+import { setAttacker, setMove } from '@/store/slices/attackerSlice';
 import { useDispatch } from 'react-redux';
+
 export const PokemonCard = ({
   initialPokemon,
 }: {
   initialPokemon: FactoryPokemon;
 }) => {
   const [pokemon, setPokemon] = useState<FactoryPokemon>(initialPokemon);
-  const [move, setMove] = useState<Move>(initialPokemon.moves[0]);
+  const [move, setMoves] = useState<Move>(initialPokemon.moves[0]);
 
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
     setPokemon(pokemon);
-    dispatch(setAttacker({ factoryPokemon: pokemon }));
+    dispatch(setAttacker({ pokemon: pokemon, pos: 0 }));
   };
 
   const handleMoveChange = (move: Move) => {
-    setMove(move);
+    dispatch(setMove({ move: move, pos: 0 }));
+    setMoves(move);
   };
 
   const data = pokemon.pokemon;
