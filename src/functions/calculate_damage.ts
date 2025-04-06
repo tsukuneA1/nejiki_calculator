@@ -5,6 +5,7 @@ import { calculateMB } from './calculate_mb';
 import { calculateMC } from './calculate_mc';
 import { Env } from '@/types/env';
 import { calculateCompatibility } from './calculate_compatibility';
+import { calculateStatus } from './calculate_status';
 
 export const calculateDamage = (
   attacker: Attacker,
@@ -15,6 +16,9 @@ export const calculateDamage = (
   if (attacker.factoryPokemon == null || attacker.move == null || defender.factoryPokemon == null) {
     return 0;
   }
+
+  const atAct = calculateStatus(attacker.factoryPokemon, level);
+  const dfAct = calculateStatus(defender.factoryPokemon, level);
 
   const atPoke = attacker.factoryPokemon!;
   const dfPoke = defender.factoryPokemon!;
@@ -38,8 +42,8 @@ export const calculateDamage = (
       (Math.floor(
         (Math.floor((level * 2) / 5 + 2) *
           attacker.move!.power! *
-          attacker.act.attack) /
-          defender.act.defense
+          atAct.attack) /
+          dfAct.defense
       ) /
         50) *
         ma +

@@ -8,7 +8,9 @@ import { MoveCard } from './move-card';
 import { AutoComplete } from './auto-complete';
 import { Move } from '@/types/move';
 import { setAttacker, setMove } from '@/store/slices/attackerSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { calculateStatus } from '@/functions/calculate_status';
+import { RootState } from '@/store/store';
 
 export const PokemonCard = ({
   initialPokemon,
@@ -17,7 +19,7 @@ export const PokemonCard = ({
 }) => {
   const [pokemon, setPokemon] = useState<FactoryPokemon>(initialPokemon);
   const [move, setMoves] = useState<Move>(initialPokemon.moves[0]);
-
+  const level = useSelector((state: RootState) => state.level);
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
@@ -29,6 +31,8 @@ export const PokemonCard = ({
     dispatch(setMove({ move: move, pos: 0 }));
     setMoves(move);
   };
+
+  const status = calculateStatus(pokemon, level);
 
   const data = pokemon.pokemon;
   return (
@@ -46,12 +50,24 @@ export const PokemonCard = ({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <strong>
-          <Badge>タイプ</Badge> {pokemon.pokemon.type1}
-          {pokemon.pokemon.type2 && ` / ${pokemon.pokemon.type2}`}{' '}
-          <Badge>種族値</Badge> {data.hp}-{data.attack}-{data.defense}-
-          {data.spAttack}-{data.spDefense}-{data.speed}
-        </strong>
+      <div className="space-y-2">
+  <div className="flex items-center gap-2">
+    <Badge className='w-18'>タイプ</Badge>
+    <div>
+      {pokemon.pokemon.type1}
+      {pokemon.pokemon.type2 && ` / ${pokemon.pokemon.type2}`}
+    </div>
+  </div>
+  <div className="flex items-center gap-2">
+    <Badge className='w-18'>ステータス</Badge>
+    <div>
+      {status.hp}-{status.attack}-{status.defense}-
+      {status.spAttack}-{status.spDefense}-{status.speed}
+    </div>
+  </div>
+</div>
+ <Badge className='w-18'>技</Badge>
+
         <div className="md:grid md:grid-cols-2 gap-2 ">
           <MoveCard
             move={pokemon.moves[0]}
