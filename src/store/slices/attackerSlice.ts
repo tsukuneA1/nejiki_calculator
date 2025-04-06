@@ -1,5 +1,9 @@
+import { calculateActual, calculateHActual } from '@/functions/calculate_actual';
+import { calculateNatureEffects } from '@/functions/calculate_natureEffects';
 import { Attacker } from '@/types/attacker';
-import { createSlice } from '@reduxjs/toolkit';
+import { FactoryPokemon } from '@/types/factoryPokemon';
+import { Move } from '@/types/move';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState: Attacker[] = [
   {
@@ -21,18 +25,37 @@ const initialState: Attacker[] = [
   },
 ];
 
+type AttackerState = {
+  pokemon: FactoryPokemon;
+  pos: number;
+};
+
 const attackerSlice = createSlice({
   name: 'attacker',
   initialState,
   reducers: {
-    setAttacker: (state, action) => {
-      state[0] = action.payload;
+    setAttacker: (state, action: PayloadAction<AttackerState>) => {
+      const factoryPokemon = action.payload.pokemon;
+      state[action.payload.pos].factoryPokemon = factoryPokemon;
+      state[action.payload.pos].ability = factoryPokemon.pokemon.ability1;
+      state[action.payload.pos].item = factoryPokemon.item;
+      state[action.payload.pos].attackRank = 0;
+      state[action.payload.pos].move = factoryPokemon.moves[0];
+      const level = 100;
+      state[action.payload.pos].act = {
+        hp: calculateHActual(factoryPokemon.pokemon.hp, factoryPokemon.group, factoryPokemon.pokemon.hp, level),
+        attack: calculateActual(factoryPokemon.pokemon.attack, factoryPokemon.group, factoryPokemon.pokemon.attack, level, calculateNatureEffects(factoryPokemon.nature, 'attack')),
+        defense: calculateActual(factoryPokemon.pokemon.defense, factoryPokemon.group, factoryPokemon.pokemon.defense, level, calculateNatureEffects(factoryPokemon.nature, 'defense')),
+        spAttack: calculateActual(factoryPokemon.pokemon.spAttack, factoryPokemon.group, factoryPokemon.pokemon.spAttack, level, calculateNatureEffects(factoryPokemon.nature, 'spAttack')),
+        spDefense: calculateActual(factoryPokemon.pokemon.spDefense, factoryPokemon.group, factoryPokemon.pokemon.spDefense, level, calculateNatureEffects(factoryPokemon.nature, 'spDefense')),
+        speed: calculateActual(factoryPokemon.pokemon.speed, factoryPokemon.group, factoryPokemon.pokemon.speed, level, calculateNatureEffects(factoryPokemon.nature, 'speed')),
+      }
     },
-    setMove: (state, action) => {
-      state[0].move = action.payload;
+    setMove: (state, action: PayloadAction<{move: Move, pos: number}>) => {
+      state[action.payload.pos].move = action.payload.move;
     },
   },
 });
 
-export const { setAttacker } = attackerSlice.actions;
+export const { setAttacker, setMove } = attackerSlice.actions;
 export default attackerSlice.reducer;

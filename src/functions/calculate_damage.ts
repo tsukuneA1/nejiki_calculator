@@ -12,7 +12,7 @@ export const calculateDamage = (
   level: number,
   env: Env
 ) => {
-  if (attacker.factoryPokemon == null || attacker.move == null) {
+  if (attacker.factoryPokemon == null || attacker.move == null || defender.factoryPokemon == null) {
     return 0;
   }
 

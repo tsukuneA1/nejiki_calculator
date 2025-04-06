@@ -19,12 +19,16 @@ export default function Home() {
   return (
     <MainLayout>
       <ol className="ml-5 2xl:flex">
-        <li key={factoryPokemons[0].id}>
-          <PokemonCard initialPokemon={factoryPokemons[0]} />
-        </li>
-        <li key={factoryPokemons[1].id}>
-          <DefenderCard initialPokemon={factoryPokemons[1]} />
-        </li>
+        {factoryPokemons.length >= 2 && factoryPokemons[0] && factoryPokemons[1] && (
+          <>
+            <li key={factoryPokemons[0].id}>
+              <PokemonCard initialPokemon={factoryPokemons[0]} />
+            </li>
+            <li key={factoryPokemons[1].id}>
+              <DefenderCard initialPokemon={factoryPokemons[1]} />
+            </li>
+          </>
+        )}
       </ol>
     </MainLayout>
   );
