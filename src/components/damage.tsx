@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 export const Damage = () => {
   const attacker = useSelector((state: RootState) => state.attacker[0]);
   const defender = useSelector((state: RootState) => state.defender);
-  const level = useSelector((state: RootState) => state.level);
+  const level = useSelector((state: RootState) => state.level.level);
 
   const damage = calculateDamage(attacker, defender, level, {
     weather: 'clear',

@@ -19,7 +19,7 @@ export const PokemonCard = ({
 }) => {
   const [pokemon, setPokemon] = useState<FactoryPokemon>(initialPokemon);
   const [move, setMoves] = useState<Move>(initialPokemon.moves[0]);
-  const level = useSelector((state: RootState) => state.level);
+  const level = useSelector((state: RootState) => state.level.level);
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {

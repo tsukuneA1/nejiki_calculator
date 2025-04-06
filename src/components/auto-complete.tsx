@@ -20,6 +20,8 @@ import {
   CardHeader,
   CardTitle,
 } from './ui/card';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 export const AutoComplete = ({
   setPokemon,
@@ -34,6 +36,7 @@ export const AutoComplete = ({
     initialPokemon
   );
   const isDesktop = useMediaQuery('(min-width: 768px)');
+  const stat = useSelector((state: RootState) => state.level);
 
   useEffect(() => {
     fetch('/api/factory_pokemon')
@@ -49,6 +52,23 @@ export const AutoComplete = ({
     setSelectedStatus(pokemon);
     setOpen(false);
   };
+
+  const filteredFactoryPokemons = factoryPokemons.filter((pokemon) => {
+    if (stat.level === 100) {
+      if (stat.times < 5){
+        if (stat.times == 7){
+          return pokemon.group == 7 || pokemon.group == 8;
+        }
+        return pokemon.group == stat.times+3;
+      }
+      return pokemon.group == 4 || pokemon.group == 5 || pokemon.group == 6 || pokemon.group == 7 || pokemon.group == 8;
+    } else {
+      if (stat.times == 7){
+        return pokemon.group in [7, 8];
+      }
+      return pokemon.group == stat.times;
+    }
+  });
 
   if (isDesktop) {
     return (
@@ -66,7 +86,7 @@ export const AutoComplete = ({
           <StatusList
             setOpen={setOpen}
             setSelectedStatus={handleSelect}
-            factoryPokemons={factoryPokemons}
+            factoryPokemons={filteredFactoryPokemons}
           />
         </PopoverContent>
       </Popover>
@@ -89,7 +109,7 @@ export const AutoComplete = ({
           <StatusList
             setOpen={setOpen}
             setSelectedStatus={handleSelect}
-            factoryPokemons={factoryPokemons}
+            factoryPokemons={filteredFactoryPokemons}
           />
         </div>
       </DrawerContent>

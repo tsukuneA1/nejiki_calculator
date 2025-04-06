@@ -4,13 +4,14 @@ import { FactoryPokemon } from '@/types/factoryPokemon';
 import { PokemonCard } from '@/components/pokemon-card';
 import { DefenderCard } from '@/components/defender-card';
 import { Checkbox } from '@/components/ui/checkbox';
-import { setLevel } from '@/store/slices/levelSlice';
+import { setLevel, setTimes } from '@/store/slices/levelSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectItem } from '@/components/ui/select';
 
 export default function Home() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
-  const level = useSelector((state: RootState) => state.level);
+  const level = useSelector((state: RootState) => state.level.level);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -44,6 +45,22 @@ export default function Home() {
         オープンレベル
       </label>
     </div>
+    <div className='ml-5 mt-2'>
+    <Select onValueChange={(value) => dispatch(setTimes(parseInt(value)))}>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="周回回数を選択" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectLabel>周回回数</SelectLabel>
+          {[...Array(7)].map((_, i) => (
+            <SelectItem key={i} value={`${i + 1}`}>{i + 1}</SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+    </div>
+    
       <ol className="ml-5 2xl:flex">
         {factoryPokemons.length >= 2 && factoryPokemons[0] && factoryPokemons[1] && (
           <>
