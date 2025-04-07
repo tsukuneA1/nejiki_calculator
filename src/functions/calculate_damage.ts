@@ -28,13 +28,12 @@ export const calculateDamage = (
   const dfPoke = defender.factoryPokemon!;
 
   const typePower =
-    attacker.move!.type == atPoke.pokemon.type1 ||
-    attacker.move!.type == atPoke.pokemon.type2
+    attacker.move!.type === atPoke.pokemon.type1 ||
+    attacker.move!.type === atPoke.pokemon.type2
       ? 1.5
       : 1;
-  const compatibility = atPoke.pokemon.type2
-    ? calculateCompatibility(attacker.move!, dfPoke.pokemon.type1) *
-      calculateCompatibility(attacker.move!, dfPoke.pokemon.type2!)
+  const compatibility = dfPoke.pokemon.type2
+    ? calculateCompatibility(attacker.move!, dfPoke.pokemon.type1) * calculateCompatibility(attacker.move!, dfPoke.pokemon.type2!)
     : calculateCompatibility(attacker.move!, dfPoke.pokemon.type1);
 
   const ma = calculateMA(attacker, defender, env);
