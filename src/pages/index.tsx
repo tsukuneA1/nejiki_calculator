@@ -14,14 +14,26 @@ import {
   SelectLabel,
   SelectItem,
 } from '@/components/ui/select';
+import { SystemUiconsReverse } from '@/components/icons/reverse';
+import { SystemUiconsSort } from '@/components/icons/sort-icon';
+import { Button } from '@/components/ui/button';
+import { setAttacker } from '@/store/slices/attackerSlice';
+import { setDefender } from '@/store/slices/defenderSlice';
 
 export default function Home() {
   const level = useSelector((state: RootState) => state.level.level);
+  const attacker = useSelector((state: RootState) => state.attacker[0]);
+  const defender = useSelector((state: RootState) => state.defender);
   const dispatch = useDispatch();
 
   const handleLevelChange = (level: number) => {
     dispatch(setLevel(level));
   };
+
+  const handleReverse = () => {
+    dispatch(setAttacker({pokemon: defender.factoryPokemon!, pos: 0}))
+    dispatch(setDefender({pokemon: attacker.factoryPokemon!}))
+  }
 
   return (
     <MainLayout>
@@ -77,7 +89,12 @@ export default function Home() {
           <h1 className="text-3xl font-bold ml-3 my-4">Attacker</h1>
           <PokemonCard />
         </li>
-        <li className="mt-8 xl:ml-8 xl:mt-0">
+        <Button onClick={handleReverse} className='w-10 h-10 my-10 xl:mt-20 xl:mx-8'>
+          <SystemUiconsSort className="xl:hidden w-8 h-8" />
+          <SystemUiconsReverse className="xl:block hidden w-8 h-8" />
+        </Button>
+        
+        <li className="xl:mt-0">
           <h1 className="text-3xl font-bold ml-3 my-4">Defender</h1>
           <DefenderCard />
         </li>

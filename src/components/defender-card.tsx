@@ -10,14 +10,10 @@ import { PokemonDescription } from './pokemon-description';
 import { RootState } from '@/store/store';
 
 export const DefenderCard = () => {
-  const initialPokemon = useSelector(
-    (state: RootState) => state.defender.factoryPokemon!
-  );
-  const [pokemon, setPokemon] = useState<FactoryPokemon>(initialPokemon);
+  const pokemon = useSelector((state: RootState) => state.defender.factoryPokemon!);
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
-    setPokemon(pokemon);
     dispatch(setDefender({ pokemon: pokemon }));
   };
 
