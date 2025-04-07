@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { FactoryPokemon } from '@/types/factoryPokemon';
@@ -13,9 +12,6 @@ import { PokemonDescription } from './pokemon-description';
 import { RootState } from '@/store/store';
 
 export const PokemonCard = () => {
-  const initialPokemon = useSelector(
-    (state: RootState) => state.attacker[0].factoryPokemon!
-  );
   const pokemon = useSelector((state: RootState) => state.attacker[0].factoryPokemon!);
   const move = useSelector((state: RootState) => state.attacker[0].move);
   const dispatch = useDispatch();

@@ -32,9 +32,7 @@ export const AutoComplete = ({
 }) => {
   const [open, setOpen] = useState(false);
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
-  const [selectedStatus, setSelectedStatus] = useState<FactoryPokemon | null>(
-    initialPokemon
-  );
+
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const stat = useSelector((state: RootState) => state.level);
 
@@ -49,7 +47,6 @@ export const AutoComplete = ({
 
   const handleSelect = (pokemon: FactoryPokemon) => {
     setPokemon(pokemon);
-    setSelectedStatus(pokemon);
     setOpen(false);
   };
 

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { FactoryPokemon } from '@/types/factoryPokemon';
 import { Avatar } from '@radix-ui/react-avatar';
