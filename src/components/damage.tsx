@@ -3,7 +3,7 @@ import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
 import { Progress } from './ui/progress';
 import { calculateStatus } from '@/functions/calculate_status';
-import { useEffect, useState } from 'react';
+
 export const Damage = () => {
   const attacker = useSelector((state: RootState) => state.attacker[0]);
   const defender = useSelector((state: RootState) => state.defender);
