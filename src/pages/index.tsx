@@ -76,7 +76,7 @@ export default function Home() {
               <SelectLabel>周回回数</SelectLabel>
               {[...Array(7)].map((_, i) => (
                 <SelectItem key={i} value={`${i + 1}`}>
-                  {i + 1}
+                  {`${i + 1}周目`}
                 </SelectItem>
               ))}
             </SelectGroup>
