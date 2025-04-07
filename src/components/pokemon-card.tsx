@@ -33,7 +33,7 @@ export const PokemonCard = () => {
   const data = pokemon.pokemon;
 
   return (
-    <Card className={`my-2 max-w-xl w-xl`}>
+    <Card className="my-2 w-sm max-w-xl sm:w-xl">
       <CardHeader className="flex items-center">
         <Avatar>
           <AvatarImage
@@ -56,7 +56,7 @@ export const PokemonCard = () => {
           setItem={() => {}}
         />
         <Badge className="w-18">技</Badge>
-        <div className="md:grid md:grid-cols-2 gap-2 ">
+        <div className="sm:grid sm:grid-cols-2 gap-2 ">
           <MoveCard
             move={pokemon.moves[0]}
             handleMoveChange={handleMoveChange}

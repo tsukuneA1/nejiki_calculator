@@ -72,12 +72,12 @@ export default function Home() {
         </Select>
       </div>
 
-      <ol className="ml-5 2xl:flex">
+      <ol className="xl:flex flex flex-col items-center xl:flex-row xl:items-start">
         <li>
           <h1 className="text-3xl font-bold ml-3 my-4">Attacker</h1>
           <PokemonCard />
         </li>
-        <li className="mt-8 2xl:ml-8 2xl:mt-0">
+        <li className="mt-8 xl:ml-8 xl:mt-0">
           <h1 className="text-3xl font-bold ml-3 my-4">Defender</h1>
           <DefenderCard />
         </li>

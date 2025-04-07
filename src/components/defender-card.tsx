@@ -23,7 +23,7 @@ export const DefenderCard = () => {
 
   const data = pokemon.pokemon;
   return (
-    <Card className={`my-2 w-xl max-w-xl`}>
+    <Card className={`my-2 w-sm sm:w-xl max-w-xl`}>
       <CardHeader className="flex items-center">
         <Avatar>
           <AvatarImage
