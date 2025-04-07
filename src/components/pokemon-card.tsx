@@ -9,8 +9,8 @@ import { AutoComplete } from './auto-complete';
 import { Move } from '@/types/move';
 import { setAttacker, setMove } from '@/store/slices/attackerSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { calculateStatus } from '@/functions/calculate_status';
 import { RootState } from '@/store/store';
+import { PokemonDescription } from './pokemon-description';
 
 export const PokemonCard = ({
   initialPokemon,
@@ -32,11 +32,9 @@ export const PokemonCard = ({
     setMoves(move);
   };
 
-  const status = calculateStatus(pokemon, level);
-
   const data = pokemon.pokemon;
   return (
-    <Card className={`my-2 max-w-2xl`}>
+    <Card className={`my-2 max-w-xl`}>
       <CardHeader className="flex items-center">
         <Avatar>
           <AvatarImage src={data.imageSrc} className="w-15 h-15" />
@@ -50,24 +48,12 @@ export const PokemonCard = ({
         </CardTitle>
       </CardHeader>
       <CardContent>
-      <div className="space-y-2">
-  <div className="flex items-center gap-2">
-    <Badge className='w-18'>タイプ</Badge>
-    <div>
-      {pokemon.pokemon.type1}
-      {pokemon.pokemon.type2 && ` / ${pokemon.pokemon.type2}`}
-    </div>
-  </div>
-  <div className="flex items-center gap-2">
-    <Badge className='w-18'>ステータス</Badge>
-    <div>
-      {status.hp}-{status.attack}-{status.defense}-
-      {status.spAttack}-{status.spDefense}-{status.speed}
-    </div>
-  </div>
-</div>
- <Badge className='w-18'>技</Badge>
-
+        <PokemonDescription
+          factroyPokemon={pokemon}
+          setAbility={() => {}}
+          setItem={() => {}}
+        />
+        <Badge className="w-18">技</Badge>
         <div className="md:grid md:grid-cols-2 gap-2 ">
           <MoveCard
             move={pokemon.moves[0]}

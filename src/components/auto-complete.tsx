@@ -55,15 +55,21 @@ export const AutoComplete = ({
 
   const filteredFactoryPokemons = factoryPokemons.filter((pokemon) => {
     if (stat.level === 100) {
-      if (stat.times < 5){
-        if (stat.times == 7){
+      if (stat.times < 5) {
+        if (stat.times == 7) {
           return pokemon.group == 7 || pokemon.group == 8;
         }
-        return pokemon.group == stat.times+3;
+        return pokemon.group == stat.times + 3;
       }
-      return pokemon.group == 4 || pokemon.group == 5 || pokemon.group == 6 || pokemon.group == 7 || pokemon.group == 8;
+      return (
+        pokemon.group == 4 ||
+        pokemon.group == 5 ||
+        pokemon.group == 6 ||
+        pokemon.group == 7 ||
+        pokemon.group == 8
+      );
     } else {
-      if (stat.times == 7){
+      if (stat.times == 7) {
         return pokemon.group in [7, 8];
       }
       return pokemon.group == stat.times;

@@ -1,4 +1,7 @@
-import { calculateActual, calculateHActual } from '@/functions/calculate_actual';
+import {
+  calculateActual,
+  calculateHActual,
+} from '@/functions/calculate_actual';
 import { calculateNatureEffects } from '@/functions/calculate_natureEffects';
 import { calculateStatus } from '@/functions/calculate_status';
 import { Attacker } from '@/types/attacker';
@@ -37,7 +40,7 @@ const attackerSlice = createSlice({
       state[action.payload.pos].attackRank = 0;
       state[action.payload.pos].move = factoryPokemon.moves[0];
     },
-    setMove: (state, action: PayloadAction<{move: Move, pos: number}>) => {
+    setMove: (state, action: PayloadAction<{ move: Move; pos: number }>) => {
       state[action.payload.pos].move = action.payload.move;
     },
   },
