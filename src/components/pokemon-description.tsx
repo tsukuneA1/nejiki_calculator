@@ -24,11 +24,10 @@ export const PokemonDescription = ({
   const level = useSelector((state: RootState) => state.level.level);
   const status = calculateStatus(factroyPokemon, level);
 
-  const abilities = [
-    'なし',
-    factroyPokemon.pokemon.ability1,
-    factroyPokemon.pokemon.ability2,
-  ];
+  const abilities = ['なし', factroyPokemon.pokemon.ability1];
+
+  factroyPokemon.pokemon.ability2 &&
+    abilities.push(factroyPokemon.pokemon.ability2);
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
@@ -46,7 +45,7 @@ export const PokemonDescription = ({
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <Badge className="w-18">特性</Badge>
+        <Badge className="w-18 h-9">特性</Badge>
         <Select onValueChange={setAbility}>
           <SelectTrigger className="w-40">
             <SelectValue placeholder="特性を選択" />
@@ -55,7 +54,7 @@ export const PokemonDescription = ({
             <SelectGroup>
               <SelectLabel>特性</SelectLabel>
               {abilities.map((ability, i) => (
-                <SelectItem key={i} value={ability}>
+                <SelectItem key={i} value={ability!}>
                   {ability}
                 </SelectItem>
               ))}
@@ -64,7 +63,7 @@ export const PokemonDescription = ({
         </Select>
       </div>
       <div className="flex items-center gap-2">
-        <Badge className="w-18">アイテム</Badge>
+        <Badge className="w-18 h-9">アイテム</Badge>
         <Select onValueChange={setItem}>
           <SelectTrigger className="w-40">
             <SelectValue placeholder="アイテムを選択" />

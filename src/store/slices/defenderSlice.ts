@@ -1,10 +1,11 @@
 import { Defender } from '@/types/defender';
 import { createSlice } from '@reduxjs/toolkit';
+import { initialDefender } from '../initialPokemons';
 
 const initialState: Defender = {
-  factoryPokemon: null,
-  ability: null,
-  item: null,
+  factoryPokemon: initialDefender,
+  ability: initialDefender.pokemon.ability1,
+  item: initialDefender.item,
   defenseRank: 0,
 };
 

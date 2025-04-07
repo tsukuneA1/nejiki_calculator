@@ -79,8 +79,8 @@ export const AutoComplete = ({
   if (isDesktop) {
     return (
       <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <Button variant="outline" className="w-[150px] justify-start">
+        <PopoverTrigger asChild className="h-15 w-36">
+          <Button variant="outline" className="w-[150px] justify-start text-lg">
             {selectedStatus ? (
               <>{selectedStatus.pokemon.name}</>
             ) : (
@@ -101,8 +101,8 @@ export const AutoComplete = ({
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <Button variant="outline" className="w-[150px] justify-start">
+      <DrawerTrigger asChild className="h-15 w-36">
+        <Button variant="outline" className="w-[150px] justify-start text-lg">
           {selectedStatus ? (
             <>{selectedStatus.pokemon.name}</>
           ) : (

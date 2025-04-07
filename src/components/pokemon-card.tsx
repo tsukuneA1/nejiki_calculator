@@ -9,17 +9,15 @@ import { AutoComplete } from './auto-complete';
 import { Move } from '@/types/move';
 import { setAttacker, setMove } from '@/store/slices/attackerSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
 import { PokemonDescription } from './pokemon-description';
+import { RootState } from '@/store/store';
 
-export const PokemonCard = ({
-  initialPokemon,
-}: {
-  initialPokemon: FactoryPokemon;
-}) => {
+export const PokemonCard = () => {
+  const initialPokemon = useSelector(
+    (state: RootState) => state.attacker[0].factoryPokemon!
+  );
   const [pokemon, setPokemon] = useState<FactoryPokemon>(initialPokemon);
   const [move, setMoves] = useState<Move>(initialPokemon.moves[0]);
-  const level = useSelector((state: RootState) => state.level.level);
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
@@ -33,11 +31,15 @@ export const PokemonCard = ({
   };
 
   const data = pokemon.pokemon;
+
   return (
-    <Card className={`my-2 max-w-xl`}>
+    <Card className={`my-2 max-w-xl w-xl`}>
       <CardHeader className="flex items-center">
         <Avatar>
-          <AvatarImage src={data.imageSrc} className="w-15 h-15" />
+          <AvatarImage
+            src={data.imageSrc}
+            className="w-15 h-15 border-1 border-gray-300 rounded-lg"
+          />
           <AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
         </Avatar>
         <CardTitle>

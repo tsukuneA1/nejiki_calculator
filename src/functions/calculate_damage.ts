@@ -34,20 +34,23 @@ export const calculateDamage = (
       : 1;
   const compatibility = atPoke.pokemon.type2
     ? calculateCompatibility(attacker.move!, dfPoke.pokemon.type1) *
-      calculateCompatibility(attacker.move!, dfPoke.pokemon.type2)
+      calculateCompatibility(attacker.move!, dfPoke.pokemon.type2!)
     : calculateCompatibility(attacker.move!, dfPoke.pokemon.type1);
 
   const ma = calculateMA(attacker, defender, env);
   const mb = calculateMB(attacker, defender);
   const mc = calculateMC(attacker, defender, compatibility);
 
+  const attack =
+    attacker.move.classification == '特殊' ? atAct.spAttack : atAct.attack;
+  const defense =
+    attacker.move.classification == '特殊' ? dfAct.spDefense : dfAct.defense;
+
   const damage =
     Math.floor(
       (Math.floor(
-        (Math.floor((level * 2) / 5 + 2) *
-          attacker.move!.power! *
-          atAct.attack) /
-          dfAct.defense
+        (Math.floor((level * 2) / 5 + 2) * attacker.move!.power! * attack) /
+          defense
       ) /
         50) *
         ma +

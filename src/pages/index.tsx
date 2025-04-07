@@ -22,15 +22,6 @@ export default function Home() {
   const level = useSelector((state: RootState) => state.level.level);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    fetch('/api/factory_pokemon')
-      .then((res) => res.json())
-      .then((data) => setFactoryPokemons(data))
-      .catch((error) =>
-        console.error('Error fetching factory pokemons:', error)
-      );
-  }, []);
-
   const handleLevelChange = (level: number) => {
     dispatch(setLevel(level));
   };
@@ -64,7 +55,10 @@ export default function Home() {
         </label>
       </div>
       <div className="ml-5 mt-2">
-        <Select onValueChange={(value) => dispatch(setTimes(parseInt(value)))}>
+        <Select
+          onValueChange={(value) => dispatch(setTimes(parseInt(value)))}
+          defaultValue={'1'}
+        >
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="周回回数を選択" />
           </SelectTrigger>
@@ -82,18 +76,14 @@ export default function Home() {
       </div>
 
       <ol className="ml-5 2xl:flex">
-        {factoryPokemons.length >= 2 &&
-          factoryPokemons[0] &&
-          factoryPokemons[1] && (
-            <>
-              <li key={factoryPokemons[0].id}>
-                <PokemonCard initialPokemon={factoryPokemons[0]} />
-              </li>
-              <li key={factoryPokemons[1].id}>
-                <DefenderCard initialPokemon={factoryPokemons[1]} />
-              </li>
-            </>
-          )}
+        <li>
+          <h1 className="text-3xl font-bold ml-3 my-4">Attacker</h1>
+          <PokemonCard />
+        </li>
+        <li className="mt-8 2xl:ml-8 2xl:mt-0">
+          <h1 className="text-3xl font-bold ml-3 my-4">Defender</h1>
+          <DefenderCard />
+        </li>
       </ol>
     </MainLayout>
   );

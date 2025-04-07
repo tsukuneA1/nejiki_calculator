@@ -4,14 +4,15 @@ import { FactoryPokemon } from '@/types/factoryPokemon';
 import { Avatar } from '@radix-ui/react-avatar';
 import { AvatarFallback, AvatarImage } from './ui/avatar';
 import { AutoComplete } from './auto-complete';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setDefender } from '@/store/slices/defenderSlice';
 import { PokemonDescription } from './pokemon-description';
-export const DefenderCard = ({
-  initialPokemon,
-}: {
-  initialPokemon: FactoryPokemon;
-}) => {
+import { RootState } from '@/store/store';
+
+export const DefenderCard = () => {
+  const initialPokemon = useSelector(
+    (state: RootState) => state.defender.factoryPokemon!
+  );
   const [pokemon, setPokemon] = useState<FactoryPokemon>(initialPokemon);
   const dispatch = useDispatch();
 
@@ -22,10 +23,13 @@ export const DefenderCard = ({
 
   const data = pokemon.pokemon;
   return (
-    <Card className={`my-2 max-w-2xl`}>
+    <Card className={`my-2 w-xl max-w-xl`}>
       <CardHeader className="flex items-center">
         <Avatar>
-          <AvatarImage src={data.imageSrc} className="w-15 h-15" />
+          <AvatarImage
+            src={data.imageSrc}
+            className="w-15 h-15 border-1 border-gray-300 rounded-lg"
+          />
           <AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
         </Avatar>
         <CardTitle>

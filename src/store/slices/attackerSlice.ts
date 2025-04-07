@@ -1,23 +1,16 @@
-import {
-  calculateActual,
-  calculateHActual,
-} from '@/functions/calculate_actual';
-import { calculateNatureEffects } from '@/functions/calculate_natureEffects';
-import { calculateStatus } from '@/functions/calculate_status';
 import { Attacker } from '@/types/attacker';
 import { FactoryPokemon } from '@/types/factoryPokemon';
 import { Move } from '@/types/move';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store';
+import { initialAttacker } from '../initialPokemons';
 
 const initialState: Attacker[] = [
   {
-    factoryPokemon: null,
-    ability: null,
-    item: null,
+    factoryPokemon: initialAttacker,
+    ability: initialAttacker.pokemon.ability1,
+    item: initialAttacker.item,
     attackRank: 0,
-    move: null,
+    move: initialAttacker.moves[0],
     criticalHit: false,
     burned: false,
   },

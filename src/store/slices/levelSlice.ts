@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface LevelState {
-  level: number;
-  times: number;
-}
-
 export const levelSlice = createSlice({
   name: 'level',
   initialState: {
