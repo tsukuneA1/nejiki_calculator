@@ -1,6 +1,4 @@
 import { MainLayout } from '@/layouts/main/main-layout';
-import { useEffect, useState } from 'react';
-import { FactoryPokemon } from '@/types/factoryPokemon';
 import { PokemonCard } from '@/components/pokemon-card';
 import { DefenderCard } from '@/components/defender-card';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -18,7 +16,6 @@ import {
 } from '@/components/ui/select';
 
 export default function Home() {
-  const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
   const level = useSelector((state: RootState) => state.level.level);
   const dispatch = useDispatch();
 

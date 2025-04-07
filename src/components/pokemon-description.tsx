@@ -26,8 +26,10 @@ export const PokemonDescription = ({
 
   const abilities = ['なし', factroyPokemon.pokemon.ability1];
 
-  factroyPokemon.pokemon.ability2 &&
+  if (factroyPokemon.pokemon.ability2) {
     abilities.push(factroyPokemon.pokemon.ability2);
+  }
+
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
