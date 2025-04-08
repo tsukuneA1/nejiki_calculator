@@ -9,4 +9,5 @@ export type Attacker = {
   move: Move | null;
   criticalHit: boolean;
   burned: boolean;
+  rank: number;
 };

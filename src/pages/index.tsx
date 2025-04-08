@@ -87,7 +87,7 @@ export default function Home() {
       <ol className="xl:flex flex flex-col items-center xl:flex-row xl:items-start">
         <li>
           <h1 className="text-3xl font-bold ml-3 my-4">Attacker</h1>
-          <PokemonCard />
+          <PokemonCard pos={0} />
         </li>
         <Button onClick={handleReverse} className='w-10 h-10 my-10 xl:mt-20 xl:mx-8'>
           <SystemUiconsSort className="xl:hidden w-8 h-8" />

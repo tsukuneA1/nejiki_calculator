@@ -6,22 +6,28 @@ import { AvatarFallback, AvatarImage } from './ui/avatar';
 import { MoveCard } from './move-card';
 import { AutoComplete } from './auto-complete';
 import { Move } from '@/types/move';
-import { setAttacker, setMove } from '@/store/slices/attackerSlice';
+import { setAttacker, setMove, setRank } from '@/store/slices/attackerSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { PokemonDescription } from './pokemon-description';
 import { RootState } from '@/store/store';
+import { Rank } from './rank';
 
-export const PokemonCard = () => {
-  const pokemon = useSelector((state: RootState) => state.attacker[0].factoryPokemon!);
-  const move = useSelector((state: RootState) => state.attacker[0].move);
+export const PokemonCard = ({pos}: {pos: number}) => {
+  const attacker = useSelector((state: RootState) => state.attacker[pos]);
+  const pokemon = attacker.factoryPokemon!;
+  const move = useSelector((state: RootState) => state.attacker[pos].move);
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
-    dispatch(setAttacker({ pokemon: pokemon, pos: 0 }));
+    dispatch(setAttacker({ pokemon: pokemon, pos: pos }));
   };
 
   const handleMoveChange = (move: Move) => {
-    dispatch(setMove({ move: move, pos: 0 }));
+    dispatch(setMove({ move: move, pos: pos }));
+  };
+
+  const handleRankChange = (rank: number) => {
+    dispatch(setRank({ rank: rank, pos: pos }));
   };
 
   const data = pokemon.pokemon;
@@ -43,12 +49,13 @@ export const PokemonCard = () => {
           />
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-2">
         <PokemonDescription
           factroyPokemon={pokemon}
           setAbility={() => {}}
           setItem={() => {}}
         />
+        <Rank rank={attacker.rank} badgeName="ランク補正" setRank={handleRankChange} />
         <Badge className="w-18">技</Badge>
         <div className="sm:grid sm:grid-cols-2 gap-2 ">
           <MoveCard

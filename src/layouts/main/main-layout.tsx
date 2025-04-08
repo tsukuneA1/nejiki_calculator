@@ -3,10 +3,10 @@ import { MainHeader } from '@/components/layout/main/main-header';
 
 export const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
+    <div className='flex min-h-screen flex-col'>
       <MainHeader />
-      {children}
+      <main className='flex flex-col flex-grow justify-center py-4'>{children}</main>
       <MainFooter />
-    </>
+    </div>
   );
 };

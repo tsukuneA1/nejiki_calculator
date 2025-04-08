@@ -13,6 +13,7 @@ const initialState: Attacker[] = [
     move: initialAttacker.moves[0],
     criticalHit: false,
     burned: false,
+    rank: 0,
   },
 ];
 
@@ -36,8 +37,11 @@ const attackerSlice = createSlice({
     setMove: (state, action: PayloadAction<{ move: Move; pos: number }>) => {
       state[action.payload.pos].move = action.payload.move;
     },
+    setRank: (state, action: PayloadAction<{ rank: number; pos: number }>) => {
+      state[action.payload.pos].rank = action.payload.rank;
+    },
   },
 });
 
-export const { setAttacker, setMove } = attackerSlice.actions;
+export const { setAttacker, setMove, setRank } = attackerSlice.actions;
 export default attackerSlice.reducer;

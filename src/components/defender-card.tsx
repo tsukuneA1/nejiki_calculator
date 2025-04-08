@@ -4,12 +4,14 @@ import { Avatar } from '@radix-ui/react-avatar';
 import { AvatarFallback, AvatarImage } from './ui/avatar';
 import { AutoComplete } from './auto-complete';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDefender } from '@/store/slices/defenderSlice';
+import { setDefender, setBRank, setDRank } from '@/store/slices/defenderSlice';
 import { PokemonDescription } from './pokemon-description';
 import { RootState } from '@/store/store';
+import { Rank } from './rank';
 
 export const DefenderCard = () => {
-  const pokemon = useSelector((state: RootState) => state.defender.factoryPokemon!);
+  const defender = useSelector((state: RootState) => state.defender);
+  const pokemon = defender.factoryPokemon!;
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
@@ -34,12 +36,14 @@ export const DefenderCard = () => {
           />
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-2">
         <PokemonDescription
           factroyPokemon={pokemon}
           setAbility={() => {}}
           setItem={() => {}}
         />
+        <Rank rank={defender.bRank} badgeName="防御ランク" setRank={(rank: number) => {dispatch(setBRank({rank: rank}))}} />
+        <Rank rank={defender.dRank} badgeName="特防ランク" setRank={(rank: number) => {dispatch(setDRank({rank: rank}))}} />
       </CardContent>
     </Card>
   );
