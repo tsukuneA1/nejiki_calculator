@@ -19,6 +19,7 @@ import { SystemUiconsSort } from '@/components/icons/sort-icon';
 import { Button } from '@/components/ui/button';
 import { setAttacker } from '@/store/slices/attackerSlice';
 import { setDefender } from '@/store/slices/defenderSlice';
+import { EnvCard } from '@/components/env-card';
 
 export default function Home() {
   const level = useSelector((state: RootState) => state.level.level);
@@ -84,11 +85,11 @@ export default function Home() {
         </Select>
       </div>
 
-      <ol className="xl:flex flex flex-col items-center xl:flex-row xl:items-start">
-        <li>
+      <div className="xl:flex flex flex-col items-center xl:flex-row xl:items-start">
+        <div>
           <h1 className="text-3xl font-bold ml-3 my-4">Attacker</h1>
           <PokemonCard pos={0} />
-        </li>
+        </div>
         <Button
           onClick={handleReverse}
           className="w-10 h-10 my-10 xl:mt-20 xl:mx-8"
@@ -97,11 +98,18 @@ export default function Home() {
           <SystemUiconsReverse className="xl:block hidden w-8 h-8" />
         </Button>
 
-        <li className="xl:mt-0">
-          <h1 className="text-3xl font-bold ml-3 my-4">Defender</h1>
-          <DefenderCard />
-        </li>
-      </ol>
+        <div className="xl:mt-0">
+          <div>
+            <h1 className="text-3xl font-bold ml-3 my-4">Defender</h1>
+            <DefenderCard />
+          </div>
+          <div>
+            <h1 className="text-3xl font-bold ml-3 my-4">Environment</h1>
+            <EnvCard />
+          </div>
+        </div>
+        
+      </div>
     </MainLayout>
   );
 }

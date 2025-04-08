@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
+import { Button } from './ui/button';
 
 type RankProps = {
   rank: number;
@@ -16,6 +17,18 @@ type RankProps = {
 };
 
 export const Rank = ({ rank, badgeName, setRank }: RankProps) => {
+
+  const rankPlus = (rank: number) => {
+    if (rank < 6) {
+      setRank(rank + 1);
+    }
+  }
+
+  const rankMinus = (rank: number) => {
+    if (rank > -6) {
+      setRank(rank - 1);
+    }
+  }
   return (
     <div className="flex items-center gap-2">
       <Badge className="w-18 h-9">{badgeName}</Badge>
@@ -40,6 +53,12 @@ export const Rank = ({ rank, badgeName, setRank }: RankProps) => {
           </SelectGroup>
         </SelectContent>
       </Select>
+      <Button variant="outline" size="icon" onClick={() => rankPlus(rank)}>
+        +
+      </Button>
+      <Button variant="outline" size="icon" onClick={() => rankMinus(rank)}>
+        -
+      </Button>
     </div>
   );
 };
