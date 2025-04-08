@@ -31,9 +31,9 @@ export default function Home() {
   };
 
   const handleReverse = () => {
-    dispatch(setAttacker({pokemon: defender.factoryPokemon!, pos: 0}))
-    dispatch(setDefender({pokemon: attacker.factoryPokemon!}))
-  }
+    dispatch(setAttacker({ pokemon: defender.factoryPokemon!, pos: 0 }));
+    dispatch(setDefender({ pokemon: attacker.factoryPokemon! }));
+  };
 
   return (
     <MainLayout>
@@ -89,11 +89,14 @@ export default function Home() {
           <h1 className="text-3xl font-bold ml-3 my-4">Attacker</h1>
           <PokemonCard pos={0} />
         </li>
-        <Button onClick={handleReverse} className='w-10 h-10 my-10 xl:mt-20 xl:mx-8'>
+        <Button
+          onClick={handleReverse}
+          className="w-10 h-10 my-10 xl:mt-20 xl:mx-8"
+        >
           <SystemUiconsSort className="xl:hidden w-8 h-8" />
           <SystemUiconsReverse className="xl:block hidden w-8 h-8" />
         </Button>
-        
+
         <li className="xl:mt-0">
           <h1 className="text-3xl font-bold ml-3 my-4">Defender</h1>
           <DefenderCard />

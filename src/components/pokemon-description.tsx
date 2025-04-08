@@ -82,7 +82,6 @@ export const PokemonDescription = ({
           </SelectContent>
         </Select>
       </div>
-    
     </div>
   );
 };

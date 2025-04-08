@@ -12,7 +12,7 @@ import { PokemonDescription } from './pokemon-description';
 import { RootState } from '@/store/store';
 import { Rank } from './rank';
 
-export const PokemonCard = ({pos}: {pos: number}) => {
+export const PokemonCard = ({ pos }: { pos: number }) => {
   const attacker = useSelector((state: RootState) => state.attacker[pos]);
   const pokemon = attacker.factoryPokemon!;
   const move = useSelector((state: RootState) => state.attacker[pos].move);
@@ -55,7 +55,11 @@ export const PokemonCard = ({pos}: {pos: number}) => {
           setAbility={() => {}}
           setItem={() => {}}
         />
-        <Rank rank={attacker.rank} badgeName="ランク補正" setRank={handleRankChange} />
+        <Rank
+          rank={attacker.rank}
+          badgeName="ランク補正"
+          setRank={handleRankChange}
+        />
         <Badge className="w-18">技</Badge>
         <div className="sm:grid sm:grid-cols-2 gap-2 ">
           <MoveCard

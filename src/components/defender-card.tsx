@@ -42,8 +42,20 @@ export const DefenderCard = () => {
           setAbility={() => {}}
           setItem={() => {}}
         />
-        <Rank rank={defender.bRank} badgeName="防御ランク" setRank={(rank: number) => {dispatch(setBRank({rank: rank}))}} />
-        <Rank rank={defender.dRank} badgeName="特防ランク" setRank={(rank: number) => {dispatch(setDRank({rank: rank}))}} />
+        <Rank
+          rank={defender.bRank}
+          badgeName="防御ランク"
+          setRank={(rank: number) => {
+            dispatch(setBRank({ rank: rank }));
+          }}
+        />
+        <Rank
+          rank={defender.dRank}
+          badgeName="特防ランク"
+          setRank={(rank: number) => {
+            dispatch(setDRank({ rank: rank }));
+          }}
+        />
       </CardContent>
     </Card>
   );

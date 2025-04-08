@@ -14,13 +14,20 @@ export const Damage = () => {
     weather: 'clear',
     wall: false,
   });
-  const minDamage = Math.floor(maxDamage*0.85);
+  const minDamage = Math.floor(maxDamage * 0.85);
   const hActual = status.hp;
 
   const damageText = `${minDamage}~${maxDamage} (${Math.ceil((minDamage / hActual) * 1000) / 10}%~${Math.ceil((maxDamage / hActual) * 1000) / 10}%)`;
   return (
     <div>
-      <Progress value={maxDamage/status.hp*100 > 100 ? 100 : maxDamage/status.hp*100} className="w-[80%]"/>
+      <Progress
+        value={
+          (maxDamage / status.hp) * 100 > 100
+            ? 100
+            : (maxDamage / status.hp) * 100
+        }
+        className="w-[80%]"
+      />
       {damageText}
     </div>
   );
