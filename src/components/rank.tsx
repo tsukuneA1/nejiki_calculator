@@ -17,18 +17,17 @@ type RankProps = {
 };
 
 export const Rank = ({ rank, badgeName, setRank }: RankProps) => {
-
   const rankPlus = (rank: number) => {
     if (rank < 6) {
       setRank(rank + 1);
     }
-  }
+  };
 
   const rankMinus = (rank: number) => {
     if (rank > -6) {
       setRank(rank - 1);
     }
-  }
+  };
   return (
     <div className="flex items-center gap-2">
       <Badge className="w-18 h-9">{badgeName}</Badge>

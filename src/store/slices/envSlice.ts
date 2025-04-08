@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    weather: 'なし',
-    reflect: false,
-    lightScreen: false,
-}
+  weather: 'なし',
+  reflect: false,
+  lightScreen: false,
+};
 
 export const envSlice = createSlice({
   name: 'env',

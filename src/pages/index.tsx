@@ -108,7 +108,6 @@ export default function Home() {
             <EnvCard />
           </div>
         </div>
-        
       </div>
     </MainLayout>
   );
