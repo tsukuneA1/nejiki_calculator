@@ -41,6 +41,9 @@ const attackerSlice = createSlice({
     deleteAttacker: (state, action: PayloadAction<number>) => {
       state.splice(action.payload, 1);
     },
+    clearAttacker: (state) => {
+      state.length = 1;
+    },
     setAttacker: (state, action: PayloadAction<AttackerState>) => {
       const factoryPokemon = action.payload.pokemon;
       state[action.payload.pos].factoryPokemon = factoryPokemon;
@@ -55,9 +58,26 @@ const attackerSlice = createSlice({
     setRank: (state, action: PayloadAction<{ rank: number; pos: number }>) => {
       state[action.payload.pos].rank = action.payload.rank;
     },
+    setAbility: (
+      state,
+      action: PayloadAction<{ ability: string; pos: number }>
+    ) => {
+      state[action.payload.pos].ability = action.payload.ability;
+    },
+    setItem: (state, action: PayloadAction<{ item: string; pos: number }>) => {
+      state[action.payload.pos].item = action.payload.item;
+    },
   },
 });
 
-export const { setAttacker, setMove, setRank, addAttacker, deleteAttacker } =
-  attackerSlice.actions;
+export const {
+  setAttacker,
+  setMove,
+  setRank,
+  setAbility,
+  setItem,
+  addAttacker,
+  deleteAttacker,
+  clearAttacker,
+} = attackerSlice.actions;
 export default attackerSlice.reducer;

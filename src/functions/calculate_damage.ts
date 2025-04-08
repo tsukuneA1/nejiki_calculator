@@ -6,6 +6,7 @@ import { calculateMC } from './calculate_mc';
 import { Env } from '@/types/env';
 import { calculateCompatibility } from './calculate_compatibility';
 import { calculateStatus } from './calculate_status';
+import { calculateAtActual } from './calculate_atActual';
 
 export const calculateDamage = (
   attacker: Attacker,
@@ -41,8 +42,7 @@ export const calculateDamage = (
   const mb = calculateMB(attacker, defender);
   const mc = calculateMC(attacker, defender, compatibility);
 
-  const attack =
-    attacker.move.classification == '特殊' ? atAct.spAttack : atAct.attack;
+  const attack = calculateAtActual(attacker, level);
   const defense =
     attacker.move.classification == '特殊' ? dfAct.spDefense : dfAct.defense;
 

@@ -16,14 +16,14 @@ import {
 import { SystemUiconsReverse } from '@/components/icons/reverse';
 import { SystemUiconsSort } from '@/components/icons/sort-icon';
 import { Button } from '@/components/ui/button';
-import { setAttacker } from '@/store/slices/attackerSlice';
+import { clearAttacker, setAttacker } from '@/store/slices/attackerSlice';
 import { setDefender } from '@/store/slices/defenderSlice';
 import { EnvCard } from '@/components/env-card';
 import { Attackers } from '@/components/attackers';
 
 export default function Home() {
   const level = useSelector((state: RootState) => state.level.level);
-  const attacker = useSelector((state: RootState) => state.attacker[0]);
+  const attackers = useSelector((state: RootState) => state.attacker);
   const defender = useSelector((state: RootState) => state.defender);
   const dispatch = useDispatch();
 
@@ -33,12 +33,13 @@ export default function Home() {
 
   const handleReverse = () => {
     dispatch(setAttacker({ pokemon: defender.factoryPokemon!, pos: 0 }));
-    dispatch(setDefender({ pokemon: attacker.factoryPokemon! }));
+    dispatch(clearAttacker());
+    dispatch(setDefender({ pokemon: attackers[0].factoryPokemon! }));
   };
 
   return (
     <MainLayout>
-      <div className="flex items-center space-x-2 ml-5">
+      <div className="flex items-center space-x-2">
         <Checkbox
           id="terms"
           checked={level == 50}
@@ -64,7 +65,7 @@ export default function Home() {
           オープンレベル
         </label>
       </div>
-      <div className="ml-5 mt-2">
+      <div className="mt-2">
         <Select
           onValueChange={(value) => dispatch(setTimes(parseInt(value)))}
           defaultValue={'1'}

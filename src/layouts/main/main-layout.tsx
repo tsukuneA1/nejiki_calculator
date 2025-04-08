@@ -5,7 +5,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex min-h-screen flex-col">
       <MainHeader />
-      <main className="flex flex-col flex-grow justify-center py-4">
+      <main className="flex flex-col flex-grow justify-center py-4 mx-5">
         {children}
       </main>
       <MainFooter />

@@ -6,7 +6,13 @@ import { AvatarFallback, AvatarImage } from './ui/avatar';
 import { MoveCard } from './move-card';
 import { AutoComplete } from './auto-complete';
 import { Move } from '@/types/move';
-import { setAttacker, setMove, setRank } from '@/store/slices/attackerSlice';
+import {
+  setAbility,
+  setAttacker,
+  setItem,
+  setMove,
+  setRank,
+} from '@/store/slices/attackerSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { PokemonDescription } from './pokemon-description';
 import { RootState } from '@/store/store';
@@ -40,6 +46,14 @@ export const PokemonCard = ({
 
   const handleRankChange = (rank: number) => {
     dispatch(setRank({ rank: rank, pos: pos }));
+  };
+
+  const handleAbilityChange = (ability: string) => {
+    dispatch(setAbility({ ability: ability, pos: pos }));
+  };
+
+  const handleItemChange = (item: string) => {
+    dispatch(setItem({ item: item, pos: pos }));
   };
 
   const handleExpand = () => {
@@ -84,8 +98,8 @@ export const PokemonCard = ({
           <>
             <PokemonDescription
               factroyPokemon={pokemon}
-              setAbility={() => {}}
-              setItem={() => {}}
+              setAbility={handleAbilityChange}
+              setItem={handleItemChange}
             />
             <Rank
               rank={attacker.rank}
