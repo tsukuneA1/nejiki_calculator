@@ -22,5 +22,5 @@ export const calculateMC = (
   if (attacker.item == '半減の実') {
     mc *= 0.5;
   }
-  return Math.floor(mc);
+  return mc;
 };

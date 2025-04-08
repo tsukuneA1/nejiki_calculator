@@ -1,5 +1,4 @@
 import { MainLayout } from '@/layouts/main/main-layout';
-import { PokemonCard } from '@/components/pokemon-card';
 import { DefenderCard } from '@/components/defender-card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { setLevel, setTimes } from '@/store/slices/levelSlice';
@@ -20,6 +19,7 @@ import { Button } from '@/components/ui/button';
 import { setAttacker } from '@/store/slices/attackerSlice';
 import { setDefender } from '@/store/slices/defenderSlice';
 import { EnvCard } from '@/components/env-card';
+import { Attackers } from '@/components/attackers';
 
 export default function Home() {
   const level = useSelector((state: RootState) => state.level.level);
@@ -87,8 +87,7 @@ export default function Home() {
 
       <div className="xl:flex flex flex-col items-center xl:flex-row xl:items-start">
         <div>
-          <h1 className="text-3xl font-bold ml-3 my-4">Attacker</h1>
-          <PokemonCard pos={0} />
+          <Attackers />
         </div>
         <Button
           onClick={handleReverse}

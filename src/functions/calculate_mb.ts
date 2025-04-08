@@ -16,5 +16,5 @@ export const calculateMB = (
   if (attacker.item == 'メトロノーム') {
     mb *= 1 + consecutive * 0.1;
   }
-  return Math.floor(mb);
+  return mb;
 };

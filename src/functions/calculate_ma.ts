@@ -10,11 +10,15 @@ export const calculateMA = (
   let ma = 1;
   const move = attacker.move!;
   if (attacker.burned && move.classification == '物理') {
-    ma = 0.5;
+    ma *= 0.5;
   }
 
-  if (env.wall) {
-    ma = 0.5;
+  if (env.reflect && move.classification == '物理') {
+    ma *= 0.5;
+  }
+
+  if (env.lightScreen && move.classification == '特殊') {
+    ma *= 0.5;
   }
 
   if (env.weather == 'あめ') {
@@ -44,5 +48,5 @@ export const calculateMA = (
   if (attacker.ability == 'もらいび' && move.type == 'ほのお') {
     ma *= 1.5;
   }
-  return Math.floor(ma);
+  return ma;
 };

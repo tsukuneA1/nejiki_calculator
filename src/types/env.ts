@@ -1,4 +1,5 @@
 export type Env = {
   weather: string;
-  wall: boolean;
+  reflect: boolean;
+  lightScreen: boolean;
 };

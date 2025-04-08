@@ -11,12 +11,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PokemonDescription } from './pokemon-description';
 import { RootState } from '@/store/store';
 import { Rank } from './rank';
+import { Button } from './ui/button';
+import { MaterialSymbolsDeleteOutline } from './icons/delete';
+import { IonChevronExpandOutline } from './icons/expand';
+import { FamiconsChevronCollapseOutline } from './icons/collapse';
+import { useState } from 'react';
 
-export const PokemonCard = ({ pos }: { pos: number }) => {
+export const PokemonCard = ({
+  pos,
+  handleDelete,
+}: {
+  pos: number;
+  handleDelete: () => void;
+}) => {
   const attacker = useSelector((state: RootState) => state.attacker[pos]);
   const pokemon = attacker.factoryPokemon!;
   const move = useSelector((state: RootState) => state.attacker[pos].move);
   const dispatch = useDispatch();
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
     dispatch(setAttacker({ pokemon: pokemon, pos: pos }));
@@ -28,6 +40,10 @@ export const PokemonCard = ({ pos }: { pos: number }) => {
 
   const handleRankChange = (rank: number) => {
     dispatch(setRank({ rank: rank, pos: pos }));
+  };
+
+  const handleExpand = () => {
+    setIsExpanded(!isExpanded);
   };
 
   const data = pokemon.pokemon;
@@ -48,41 +64,59 @@ export const PokemonCard = ({ pos }: { pos: number }) => {
             initialPokemon={pokemon}
           />
         </CardTitle>
+        <div className="flex justify-end gap-2">
+          <Button size="icon" onClick={handleDelete}>
+            <MaterialSymbolsDeleteOutline />
+          </Button>
+          {isExpanded ? (
+            <Button size="icon" onClick={handleExpand}>
+              <FamiconsChevronCollapseOutline />
+            </Button>
+          ) : (
+            <Button size="icon" onClick={handleExpand}>
+              <IonChevronExpandOutline />
+            </Button>
+          )}
+        </div>
       </CardHeader>
       <CardContent className="space-y-2">
-        <PokemonDescription
-          factroyPokemon={pokemon}
-          setAbility={() => {}}
-          setItem={() => {}}
-        />
-        <Rank
-          rank={attacker.rank}
-          badgeName="ランク補正"
-          setRank={handleRankChange}
-        />
-        <Badge className="w-18">技</Badge>
-        <div className="sm:grid sm:grid-cols-2 gap-2 ">
-          <MoveCard
-            move={pokemon.moves[0]}
-            handleMoveChange={handleMoveChange}
-            isSelected={move === pokemon.moves[0]}
-          />
-          <MoveCard
-            move={pokemon.moves[1]}
-            handleMoveChange={handleMoveChange}
-            isSelected={move === pokemon.moves[1]}
-          />
-          <MoveCard
-            move={pokemon.moves[2]}
-            handleMoveChange={handleMoveChange}
-            isSelected={move === pokemon.moves[2]}
-          />
-          <MoveCard
-            move={pokemon.moves[3]}
-            handleMoveChange={handleMoveChange}
-            isSelected={move === pokemon.moves[3]}
-          />
-        </div>
+        {isExpanded && (
+          <>
+            <PokemonDescription
+              factroyPokemon={pokemon}
+              setAbility={() => {}}
+              setItem={() => {}}
+            />
+            <Rank
+              rank={attacker.rank}
+              badgeName="ランク補正"
+              setRank={handleRankChange}
+            />
+            <Badge className="w-18">技</Badge>
+            <div className="sm:grid sm:grid-cols-2 gap-2 ">
+              <MoveCard
+                move={pokemon.moves[0]}
+                handleMoveChange={handleMoveChange}
+                isSelected={move === pokemon.moves[0]}
+              />
+              <MoveCard
+                move={pokemon.moves[1]}
+                handleMoveChange={handleMoveChange}
+                isSelected={move === pokemon.moves[1]}
+              />
+              <MoveCard
+                move={pokemon.moves[2]}
+                handleMoveChange={handleMoveChange}
+                isSelected={move === pokemon.moves[2]}
+              />
+              <MoveCard
+                move={pokemon.moves[3]}
+                handleMoveChange={handleMoveChange}
+                isSelected={move === pokemon.moves[3]}
+              />
+            </div>
+          </>
+        )}
       </CardContent>
     </Card>
   );
