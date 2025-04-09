@@ -12,8 +12,10 @@ import {
   SelectValue,
 } from './ui/select';
 import {
+  setLifeOrb,
   setLightScreen,
   setReflect,
+  setStealthRock,
   setWeather,
 } from '@/store/slices/envSlice';
 import { Checkbox } from './ui/checkbox';
@@ -22,6 +24,8 @@ export const EnvCard = () => {
   const weather = useSelector((state: RootState) => state.env.weather);
   const reflect = useSelector((state: RootState) => state.env.reflect);
   const lightScreen = useSelector((state: RootState) => state.env.lightScreen);
+  const stealthRock = useSelector((state: RootState) => state.env.stealthRock);
+  const lifeOrb = useSelector((state: RootState) => state.env.lifeOrb);
   const dispatch = useDispatch();
 
   const weathers = ['なし', 'にほんばれ', 'あめ', 'すなあらし', 'あられ'];
@@ -76,6 +80,33 @@ export const EnvCard = () => {
             className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             ひかりのかべ
+          </label>
+        </div>
+        <div className="flex items-center gap-2">
+          <Badge className="w-18">定数ダメ</Badge>
+          <Checkbox
+            checked={stealthRock}
+            onCheckedChange={(checked) => {
+              dispatch(setStealthRock(checked));
+            }}
+          />
+          <label
+            htmlFor="terms"
+            className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            ステルスロック
+          </label>
+          <Checkbox
+            checked={lifeOrb}
+            onCheckedChange={(checked) => {
+              dispatch(setLifeOrb(checked));
+            }}
+          />
+          <label
+            htmlFor="terms"
+            className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            いのちのたま
           </label>
         </div>
       </CardContent>

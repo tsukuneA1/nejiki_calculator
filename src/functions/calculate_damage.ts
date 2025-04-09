@@ -32,9 +32,9 @@ export const calculateDamage = (
       ? 1.5
       : 1;
   const compatibility = dfPoke.pokemon.type2
-    ? calculateCompatibility(attacker.move!, dfPoke.pokemon.type1) *
-      calculateCompatibility(attacker.move!, dfPoke.pokemon.type2!)
-    : calculateCompatibility(attacker.move!, dfPoke.pokemon.type1);
+    ? calculateCompatibility(attacker.move!.type, dfPoke.pokemon.type1) *
+      calculateCompatibility(attacker.move!.type, dfPoke.pokemon.type2!)
+    : calculateCompatibility(attacker.move!.type, dfPoke.pokemon.type1);
 
   const ma = calculateMA(attacker, defender, env);
   const mb = calculateMB(attacker, defender);

@@ -346,11 +346,10 @@ const typeEffectiveness: Record<PokemonType, Record<PokemonType, number>> = {
 };
 
 export const calculateCompatibility = (
-  move: Move,
+  attackerType: string,
   defenderType: string
 ): number => {
-  const moveType = move.type;
   const effectiveness =
-    typeEffectiveness[moveType as PokemonType][defenderType as PokemonType];
+    typeEffectiveness[attackerType as PokemonType][defenderType as PokemonType];
   return effectiveness;
 };

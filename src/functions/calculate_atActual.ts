@@ -14,18 +14,20 @@ export const calculateAtActual = (attacker: Attacker, level: number) => {
   );
 
   if (attacker.move?.classification == '物理') {
-    return (
-      Math.floor(
-        calculateStatus(attacker.factoryPokemon!, level).attack *
-          sm *
-          am *
-          am2 *
-          im
-      )
+    return Math.floor(
+      calculateStatus(attacker.factoryPokemon!, level).attack *
+        sm *
+        am *
+        am2 *
+        im
     );
   } else {
-    return (
-      Math.floor(calculateStatus(attacker.factoryPokemon!, level).spAttack * sm * am * am2 * im)
+    return Math.floor(
+      calculateStatus(attacker.factoryPokemon!, level).spAttack *
+        sm *
+        am *
+        am2 *
+        im
     );
   }
 };
