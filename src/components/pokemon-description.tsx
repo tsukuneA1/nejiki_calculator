@@ -30,6 +30,7 @@ export const PokemonDescription = ({
     abilities.push(factroyPokemon.pokemon.ability2);
   }
 
+  const items = ['なし', factroyPokemon.item];
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
@@ -48,7 +49,10 @@ export const PokemonDescription = ({
       </div>
       <div className="flex items-center gap-2">
         <Badge className="w-18 h-9">特性</Badge>
-        <Select onValueChange={setAbility}>
+        <Select
+          onValueChange={(value) => setAbility(value)}
+          defaultValue={factroyPokemon.pokemon.ability1}
+        >
           <SelectTrigger className="w-40">
             <SelectValue placeholder="特性を選択" />
           </SelectTrigger>
@@ -66,16 +70,19 @@ export const PokemonDescription = ({
       </div>
       <div className="flex items-center gap-2">
         <Badge className="w-18 h-9">アイテム</Badge>
-        <Select onValueChange={setItem}>
+        <Select
+          onValueChange={(value) => setItem(value)}
+          defaultValue={factroyPokemon.item}
+        >
           <SelectTrigger className="w-40">
             <SelectValue placeholder="アイテムを選択" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
               <SelectLabel>アイテム</SelectLabel>
-              {[...Array(7)].map((_, i) => (
-                <SelectItem key={i} value={`${i + 1}`}>
-                  {i + 1}
+              {items.map((item, i) => (
+                <SelectItem key={i} value={item!}>
+                  {item}
                 </SelectItem>
               ))}
             </SelectGroup>
