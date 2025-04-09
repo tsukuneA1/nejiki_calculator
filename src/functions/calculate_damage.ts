@@ -7,6 +7,7 @@ import { Env } from '@/types/env';
 import { calculateCompatibility } from './calculate_compatibility';
 import { calculateStatus } from './calculate_status';
 import { calculateAtActual } from './calculate_atActual';
+import { calculateDfActual } from './calculate_dfActual';
 
 export const calculateDamage = (
   attacker: Attacker,
@@ -21,9 +22,6 @@ export const calculateDamage = (
   ) {
     return 0;
   }
-
-  const atAct = calculateStatus(attacker.factoryPokemon, level);
-  const dfAct = calculateStatus(defender.factoryPokemon, level);
 
   const atPoke = attacker.factoryPokemon!;
   const dfPoke = defender.factoryPokemon!;
@@ -43,8 +41,7 @@ export const calculateDamage = (
   const mc = calculateMC(attacker, defender, compatibility);
 
   const attack = calculateAtActual(attacker, level);
-  const defense =
-    attacker.move.classification == '特殊' ? dfAct.spDefense : dfAct.defense;
+  const defense = calculateDfActual(attacker, defender, level);
 
   const damage =
     Math.floor(

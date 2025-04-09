@@ -6,6 +6,7 @@ import { Pokemon } from '@/types/pokemon';
 export const calculateAtActual = (attacker: Attacker, level: number) => {
   const sm = calculateSM(attacker.rank);
   const am = calculateAM(attacker.ability!, attacker.move!);
+  const am2 = calculateAM2(attacker.ability!, attacker.move!);
   const im = calculateIM(
     attacker.item!,
     attacker.move!,
@@ -14,16 +15,22 @@ export const calculateAtActual = (attacker: Attacker, level: number) => {
 
   if (attacker.move?.classification == '物理') {
     return (
-      calculateStatus(attacker.factoryPokemon!, level).attack * sm * am * im
+      Math.floor(
+        calculateStatus(attacker.factoryPokemon!, level).attack *
+          sm *
+          am *
+          am2 *
+          im
+      )
     );
   } else {
     return (
-      calculateStatus(attacker.factoryPokemon!, level).spAttack * sm * am * im
+      Math.floor(calculateStatus(attacker.factoryPokemon!, level).spAttack * sm * am * am2 * im)
     );
   }
 };
 
-const calculateSM = (rank: number) => {
+export const calculateSM = (rank: number) => {
   if (rank > 0) {
     return 1 + 0.5 * rank;
   } else if (rank < 0) {
@@ -53,10 +60,6 @@ const calculateAM = (ability: string, move: Move) => {
     return 1.5;
   }
 
-  if (ability == 'もらいび' && move.type == 'ほのお') {
-    return 1.5;
-  }
-
   if (ability == 'サンパワー' && move.classification == '特殊') {
     return 1.5;
   }
@@ -69,6 +72,17 @@ const calculateAM = (ability: string, move: Move) => {
     return 2;
   }
 
+  return 1;
+};
+
+const calculateAM2 = (ability: string, move: Move) => {
+  if (ability == 'あついしぼう' && ['ほのお', 'こおり'].includes(move.type)) {
+    return 0.5;
+  }
+
+  if (ability == 'たいねつ' && move.type == 'ほのお') {
+    return 0.5;
+  }
   return 1;
 };
 
