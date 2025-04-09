@@ -1,5 +1,3 @@
-import { Move } from '@prisma/client';
-
 type PokemonType =
   | 'ノーマル'
   | 'ほのお'

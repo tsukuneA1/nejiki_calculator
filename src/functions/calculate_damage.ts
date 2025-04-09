@@ -5,7 +5,6 @@ import { calculateMB } from './calculate_mb';
 import { calculateMC } from './calculate_mc';
 import { Env } from '@/types/env';
 import { calculateCompatibility } from './calculate_compatibility';
-import { calculateStatus } from './calculate_status';
 import { calculateAtActual } from './calculate_atActual';
 import { calculateDfActual } from './calculate_dfActual';
 
