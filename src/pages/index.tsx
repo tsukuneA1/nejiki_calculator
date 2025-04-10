@@ -86,7 +86,7 @@ export default function Home() {
         </Select>
       </div>
 
-      <div className="xl:flex flex flex-col items-center xl:flex-row xl:items-start">
+      <div className="xl:flex flex flex-col items-center xl:flex-row xl:items-start xl:justify-center">
         <div>
           <Attackers />
         </div>
