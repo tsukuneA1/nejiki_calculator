@@ -35,7 +35,7 @@ export const PokemonCard = ({
   const move = useSelector((state: RootState) => state.attacker[pos].move);
   const dispatch = useDispatch();
   const [isExpanded, setIsExpanded] = useState(true);
-
+  const level = useSelector((state: RootState) => state.level);
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
     dispatch(setAttacker({ pokemon: pokemon, pos: pos }));
   };
@@ -76,6 +76,8 @@ export const PokemonCard = ({
           <AutoComplete
             setPokemon={handlePokemonChange}
             initialPokemon={pokemon}
+            level={level.level}
+            times={level.times}
           />
         </CardTitle>
         <div className="flex justify-end gap-2">

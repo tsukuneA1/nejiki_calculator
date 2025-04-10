@@ -10,13 +10,19 @@ import { SubLayout } from '@/layouts/sub/sub-layout';
 import { FactoryPokemon } from '@/types/factoryPokemon';
 import { useEffect, useState } from 'react';
 import { filterFactoryPokemons } from '@/components/auto-complete';
-
+import { items } from '@/constants/items';
+import { abilities } from '@/constants/abilities';
+import { calculateStatus } from '@/functions/calculate_status';
+import { Input } from '@/components/ui/input';
+import { toggleKana } from '@/functions/convert_hiragana_katakana';
 export default function PokeSearch() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
   const [level, setLevel] = useState<number>(100);
   const [times, setTimes] = useState<number>(1);
   const [item, setItem] = useState<string>('なし');
-  
+  const [ability, setAbility] = useState<string>('なし');
+  const [selectedPokemon, setSelectedPokemon] = useState<string>('なし');
+
   useEffect(() => {
     fetch('/api/factory_pokemon')
       .then((res) => res.json())
@@ -26,18 +32,19 @@ export default function PokeSearch() {
       );
   }, []);
 
-  const items = ['なし'];
-  factoryPokemons.forEach((pokemon) => {
-    if (!items.includes(pokemon.item)) {
-      items.push(pokemon.item);
-    }
-  });
-
   const filteredFactoryPokemons = factoryPokemons.filter((pokemon) => {
-    const isItem = pokemon.item == 'なし' || pokemon.item === item;
+    const isItem = item == 'なし' || pokemon.item === item;
     const isLevel = filterFactoryPokemons(pokemon, { level, times });
-    return isItem && isLevel;
-  })
+    const isAbility =
+      ability == 'なし' ||
+      pokemon.pokemon.ability1 === ability ||
+      pokemon.pokemon.ability2 === ability;
+    const isPokemon =
+      selectedPokemon === 'なし' ||
+      toggleKana(pokemon.pokemon.name).includes(selectedPokemon) ||
+      pokemon.pokemon.name.includes(selectedPokemon);
+    return isItem && isLevel && isAbility && isPokemon;
+  });
 
   const handleLevelChange = (level: number) => {
     setLevel(level);
@@ -49,6 +56,11 @@ export default function PokeSearch() {
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <Badge className="w-18 h-9">ポケモン名</Badge>
+            <Input
+              value={selectedPokemon}
+              onChange={(e) => setSelectedPokemon(e.target.value)}
+              className="w-[180px]"
+            />
           </div>
           <div className="flex items-center gap-2">
             <Badge className="w-18 h-9">周回回数</Badge>
@@ -73,6 +85,24 @@ export default function PokeSearch() {
           </div>
           <div className="flex items-center gap-2">
             <Badge className="w-18 h-9">特性</Badge>
+            <Select
+              onValueChange={(value) => setAbility(value)}
+              defaultValue={'なし'}
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="特性を選択" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>特性</SelectLabel>
+                  {abilities.map((ability) => (
+                    <SelectItem key={ability} value={ability}>
+                      {ability}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
           <div className="flex items-center gap-2">
             <Badge className="w-18 h-9">アイテム</Badge>
@@ -87,7 +117,9 @@ export default function PokeSearch() {
                 <SelectGroup>
                   <SelectLabel>アイテム</SelectLabel>
                   {items.map((item) => (
-                    <SelectItem key={item} value={item}>{item}</SelectItem>
+                    <SelectItem key={item} value={item}>
+                      {item}
+                    </SelectItem>
                   ))}
                 </SelectGroup>
               </SelectContent>
@@ -96,36 +128,69 @@ export default function PokeSearch() {
           <div className="flex items-center gap-2">
             <Badge className="w-18 h-9">レベル</Badge>
             <Checkbox
-            id="terms"
-            checked={level == 50}
-            onClick={() => handleLevelChange(50)}
-            className="w-5 h-5 border-2"
-          />
-          <label
-            htmlFor="terms"
-            className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-          >
-            50レベル
-          </label>
-          <Checkbox
-            id="terms"
-            checked={level == 100}
-            onClick={() => handleLevelChange(100)}
-            className="w-5 h-5 border-2"
-          />
-          <label
-            htmlFor="terms"
-            className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-          >
-            オープンレベル
-          </label>
+              id="terms"
+              checked={level == 50}
+              onClick={() => handleLevelChange(50)}
+              className="w-5 h-5 border-2"
+            />
+            <label
+              htmlFor="terms"
+              className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              50レベル
+            </label>
+            <Checkbox
+              id="terms"
+              checked={level == 100}
+              onClick={() => handleLevelChange(100)}
+              className="w-5 h-5 border-2"
+            />
+            <label
+              htmlFor="terms"
+              className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              オープンレベル
+            </label>
           </div>
         </div>
+        <div>検索結果</div>
         {filteredFactoryPokemons.map((pokemon) => (
-          <div key={pokemon.id}>{pokemon.pokemon.name}</div>
+          <ListItem
+            key={pokemon.id}
+            pokemon={pokemon}
+            level={level}
+            times={times}
+          />
         ))}
       </div>
     </SubLayout>
   );
 }
 
+const ListItem = ({
+  pokemon,
+  level,
+  times,
+}: {
+  pokemon: FactoryPokemon;
+  level: number;
+  times: number;
+}) => {
+  const status = calculateStatus(pokemon, level);
+  return (
+    <div className="border-2 border-gray-300 rounded-md p-2 my-1">
+      <div key={pokemon.id} className="flex gap-2 ">
+        <div>{pokemon.pokemon.name}</div>
+        <div>{pokemon.item}</div>
+        <div>{pokemon.pokemon.ability1}</div>
+        <div>{pokemon.pokemon.ability2}</div>
+      </div>
+      <div>
+        H:{status.hp}({pokemon.hp}) A:{status.attack}({pokemon.attack}) B:
+        {status.defense}({pokemon.defense}) C:{status.spAttack}(
+        {pokemon.spAttack}) D:{status.spDefense}({pokemon.spDefense}) S:
+        {status.speed}({pokemon.speed})
+      </div>
+    </div>
+  );
+};

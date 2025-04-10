@@ -12,6 +12,7 @@ import { Rank } from './rank';
 export const DefenderCard = () => {
   const defender = useSelector((state: RootState) => state.defender);
   const pokemon = defender.factoryPokemon!;
+  const level = useSelector((state: RootState) => state.level);
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
@@ -33,6 +34,8 @@ export const DefenderCard = () => {
           <AutoComplete
             setPokemon={handlePokemonChange}
             initialPokemon={pokemon}
+            level={level.level}
+            times={level.times}
           />
         </CardTitle>
       </CardHeader>

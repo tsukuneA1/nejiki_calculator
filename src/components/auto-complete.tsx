@@ -20,21 +20,23 @@ import {
   CardHeader,
   CardTitle,
 } from './ui/card';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
 
 export const AutoComplete = ({
   setPokemon,
   initialPokemon,
+  level,
+  times,
 }: {
   setPokemon: (pokemon: FactoryPokemon) => void;
-  initialPokemon: FactoryPokemon;
+  initialPokemon: FactoryPokemon | null;
+  level: number;
+  times: number;
 }) => {
   const [open, setOpen] = useState(false);
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
 
   const isDesktop = useMediaQuery('(min-width: 768px)');
-  const stat = useSelector((state: RootState) => state.level);
+  const stat = { level, times };
 
   useEffect(() => {
     fetch('/api/factory_pokemon')
@@ -153,10 +155,13 @@ const SuggestionCard = ({
   );
 };
 
-export const filterFactoryPokemons = (pokemon: FactoryPokemon, stat: { level: number, times: number }) => {
-    if (stat.level === 100) {
-      if (stat.times < 5) {
-        if (stat.times == 7) {
+export const filterFactoryPokemons = (
+  pokemon: FactoryPokemon,
+  stat: { level: number; times: number }
+) => {
+  if (stat.level === 100) {
+    if (stat.times < 5) {
+      if (stat.times == 7) {
         return pokemon.group == 7 || pokemon.group == 8;
       }
       return pokemon.group == stat.times + 3;
@@ -173,5 +178,5 @@ export const filterFactoryPokemons = (pokemon: FactoryPokemon, stat: { level: nu
       return pokemon.group in [7, 8];
     }
     return pokemon.group == stat.times;
-    }
+  }
 };
