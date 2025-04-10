@@ -34,14 +34,14 @@ export const PokemonDescription = ({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
-        <Badge className="w-18">タイプ</Badge>
+        <Badge className="w-18 h-9">タイプ</Badge>
         <div>
           {factroyPokemon.pokemon.type1}
           {factroyPokemon.pokemon.type2 && ` / ${factroyPokemon.pokemon.type2}`}
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <Badge className="w-18">ステータス</Badge>
+        <Badge className="w-18 h-9">ステータス</Badge>
         <div>
           {status.hp}-{status.attack}-{status.defense}-{status.spAttack}-
           {status.spDefense}-{status.speed}

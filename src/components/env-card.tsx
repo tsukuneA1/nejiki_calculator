@@ -56,7 +56,7 @@ export const EnvCard = () => {
           </Select>
         </div>
         <div className="flex items-center gap-2">
-          <Badge className="w-18">壁</Badge>
+          <Badge className="w-18 h-9">壁</Badge>
           <Checkbox
             checked={reflect}
             onCheckedChange={(checked) => {
@@ -83,7 +83,7 @@ export const EnvCard = () => {
           </label>
         </div>
         <div className="flex items-center gap-2">
-          <Badge className="w-18">定数ダメ</Badge>
+          <Badge className="w-18 h-9">定数ダメ</Badge>
           <Checkbox
             checked={stealthRock}
             onCheckedChange={(checked) => {
