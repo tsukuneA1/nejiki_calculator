@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from 'lucide-react';
+import { Book, Home, Search, Settings, Twitter } from 'lucide-react';
 
 import {
   Sidebar,
@@ -14,27 +14,27 @@ import {
 // Menu items.
 const items = [
   {
-    title: 'Home',
+    title: 'ダメージ計算',
     url: '/',
     icon: Home,
   },
   {
-    title: 'Inbox',
-    url: '#',
-    icon: Inbox,
+    title: '説明書',
+    url: '/instruction-manual',
+    icon: Book,
   },
   {
-    title: 'Calendar',
-    url: '#',
-    icon: Calendar,
-  },
-  {
-    title: 'Search',
-    url: '#',
+    title: 'ポケモン検索',
+    url: '/poke-search',
     icon: Search,
   },
   {
-    title: 'Settings',
+    title: 'Twitter(X)',
+    url: 'https://x.com/kinezikidame',
+    icon: Twitter,
+  },
+  {
+    title: '設定',
     url: '#',
     icon: Settings,
   },
@@ -45,7 +45,7 @@ export function AppSidebar() {
     <Sidebar className="shrink-0 bg-gray-100 h-screen">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>Menu</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
