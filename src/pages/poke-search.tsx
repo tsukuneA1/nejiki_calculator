@@ -159,7 +159,6 @@ export default function PokeSearch() {
             key={pokemon.id}
             pokemon={pokemon}
             level={level}
-            times={times}
           />
         ))}
       </div>
@@ -170,11 +169,9 @@ export default function PokeSearch() {
 const ListItem = ({
   pokemon,
   level,
-  times,
 }: {
   pokemon: FactoryPokemon;
   level: number;
-  times: number;
 }) => {
   const status = calculateStatus(pokemon, level);
   return (
