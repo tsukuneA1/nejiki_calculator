@@ -17,6 +17,11 @@ export default function PokeSearch() {
     <SubLayout>
       <div>
         <h1>ポケモン検索</h1>
+        <div>
+          {factoryPokemons.map((pokemon) => (
+            <div key={pokemon.id}>{pokemon.pokemon.name}</div>
+          ))}
+        </div>
       </div>
     </SubLayout>
   );
