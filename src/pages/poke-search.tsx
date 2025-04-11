@@ -15,6 +15,7 @@ import { abilities } from '@/constants/abilities';
 import { calculateStatus } from '@/functions/calculate_status';
 import { Input } from '@/components/ui/input';
 import { toggleKana } from '@/functions/convert_hiragana_katakana';
+import { LoaderCircle } from 'lucide-react';
 export default function PokeSearch() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
   const [level, setLevel] = useState<number>(100);
@@ -154,13 +155,15 @@ export default function PokeSearch() {
           </div>
         </div>
         <div>検索結果</div>
-        {filteredFactoryPokemons.map((pokemon) => (
-          <ListItem
-            key={pokemon.id}
-            pokemon={pokemon}
-            level={level}
-          />
-        ))}
+        {factoryPokemons.length === 0 ? (
+          <div className="flex justify-center items-center h-full">
+            <LoaderCircle className="w-10 h-10 animate-spin" />
+          </div>
+        ) : (
+          filteredFactoryPokemons.map((pokemon) => (
+            <ListItem key={pokemon.id} pokemon={pokemon} level={level} />
+          ))
+        )}
       </div>
     </SubLayout>
   );
@@ -177,16 +180,27 @@ const ListItem = ({
   return (
     <div className="border-2 border-gray-300 rounded-md p-2 my-1">
       <div key={pokemon.id} className="flex gap-2 ">
-        <div>{pokemon.pokemon.name}</div>
-        <div>{pokemon.item}</div>
-        <div>{pokemon.pokemon.ability1}</div>
-        <div>{pokemon.pokemon.ability2}</div>
+        <div>
+          {pokemon.pokemon.name}@{pokemon.item}
+        </div>
+        <div>
+          {pokemon.pokemon.type1}
+          {pokemon.pokemon.type2 && `/${pokemon.pokemon.type2}`}
+        </div>
+        <div>
+          {pokemon.pokemon.ability1}
+          {pokemon.pokemon.ability2 && `/${pokemon.pokemon.ability2}`}
+        </div>
       </div>
       <div>
         H:{status.hp}({pokemon.hp}) A:{status.attack}({pokemon.attack}) B:
         {status.defense}({pokemon.defense}) C:{status.spAttack}(
         {pokemon.spAttack}) D:{status.spDefense}({pokemon.spDefense}) S:
         {status.speed}({pokemon.speed})
+      </div>
+      <div>
+        {pokemon.moves[0].name}/{pokemon.moves[1].name}/{pokemon.moves[2].name}/
+        {pokemon.moves[3].name}
       </div>
     </div>
   );
