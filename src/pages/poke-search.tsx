@@ -19,7 +19,6 @@ import { LoaderCircle } from 'lucide-react';
 import { Move } from '@/types/move';
 import { PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Popover } from '@/components/ui/popover';
-import { Button } from '@/components/ui/button';
 export default function PokeSearch() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
   const [level, setLevel] = useState<number>(100);
