@@ -16,6 +16,10 @@ import { calculateStatus } from '@/functions/calculate_status';
 import { Input } from '@/components/ui/input';
 import { toggleKana } from '@/functions/convert_hiragana_katakana';
 import { LoaderCircle } from 'lucide-react';
+import { Move } from '@/types/move';
+import { PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Popover } from '@/components/ui/popover';
+import { Button } from '@/components/ui/button';
 export default function PokeSearch() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
   const [level, setLevel] = useState<number>(100);
@@ -199,9 +203,57 @@ const ListItem = ({
         {status.speed}({pokemon.speed})
       </div>
       <div>
-        {pokemon.moves[0].name}/{pokemon.moves[1].name}/{pokemon.moves[2].name}/
-        {pokemon.moves[3].name}
+        {pokemon.moves.map((move, index) => (
+          <>
+            {index == 0 ? (
+              <>
+                <MoveItem key={move.id} move={move} />
+              </>
+            ) : (
+              <>
+                /
+                <MoveItem key={move.id} move={move} />
+              </>
+            )}
+          </>
+        ))}
       </div>
     </div>
+  );
+};
+
+const MoveItem = ({ move }: { move: Move }) => {
+  return (
+    <Popover>
+      <PopoverTrigger>
+        <div>{move.name}</div>
+      </PopoverTrigger>
+      <PopoverContent className='w-60'>
+        <div className="flex gap-2 items-center">
+          <div className="w-16">技名</div>
+          <div>: {move.name}</div>
+        </div>
+        <div className="flex gap-2 items-center">
+          <div className="w-16">タイプ</div>
+          <div>: {move.type}</div>
+        </div>
+        <div className="flex gap-2 items-center">
+          <div className="w-16">威力</div>
+          <div>: {move.power}</div>
+        </div>
+        <div className="flex gap-2 items-center">
+          <div className="w-16">命中率</div>
+          <div>: {move.accuracy}</div>
+        </div>
+        <div className="flex gap-2 items-center">
+          <div className="w-16">PP</div>
+          <div>: {move.pp}</div>
+        </div>
+        <div className="flex gap-2 items-center">
+          <div className="w-16">分類</div>
+          <div>: {move.classification}</div>
+        </div>
+      </PopoverContent>
+    </Popover>
   );
 };
