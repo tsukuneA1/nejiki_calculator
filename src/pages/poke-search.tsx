@@ -19,6 +19,8 @@ import { LoaderCircle } from 'lucide-react';
 import { Move } from '@/types/move';
 import { PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Popover } from '@/components/ui/popover';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 export default function PokeSearch() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
   const [level, setLevel] = useState<number>(100);
@@ -157,16 +159,24 @@ export default function PokeSearch() {
             </label>
           </div>
         </div>
-        <div>検索結果</div>
-        {factoryPokemons.length === 0 ? (
-          <div className="flex justify-center items-center h-full">
-            <LoaderCircle className="w-10 h-10 animate-spin" />
-          </div>
-        ) : (
-          filteredFactoryPokemons.map((pokemon) => (
-            <ListItem key={pokemon.id} pokemon={pokemon} level={level} />
-          ))
-        )}
+        <div className="flex flex-col items-center my-5">
+          <h2 className="text-bold text-xl">検索結果</h2>
+          {factoryPokemons.length === 0 ? (
+            <div className="flex justify-center items-center h-full">
+              <LoaderCircle className="w-10 h-10 animate-spin" />
+            </div>
+          ) : (
+            <div>
+              <div>
+                {factoryPokemons.length}件中{filterFactoryPokemons.length}
+                件見つかりました
+              </div>
+              {filteredFactoryPokemons.map((pokemon) => (
+                <ListItem key={pokemon.id} pokemon={pokemon} level={level} />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </SubLayout>
   );
@@ -181,43 +191,67 @@ const ListItem = ({
 }) => {
   const status = calculateStatus(pokemon, level);
   return (
-    <div className="border-2 border-gray-300 rounded-md p-2 my-1">
-      <div key={pokemon.id} className="flex gap-2 ">
-        <div>
-          {pokemon.pokemon.name}@{pokemon.item}
+    <Card className="w-2xl my-2">
+      <CardHeader className="flex items-center">
+        <Avatar>
+          <AvatarImage
+            src={pokemon.pokemon.imageSrc}
+            className="border-1 border-gray-300 "
+          />
+          <AvatarFallback>{pokemon.pokemon.name.slice(0, 2)}</AvatarFallback>
+        </Avatar>
+        <CardTitle className="flex items-center gap-1">
+          <h2 className="text-bold text-xl">{pokemon.pokemon.name}</h2>
+          <span>@{pokemon.item}</span>
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <Badge className="w-18 h-9">タイプ</Badge>
+            <div>
+              {pokemon.pokemon.type1}
+              {pokemon.pokemon.type2 && `/${pokemon.pokemon.type2}`}
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <Badge className="w-18 h-9">ステータス</Badge>
+            <div>
+              H:{status.hp}({pokemon.hp}) A:{status.attack}({pokemon.attack}) B:
+              {status.defense}({pokemon.defense}) C:{status.spAttack}(
+              {pokemon.spAttack}) D:{status.spDefense}({pokemon.spDefense}) S:
+              {status.speed}({pokemon.speed})
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <Badge className="w-18 h-9">特性</Badge>
+            <div>
+              {pokemon.pokemon.ability1}
+              {pokemon.pokemon.ability2 && `/${pokemon.pokemon.ability2}`}
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <Badge className="w-18 h-9">技</Badge>
+            <div>
+              {pokemon.moves.map((move, index) => (
+                <>
+                  {index == 0 ? (
+                    <>
+                      <MoveItem key={move.id} move={move} />
+                    </>
+                  ) : (
+                    <>
+                      /
+                      <MoveItem key={move.id} move={move} />
+                    </>
+                  )}
+                </>
+              ))}
+            </div>
+          </div>
         </div>
-        <div>
-          {pokemon.pokemon.type1}
-          {pokemon.pokemon.type2 && `/${pokemon.pokemon.type2}`}
-        </div>
-        <div>
-          {pokemon.pokemon.ability1}
-          {pokemon.pokemon.ability2 && `/${pokemon.pokemon.ability2}`}
-        </div>
-      </div>
-      <div>
-        H:{status.hp}({pokemon.hp}) A:{status.attack}({pokemon.attack}) B:
-        {status.defense}({pokemon.defense}) C:{status.spAttack}(
-        {pokemon.spAttack}) D:{status.spDefense}({pokemon.spDefense}) S:
-        {status.speed}({pokemon.speed})
-      </div>
-      <div>
-        {pokemon.moves.map((move, index) => (
-          <>
-            {index == 0 ? (
-              <>
-                <MoveItem key={move.id} move={move} />
-              </>
-            ) : (
-              <>
-                /
-                <MoveItem key={move.id} move={move} />
-              </>
-            )}
-          </>
-        ))}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -227,7 +261,7 @@ const MoveItem = ({ move }: { move: Move }) => {
       <PopoverTrigger>
         <div>{move.name}</div>
       </PopoverTrigger>
-      <PopoverContent className='w-60'>
+      <PopoverContent className="w-60">
         <div className="flex gap-2 items-center">
           <div className="w-16">技名</div>
           <div>: {move.name}</div>
