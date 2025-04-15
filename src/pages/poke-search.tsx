@@ -168,7 +168,7 @@ export default function PokeSearch() {
           ) : (
             <div>
               <div>
-                {factoryPokemons.length}件中{filterFactoryPokemons.length}
+                {factoryPokemons.length}件中{filteredFactoryPokemons.length}
                 件見つかりました
               </div>
               {filteredFactoryPokemons.map((pokemon) => (
@@ -190,8 +190,39 @@ const ListItem = ({
   level: number;
 }) => {
   const status = calculateStatus(pokemon, level);
+  const types = `${pokemon.pokemon.type1}${pokemon.pokemon.type2 ? `/${pokemon.pokemon.type2}` : ''}`;
+  const statusSummary = [
+    `H:${status.hp}(${pokemon.hp})`,
+    `A:${status.attack}(${pokemon.attack})`,
+    `B:${status.defense}(${pokemon.defense})`,
+    `C:${status.spAttack}(${pokemon.spAttack})`,
+    `D:${status.spDefense}(${pokemon.spDefense})`,
+    `S:${status.speed}(${pokemon.speed})`,
+  ].join(' ');
+  const breafStatus = [
+    `H:${status.hp}`,
+    `A:${status.attack}`,
+    `B:${status.defense}`,
+    `C:${status.spAttack}`,
+    `D:${status.spDefense}`,
+    `S:${status.speed}`,
+  ].join(' ');
+  const statusComponent= () => {
+    return (
+      <>
+      <div className='hidden md:block'>
+        {statusSummary}
+      </div>
+      <div className='md:hidden'>
+        {breafStatus}
+      </div>
+      </>
+    )
+  }
+  const abilities = `${pokemon.pokemon.ability1}${pokemon.pokemon.ability2 ? `/${pokemon.pokemon.ability2}` : ''}`;
+
   return (
-    <Card className="w-2xl my-2">
+    <Card className="w-sm sm:w-md md:w-2xl my-2">
       <CardHeader className="flex items-center">
         <Avatar>
           <AvatarImage
@@ -201,36 +232,25 @@ const ListItem = ({
           <AvatarFallback>{pokemon.pokemon.name.slice(0, 2)}</AvatarFallback>
         </Avatar>
         <CardTitle className="flex items-center gap-1">
-          <h2 className="text-bold text-xl">{pokemon.pokemon.name}</h2>
+          <h2 className="text-bold text-lg md:text-xl">{pokemon.pokemon.name}</h2>
           <span>@{pokemon.item}</span>
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className='px-2 md:px-6'>
         <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <Badge className="w-18 h-9">タイプ</Badge>
-            <div>
-              {pokemon.pokemon.type1}
-              {pokemon.pokemon.type2 && `/${pokemon.pokemon.type2}`}
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Badge className="w-18 h-9">ステータス</Badge>
-            <div>
-              H:{status.hp}({pokemon.hp}) A:{status.attack}({pokemon.attack}) B:
-              {status.defense}({pokemon.defense}) C:{status.spAttack}(
-              {pokemon.spAttack}) D:{status.spDefense}({pokemon.spDefense}) S:
-              {status.speed}({pokemon.speed})
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Badge className="w-18 h-9">特性</Badge>
-            <div>
-              {pokemon.pokemon.ability1}
-              {pokemon.pokemon.ability2 && `/${pokemon.pokemon.ability2}`}
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
+          <DescriptionBadge
+            badge="タイプ"
+            description={types}
+          />
+          <DescriptionBadge
+            badge='ステータス'
+            description={statusComponent()}
+          />
+          <DescriptionBadge
+            badge='特性'
+            description={abilities}
+          />
+          <div className="flex md:items-center gap-2 flex-col md:flex-row">
             <Badge className="w-18 h-9">技</Badge>
             <div>
               {pokemon.moves.map((move, index) => (
@@ -259,7 +279,7 @@ const MoveItem = ({ move }: { move: Move }) => {
   return (
     <Popover>
       <PopoverTrigger>
-        <div>{move.name}</div>
+        <div className='text-sm md:text-base'>{move.name}</div>
       </PopoverTrigger>
       <PopoverContent className="w-60">
         <div className="flex gap-2 items-center">
@@ -290,3 +310,14 @@ const MoveItem = ({ move }: { move: Move }) => {
     </Popover>
   );
 };
+
+const DescriptionBadge = ({badge, description}: {badge: string, description:React.ReactNode}) => {
+  return (
+    <div className="flex items-center gap-2">
+      <Badge className="w-18 h-9">{badge}</Badge>
+      <div className='text-sm md:text-base'>
+        {description}
+      </div>
+    </div>
+  );
+}
