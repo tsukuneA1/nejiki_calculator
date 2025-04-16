@@ -67,6 +67,18 @@ const attackerSlice = createSlice({
     setItem: (state, action: PayloadAction<{ item: string; pos: number }>) => {
       state[action.payload.pos].item = action.payload.item;
     },
+    setCriticalHit: (
+      state,
+      action: PayloadAction<{ isCritical: boolean; pos: number }>
+    ) => {
+      state[action.payload.pos].criticalHit = action.payload.isCritical;
+    },
+    setBurned: (
+      state,
+      action: PayloadAction<{ isBurned: boolean; pos: number }>
+    ) => {
+      state[action.payload.pos].burned = action.payload.isBurned;
+    },
   },
 });
 
@@ -79,5 +91,7 @@ export const {
   addAttacker,
   deleteAttacker,
   clearAttacker,
+  setCriticalHit,
+  setBurned,
 } = attackerSlice.actions;
 export default attackerSlice.reducer;

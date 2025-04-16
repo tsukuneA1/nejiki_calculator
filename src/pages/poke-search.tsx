@@ -207,18 +207,14 @@ const ListItem = ({
     `D:${status.spDefense}`,
     `S:${status.speed}`,
   ].join(' ');
-  const statusComponent= () => {
+  const statusComponent = () => {
     return (
       <>
-      <div className='hidden md:block'>
-        {statusSummary}
-      </div>
-      <div className='md:hidden'>
-        {breafStatus}
-      </div>
+        <div className="hidden md:block">{statusSummary}</div>
+        <div className="md:hidden">{breafStatus}</div>
       </>
-    )
-  }
+    );
+  };
   const abilities = `${pokemon.pokemon.ability1}${pokemon.pokemon.ability2 ? `/${pokemon.pokemon.ability2}` : ''}`;
 
   return (
@@ -232,24 +228,20 @@ const ListItem = ({
           <AvatarFallback>{pokemon.pokemon.name.slice(0, 2)}</AvatarFallback>
         </Avatar>
         <CardTitle className="flex items-center gap-1">
-          <h2 className="text-bold text-lg md:text-xl">{pokemon.pokemon.name}</h2>
+          <h2 className="text-bold text-lg md:text-xl">
+            {pokemon.pokemon.name}
+          </h2>
           <span>@{pokemon.item}</span>
         </CardTitle>
       </CardHeader>
-      <CardContent className='px-2 md:px-6'>
+      <CardContent className="px-2 md:px-6">
         <div className="space-y-2">
+          <DescriptionBadge badge="タイプ" description={types} />
           <DescriptionBadge
-            badge="タイプ"
-            description={types}
-          />
-          <DescriptionBadge
-            badge='ステータス'
+            badge="ステータス"
             description={statusComponent()}
           />
-          <DescriptionBadge
-            badge='特性'
-            description={abilities}
-          />
+          <DescriptionBadge badge="特性" description={abilities} />
           <div className="flex md:items-center gap-2 flex-col md:flex-row">
             <Badge className="w-18 h-9">技</Badge>
             <div>
@@ -279,7 +271,7 @@ const MoveItem = ({ move }: { move: Move }) => {
   return (
     <Popover>
       <PopoverTrigger>
-        <div className='text-sm md:text-base'>{move.name}</div>
+        <div className="text-sm md:text-base">{move.name}</div>
       </PopoverTrigger>
       <PopoverContent className="w-60">
         <div className="flex gap-2 items-center">
@@ -311,13 +303,17 @@ const MoveItem = ({ move }: { move: Move }) => {
   );
 };
 
-const DescriptionBadge = ({badge, description}: {badge: string, description:React.ReactNode}) => {
+const DescriptionBadge = ({
+  badge,
+  description,
+}: {
+  badge: string;
+  description: React.ReactNode;
+}) => {
   return (
     <div className="flex items-center gap-2">
       <Badge className="w-18 h-9">{badge}</Badge>
-      <div className='text-sm md:text-base'>
-        {description}
-      </div>
+      <div className="text-sm md:text-base">{description}</div>
     </div>
   );
-}
+};

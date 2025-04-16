@@ -9,6 +9,8 @@ import { Move } from '@/types/move';
 import {
   setAbility,
   setAttacker,
+  setBurned,
+  setCriticalHit,
   setItem,
   setMove,
   setRank,
@@ -22,6 +24,7 @@ import { MaterialSymbolsDeleteOutline } from './icons/delete';
 import { IonChevronExpandOutline } from './icons/expand';
 import { FamiconsChevronCollapseOutline } from './icons/collapse';
 import { useState } from 'react';
+import { Checkbox } from './ui/checkbox';
 
 export const PokemonCard = ({
   pos,
@@ -33,6 +36,12 @@ export const PokemonCard = ({
   const attacker = useSelector((state: RootState) => state.attacker[pos]);
   const pokemon = attacker.factoryPokemon!;
   const move = useSelector((state: RootState) => state.attacker[pos].move);
+  const isCriticalHit = useSelector(
+    (state: RootState) => state.attacker[pos].criticalHit
+  );
+  const isBurned = useSelector(
+    (state: RootState) => state.attacker[pos].burned
+  );
   const dispatch = useDispatch();
   const [isExpanded, setIsExpanded] = useState(true);
   const level = useSelector((state: RootState) => state.level);
@@ -130,6 +139,36 @@ export const PokemonCard = ({
                 handleMoveChange={handleMoveChange}
                 isSelected={move === pokemon.moves[3]}
               />
+            </div>
+            <div>
+              <div className="flex gap-2">
+                <div className="flex items-center gap-2">
+                  <Checkbox
+                    id="terms"
+                    checked={isCriticalHit}
+                    onClick={() => dispatch(setCriticalHit({isCritical:!isCriticalHit, pos}))}
+                    className="w-5 h-5 border-2"
+                  />
+                  <label
+                    htmlFor="terms"
+                    className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    急所
+                  </label>
+                  <Checkbox
+                    id="terms"
+                    checked={isBurned}
+                    onClick={() => dispatch(setBurned({isBurned:!isBurned, pos}))}
+                    className="w-5 h-5 border-2"
+                  />
+                  <label
+                    htmlFor="terms"
+                    className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    やけど
+                  </label>
+                </div>
+              </div>
             </div>
           </>
         )}
