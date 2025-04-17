@@ -27,6 +27,7 @@ export default function PokeSearch() {
   const [times, setTimes] = useState<number>(1);
   const [item, setItem] = useState<string>('なし');
   const [ability, setAbility] = useState<string>('なし');
+  const [sortItem, setSortItem] = useState<string>('なし');
   const [selectedPokemon, setSelectedPokemon] = useState<string>('なし');
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function PokeSearch() {
       );
   }, []);
 
-  const filteredFactoryPokemons = factoryPokemons.filter((pokemon) => {
+  const filteredSortedFactoryPokemons = factoryPokemons.filter((pokemon) => {
     const isItem = item == 'なし' || pokemon.item === item;
     const isLevel = filterFactoryPokemons(pokemon, { level, times });
     const isAbility =
@@ -50,14 +51,49 @@ export default function PokeSearch() {
       toggleKana(pokemon.pokemon.name).includes(selectedPokemon) ||
       pokemon.pokemon.name.includes(selectedPokemon);
     return isItem && isLevel && isAbility && isPokemon;
+  }).sort((a, b) => {
+    const aStatus = calculateStatus(a, level);
+    const bStatus = calculateStatus(b, level);
+    if (sortItem === 'HP') {
+      return bStatus.hp - aStatus.hp;
+    }
+    if (sortItem === '攻撃') {
+      return bStatus.attack - aStatus.attack;
+    }
+    if (sortItem === '防御') {
+      return bStatus.defense - aStatus.defense;
+    }
+    if (sortItem === '特攻') {
+      return bStatus.spAttack - aStatus.spAttack;
+    }
+    if (sortItem === '特防') {
+      return bStatus.spDefense - aStatus.spDefense;
+    }
+    if(sortItem === '素早さ') {
+      return bStatus.speed - aStatus.speed;
+    }
+    else {
+      return 0;
+    }
   });
 
   const handleLevelChange = (level: number) => {
     setLevel(level);
   };
+
+  const sortItems = [
+    'なし',
+    'HP',
+    '攻撃',
+    '防御',
+    '特攻',
+    '特防',
+    '素早さ',
+  ]
+
   return (
     <SubLayout>
-      <div>
+      <div className='flex flex-col items-start'>
         <h1>検索したいポケモンの情報を入力してください</h1>
         <div className="space-y-2">
           <div className="flex items-center gap-2">
@@ -159,6 +195,30 @@ export default function PokeSearch() {
             </label>
           </div>
         </div>
+        <h1>並べ替え</h1>
+        <div className='space-y-2'>
+          <div className="flex items-center gap-2">
+            <Badge className="w-18 h-9">項目</Badge>
+            <Select
+              onValueChange={(value) => setSortItem(value)}
+              defaultValue={'なし'}
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="項目を選択" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>並べ替え項目</SelectLabel>
+                  {sortItems.map((item) => (
+                    <SelectItem key={item} value={item}>
+                      {item}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
         <div className="flex flex-col items-center my-5">
           <h2 className="text-bold text-xl">検索結果</h2>
           {factoryPokemons.length === 0 ? (
@@ -168,10 +228,10 @@ export default function PokeSearch() {
           ) : (
             <div>
               <div>
-                {factoryPokemons.length}件中{filteredFactoryPokemons.length}
+                {factoryPokemons.length}件中{filteredSortedFactoryPokemons.length}
                 件見つかりました
               </div>
-              {filteredFactoryPokemons.map((pokemon) => (
+              {filteredSortedFactoryPokemons.map((pokemon) => (
                 <ListItem key={pokemon.id} pokemon={pokemon} level={level} />
               ))}
             </div>
