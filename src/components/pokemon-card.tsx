@@ -72,12 +72,12 @@ export const PokemonCard = ({
   const data = pokemon.pokemon;
 
   return (
-    <Card className="my-2 w-sm max-w-xl sm:w-xl">
-      <CardHeader className="flex items-center">
+    <Card className="my-2 w-xs max-w-xl sm:w-xl">
+      <CardHeader className="flex items-center px-4 md:px-6">
         <Avatar>
           <AvatarImage
             src={data.imageSrc}
-            className="w-15 h-15 border-1 border-gray-300 rounded-lg"
+            className="w-10 h-10 md:w-15 md:h-15 border-1 border-gray-300 rounded-lg"
           />
           <AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
         </Avatar>
@@ -104,7 +104,7 @@ export const PokemonCard = ({
           )}
         </div>
       </CardHeader>
-      <CardContent className="space-y-2">
+      <CardContent className="space-y-2 px-4 md:px-6">
         {isExpanded && (
           <>
             <PokemonDescription

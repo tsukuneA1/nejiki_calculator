@@ -30,7 +30,7 @@ export const EnvCard = () => {
 
   const weathers = ['なし', 'にほんばれ', 'あめ', 'すなあらし', 'あられ'];
   return (
-    <Card className="my-2 w-sm max-w-xl sm:w-xl">
+    <Card className="my-2 w-xs max-w-xl sm:w-xl">
       <CardContent className="space-y-2">
         <div className="flex items-center gap-2">
           <Badge className="w-18 h-9">天候</Badge>
