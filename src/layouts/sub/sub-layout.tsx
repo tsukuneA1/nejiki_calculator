@@ -9,7 +9,7 @@ export const SubLayout = ({ children }: { children: React.ReactNode }) => {
         <AppSidebar />
         <div className="flex flex-col flex-grow">
           <MainHeader />
-          <main className="flex flex-col flex-grow py-4 px-5 mb-20 items-center">
+          <main className="flex flex-col flex-grow py-4 px-2 sm:px-5 mb-20 items-center">
             {children}
           </main>
         </div>

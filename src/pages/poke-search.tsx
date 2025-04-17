@@ -20,7 +20,8 @@ import { Move } from '@/types/move';
 import { PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Popover } from '@/components/ui/popover';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar } from '@radix-ui/react-avatar';
 export default function PokeSearch() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
   const [level, setLevel] = useState<number>(100);
@@ -279,11 +280,11 @@ const ListItem = ({
 
   return (
     <Card className="w-sm sm:w-md md:w-2xl my-2">
-      <CardHeader className="flex items-center">
+      <CardHeader className="flex items-center px-2 md:px-6">
         <Avatar>
           <AvatarImage
             src={pokemon.pokemon.imageSrc}
-            className="border-1 border-gray-300 "
+            className="border-1 border-gray-300 w-12 h-12 border-1 rounded-lg"
           />
           <AvatarFallback>{pokemon.pokemon.name.slice(0, 2)}</AvatarFallback>
         </Avatar>
