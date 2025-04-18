@@ -4,7 +4,13 @@ import { Avatar } from '@radix-ui/react-avatar';
 import { AvatarFallback, AvatarImage } from './ui/avatar';
 import { AutoComplete } from './auto-complete';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDefender, setBRank, setDRank } from '@/store/slices/defenderSlice';
+import {
+  setDefender,
+  setBRank,
+  setDRank,
+  setDfAbility,
+  setDfItem,
+} from '@/store/slices/defenderSlice';
 import { PokemonDescription } from './pokemon-description';
 import { RootState } from '@/store/store';
 import { Rank } from './rank';
@@ -46,8 +52,14 @@ export const DefenderCard = () => {
         <>
           <PokemonDescription
             factroyPokemon={pokemon}
-            setAbility={() => {}}
-            setItem={() => {}}
+            setAbility={(value: string) => {
+              dispatch(setDfAbility({ ability: value }));
+            }}
+            setItem={(value: string) => {
+              dispatch(setDfItem({ item: value }));
+            }}
+            currentAbility={defender.ability || 'なし'}
+            currentItem={defender.item || 'なし'}
           />
           <Rank
             rank={defender.bRank}

@@ -40,7 +40,7 @@ export default function InstructionManual({ markdown }: { markdown: string }) {
                 {...props}
                 className="my-4 mx-auto rounded-md"
                 style={{ maxWidth: '200px', height: 'auto' }}
-                alt=''
+                alt=""
               />
             ),
           }}

@@ -12,12 +12,16 @@ import { Badge } from './ui/badge';
 
 type PokemonDescriptionProps = {
   factroyPokemon: FactoryPokemon;
+  currentAbility: string;
+  currentItem: string;
   setAbility: (ability: string) => void;
   setItem: (item: string) => void;
 };
 
 export const PokemonDescription = ({
   factroyPokemon,
+  currentAbility,
+  currentItem,
   setAbility,
   setItem,
 }: PokemonDescriptionProps) => {
@@ -52,6 +56,7 @@ export const PokemonDescription = ({
         <Select
           onValueChange={(value) => setAbility(value)}
           defaultValue={factroyPokemon.pokemon.ability1}
+          value={currentAbility}
         >
           <SelectTrigger className="w-40">
             <SelectValue placeholder="特性を選択" />
@@ -73,6 +78,7 @@ export const PokemonDescription = ({
         <Select
           onValueChange={(value) => setItem(value)}
           defaultValue={factroyPokemon.item}
+          value={currentItem}
         >
           <SelectTrigger className="w-40">
             <SelectValue placeholder="アイテムを選択" />

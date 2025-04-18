@@ -115,6 +115,8 @@ export const PokemonCard = ({
                 factroyPokemon={pokemon}
                 setAbility={handleAbilityChange}
                 setItem={handleItemChange}
+                currentAbility={attacker.ability || 'なし'}
+                currentItem={attacker.item || 'なし'}
               />
               <Rank
                 rank={attacker.rank}

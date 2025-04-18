@@ -28,8 +28,15 @@ const defenderSlice = createSlice({
     setDRank: (state, action) => {
       state.dRank = action.payload.rank;
     },
+    setDfAbility: (state, action) => {
+      state.ability = action.payload.ability;
+    },
+    setDfItem: (state, action) => {
+      state.item = action.payload.item;
+    },
   },
 });
 
-export const { setDefender, setBRank, setDRank } = defenderSlice.actions;
+export const { setDefender, setBRank, setDRank, setDfAbility, setDfItem } =
+  defenderSlice.actions;
 export default defenderSlice.reducer;
