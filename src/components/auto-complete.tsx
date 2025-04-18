@@ -60,7 +60,7 @@ export const AutoComplete = ({
     return (
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild className="h-15 w-36">
-          <Button variant="outline" className="w-[150px] justify-start text-lg">
+          <Button variant="default" className="w-[150px] justify-start text-lg">
             {initialPokemon ? (
               <>{initialPokemon.pokemon.name}</>
             ) : (
@@ -82,7 +82,7 @@ export const AutoComplete = ({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild className="h-10 w-36">
-        <Button variant="outline" className="w-[150px] justify-start text-lg">
+        <Button variant="default" className="w-[150px] justify-start text-lg">
           {initialPokemon ? (
             <>{initialPokemon.pokemon.name}</>
           ) : (

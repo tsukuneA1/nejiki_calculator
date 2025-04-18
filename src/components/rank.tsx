@@ -52,10 +52,10 @@ export const Rank = ({ rank, badgeName, setRank }: RankProps) => {
           </SelectGroup>
         </SelectContent>
       </Select>
-      <Button variant="outline" size="icon" onClick={() => rankPlus(rank)}>
+      <Button variant="default" size="icon" onClick={() => rankPlus(rank)}>
         +
       </Button>
-      <Button variant="outline" size="icon" onClick={() => rankMinus(rank)}>
+      <Button variant="default" size="icon" onClick={() => rankMinus(rank)}>
         -
       </Button>
     </div>

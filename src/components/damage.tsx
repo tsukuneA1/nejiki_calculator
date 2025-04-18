@@ -31,7 +31,7 @@ export const Damage = () => {
         }
         className="w-[80%]"
       />
-      {damageText}
+      <div className="text-black">{damageText}</div>
     </div>
   );
 };
