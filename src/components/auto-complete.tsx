@@ -13,13 +13,7 @@ import {
 } from './ui/command';
 import { useMediaQuery } from '@mui/material';
 import { Drawer, DrawerContent, DrawerTrigger } from './ui/drawer';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from './ui/card';
+import { toggleKana } from '@/functions/convert_hiragana_katakana';
 
 export const AutoComplete = ({
   setPokemon,
@@ -82,7 +76,7 @@ export const AutoComplete = ({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild className="h-10 w-36">
-        <Button variant="default" className="w-[150px] justify-start text-lg">
+        <Button variant="ghost" className="w-[150px] justify-start text-lg border-1 border-gray-300">
           {initialPokemon ? (
             <>{initialPokemon.pokemon.name}</>
           ) : (
@@ -141,17 +135,14 @@ const SuggestionCard = ({
   factoryPokemon: FactoryPokemon;
 }) => {
   return (
-    <Card className="flex flex-grow">
-      <CardHeader>
-        <CardTitle>{factoryPokemon.pokemon.name}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <CardDescription>
-          {factoryPokemon.item}
-          {factoryPokemon.group}
-        </CardDescription>
-      </CardContent>
-    </Card>
+    <div className='text-black h-10 flex items-center'>
+      {factoryPokemon.pokemon.name}
+      @{factoryPokemon.item}
+      <div className='hidden'>
+        {toggleKana(factoryPokemon.pokemon.name)}
+        {toggleKana(factoryPokemon.item)}
+      </div>
+    </div>
   );
 };
 
