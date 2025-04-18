@@ -19,9 +19,10 @@ import { LoaderCircle } from 'lucide-react';
 import { Move } from '@/types/move';
 import { PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Popover } from '@/components/ui/popover';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { CardTitle } from '@/components/ui/card';
 import { AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Avatar } from '@radix-ui/react-avatar';
+import { CardLayout } from '@/layouts/card/card-layout';
 export default function PokeSearch() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
   const [level, setLevel] = useState<number>(100);
@@ -273,23 +274,25 @@ const ListItem = ({
   const abilities = `${pokemon.pokemon.ability1}${pokemon.pokemon.ability2 ? `/${pokemon.pokemon.ability2}` : ''}`;
 
   return (
-    <Card className="w-sm sm:w-md md:w-2xl my-2">
-      <CardHeader className="flex items-center px-2 md:px-6">
-        <Avatar>
-          <AvatarImage
-            src={pokemon.pokemon.imageSrc}
-            className="border-1 border-gray-300 w-12 h-12 border-1 rounded-lg"
-          />
-          <AvatarFallback>{pokemon.pokemon.name.slice(0, 2)}</AvatarFallback>
-        </Avatar>
-        <CardTitle className="flex items-center gap-1">
-          <h2 className="text-bold text-lg md:text-xl">
-            {pokemon.pokemon.name}
-          </h2>
-          <span>@{pokemon.item}</span>
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="px-2 md:px-6">
+    <CardLayout
+      header={
+        <>
+          <Avatar>
+            <AvatarImage
+              src={pokemon.pokemon.imageSrc}
+              className="border-1 border-gray-300 w-12 h-12 border-1 rounded-lg"
+            />
+            <AvatarFallback>{pokemon.pokemon.name.slice(0, 2)}</AvatarFallback>
+          </Avatar>
+          <CardTitle className="flex items-center gap-1">
+            <h2 className="text-bold text-lg md:text-xl">
+              {pokemon.pokemon.name}
+            </h2>
+            <span>@{pokemon.item}</span>
+          </CardTitle>
+        </>
+      }
+      content={
         <div className="space-y-2">
           <DescriptionBadge badge="タイプ" description={types} />
           <DescriptionBadge
@@ -297,9 +300,9 @@ const ListItem = ({
             description={statusComponent()}
           />
           <DescriptionBadge badge="特性" description={abilities} />
-          <div className="flex md:items-center gap-2 flex-col md:flex-row">
+          <div className="flex items-center gap-2">
             <Badge className="w-18 h-9">技</Badge>
-            <div>
+            <div className="grid grid-cols-2 gap-2 md:flex">
               {pokemon.moves.map((move, index) => (
                 <>
                   {index == 0 ? (
@@ -307,18 +310,18 @@ const ListItem = ({
                       <MoveItem key={move.id} move={move} />
                     </>
                   ) : (
-                    <>
-                      /
+                    <div className="flex">
+                      <span className="hidden md:block">/</span>
                       <MoveItem key={move.id} move={move} />
-                    </>
+                    </div>
                   )}
                 </>
               ))}
             </div>
           </div>
         </div>
-      </CardContent>
-    </Card>
+      }
+    />
   );
 };
 

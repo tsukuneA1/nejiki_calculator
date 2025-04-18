@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+import { CardTitle } from './ui/card';
 import { FactoryPokemon } from '@/types/factoryPokemon';
 import { Avatar } from '@radix-ui/react-avatar';
 import { AvatarFallback, AvatarImage } from './ui/avatar';
@@ -8,6 +8,7 @@ import { setDefender, setBRank, setDRank } from '@/store/slices/defenderSlice';
 import { PokemonDescription } from './pokemon-description';
 import { RootState } from '@/store/store';
 import { Rank } from './rank';
+import { CardLayout } from '@/layouts/card/card-layout';
 
 export const DefenderCard = () => {
   const defender = useSelector((state: RootState) => state.defender);
@@ -21,45 +22,49 @@ export const DefenderCard = () => {
 
   const data = pokemon.pokemon;
   return (
-    <Card className="my-2 w-xs max-w-xl sm:w-xl">
-      <CardHeader className="flex items-center">
-        <Avatar>
-          <AvatarImage
-            src={data.imageSrc}
-            className="w-15 h-15 border-1 border-gray-300 rounded-lg"
+    <CardLayout
+      header={
+        <>
+          <Avatar>
+            <AvatarImage
+              src={data.imageSrc}
+              className="w-15 h-15 border-1 border-gray-300 rounded-lg"
+            />
+            <AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
+          </Avatar>
+          <CardTitle>
+            <AutoComplete
+              setPokemon={handlePokemonChange}
+              initialPokemon={pokemon}
+              level={level.level}
+              times={level.times}
+            />
+          </CardTitle>
+        </>
+      }
+      content={
+        <>
+          <PokemonDescription
+            factroyPokemon={pokemon}
+            setAbility={() => {}}
+            setItem={() => {}}
           />
-          <AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
-        </Avatar>
-        <CardTitle>
-          <AutoComplete
-            setPokemon={handlePokemonChange}
-            initialPokemon={pokemon}
-            level={level.level}
-            times={level.times}
+          <Rank
+            rank={defender.bRank}
+            badgeName="防御ランク"
+            setRank={(rank: number) => {
+              dispatch(setBRank({ rank: rank }));
+            }}
           />
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-2">
-        <PokemonDescription
-          factroyPokemon={pokemon}
-          setAbility={() => {}}
-          setItem={() => {}}
-        />
-        <Rank
-          rank={defender.bRank}
-          badgeName="防御ランク"
-          setRank={(rank: number) => {
-            dispatch(setBRank({ rank: rank }));
-          }}
-        />
-        <Rank
-          rank={defender.dRank}
-          badgeName="特防ランク"
-          setRank={(rank: number) => {
-            dispatch(setDRank({ rank: rank }));
-          }}
-        />
-      </CardContent>
-    </Card>
+          <Rank
+            rank={defender.dRank}
+            badgeName="特防ランク"
+            setRank={(rank: number) => {
+              dispatch(setDRank({ rank: rank }));
+            }}
+          />
+        </>
+      }
+    />
   );
 };
