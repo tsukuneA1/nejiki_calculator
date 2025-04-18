@@ -222,7 +222,7 @@ export default function PokeSearch() {
             </div>
           ) : (
             <div>
-              <div>
+              <div className="text-center">
                 {factoryPokemons.length}件中
                 {filteredSortedFactoryPokemons.length}
                 件見つかりました
