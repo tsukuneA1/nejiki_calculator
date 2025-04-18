@@ -35,11 +35,12 @@ export default function InstructionManual({ markdown }: { markdown: string }) {
             a: (props) => (
               <a {...props} className="text-blue-500 hover:text-blue-700" />
             ),
-            img: ({ node, ...props }) => (
+            img: (props) => (
               <img
                 {...props}
                 className="my-4 mx-auto rounded-md"
                 style={{ maxWidth: '200px', height: 'auto' }}
+                alt=''
               />
             ),
           }}
