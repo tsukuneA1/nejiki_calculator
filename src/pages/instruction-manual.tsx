@@ -17,7 +17,7 @@ export async function getStaticProps() {
 export default function InstructionManual({ markdown }: { markdown: string }) {
   return (
     <SubLayout>
-      <div className="prose min-h-80 w-full max-w-none rounded-lg border-2 border-gray-300 p-10">
+      <div className="prose min-h-80 w-full rounded-lg border-2 border-gray-300 p-5 max-w-3xl">
         <ReactMarkdown
           components={{
             h1: (props) => (
@@ -34,6 +34,13 @@ export default function InstructionManual({ markdown }: { markdown: string }) {
             ),
             a: (props) => (
               <a {...props} className="text-blue-500 hover:text-blue-700" />
+            ),
+            img: ({ node, ...props }) => (
+              <img
+                {...props}
+                className="my-4 mx-auto rounded-md"
+                style={{ maxWidth: '200px', height: 'auto' }}
+              />
             ),
           }}
         >
