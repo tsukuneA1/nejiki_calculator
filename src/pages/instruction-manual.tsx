@@ -45,7 +45,7 @@ export default function InstructionManual({ markdown }: { markdown: string }) {
                 alt=""
               />
             ),
-            video: ({ node, ...props }) => (
+            video: ( props ) => (
               <video
                 {...props}
                 controls
