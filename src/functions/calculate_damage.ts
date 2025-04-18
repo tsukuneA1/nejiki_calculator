@@ -22,6 +22,14 @@ export const calculateDamage = (
     return 0;
   }
 
+  if (
+    attacker.move!.power == null ||
+    attacker.move!.power === 0 ||
+    attacker.move!.type == null
+  ) {
+    return 0;
+  }
+
   const atPoke = attacker.factoryPokemon!;
   const dfPoke = defender.factoryPokemon!;
 
