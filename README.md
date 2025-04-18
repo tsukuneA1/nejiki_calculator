@@ -21,6 +21,7 @@
 3. 特性を選択します。
 4. 持ち物を選択します。
 5. ランク補正を入力してください。
+   <video src="/videos/screen-20250419-004123.mp4" controls width="320" height="180"></video>
 
 ## 防御側
 

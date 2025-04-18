@@ -54,7 +54,10 @@ export const AutoComplete = ({
     return (
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild className="h-15 w-36">
-          <Button variant="ghost" className="w-[150px] justify-start text-lg border-1 border-gray-300">
+          <Button
+            variant="ghost"
+            className="w-[150px] justify-start text-lg border-1 border-gray-300"
+          >
             {initialPokemon ? (
               <>{initialPokemon.pokemon.name}</>
             ) : (
@@ -76,7 +79,10 @@ export const AutoComplete = ({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild className="h-10 w-36">
-        <Button variant="ghost" className="w-[150px] justify-start text-lg border-1 border-gray-300">
+        <Button
+          variant="ghost"
+          className="w-[150px] justify-start text-lg border-1 border-gray-300"
+        >
           {initialPokemon ? (
             <>{initialPokemon.pokemon.name}</>
           ) : (
@@ -135,10 +141,9 @@ const SuggestionCard = ({
   factoryPokemon: FactoryPokemon;
 }) => {
   return (
-    <div className='text-black h-10 flex items-center'>
-      {factoryPokemon.pokemon.name}
-      @{factoryPokemon.item}
-      <div className='hidden'>
+    <div className="text-black h-10 flex items-center">
+      {factoryPokemon.pokemon.name}@{factoryPokemon.item}
+      <div className="hidden">
         {toggleKana(factoryPokemon.pokemon.name)}
         {toggleKana(factoryPokemon.item)}
       </div>

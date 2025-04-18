@@ -2,6 +2,7 @@ import { SubLayout } from '@/layouts/sub/sub-layout';
 import fs from 'fs';
 import path from 'path';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), 'README.md');
@@ -19,6 +20,7 @@ export default function InstructionManual({ markdown }: { markdown: string }) {
     <SubLayout>
       <div className="prose min-h-80 w-full rounded-lg border-2 border-gray-300 p-5 max-w-3xl">
         <ReactMarkdown
+          rehypePlugins={[rehypeRaw]}
           components={{
             h1: (props) => (
               <h1
@@ -43,6 +45,14 @@ export default function InstructionManual({ markdown }: { markdown: string }) {
                 alt=""
               />
             ),
+            video: ({ node, ...props }) => (
+              <video
+                {...props}
+                controls
+                className="h-160 my-4 w-full max-w-xl mx-auto rounded-md border border-gray-300"
+              />
+            ),
+            source: (props) => <source {...props} />,
           }}
         >
           {markdown}
