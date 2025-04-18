@@ -12,7 +12,9 @@ export const MainHeader = () => {
       <SidebarTrigger className="mx-4 cursor-pointer">
         <SolarHamburgerMenuLinear />
       </SidebarTrigger>
-      <h1 className={`${kanit.className} text-xl sm:text-2xl md:text-3xl`}>BattleFactory Calculator</h1>
+      <h1 className={`${kanit.className} text-xl sm:text-2xl md:text-3xl`}>
+        BattleFactory Calculator
+      </h1>
     </header>
   );
 };

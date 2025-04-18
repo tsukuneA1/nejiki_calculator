@@ -146,7 +146,11 @@ export const PokemonCard = ({
                   <Checkbox
                     id="terms"
                     checked={isCriticalHit}
-                    onClick={() => dispatch(setCriticalHit({isCritical:!isCriticalHit, pos}))}
+                    onClick={() =>
+                      dispatch(
+                        setCriticalHit({ isCritical: !isCriticalHit, pos })
+                      )
+                    }
                     className="w-5 h-5 border-2"
                   />
                   <label
@@ -158,7 +162,9 @@ export const PokemonCard = ({
                   <Checkbox
                     id="terms"
                     checked={isBurned}
-                    onClick={() => dispatch(setBurned({isBurned:!isBurned, pos}))}
+                    onClick={() =>
+                      dispatch(setBurned({ isBurned: !isBurned, pos }))
+                    }
                     className="w-5 h-5 border-2"
                   />
                   <label

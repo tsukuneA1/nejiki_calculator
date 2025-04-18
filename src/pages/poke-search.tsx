@@ -40,61 +40,54 @@ export default function PokeSearch() {
       );
   }, []);
 
-  const filteredSortedFactoryPokemons = factoryPokemons.filter((pokemon) => {
-    const isItem = item == 'なし' || pokemon.item === item;
-    const isLevel = filterFactoryPokemons(pokemon, { level, times });
-    const isAbility =
-      ability == 'なし' ||
-      pokemon.pokemon.ability1 === ability ||
-      pokemon.pokemon.ability2 === ability;
-    const isPokemon =
-      selectedPokemon === 'なし' ||
-      toggleKana(pokemon.pokemon.name).includes(selectedPokemon) ||
-      pokemon.pokemon.name.includes(selectedPokemon);
-    return isItem && isLevel && isAbility && isPokemon;
-  }).sort((a, b) => {
-    const aStatus = calculateStatus(a, level);
-    const bStatus = calculateStatus(b, level);
-    if (sortItem === 'HP') {
-      return bStatus.hp - aStatus.hp;
-    }
-    if (sortItem === '攻撃') {
-      return bStatus.attack - aStatus.attack;
-    }
-    if (sortItem === '防御') {
-      return bStatus.defense - aStatus.defense;
-    }
-    if (sortItem === '特攻') {
-      return bStatus.spAttack - aStatus.spAttack;
-    }
-    if (sortItem === '特防') {
-      return bStatus.spDefense - aStatus.spDefense;
-    }
-    if(sortItem === '素早さ') {
-      return bStatus.speed - aStatus.speed;
-    }
-    else {
-      return 0;
-    }
-  });
+  const filteredSortedFactoryPokemons = factoryPokemons
+    .filter((pokemon) => {
+      const isItem = item == 'なし' || pokemon.item === item;
+      const isLevel = filterFactoryPokemons(pokemon, { level, times });
+      const isAbility =
+        ability == 'なし' ||
+        pokemon.pokemon.ability1 === ability ||
+        pokemon.pokemon.ability2 === ability;
+      const isPokemon =
+        selectedPokemon === 'なし' ||
+        toggleKana(pokemon.pokemon.name).includes(selectedPokemon) ||
+        pokemon.pokemon.name.includes(selectedPokemon);
+      return isItem && isLevel && isAbility && isPokemon;
+    })
+    .sort((a, b) => {
+      const aStatus = calculateStatus(a, level);
+      const bStatus = calculateStatus(b, level);
+      if (sortItem === 'HP') {
+        return bStatus.hp - aStatus.hp;
+      }
+      if (sortItem === '攻撃') {
+        return bStatus.attack - aStatus.attack;
+      }
+      if (sortItem === '防御') {
+        return bStatus.defense - aStatus.defense;
+      }
+      if (sortItem === '特攻') {
+        return bStatus.spAttack - aStatus.spAttack;
+      }
+      if (sortItem === '特防') {
+        return bStatus.spDefense - aStatus.spDefense;
+      }
+      if (sortItem === '素早さ') {
+        return bStatus.speed - aStatus.speed;
+      } else {
+        return 0;
+      }
+    });
 
   const handleLevelChange = (level: number) => {
     setLevel(level);
   };
 
-  const sortItems = [
-    'なし',
-    'HP',
-    '攻撃',
-    '防御',
-    '特攻',
-    '特防',
-    '素早さ',
-  ]
+  const sortItems = ['なし', 'HP', '攻撃', '防御', '特攻', '特防', '素早さ'];
 
   return (
     <SubLayout>
-      <div className='flex flex-col items-start'>
+      <div className="flex flex-col items-start">
         <h1>検索したいポケモンの情報を入力してください</h1>
         <div className="space-y-2">
           <div className="flex items-center gap-2">
@@ -197,7 +190,7 @@ export default function PokeSearch() {
           </div>
         </div>
         <h1>並べ替え</h1>
-        <div className='space-y-2'>
+        <div className="space-y-2">
           <div className="flex items-center gap-2">
             <Badge className="w-18 h-9">項目</Badge>
             <Select
@@ -229,7 +222,8 @@ export default function PokeSearch() {
           ) : (
             <div>
               <div>
-                {factoryPokemons.length}件中{filteredSortedFactoryPokemons.length}
+                {factoryPokemons.length}件中
+                {filteredSortedFactoryPokemons.length}
                 件見つかりました
               </div>
               {filteredSortedFactoryPokemons.map((pokemon) => (
