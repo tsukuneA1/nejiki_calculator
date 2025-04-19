@@ -20,24 +20,19 @@ const items = [
     icon: Home,
   },
   {
-    title: '説明書',
-    url: '/instruction-manual',
-    icon: Book,
-  },
-  {
     title: 'ポケモン検索',
     url: '/poke-search',
     icon: Search,
   },
   {
+    title: '説明書',
+    url: '/instruction-manual',
+    icon: Book,
+  },
+  {
     title: 'Twitter(X)',
     url: 'https://x.com/kinezikidame',
     icon: Twitter,
-  },
-  {
-    title: '設定',
-    url: '#',
-    icon: Settings,
   },
 ];
 

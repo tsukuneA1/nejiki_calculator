@@ -1,26 +1,21 @@
-ポケモンプラチナ/HGSSで登場する施設バトルファクトリーの通称'金ネジキ'で使えるダメージ計算機です。
-
-## 使い方
-
-## 使用説明書
-
-## はじめに
+# はじめに
 
 このツールは、ポケモンプラチナ/ハートゴールド・ソウルシルバーで登場する施設バトルファクトリーのダメージ計算を行うためのものです。ファクトリーで登場するポケモンのデータを収集し、ポケモンの技や特性、持ち物などを設定し、ダメージを計算することができます。
 ![サンプル画像](/images/nejiki_image.png)
 
-## 使用方法
+# ダメージ計算機能使用方法
 
+## 初期情報を入力
 1. ファクトリーで挑戦しているレベルを選択してください
 2. 周回回数を選択してください
 
 ## 攻撃側
 
 1. ポケモンを選択します。
-2. 技を選択します。
-3. 特性を選択します。
-4. 持ち物を選択します。
-5. ランク補正を入力してください。
+2. 特性を選択します。
+3. 持ち物を選択します。
+4. ランク補正を入力してください。
+5. 技を選択します。
    <video src="/videos/screen-20250419-004123.mp4" controls width="320" height="180"></video>
 
 ## 防御側
@@ -29,25 +24,30 @@
 2. 特性を選択します。
 3. 持ち物を選択します。
 4. ランク補正を入力してください。
+<video src="/videos/screen-20250419-115128.mp4" controls width="320" height="180"></video>
 
+## ダメージ加算
+
+1. Attackerの下にある追加ボタンを押します。
+2. 下に新しくカードが追加されるので情報を入力してください。
+3. カードの入力が終わったらシェブロンボタンを押してカードを最小化できます。
+4. ダメージを消去したくなったらゴミ箱のボタンを押してください。
+<video src="/videos/screen-20250419-115248.mp4" controls width="320" height="180"></video>
+
+# ファクトリーのポケモン検索機能
+絞り込みの情報を入力すると探したいポケモンを検索することができます。
+
+検索のための各項目を入力すると条件に一致するポケモンだけを絞り込むことができます。
+具体的な方法は以下の動画を参考にしてください。
+
+<video src="/videos/screen-20250419-120250.mp4" controls width="320" height="180"></video>
 ## 注意事項
 
 ## 使用技術
 
-フレームワーク:Next.js
-
-UIライブラリ:shadcn:ui
-
-データベース:supabase
-
-ORM:prisma
-
-言語:typescript
-
-デプロイ:vercel
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- フレームワーク:Next.js
+- UIライブラリ:shadcn/ui
+- データベース:supabase
+- ORM:prisma
+- 言語:typescript
+- デプロイ:vercel

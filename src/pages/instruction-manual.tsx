@@ -45,6 +45,18 @@ export default function InstructionManual({ markdown }: { markdown: string }) {
                 alt=""
               />
             ),
+            ol: (props) => (
+              <ol
+                {...props}
+                className="list-decimal list-inside my-4 mx-auto max-w-xl"
+              />
+            ),
+            ul: (props) => (
+              <ul
+                {...props}
+                className="list-disc list-inside my-4 mx-auto max-w-xl"
+              />
+            ),
             video: ( props ) => (
               <video
                 {...props}
