@@ -1,3 +1,4 @@
+import { typeReduceHalf } from '@/constants/items';
 import { Attacker } from '@/types/attacker';
 import { Defender } from '@/types/defender';
 
@@ -22,5 +23,11 @@ export const calculateMC = (
   if (attacker.item == '半減の実') {
     mc *= 0.5;
   }
+
+  mc *= typeReduceHalf({
+    type: attacker.move!.type,
+    item: defender.item!,
+  });
+
   return mc;
 };

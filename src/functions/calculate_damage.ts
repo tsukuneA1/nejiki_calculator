@@ -7,6 +7,7 @@ import { Env } from '@/types/env';
 import { calculateCompatibility } from './calculate_compatibility';
 import { calculateAtActual } from './calculate_atActual';
 import { calculateDfActual } from './calculate_dfActual';
+import { calculateMovePower } from './calculate_movePower';
 
 export const calculateDamage = (
   attacker: Attacker,
@@ -46,6 +47,7 @@ export const calculateDamage = (
   const ma = calculateMA(attacker, defender, env);
   const mb = calculateMB(attacker, defender);
   const mc = calculateMC(attacker, defender, compatibility);
+  const finalMovePower = calculateMovePower(attacker);
 
   const attack = calculateAtActual(attacker, level);
   const defense = calculateDfActual(attacker, defender, level);
@@ -53,7 +55,7 @@ export const calculateDamage = (
   const damage =
     Math.floor(
       (Math.floor(
-        (Math.floor((level * 2) / 5 + 2) * attacker.move!.power! * attack) /
+        (Math.floor((level * 2) / 5 + 2) * finalMovePower * attack) /
           defense
       ) /
         50) *
