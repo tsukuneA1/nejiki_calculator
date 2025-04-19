@@ -1,4 +1,4 @@
-import { Book, Home, Search, Settings, Twitter } from 'lucide-react';
+import { Book, Home, Search, Twitter } from 'lucide-react';
 
 import {
   Sidebar,
