@@ -102,7 +102,7 @@ export default function Home() {
         <div className="xl:mt-0">
           <div>
             <h1 className="text-3xl font-bold ml-3 my-4">Defender</h1>
-            <DefenderReserve/>
+            <DefenderReserve />
             <DefenderCard />
           </div>
           <div>

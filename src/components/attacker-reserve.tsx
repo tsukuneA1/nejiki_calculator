@@ -18,7 +18,11 @@ export const AttackerReserve = () => {
   const dispatch = useDispatch();
 
   const handleAddSpare = (pokemon: FactoryPokemon) => {
-    if (!spares.includes(pokemon) && spares.length <= 6) {
+    if (
+      !spares.includes(pokemon) &&
+      spares.length <= 6 &&
+      pokemon != attacker.factoryPokemon
+    ) {
       setSpares([...spares, pokemon]);
     }
   };

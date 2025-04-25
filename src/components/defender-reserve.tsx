@@ -18,7 +18,11 @@ export const DefenderReserve = () => {
   const dispatch = useDispatch();
 
   const handleAddSpare = (pokemon: FactoryPokemon) => {
-    if (!spares.includes(pokemon) && spares.length <= 6) {
+    if (
+      !spares.includes(pokemon) &&
+      spares.length <= 6 &&
+      pokemon != defender.factoryPokemon
+    ) {
       setSpares([...spares, pokemon]);
     }
   };
@@ -42,7 +46,7 @@ export const DefenderReserve = () => {
       }
       setSpares(updatedSpares);
 
-      dispatch(setDefender({pokemon:pokemon}));
+      dispatch(setDefender({ pokemon: pokemon }));
 
       setSelectedId('');
     }
