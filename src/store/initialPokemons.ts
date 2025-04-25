@@ -21,7 +21,7 @@ export const initialAttacker: FactoryPokemon = {
     spDefense: 85,
     speed: 100,
     ability1: 'もうか',
-    ability2: '',
+    ability2: null,
     imageSrc: '/images/poke_image/poke0006.png',
     type1: 'ほのお',
     type2: 'ひこう',
