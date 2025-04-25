@@ -1,14 +1,12 @@
-import { typeStrengthen } from "@/constants/items";
-import { Attacker } from "@/types/attacker";
+import { typeStrengthen } from '@/constants/items';
+import { Attacker } from '@/types/attacker';
 
-export const calculateMovePower = (
-    attacker: Attacker,
-) => {
-    let movePower = attacker.move!.power!;
-    movePower *= typeStrengthen({
-        type: attacker.move!.type,
-        item: attacker.item!,
-    });
-    
-    return movePower;
-}
+export const calculateMovePower = (attacker: Attacker) => {
+  let movePower = attacker.move!.power!;
+  movePower *= typeStrengthen({
+    type: attacker.move!.type,
+    item: attacker.item!,
+  });
+
+  return movePower;
+};

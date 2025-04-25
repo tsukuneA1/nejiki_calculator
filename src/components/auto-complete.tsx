@@ -2,7 +2,7 @@ import { FactoryPokemon } from '@/types/factoryPokemon';
 import { useEffect, useState } from 'react';
 import { Popover, PopoverContent } from './ui/popover';
 import { PopoverTrigger } from '@radix-ui/react-popover';
-import { Button } from './ui/button';
+
 import {
   Command,
   CommandEmpty,
@@ -16,13 +16,13 @@ import { Drawer, DrawerContent, DrawerTrigger } from './ui/drawer';
 import { toggleKana } from '@/functions/convert_hiragana_katakana';
 
 export const AutoComplete = ({
+  trigger,
   setPokemon,
-  initialPokemon,
   level,
   times,
 }: {
+  trigger: React.ReactNode;
   setPokemon: (pokemon: FactoryPokemon) => void;
-  initialPokemon: FactoryPokemon | null;
   level: number;
   times: number;
 }) => {
@@ -54,16 +54,7 @@ export const AutoComplete = ({
     return (
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild className="h-15 w-36">
-          <Button
-            variant="ghost"
-            className="w-[150px] justify-start text-lg border-1 border-gray-300"
-          >
-            {initialPokemon ? (
-              <>{initialPokemon.pokemon.name}</>
-            ) : (
-              <>Set Pokemon</>
-            )}
-          </Button>
+          {trigger}
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-0" align="start">
           <StatusList
@@ -79,16 +70,7 @@ export const AutoComplete = ({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild className="h-10 w-36">
-        <Button
-          variant="ghost"
-          className="w-[150px] justify-start text-lg border-1 border-gray-300"
-        >
-          {initialPokemon ? (
-            <>{initialPokemon.pokemon.name}</>
-          ) : (
-            <>Set Pokemon</>
-          )}
-        </Button>
+        {trigger}
       </DrawerTrigger>
       <DrawerContent>
         <div className="mt-4 border-t">

@@ -3,6 +3,7 @@ import { RootState } from '@/store/store';
 import { PokemonCard } from './pokemon-card';
 import { Button } from './ui/button';
 import { addAttacker, deleteAttacker } from '@/store/slices/attackerSlice';
+import { AttackerReserve } from './attacker-reserve';
 
 export const Attackers = () => {
   const attackers = useSelector((state: RootState) => state.attacker);
@@ -17,6 +18,7 @@ export const Attackers = () => {
   return (
     <div>
       <h1 className="text-3xl font-bold ml-3 my-4">Attacker</h1>
+      <AttackerReserve />
       {attackers.map((_, index) => (
         <div key={index}>
           <PokemonCard pos={index} handleDelete={() => handleDelete(index)} />

@@ -86,9 +86,16 @@ export const PokemonCard = ({
           <CardTitle>
             <AutoComplete
               setPokemon={handlePokemonChange}
-              initialPokemon={pokemon}
               level={level.level}
               times={level.times}
+              trigger={
+                <Button
+                  variant="ghost"
+                  className="w-[150px] justify-start text-lg border-1 border-gray-300"
+                >
+                  {pokemon ? <>{pokemon.pokemon.name}</> : <>Set Pokemon</>}
+                </Button>
+              }
             />
           </CardTitle>
           <div className="flex justify-end gap-2">

@@ -20,6 +20,7 @@ import { clearAttacker, setAttacker } from '@/store/slices/attackerSlice';
 import { setDefender } from '@/store/slices/defenderSlice';
 import { EnvCard } from '@/components/env-card';
 import { Attackers } from '@/components/attackers';
+import { DefenderReserve } from '@/components/defender-reserve';
 
 export default function Home() {
   const level = useSelector((state: RootState) => state.level.level);
@@ -92,7 +93,7 @@ export default function Home() {
         </div>
         <Button
           onClick={handleReverse}
-          className="w-10 h-10 my-10 xl:mt-20 xl:mx-8"
+          className="w-10 h-10 my-10 xl:mt-40 xl:mx-8"
         >
           <SystemUiconsSort className="xl:hidden w-8 h-8" />
           <SystemUiconsReverse className="xl:block hidden w-8 h-8" />
@@ -101,6 +102,7 @@ export default function Home() {
         <div className="xl:mt-0">
           <div>
             <h1 className="text-3xl font-bold ml-3 my-4">Defender</h1>
+            <DefenderReserve/>
             <DefenderCard />
           </div>
           <div>

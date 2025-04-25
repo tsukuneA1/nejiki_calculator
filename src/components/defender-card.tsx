@@ -15,6 +15,7 @@ import { PokemonDescription } from './pokemon-description';
 import { RootState } from '@/store/store';
 import { Rank } from './rank';
 import { CardLayout } from '@/layouts/card/card-layout';
+import { Button } from './ui/button';
 
 export const DefenderCard = () => {
   const defender = useSelector((state: RootState) => state.defender);
@@ -41,9 +42,16 @@ export const DefenderCard = () => {
           <CardTitle>
             <AutoComplete
               setPokemon={handlePokemonChange}
-              initialPokemon={pokemon}
               level={level.level}
               times={level.times}
+              trigger={
+                <Button
+                  variant="ghost"
+                  className="w-[150px] justify-start text-lg border-1 border-gray-300"
+                >
+                  {pokemon ? <>{pokemon.pokemon.name}</> : <>Set Pokemon</>}
+                </Button>
+              }
             />
           </CardTitle>
         </>
