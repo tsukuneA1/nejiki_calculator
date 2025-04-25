@@ -61,6 +61,7 @@ export const AttackerReserve = () => {
               value={spare.id.toString()}
               aria-label={spare.id.toString()}
               onClick={() => handleClickSelectedPoke(spare)}
+              key={spare.id}
             >
               <Avatar>
                 <AvatarImage src={spare.pokemon.imageSrc} className="w-9 h-9" />
