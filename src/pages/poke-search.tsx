@@ -10,7 +10,7 @@ import { SubLayout } from '@/layouts/sub/sub-layout';
 import { FactoryPokemon } from '@/types/factoryPokemon';
 import { useEffect, useState } from 'react';
 import { filterFactoryPokemons } from '@/components/auto-complete';
-import { items } from '@/constants/items';
+import { items, timesItems } from '@/constants/items';
 import { abilities } from '@/constants/abilities';
 import { calculateStatus } from '@/functions/calculate_status';
 import { Input } from '@/components/ui/input';
@@ -112,9 +112,9 @@ export default function PokeSearch() {
               <SelectContent>
                 <SelectGroup>
                   <SelectLabel>周回回数</SelectLabel>
-                  {[...Array(7)].map((_, i) => (
+                  {timesItems.map((timesItem, i) => (
                     <SelectItem key={i} value={`${i + 1}`}>
-                      {`${i + 1}周目`}
+                      {timesItem}
                     </SelectItem>
                   ))}
                 </SelectGroup>

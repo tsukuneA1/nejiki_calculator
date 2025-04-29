@@ -21,6 +21,7 @@ import { setDefender } from '@/store/slices/defenderSlice';
 import { EnvCard } from '@/components/env-card';
 import { Attackers } from '@/components/attackers';
 import { DefenderReserve } from '@/components/defender-reserve';
+import { timesItems } from '@/constants/items';
 
 export default function Home() {
   const level = useSelector((state: RootState) => state.level.level);
@@ -77,9 +78,9 @@ export default function Home() {
           <SelectContent>
             <SelectGroup>
               <SelectLabel>周回回数</SelectLabel>
-              {[...Array(7)].map((_, i) => (
+              {timesItems.map((timesItem, i) => (
                 <SelectItem key={i} value={`${i + 1}`}>
-                  {`${i + 1}周目`}
+                  {timesItem}
                 </SelectItem>
               ))}
             </SelectGroup>
