@@ -6,7 +6,7 @@ export const calculateStatus = (
   pokemon: FactoryPokemon,
   settings: { level: number; times: number }
 ) => {
-  let iv = settings.times - 1;
+  let iv = 4*(settings.times - 1);
   if (settings.times == 8) {
     iv = 31;
   }
