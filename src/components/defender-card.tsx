@@ -20,7 +20,7 @@ import { Button } from './ui/button';
 export const DefenderCard = () => {
   const defender = useSelector((state: RootState) => state.defender);
   const pokemon = defender.factoryPokemon!;
-  const level = useSelector((state: RootState) => state.level);
+  const settings = useSelector((state: RootState) => state.settings);
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
@@ -42,8 +42,9 @@ export const DefenderCard = () => {
           <CardTitle>
             <AutoComplete
               setPokemon={handlePokemonChange}
-              level={level.level}
-              times={level.times}
+              level={settings.level}
+              times={settings.times}
+              isNejiki = {settings.isNejiki}
               trigger={
                 <Button
                   variant="ghost"

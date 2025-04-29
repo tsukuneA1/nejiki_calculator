@@ -11,7 +11,7 @@ import { AvatarFallback, AvatarImage } from './ui/avatar';
 import { setDefender } from '@/store/slices/defenderSlice';
 
 export const DefenderReserve = () => {
-  const level = useSelector((state: RootState) => state.level);
+  const settings = useSelector((state: RootState) => state.settings);
   const [selectedId, setSelectedId] = useState('');
   const [spares, setSpares] = useState<FactoryPokemon[]>([]);
   const defender = useSelector((state: RootState) => state.defender);
@@ -84,8 +84,9 @@ export const DefenderReserve = () => {
               +
             </Button>
           }
-          level={level.level}
-          times={level.times}
+          level={settings.level}
+          times={settings.times}
+          isNejiki={settings.isNejiki}
           setPokemon={handleAddSpare}
         />
 

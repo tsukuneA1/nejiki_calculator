@@ -11,14 +11,14 @@ import { calculateCompatibility } from '@/functions/calculate_compatibility';
 export const Damage = () => {
   const attackers = useSelector((state: RootState) => state.attacker);
   const defender = useSelector((state: RootState) => state.defender);
-  const level = useSelector((state: RootState) => state.level.level);
+  const settings = useSelector((state: RootState) => state.settings);
   const env = useSelector((state: RootState) => state.env);
 
-  const status = calculateStatus(defender.factoryPokemon!, level);
+  const status = calculateStatus(defender.factoryPokemon!, settings);
   const hActual = status.hp;
 
   const { maxSumDamage: maxDamage, minSumDamage: minDamage } =
-    calculateSumDamage(attackers, defender, level, env, hActual);
+    calculateSumDamage(attackers, defender, settings, env, hActual);
 
   const damageText = `${minDamage}~${maxDamage} (${Math.ceil((minDamage / hActual) * 1000) / 10}%~${Math.ceil((maxDamage / hActual) * 1000) / 10}%)`;
   return (
@@ -39,10 +39,13 @@ export const Damage = () => {
 const calculateMinMaxDamage = (
   attacker: Attacker,
   defender: Defender,
-  level: number,
+  settings: {
+    level: number,
+    times: number,
+  },
   env: Env
 ) => {
-  const maxDamage = calculateDamage(attacker, defender, level, env);
+  const maxDamage = calculateDamage(attacker, defender, settings, env);
   const minDamage = Math.floor(maxDamage * 0.85);
   return { maxDamage, minDamage };
 };
@@ -50,7 +53,10 @@ const calculateMinMaxDamage = (
 const calculateSumDamage = (
   attackers: Attacker[],
   defender: Defender,
-  level: number,
+  settings: {
+    level: number,
+    times: number,
+  },
   env: Env,
   hp: number
 ) => {
@@ -68,7 +74,7 @@ const calculateSumDamage = (
     const { maxDamage, minDamage } = calculateMinMaxDamage(
       attacker,
       defender,
-      level,
+      settings,
       env
     );
     maxSumDamage += maxDamage;

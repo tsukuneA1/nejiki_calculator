@@ -25,8 +25,8 @@ export const PokemonDescription = ({
   setAbility,
   setItem,
 }: PokemonDescriptionProps) => {
-  const level = useSelector((state: RootState) => state.level.level);
-  const status = calculateStatus(factroyPokemon, level);
+  const settings = useSelector((state: RootState) => state.settings);
+  const status = calculateStatus(factroyPokemon, settings);
 
   const abilities = ['なし', factroyPokemon.pokemon.ability1];
 

@@ -11,7 +11,7 @@ import { AvatarFallback, AvatarImage } from './ui/avatar';
 import { setAttacker } from '@/store/slices/attackerSlice';
 
 export const AttackerReserve = () => {
-  const level = useSelector((state: RootState) => state.level);
+  const settings = useSelector((state: RootState) => state.settings);
   const [selectedId, setSelectedId] = useState('');
   const [spares, setSpares] = useState<FactoryPokemon[]>([]);
   const attacker = useSelector((state: RootState) => state.attacker[0]);
@@ -84,8 +84,9 @@ export const AttackerReserve = () => {
               +
             </Button>
           }
-          level={level.level}
-          times={level.times}
+          level={settings.level}
+          times={settings.times}
+          isNejiki={settings.isNejiki}
           setPokemon={handleAddSpare}
         />
 

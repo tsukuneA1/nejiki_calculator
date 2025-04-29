@@ -7,14 +7,17 @@ import { Move } from '@/types/move';
 export const calculateDfActual = (
   attacker: Attacker,
   defender: Defender,
-  level: number
+  settings: {
+    level: number,
+    times: number
+  }
 ) => {
   const bSM = calculateSM(defender.bRank);
   const dSM = calculateSM(defender.dRank);
   const am = calculateAM(defender.ability!, attacker.move!);
   const im = calculateIM(defender.item!);
 
-  const status = calculateStatus(defender.factoryPokemon!, level);
+  const status = calculateStatus(defender.factoryPokemon!, settings);
 
   if (attacker.move?.classification == '物理') {
     return Math.floor(status.defense * bSM * am * im);

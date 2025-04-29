@@ -43,14 +43,3 @@
 具体的な方法は以下の動画を参考にしてください。
 
 <video src="/videos/screen-20250419-120250.mp4" controls width="320" height="180"></video>
-
-## 注意事項
-
-## 使用技術
-
-- フレームワーク:Next.js
-- UIライブラリ:shadcn/ui
-- データベース:supabase
-- ORM:prisma
-- 言語:typescript
-- デプロイ:vercel

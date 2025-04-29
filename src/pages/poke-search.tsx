@@ -10,7 +10,7 @@ import { SubLayout } from '@/layouts/sub/sub-layout';
 import { FactoryPokemon } from '@/types/factoryPokemon';
 import { useEffect, useState } from 'react';
 import { filterFactoryPokemons } from '@/components/auto-complete';
-import { items, timesItems } from '@/constants/items';
+import { findItems, items, timesItems } from '@/constants/items';
 import { abilities } from '@/constants/abilities';
 import { calculateStatus } from '@/functions/calculate_status';
 import { Input } from '@/components/ui/input';
@@ -32,6 +32,7 @@ export default function PokeSearch() {
   const [ability, setAbility] = useState<string>('なし');
   const [sortItem, setSortItem] = useState<string>('なし');
   const [selectedPokemon, setSelectedPokemon] = useState<string>('なし');
+  const [isNejiki, setIsNejiki] = useState(false);
 
   useEffect(() => {
     fetch('/api/factory_pokemon')
@@ -45,7 +46,7 @@ export default function PokeSearch() {
   const filteredSortedFactoryPokemons = factoryPokemons
     .filter((pokemon) => {
       const isItem = item == 'なし' || pokemon.item === item;
-      const isLevel = filterFactoryPokemons(pokemon, { level, times });
+      const isLevel = filterFactoryPokemons(pokemon, { level, times, isNejiki });
       const isAbility =
         ability == 'なし' ||
         pokemon.pokemon.ability1 === ability ||
@@ -57,8 +58,8 @@ export default function PokeSearch() {
       return isItem && isLevel && isAbility && isPokemon;
     })
     .sort((a, b) => {
-      const aStatus = calculateStatus(a, level);
-      const bStatus = calculateStatus(b, level);
+      const aStatus = calculateStatus(a, { level, times });
+      const bStatus = calculateStatus(b, { level, times });
       if (sortItem === 'HP') {
         return bStatus.hp - aStatus.hp;
       }
@@ -85,6 +86,16 @@ export default function PokeSearch() {
     setLevel(level);
   };
 
+  const handleTimesChange = (pos: number) => {
+    if (pos == 3) {
+      setIsNejiki(true);
+    } else {
+      setIsNejiki(false);
+    }
+
+    setTimes(findItems(pos));
+  };
+
   const sortItems = ['なし', 'HP', '攻撃', '防御', '特攻', '特防', '素早さ'];
 
   return (
@@ -103,8 +114,8 @@ export default function PokeSearch() {
           <div className="flex items-center gap-2">
             <Badge className="w-18 h-9">周回回数</Badge>
             <Select
-              onValueChange={(value) => setTimes(parseInt(value))}
-              defaultValue={'1'}
+              onValueChange={(value) => handleTimesChange(parseInt(value))}
+              defaultValue={'0'}
             >
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="周回回数を選択" />
@@ -113,7 +124,7 @@ export default function PokeSearch() {
                 <SelectGroup>
                   <SelectLabel>周回回数</SelectLabel>
                   {timesItems.map((timesItem, i) => (
-                    <SelectItem key={i} value={`${i + 1}`}>
+                    <SelectItem key={i} value={i.toString()}>
                       {timesItem}
                     </SelectItem>
                   ))}
@@ -224,12 +235,16 @@ export default function PokeSearch() {
           ) : (
             <div>
               <div className="text-center">
-                {factoryPokemons.length}件中
                 {filteredSortedFactoryPokemons.length}
                 件見つかりました
               </div>
               {filteredSortedFactoryPokemons.map((pokemon) => (
-                <ListItem key={pokemon.id} pokemon={pokemon} level={level} />
+                <ListItem
+                  key={pokemon.id}
+                  pokemon={pokemon}
+                  level={level}
+                  times={times}
+                />
               ))}
             </div>
           )}
@@ -242,11 +257,13 @@ export default function PokeSearch() {
 const ListItem = ({
   pokemon,
   level,
+  times,
 }: {
   pokemon: FactoryPokemon;
   level: number;
+  times: number;
 }) => {
-  const status = calculateStatus(pokemon, level);
+  const status = calculateStatus(pokemon, { level, times });
   const types = `${pokemon.pokemon.type1}${pokemon.pokemon.type2 ? `/${pokemon.pokemon.type2}` : ''}`;
   const statusSummary = [
     `H:${status.hp}(${pokemon.hp})`,

@@ -45,7 +45,7 @@ export const PokemonCard = ({
   );
   const dispatch = useDispatch();
   const [isExpanded, setIsExpanded] = useState(true);
-  const level = useSelector((state: RootState) => state.level);
+  const settings = useSelector((state: RootState) => state.settings);
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
     dispatch(setAttacker({ pokemon: pokemon, pos: pos }));
   };
@@ -86,8 +86,9 @@ export const PokemonCard = ({
           <CardTitle>
             <AutoComplete
               setPokemon={handlePokemonChange}
-              level={level.level}
-              times={level.times}
+              level={settings.level}
+              times={settings.times}
+              isNejiki={settings.isNejiki}
               trigger={
                 <Button
                   variant="ghost"

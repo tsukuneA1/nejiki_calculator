@@ -22,17 +22,19 @@ export const AutoComplete = ({
   setPokemon,
   level,
   times,
+  isNejiki
 }: {
   trigger: React.ReactNode;
   setPokemon: (pokemon: FactoryPokemon) => void;
   level: number;
   times: number;
+  isNejiki: boolean;
 }) => {
   const [open, setOpen] = useState(false);
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
 
   const isDesktop = useMediaQuery('(min-width: 768px)');
-  const stat = { level, times };
+  const stat = { level, times, isNejiki };
 
   useEffect(() => {
     fetch('/api/factory_pokemon')
@@ -156,9 +158,20 @@ const SuggestionCard = ({
 
 export const filterFactoryPokemons = (
   pokemon: FactoryPokemon,
-  stat: { level: number; times: number }
+  stat: { level: number; times: number, isNejiki: boolean }
 ) => {
+  if (stat.isNejiki){
+    return (
+      pokemon.group == 4 ||
+      pokemon.group == 5 ||
+      pokemon.group == 6 ||
+      pokemon.group == 7 ||
+      pokemon.group == 8
+    );
+  }
+
   if (stat.level === 100) {
+    
     if (stat.times < 5) {
       return pokemon.group >= 4 && pokemon.group <= stat.times + 3;
     }

@@ -1,7 +1,7 @@
 import { MainLayout } from '@/layouts/main/main-layout';
 import { DefenderCard } from '@/components/defender-card';
 import { Checkbox } from '@/components/ui/checkbox';
-import { setLevel, setTimes } from '@/store/slices/levelSlice';
+import { setIsNejiki, setLevel, setTimes } from '@/store/slices/settingsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import {
@@ -21,10 +21,10 @@ import { setDefender } from '@/store/slices/defenderSlice';
 import { EnvCard } from '@/components/env-card';
 import { Attackers } from '@/components/attackers';
 import { DefenderReserve } from '@/components/defender-reserve';
-import { timesItems } from '@/constants/items';
+import { findItems, timesItems } from '@/constants/items';
 
 export default function Home() {
-  const level = useSelector((state: RootState) => state.level.level);
+  const settings = useSelector((state: RootState) => state.settings);
   const attackers = useSelector((state: RootState) => state.attacker);
   const defender = useSelector((state: RootState) => state.defender);
   const dispatch = useDispatch();
@@ -39,12 +39,22 @@ export default function Home() {
     dispatch(setDefender({ pokemon: attackers[0].factoryPokemon! }));
   };
 
+  const handleTimesChange = (pos: number) => {
+    if (pos == 3) {
+      dispatch(setIsNejiki(true));
+    } else {
+      dispatch(setIsNejiki(false));
+    }
+
+    dispatch(setTimes(findItems(pos)));
+  };
+
   return (
     <MainLayout>
       <div className="flex items-center space-x-2">
         <Checkbox
           id="terms"
-          checked={level == 50}
+          checked={settings.level == 50}
           onClick={() => handleLevelChange(50)}
           className="w-5 h-5 border-2"
         />
@@ -56,7 +66,7 @@ export default function Home() {
         </label>
         <Checkbox
           id="terms"
-          checked={level == 100}
+          checked={settings.level == 100}
           onClick={() => handleLevelChange(100)}
           className="w-5 h-5 border-2"
         />
@@ -69,8 +79,8 @@ export default function Home() {
       </div>
       <div className="mt-2">
         <Select
-          onValueChange={(value) => dispatch(setTimes(parseInt(value)))}
-          defaultValue={'1'}
+          onValueChange={(value) => handleTimesChange(Number(value))}
+          defaultValue={'0'}
         >
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="周回回数を選択" />
@@ -79,7 +89,7 @@ export default function Home() {
             <SelectGroup>
               <SelectLabel>周回回数</SelectLabel>
               {timesItems.map((timesItem, i) => (
-                <SelectItem key={i} value={`${i + 1}`}>
+                <SelectItem key={i} value={`${i}`}>
                   {timesItem}
                 </SelectItem>
               ))}

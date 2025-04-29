@@ -3,7 +3,7 @@ import { Move } from '@/types/move';
 import { calculateStatus } from './calculate_status';
 import { Pokemon } from '@/types/pokemon';
 
-export const calculateAtActual = (attacker: Attacker, level: number) => {
+export const calculateAtActual = (attacker: Attacker, settings:{level: number, times: number}) => {
   const sm = calculateSM(attacker.rank);
   const am = calculateAM(attacker.ability!, attacker.move!);
   const am2 = calculateAM2(attacker.ability!, attacker.move!);
@@ -15,7 +15,7 @@ export const calculateAtActual = (attacker: Attacker, level: number) => {
 
   if (attacker.move?.classification == '物理') {
     return Math.floor(
-      calculateStatus(attacker.factoryPokemon!, level).attack *
+      calculateStatus(attacker.factoryPokemon!, settings).attack *
         sm *
         am *
         am2 *
@@ -23,7 +23,7 @@ export const calculateAtActual = (attacker: Attacker, level: number) => {
     );
   } else {
     return Math.floor(
-      calculateStatus(attacker.factoryPokemon!, level).spAttack *
+      calculateStatus(attacker.factoryPokemon!, settings).spAttack *
         sm *
         am *
         am2 *

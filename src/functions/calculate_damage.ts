@@ -12,7 +12,10 @@ import { calculateMovePower } from './calculate_movePower';
 export const calculateDamage = (
   attacker: Attacker,
   defender: Defender,
-  level: number,
+  settings: {
+    level: number,
+    times: number
+  },
   env: Env
 ) => {
   if (
@@ -49,13 +52,13 @@ export const calculateDamage = (
   const mc = calculateMC(attacker, defender, compatibility);
   const finalMovePower = calculateMovePower(attacker);
 
-  const attack = calculateAtActual(attacker, level);
-  const defense = calculateDfActual(attacker, defender, level);
+  const attack = calculateAtActual(attacker, settings);
+  const defense = calculateDfActual(attacker, defender, settings);
 
   const damage =
     Math.floor(
       (Math.floor(
-        (Math.floor((level * 2) / 5 + 2) * finalMovePower * attack) / defense
+        (Math.floor((settings.level * 2) / 5 + 2) * finalMovePower * attack) / defense
       ) /
         50) *
         ma +
