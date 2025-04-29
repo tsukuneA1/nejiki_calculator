@@ -14,6 +14,8 @@ import {
 import { useMediaQuery } from '@mui/material';
 import { Drawer, DrawerContent, DrawerTrigger } from './ui/drawer';
 import { toggleKana } from '@/functions/convert_hiragana_katakana';
+import { HoverCard, HoverCardContent } from '@radix-ui/react-hover-card';
+import { HoverCardTrigger } from './ui/hover-card';
 
 export const AutoComplete = ({
   trigger,
@@ -123,13 +125,32 @@ const SuggestionCard = ({
   factoryPokemon: FactoryPokemon;
 }) => {
   return (
-    <div className="text-black h-10 flex items-center">
-      {factoryPokemon.pokemon.name}@{factoryPokemon.item}
-      <div className="hidden">
-        {toggleKana(factoryPokemon.pokemon.name)}
-        {toggleKana(factoryPokemon.item)}
-      </div>
-    </div>
+    <HoverCard>
+      <HoverCardTrigger>
+        <div className="text-black h-10 flex items-center w-full">
+          {factoryPokemon.pokemon.name}@{factoryPokemon.item}
+          <div className="hidden">
+            {toggleKana(factoryPokemon.pokemon.name)}
+            {toggleKana(factoryPokemon.item)}
+          </div>
+        </div>
+      </HoverCardTrigger>
+      <HoverCardContent className="w-60 bg-white z-50 border-1 rounded-lg ml-2 p-2">
+        <div className="flex justify-between space-x-4">
+          <div className="space-y-1">
+            <h4 className="text-sm font-semibold">技</h4>
+
+            <div className="grid grid-cols-2 gap-2">
+              {factoryPokemon.moves.map((move, index) => (
+                <span key={move.id}>
+                  {index != 0 ? `${move.name}` : `${move.name}`}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </HoverCardContent>
+    </HoverCard>
   );
 };
 
@@ -139,10 +160,7 @@ export const filterFactoryPokemons = (
 ) => {
   if (stat.level === 100) {
     if (stat.times < 5) {
-      if (stat.times == 7) {
-        return pokemon.group == 7 || pokemon.group == 8;
-      }
-      return pokemon.group == stat.times + 3;
+      return pokemon.group >= 4 && pokemon.group <= stat.times + 3;
     }
     return (
       pokemon.group == 4 ||
