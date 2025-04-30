@@ -1,7 +1,6 @@
 import { calculateDamage } from '@/functions/calculate_damage';
 import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
-import { Progress } from './ui/progress';
 import { calculateStatus } from '@/functions/calculate_status';
 import { Attacker } from '@/types/attacker';
 import { Defender } from '@/types/defender';
@@ -25,14 +24,6 @@ export const Damage = () => {
   return (
     <div>
       <MultiProgress value1={(minDamage/status.hp)*100} value2={(maxDamage/status.hp)*100} className='w-[80%]'/>
-      {/* <Progress
-        value={
-          (maxDamage / status.hp) * 100 > 100
-            ? 100
-            : (maxDamage / status.hp) * 100
-        }
-        className="w-[80%]"
-      /> */}
       <div className="text-black">{damageText}</div>
     </div>
   );
