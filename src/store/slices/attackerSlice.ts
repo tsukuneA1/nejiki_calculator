@@ -7,6 +7,7 @@ import { initialAttacker } from '../initialPokemons';
 const initialState: Attacker[] = [
   {
     factoryPokemon: initialAttacker,
+    iv: 0,
     ability: initialAttacker.pokemon.ability1,
     item: initialAttacker.item,
     attackRank: 0,
@@ -26,13 +27,15 @@ const attackerSlice = createSlice({
   name: 'attacker',
   initialState,
   reducers: {
-    addAttacker: (state, action: PayloadAction<FactoryPokemon>) => {
+    addAttacker: (state, action: PayloadAction<{pokemon:FactoryPokemon, iv: number}>) => {
+      const pokemon = action.payload.pokemon;
       state.push({
-        factoryPokemon: action.payload,
-        ability: action.payload.pokemon.ability1,
-        item: action.payload.item,
+        factoryPokemon: pokemon,
+        iv: action.payload.iv,
+        ability: pokemon.pokemon.ability1,
+        item: pokemon.item,
         attackRank: 0,
-        move: action.payload.moves[0],
+        move: pokemon.moves[0],
         criticalHit: false,
         burned: false,
         rank: 0,
@@ -43,6 +46,9 @@ const attackerSlice = createSlice({
     },
     clearAttacker: (state) => {
       state.length = 1;
+    },
+    setIv: (state, action: PayloadAction<{ iv: number, pos: number}>) => {
+      state[action.payload.pos].iv = action.payload.iv;
     },
     setAttacker: (state, action: PayloadAction<AttackerState>) => {
       const factoryPokemon = action.payload.pokemon;

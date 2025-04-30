@@ -3,6 +3,7 @@ import { Move } from './move';
 
 export type Attacker = {
   factoryPokemon: FactoryPokemon | null;
+  iv: number;
   ability: string | null;
   item: string | null;
   attackRank: number;

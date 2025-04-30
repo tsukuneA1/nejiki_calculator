@@ -28,7 +28,7 @@ export const Attackers = () => {
         <Button
           onClick={() =>
             dispatch(
-              addAttacker(attackers[attackers.length - 1].factoryPokemon!)
+              addAttacker({pokemon: attackers[attackers.length - 1].factoryPokemon!, iv: attackers[attackers.length - 1].iv})
             )
           }
         >
