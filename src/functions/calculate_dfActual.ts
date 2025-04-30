@@ -17,7 +17,7 @@ export const calculateDfActual = (
   const am = calculateAM(defender.ability!, attacker.move!);
   const im = calculateIM(defender.item!);
 
-  const status = calculateStatus(defender.factoryPokemon!, settings);
+  const status = calculateStatus(defender.factoryPokemon!, settings.level, defender.iv);
 
   if (attacker.move?.classification == '物理') {
     return Math.floor(status.defense * bSM * am * im);

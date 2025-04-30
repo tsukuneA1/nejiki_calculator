@@ -10,6 +10,7 @@ import {
   setDRank,
   setDfAbility,
   setDfItem,
+  setDfIv,
 } from '@/store/slices/defenderSlice';
 import { PokemonDescription } from './pokemon-description';
 import { RootState } from '@/store/store';
@@ -24,7 +25,7 @@ export const DefenderCard = () => {
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
-    dispatch(setDefender({ pokemon: pokemon }));
+    dispatch(setDefender({ pokemon: pokemon, iv: 4*(settings.times-1) }));
   };
 
   const data = pokemon.pokemon;
@@ -67,8 +68,10 @@ export const DefenderCard = () => {
             setItem={(value: string) => {
               dispatch(setDfItem({ item: value }));
             }}
+            setIv={iv => dispatch(setDfIv(iv))}
             currentAbility={defender.ability || 'なし'}
             currentItem={defender.item || 'なし'}
+            currentIv={defender.iv}
           />
           <Rank
             rank={defender.bRank}

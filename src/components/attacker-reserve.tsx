@@ -46,7 +46,7 @@ export const AttackerReserve = () => {
       }
       setSpares(updatedSpares);
 
-      dispatch(setAttacker({ pokemon, pos: 0 }));
+      dispatch(setAttacker({attackerState:{ pokemon, pos: 0 }, iv: 4*(settings.times-1)}));
 
       setSelectedId('');
     }

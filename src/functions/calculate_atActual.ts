@@ -18,7 +18,7 @@ export const calculateAtActual = (
 
   if (attacker.move?.classification == '物理') {
     return Math.floor(
-      calculateStatus(attacker.factoryPokemon!, settings).attack *
+      calculateStatus(attacker.factoryPokemon!, settings.level, attacker.iv).attack *
         sm *
         am *
         am2 *
@@ -26,7 +26,7 @@ export const calculateAtActual = (
     );
   } else {
     return Math.floor(
-      calculateStatus(attacker.factoryPokemon!, settings).spAttack *
+      calculateStatus(attacker.factoryPokemon!, settings.level, attacker.iv).spAttack *
         sm *
         am *
         am2 *

@@ -62,8 +62,8 @@ export default function PokeSearch() {
       return isItem && isLevel && isAbility && isPokemon;
     })
     .sort((a, b) => {
-      const aStatus = calculateStatus(a, { level, times });
-      const bStatus = calculateStatus(b, { level, times });
+      const aStatus = calculateStatus(a, level, 4*(times-1));
+      const bStatus = calculateStatus(b, level, 4*(times-1));
       if (sortItem === 'HP') {
         return bStatus.hp - aStatus.hp;
       }
@@ -267,7 +267,7 @@ const ListItem = ({
   level: number;
   times: number;
 }) => {
-  const status = calculateStatus(pokemon, { level, times });
+  const status = calculateStatus(pokemon, level, 4*(times-1));
   const types = `${pokemon.pokemon.type1}${pokemon.pokemon.type2 ? `/${pokemon.pokemon.type2}` : ''}`;
   const statusSummary = [
     `H:${status.hp}(${pokemon.hp})`,

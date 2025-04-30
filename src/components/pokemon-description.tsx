@@ -9,24 +9,29 @@ import { SelectGroup } from './ui/select';
 import { Select } from './ui/select';
 import { SelectContent } from './ui/select';
 import { Badge } from './ui/badge';
+import { ivItems } from '@/constants/ivs';
 
 type PokemonDescriptionProps = {
   factroyPokemon: FactoryPokemon;
   currentAbility: string;
   currentItem: string;
+  currentIv: number;
   setAbility: (ability: string) => void;
   setItem: (item: string) => void;
+  setIv: (iv: number) => void;
 };
 
 export const PokemonDescription = ({
   factroyPokemon,
   currentAbility,
   currentItem,
+  currentIv,
   setAbility,
   setItem,
+  setIv,
 }: PokemonDescriptionProps) => {
   const settings = useSelector((state: RootState) => state.settings);
-  const status = calculateStatus(factroyPokemon, settings);
+  const status = calculateStatus(factroyPokemon, settings.level, currentIv);
 
   const abilities = ['なし', factroyPokemon.pokemon.ability1];
 
@@ -43,6 +48,31 @@ export const PokemonDescription = ({
           {factroyPokemon.pokemon.type1}
           {factroyPokemon.pokemon.type2 && ` / ${factroyPokemon.pokemon.type2}`}
         </div>
+      </div>
+      <div className="flex items-center gap-2">
+        <Badge className="w-18 h-9">個体値</Badge>
+        <Select
+  onValueChange={(value) => setIv(parseInt(value))}
+  defaultValue={'0'}
+  value={currentIv.toString()}
+>
+  <SelectTrigger className="w-40">
+    <SelectValue>
+      {currentIv.toString()}
+    </SelectValue>
+  </SelectTrigger>
+  <SelectContent>
+    <SelectGroup>
+      <SelectLabel>個体値</SelectLabel>
+      {ivItems.map((iv, i) => (
+        <SelectItem key={i} value={iv.toString()}>
+          {iv}
+        </SelectItem>
+      ))}
+    </SelectGroup>
+  </SelectContent>
+</Select>
+
       </div>
       <div className="flex items-center gap-2">
         <Badge className="w-18 h-9">ステータス</Badge>

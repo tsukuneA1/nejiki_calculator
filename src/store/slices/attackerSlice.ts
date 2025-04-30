@@ -53,14 +53,16 @@ const attackerSlice = createSlice({
     setIv: (state, action: PayloadAction<{ iv: number; pos: number }>) => {
       state[action.payload.pos].iv = action.payload.iv;
     },
-    setAttacker: (state, action: PayloadAction<AttackerState>) => {
-      const factoryPokemon = action.payload.pokemon;
-      state[action.payload.pos].factoryPokemon = factoryPokemon;
-      state[action.payload.pos].ability = factoryPokemon.pokemon.ability1;
-      state[action.payload.pos].item = factoryPokemon.item;
-      state[action.payload.pos].attackRank = 0;
-      state[action.payload.pos].rank = 0;
-      state[action.payload.pos].move = factoryPokemon.moves[0];
+    setAttacker: (state, action: PayloadAction<{attackerState:AttackerState, iv: number}>) => {
+      const attackerState = action.payload.attackerState;
+      const factoryPokemon = attackerState.pokemon;
+      state[attackerState.pos].factoryPokemon = factoryPokemon;
+      state[attackerState.pos].ability = factoryPokemon.pokemon.ability1;
+      state[attackerState.pos].item = factoryPokemon.item;
+      state[attackerState.pos].attackRank = 0;
+      state[attackerState.pos].rank = 0;
+      state[attackerState.pos].move = factoryPokemon.moves[0];
+      state[attackerState.pos].iv = action.payload.iv;
     },
     setMove: (state, action: PayloadAction<{ move: Move; pos: number }>) => {
       state[action.payload.pos].move = action.payload.move;
@@ -98,6 +100,7 @@ export const {
   setRank,
   setAbility,
   setItem,
+  setIv,
   addAttacker,
   deleteAttacker,
   clearAttacker,

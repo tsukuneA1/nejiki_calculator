@@ -42,6 +42,6 @@ const defenderSlice = createSlice({
   },
 });
 
-export const { setDefender, setBRank, setDRank, setDfAbility, setDfItem } =
+export const { setDefender, setBRank, setDRank, setDfAbility, setDfItem, setDfIv } =
   defenderSlice.actions;
 export default defenderSlice.reducer;

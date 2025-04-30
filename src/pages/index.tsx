@@ -34,7 +34,7 @@ export default function Home() {
   };
 
   const handleReverse = () => {
-    dispatch(setAttacker({ pokemon: defender.factoryPokemon!, pos: 0 }));
+    dispatch(setAttacker({ attackerState:{pokemon: defender.factoryPokemon!, pos: 0}, iv: defender.iv }));
     dispatch(clearAttacker());
     dispatch(setDefender({ pokemon: attackers[0].factoryPokemon! }));
   };

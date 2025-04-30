@@ -14,7 +14,7 @@ export const Damage = () => {
   const settings = useSelector((state: RootState) => state.settings);
   const env = useSelector((state: RootState) => state.env);
 
-  const status = calculateStatus(defender.factoryPokemon!, settings);
+  const status = calculateStatus(defender.factoryPokemon!, settings.level, defender.iv);
   const hActual = status.hp;
 
   const { maxSumDamage: maxDamage, minSumDamage: minDamage } =
