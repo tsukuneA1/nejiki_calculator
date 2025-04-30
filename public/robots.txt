@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+sitemap: https://nejiki-calculator.com/sitemap.xml
