@@ -52,27 +52,24 @@ export const PokemonDescription = ({
       <div className="flex items-center gap-2">
         <Badge className="w-18 h-9">個体値</Badge>
         <Select
-  onValueChange={(value) => setIv(parseInt(value))}
-  defaultValue={'0'}
-  value={currentIv.toString()}
->
-  <SelectTrigger className="w-40">
-    <SelectValue>
-      {currentIv.toString()}
-    </SelectValue>
-  </SelectTrigger>
-  <SelectContent>
-    <SelectGroup>
-      <SelectLabel>個体値</SelectLabel>
-      {ivItems.map((iv, i) => (
-        <SelectItem key={i} value={iv.toString()}>
-          {iv}
-        </SelectItem>
-      ))}
-    </SelectGroup>
-  </SelectContent>
-</Select>
-
+          onValueChange={(value) => setIv(parseInt(value))}
+          defaultValue={'0'}
+          value={currentIv.toString()}
+        >
+          <SelectTrigger className="w-40">
+            <SelectValue>{currentIv.toString()}</SelectValue>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>個体値</SelectLabel>
+              {ivItems.map((iv, i) => (
+                <SelectItem key={i} value={iv.toString()}>
+                  {iv}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </div>
       <div className="flex items-center gap-2">
         <Badge className="w-18 h-9">ステータス</Badge>

@@ -21,7 +21,7 @@ import { setDefender } from '@/store/slices/defenderSlice';
 import { EnvCard } from '@/components/env-card';
 import { Attackers } from '@/components/attackers';
 import { DefenderReserve } from '@/components/defender-reserve';
-import { findItems, timesItems } from '@/constants/items';
+import { findItems, timesItems } from '@/constants/ivs';
 
 export default function Home() {
   const settings = useSelector((state: RootState) => state.settings);
@@ -34,7 +34,12 @@ export default function Home() {
   };
 
   const handleReverse = () => {
-    dispatch(setAttacker({ attackerState:{pokemon: defender.factoryPokemon!, pos: 0}, iv: defender.iv }));
+    dispatch(
+      setAttacker({
+        attackerState: { pokemon: defender.factoryPokemon!, pos: 0 },
+        iv: defender.iv,
+      })
+    );
     dispatch(clearAttacker());
     dispatch(setDefender({ pokemon: attackers[0].factoryPokemon! }));
   };

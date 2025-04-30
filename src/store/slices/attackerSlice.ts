@@ -53,7 +53,10 @@ const attackerSlice = createSlice({
     setIv: (state, action: PayloadAction<{ iv: number; pos: number }>) => {
       state[action.payload.pos].iv = action.payload.iv;
     },
-    setAttacker: (state, action: PayloadAction<{attackerState:AttackerState, iv: number}>) => {
+    setAttacker: (
+      state,
+      action: PayloadAction<{ attackerState: AttackerState; iv: number }>
+    ) => {
       const attackerState = action.payload.attackerState;
       const factoryPokemon = attackerState.pokemon;
       state[attackerState.pos].factoryPokemon = factoryPokemon;

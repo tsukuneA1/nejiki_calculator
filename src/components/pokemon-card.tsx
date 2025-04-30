@@ -48,7 +48,12 @@ export const PokemonCard = ({
   const [isExpanded, setIsExpanded] = useState(true);
   const settings = useSelector((state: RootState) => state.settings);
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
-    dispatch(setAttacker({attackerState:{ pokemon: pokemon, pos: pos }, iv: 4*(settings.times-1)}));
+    dispatch(
+      setAttacker({
+        attackerState: { pokemon: pokemon, pos: pos },
+        iv: 4 * (settings.times - 1),
+      })
+    );
   };
 
   const handleMoveChange = (move: Move) => {
@@ -124,7 +129,7 @@ export const PokemonCard = ({
                 factroyPokemon={pokemon}
                 setAbility={handleAbilityChange}
                 setItem={handleItemChange}
-                setIv={iv => dispatch(setIv({iv: iv, pos: pos}))}
+                setIv={(iv) => dispatch(setIv({ iv: iv, pos: pos }))}
                 currentAbility={attacker.ability || 'なし'}
                 currentItem={attacker.item || 'なし'}
                 currentIv={attacker.iv}

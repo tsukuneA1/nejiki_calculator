@@ -10,7 +10,8 @@ import { SubLayout } from '@/layouts/sub/sub-layout';
 import { FactoryPokemon } from '@/types/factoryPokemon';
 import { useEffect, useState } from 'react';
 import { filterFactoryPokemons } from '@/components/auto-complete';
-import { findItems, items, timesItems } from '@/constants/items';
+import { items } from '@/constants/items';
+import { findItems, timesItems } from '@/constants/ivs';
 import { abilities } from '@/constants/abilities';
 import { calculateStatus } from '@/functions/calculate_status';
 import { Input } from '@/components/ui/input';
@@ -62,8 +63,8 @@ export default function PokeSearch() {
       return isItem && isLevel && isAbility && isPokemon;
     })
     .sort((a, b) => {
-      const aStatus = calculateStatus(a, level, 4*(times-1));
-      const bStatus = calculateStatus(b, level, 4*(times-1));
+      const aStatus = calculateStatus(a, level, 4 * (times - 1));
+      const bStatus = calculateStatus(b, level, 4 * (times - 1));
       if (sortItem === 'HP') {
         return bStatus.hp - aStatus.hp;
       }
@@ -267,7 +268,7 @@ const ListItem = ({
   level: number;
   times: number;
 }) => {
-  const status = calculateStatus(pokemon, level, 4*(times-1));
+  const status = calculateStatus(pokemon, level, 4 * (times - 1));
   const types = `${pokemon.pokemon.type1}${pokemon.pokemon.type2 ? `/${pokemon.pokemon.type2}` : ''}`;
   const statusSummary = [
     `H:${status.hp}(${pokemon.hp})`,

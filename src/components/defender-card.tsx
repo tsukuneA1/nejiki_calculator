@@ -25,7 +25,7 @@ export const DefenderCard = () => {
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
-    dispatch(setDefender({ pokemon: pokemon, iv: 4*(settings.times-1) }));
+    dispatch(setDefender({ pokemon: pokemon, iv: 4 * (settings.times - 1) }));
   };
 
   const data = pokemon.pokemon;
@@ -68,7 +68,7 @@ export const DefenderCard = () => {
             setItem={(value: string) => {
               dispatch(setDfItem({ item: value }));
             }}
-            setIv={iv => dispatch(setDfIv(iv))}
+            setIv={(iv) => dispatch(setDfIv(iv))}
             currentAbility={defender.ability || 'なし'}
             currentItem={defender.item || 'なし'}
             currentIv={defender.iv}

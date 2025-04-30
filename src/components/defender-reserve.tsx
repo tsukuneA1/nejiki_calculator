@@ -46,7 +46,7 @@ export const DefenderReserve = () => {
       }
       setSpares(updatedSpares);
 
-      dispatch(setDefender({ pokemon: pokemon, iv: 4*(settings.times-1) }));
+      dispatch(setDefender({ pokemon: pokemon, iv: 4 * (settings.times - 1) }));
 
       setSelectedId('');
     }

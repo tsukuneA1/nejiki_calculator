@@ -5,14 +5,9 @@ import { calculateNatureEffects } from './calculate_natureEffects';
 export const calculateStatus = (
   pokemon: FactoryPokemon,
   level: number,
-  iv: number,
+  iv: number
 ) => {
-  const hp = calculateHActual(
-    pokemon.pokemon.hp,
-    pokemon.hp,
-    iv,
-    level
-  );
+  const hp = calculateHActual(pokemon.pokemon.hp, pokemon.hp, iv, level);
   const attack = calculateActual(
     pokemon.pokemon.attack,
     pokemon.attack,
