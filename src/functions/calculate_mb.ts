@@ -16,7 +16,7 @@ export const calculateMB = (
   if (attacker.item == 'メトロノーム') {
     mb *= 1 + consecutive * 0.1;
   }
-  if (defender.ability == 'たいねつ' && attacker.move!.type == 'ほのお'){
+  if (defender.ability == 'たいねつ' && attacker.move!.type == 'ほのお') {
     mb *= 0.5;
   }
   return mb;

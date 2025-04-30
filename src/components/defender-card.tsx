@@ -44,7 +44,7 @@ export const DefenderCard = () => {
               setPokemon={handlePokemonChange}
               level={settings.level}
               times={settings.times}
-              isNejiki = {settings.isNejiki}
+              isNejiki={settings.isNejiki}
               trigger={
                 <Button
                   variant="ghost"

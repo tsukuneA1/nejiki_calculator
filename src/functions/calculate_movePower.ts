@@ -8,7 +8,7 @@ export const calculateMovePower = (attacker: Attacker) => {
     item: attacker.item!,
   });
 
-  if(attacker.ability == 'テクニシャン' && attacker.move!.power! <= 60){
+  if (attacker.ability == 'テクニシャン' && attacker.move!.power! <= 60) {
     movePower *= 1.5;
   }
 

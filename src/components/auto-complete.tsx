@@ -22,7 +22,7 @@ export const AutoComplete = ({
   setPokemon,
   level,
   times,
-  isNejiki
+  isNejiki,
 }: {
   trigger: React.ReactNode;
   setPokemon: (pokemon: FactoryPokemon) => void;
@@ -158,9 +158,9 @@ const SuggestionCard = ({
 
 export const filterFactoryPokemons = (
   pokemon: FactoryPokemon,
-  stat: { level: number; times: number, isNejiki: boolean }
+  stat: { level: number; times: number; isNejiki: boolean }
 ) => {
-  if (stat.isNejiki){
+  if (stat.isNejiki) {
     return (
       pokemon.group == 4 ||
       pokemon.group == 5 ||
@@ -171,7 +171,6 @@ export const filterFactoryPokemons = (
   }
 
   if (stat.level === 100) {
-    
     if (stat.times < 5) {
       return pokemon.group >= 4 && pokemon.group <= stat.times + 3;
     }

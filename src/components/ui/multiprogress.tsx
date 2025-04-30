@@ -2,12 +2,19 @@ import * as React from 'react';
 import * as ProgressPrimitive from '@radix-ui/react-progress';
 import { cn } from '@/lib/utils';
 
-type MultiProgressProps = React.ComponentProps<typeof ProgressPrimitive.Root> & {
+type MultiProgressProps = React.ComponentProps<
+  typeof ProgressPrimitive.Root
+> & {
   value1: number; // 0〜100
   value2: number; // 0〜100
 };
 
-function MultiProgress({ className, value1, value2, ...props }: MultiProgressProps) {
+function MultiProgress({
+  className,
+  value1,
+  value2,
+  ...props
+}: MultiProgressProps) {
   const clampedValue1 = Math.max(0, Math.min(100, value1));
   const clampedValue2 = Math.max(clampedValue1, Math.min(100, value2)); // value2 >= value1 前提
 

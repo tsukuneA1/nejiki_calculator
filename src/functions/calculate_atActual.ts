@@ -3,7 +3,10 @@ import { Move } from '@/types/move';
 import { calculateStatus } from './calculate_status';
 import { Pokemon } from '@/types/pokemon';
 
-export const calculateAtActual = (attacker: Attacker, settings:{level: number, times: number}) => {
+export const calculateAtActual = (
+  attacker: Attacker,
+  settings: { level: number; times: number }
+) => {
   const sm = calculateSM(attacker.rank);
   const am = calculateAM(attacker.ability!, attacker.move!);
   const am2 = calculateAM2(attacker.ability!, attacker.move!);

@@ -23,7 +23,11 @@ export const Damage = () => {
   const damageText = `${minDamage}~${maxDamage} (${Math.ceil((minDamage / hActual) * 1000) / 10}%~${Math.ceil((maxDamage / hActual) * 1000) / 10}%)`;
   return (
     <div>
-      <MultiProgress value1={(minDamage/status.hp)*100} value2={(maxDamage/status.hp)*100} className='w-[80%]'/>
+      <MultiProgress
+        value1={(minDamage / status.hp) * 100}
+        value2={(maxDamage / status.hp) * 100}
+        className="w-[80%]"
+      />
       <div className="text-black">{damageText}</div>
     </div>
   );
@@ -33,8 +37,8 @@ const calculateMinMaxDamage = (
   attacker: Attacker,
   defender: Defender,
   settings: {
-    level: number,
-    times: number,
+    level: number;
+    times: number;
   },
   env: Env
 ) => {
@@ -47,8 +51,8 @@ const calculateSumDamage = (
   attackers: Attacker[],
   defender: Defender,
   settings: {
-    level: number,
-    times: number,
+    level: number;
+    times: number;
   },
   env: Env,
   hp: number

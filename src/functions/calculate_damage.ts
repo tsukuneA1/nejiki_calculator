@@ -13,8 +13,8 @@ export const calculateDamage = (
   attacker: Attacker,
   defender: Defender,
   settings: {
-    level: number,
-    times: number
+    level: number;
+    times: number;
   },
   env: Env
 ) => {
@@ -58,7 +58,8 @@ export const calculateDamage = (
   const damage =
     Math.floor(
       (Math.floor(
-        (Math.floor((settings.level * 2) / 5 + 2) * finalMovePower * attack) / defense
+        (Math.floor((settings.level * 2) / 5 + 2) * finalMovePower * attack) /
+          defense
       ) /
         50) *
         ma +

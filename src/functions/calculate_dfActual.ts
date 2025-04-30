@@ -8,8 +8,8 @@ export const calculateDfActual = (
   attacker: Attacker,
   defender: Defender,
   settings: {
-    level: number,
-    times: number
+    level: number;
+    times: number;
   }
 ) => {
   const bSM = calculateSM(defender.bRank);

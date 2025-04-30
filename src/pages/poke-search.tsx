@@ -46,7 +46,11 @@ export default function PokeSearch() {
   const filteredSortedFactoryPokemons = factoryPokemons
     .filter((pokemon) => {
       const isItem = item == 'なし' || pokemon.item === item;
-      const isLevel = filterFactoryPokemons(pokemon, { level, times, isNejiki });
+      const isLevel = filterFactoryPokemons(pokemon, {
+        level,
+        times,
+        isNejiki,
+      });
       const isAbility =
         ability == 'なし' ||
         pokemon.pokemon.ability1 === ability ||
