@@ -22,6 +22,7 @@ import { EnvCard } from '@/components/env-card';
 import { Attackers } from '@/components/attackers';
 import { DefenderReserve } from '@/components/defender-reserve';
 import { findItems, timesItems } from '@/constants/ivs';
+import Head from 'next/head';
 
 export default function Home() {
   const settings = useSelector((state: RootState) => state.settings);
@@ -55,78 +56,96 @@ export default function Home() {
   };
 
   return (
-    <MainLayout>
-      <div className="flex items-center space-x-2">
-        <Checkbox
-          id="terms"
-          checked={settings.level == 50}
-          onClick={() => handleLevelChange(50)}
-          className="w-5 h-5 border-2"
+    <>
+      <Head>
+        <title>金ネジキダメージ計算機 - ポケモンプラチナ/HGSS対応</title>
+        <meta
+          name="description"
+          content="ポケモンバトルファクトリー（金ネジキ）用のダメージ計算ツール。HGSS/プラチナ対応、技や特性、持ち物を設定して詳細なダメージをチェック！"
         />
-        <label
-          htmlFor="terms"
-          className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-        >
-          50レベル
-        </label>
-        <Checkbox
-          id="terms"
-          checked={settings.level == 100}
-          onClick={() => handleLevelChange(100)}
-          className="w-5 h-5 border-2"
+        <meta property="og:title" content="金ネジキダメージ計算機" />
+        <meta
+          property="og:description"
+          content="ポケモンバトルファクトリーのダメージ計算ができるツールです。"
         />
-        <label
-          htmlFor="terms"
-          className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-        >
-          オープンレベル
-        </label>
-      </div>
-      <div className="mt-2">
-        <Select
-          onValueChange={(value) => handleTimesChange(Number(value))}
-          defaultValue={'0'}
-        >
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="周回回数を選択" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>周回回数</SelectLabel>
-              {timesItems.map((timesItem, i) => (
-                <SelectItem key={i} value={`${i}`}>
-                  {timesItem}
-                </SelectItem>
-              ))}
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div className="xl:flex flex flex-col items-center xl:flex-row xl:items-start xl:justify-center">
-        <div>
-          <Attackers />
+        <meta property="og:image" content="https://nejiki-calculator.com/ogp.png" />
+        <meta property="og:url" content="https://nejiki-calculator.com/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://nejiki-calculator.com/" />
+      </Head>
+      <MainLayout>
+        <div className="flex items-center space-x-2">
+          <Checkbox
+            id="terms"
+            checked={settings.level == 50}
+            onClick={() => handleLevelChange(50)}
+            className="w-5 h-5 border-2"
+          />
+          <label
+            htmlFor="terms"
+            className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            50レベル
+          </label>
+          <Checkbox
+            id="terms"
+            checked={settings.level == 100}
+            onClick={() => handleLevelChange(100)}
+            className="w-5 h-5 border-2"
+          />
+          <label
+            htmlFor="terms"
+            className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            オープンレベル
+          </label>
         </div>
-        <Button
-          onClick={handleReverse}
-          className="w-10 h-10 my-10 xl:mt-40 xl:mx-8"
-        >
-          <SystemUiconsSort className="xl:hidden w-8 h-8" />
-          <SystemUiconsReverse className="xl:block hidden w-8 h-8" />
-        </Button>
+        <div className="mt-2">
+          <Select
+            onValueChange={(value) => handleTimesChange(Number(value))}
+            defaultValue={'0'}
+          >
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="周回回数を選択" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>周回回数</SelectLabel>
+                {timesItems.map((timesItem, i) => (
+                  <SelectItem key={i} value={`${i}`}>
+                    {timesItem}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
 
-        <div className="xl:mt-0">
+        <div className="xl:flex flex flex-col items-center xl:flex-row xl:items-start xl:justify-center">
           <div>
-            <h1 className="text-3xl font-bold ml-3 my-4">Defender</h1>
-            <DefenderReserve />
-            <DefenderCard />
+            <Attackers />
           </div>
-          <div>
-            <h1 className="text-3xl font-bold ml-3 my-4">Environment</h1>
-            <EnvCard />
+          <Button
+            onClick={handleReverse}
+            className="w-10 h-10 my-10 xl:mt-40 xl:mx-8"
+          >
+            <SystemUiconsSort className="xl:hidden w-8 h-8" />
+            <SystemUiconsReverse className="xl:block hidden w-8 h-8" />
+          </Button>
+
+          <div className="xl:mt-0">
+            <div>
+              <h1 className="text-3xl font-bold ml-3 my-4">Defender</h1>
+              <DefenderReserve />
+              <DefenderCard />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold ml-3 my-4">Environment</h1>
+              <EnvCard />
+            </div>
           </div>
         </div>
-      </div>
-    </MainLayout>
+      </MainLayout>
+    </>
   );
 }

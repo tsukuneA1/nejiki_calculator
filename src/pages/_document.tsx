@@ -14,10 +14,10 @@ export default function Document() {
           property="og:description"
           content="ポケモンバトルファクトリーのダメージ計算ができるツールです。"
         />
-        <meta property="og:image" content="https://yourdomain.com/ogp.png" />
-        <meta property="og:url" content="https://yourdomain.com/" />
+        <meta property="og:image" content="https://nejiki-calculator.com/ogp.png" />
+        <meta property="og:url" content="https://nejiki-calculator.com/" />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://yourdomain.com/" />
+        <link rel="canonical" href="https://nejiki-calculator.com/" />
       </Head>
       <body className="antialiased">
         <Main />
