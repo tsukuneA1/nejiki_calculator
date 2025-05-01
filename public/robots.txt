@@ -1,3 +1,9 @@
+# *
 User-agent: *
 Allow: /
-sitemap: https://nejiki-calculator.com/sitemap.xml
+
+# Host
+Host: https://nejiki-calculator.com
+
+# Sitemaps
+Sitemap: https://nejiki-calculator.com/sitemap.xml
