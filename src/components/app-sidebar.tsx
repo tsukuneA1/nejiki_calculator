@@ -31,7 +31,7 @@ const items = [
   },
   {
     title: 'Twitter(X)',
-    url: 'https://x.com/kinezikidame',
+    url: 'https://x.com/tsukune_dev',
     icon: Twitter,
   },
 ];
