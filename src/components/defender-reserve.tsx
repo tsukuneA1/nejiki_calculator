@@ -60,7 +60,7 @@ export const DefenderReserve = () => {
         onValueChange={(value) => setSelectedId(value)}
       >
         {spares.length == 0 ? (
-          <div className="text-black">スペアのポケモンを入力してください</div>
+          <div className="text-black">スペアのポケモンを入力</div>
         ) : (
           spares.map((spare) => {
             return (
