@@ -58,7 +58,7 @@ export const AttackerReserve = () => {
   };
 
   return (
-    <div className="flex items-center justify-between border-1 rounded-lg p-2">
+    <div className="flex items-center justify-between border-1 rounded-lg p-2 bg-white">
       <ToggleGroup
         type="single"
         variant="outline"

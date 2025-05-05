@@ -4,6 +4,7 @@ import { PokemonCard } from './pokemon-card';
 import { Button } from './ui/button';
 import { addAttacker, deleteAttacker } from '@/store/slices/attackerSlice';
 import { AttackerReserve } from './attacker-reserve';
+import { Swords } from 'lucide-react';
 
 export const Attackers = () => {
   const attackers = useSelector((state: RootState) => state.attacker);
@@ -17,7 +18,10 @@ export const Attackers = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold ml-3 my-4">Attacker</h1>
+      <div className="flex items-center bg-white rounded-lg my-2 border">
+        <Swords className="w-10 h-10 mx-2 " />
+        <h1 className="text-3xl font-bold ml-3 my-4 ">Attacker</h1>
+      </div>
       <AttackerReserve />
       {attackers.map((_, index) => (
         <div key={index}>
