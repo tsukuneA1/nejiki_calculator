@@ -113,7 +113,7 @@ export default function PokeSearch() {
             <Input
               value={selectedPokemon}
               onChange={(e) => setSelectedPokemon(e.target.value)}
-              className="w-[180px]"
+              className="w-[180px] bg-white"
             />
           </div>
           <div className="flex items-center gap-2">
@@ -122,7 +122,7 @@ export default function PokeSearch() {
               onValueChange={(value) => handleTimesChange(parseInt(value))}
               defaultValue={'0'}
             >
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-[180px] bg-white">
                 <SelectValue placeholder="周回回数を選択" />
               </SelectTrigger>
               <SelectContent>
@@ -143,7 +143,7 @@ export default function PokeSearch() {
               onValueChange={(value) => setAbility(value)}
               defaultValue={'なし'}
             >
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-[180px] bg-white">
                 <SelectValue placeholder="特性を選択" />
               </SelectTrigger>
               <SelectContent>
@@ -164,7 +164,7 @@ export default function PokeSearch() {
               onValueChange={(value) => setItem(value)}
               defaultValue={'なし'}
             >
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-[180px] bg-white">
                 <SelectValue placeholder="アイテムを選択" />
               </SelectTrigger>
               <SelectContent>
@@ -185,7 +185,7 @@ export default function PokeSearch() {
               id="terms"
               checked={level == 50}
               onClick={() => handleLevelChange(50)}
-              className="w-5 h-5 border-2"
+              className="w-5 h-5 border-2 bg-white"
             />
             <label
               htmlFor="terms"
@@ -197,7 +197,7 @@ export default function PokeSearch() {
               id="terms"
               checked={level == 100}
               onClick={() => handleLevelChange(100)}
-              className="w-5 h-5 border-2"
+              className="w-5 h-5 border-2 bg-white"
             />
             <label
               htmlFor="terms"
@@ -215,7 +215,7 @@ export default function PokeSearch() {
               onValueChange={(value) => setSortItem(value)}
               defaultValue={'なし'}
             >
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-[180px] bg-white">
                 <SelectValue placeholder="項目を選択" />
               </SelectTrigger>
               <SelectContent>

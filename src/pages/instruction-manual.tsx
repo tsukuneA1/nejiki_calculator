@@ -18,7 +18,7 @@ export async function getStaticProps() {
 export default function InstructionManual({ markdown }: { markdown: string }) {
   return (
     <SubLayout>
-      <div className="prose min-h-80 w-full rounded-lg border-2 border-gray-300 p-5 max-w-3xl">
+      <div className="prose min-h-80 w-full rounded-lg border-2 border-gray-300 p-5 max-w-3xl bg-white">
         <ReactMarkdown
           rehypePlugins={[rehypeRaw]}
           components={{
