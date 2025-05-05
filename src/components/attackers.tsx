@@ -19,8 +19,8 @@ export const Attackers = () => {
   return (
     <div>
       <div className="flex items-center bg-white rounded-lg my-2 border">
-        <Swords className="w-10 h-10 mx-2 text-black" />
-        <h1 className="text-3xl font-bold ml-3 my-4 text-black">Attacker</h1>
+        <Swords className="w-7 h-7 mx-2 text-black" />
+        <h1 className="text-2xl font-bold ml-3 my-4 text-black">Attacker</h1>
       </div>
       <AttackerReserve />
       {attackers.map((_, index) => (

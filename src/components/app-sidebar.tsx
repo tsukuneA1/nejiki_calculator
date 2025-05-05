@@ -34,6 +34,11 @@ const items = [
     url: 'https://x.com/tsukune_dev',
     icon: Twitter,
   },
+  {
+    title: '問い合わせフォーム',
+    url: 'https://docs.google.com/forms/d/e/1FAIpQLSc2CCe5aTpxMj_tg1Yk5N0l7K9p2bKot0l0-j21N1Q5akNL8A/viewform?usp=dialog',
+    icon: null
+  }
 ];
 
 export function AppSidebar() {
@@ -48,7 +53,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link href={item.url}>
-                      <item.icon />
+                      {item.icon && <item.icon />}
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>

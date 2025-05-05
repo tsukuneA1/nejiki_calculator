@@ -145,8 +145,8 @@ export default function Home() {
           <div className="xl:mt-0">
             <div>
               <div className="flex items-center bg-white rounded-lg my-2 border">
-                <ShieldPlus className="w-10 h-10 mx-2 text-black" />
-                <h1 className="text-3xl font-bold ml-3 my-4 text-black">
+                <ShieldPlus className="w-7 h-7 mx-2 text-black" />
+                <h1 className="text-2xl font-bold ml-3 my-4 text-black">
                   Defender
                 </h1>
               </div>
@@ -155,8 +155,8 @@ export default function Home() {
             </div>
             <div>
               <div className="flex items-center bg-white rounded-lg my-2 border">
-                <CloudSunRain className="w-10 h-10 mx-2 text-black" />
-                <h1 className="text-3xl font-bold ml-3 my-4 text-black">
+                <CloudSunRain className="w-7 h-7 mx-2 text-black" />
+                <h1 className="text-2xl font-bold ml-3 my-4 text-black">
                   Environment
                 </h1>
               </div>

@@ -14,19 +14,19 @@ function retColor({ type, percentage }: { type: string; percentage: number }) {
     if (type == 'main') {
       return 'bg-green-500';
     } else {
-      return 'bg-green-400';
+      return 'bg-green-300';
     }
   } else if (100 - percentage >= 21.0) {
     if (type == 'main') {
       return 'bg-yellow-500';
     } else {
-      return 'bg-yellow-400';
+      return 'bg-yellow-300';
     }
   } else {
     if (type == 'main') {
       return 'bg-red-500';
     } else {
-      return 'bg-red-400';
+      return 'bg-red-300';
     }
   }
 }
