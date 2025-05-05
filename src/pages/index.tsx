@@ -92,7 +92,7 @@ export default function Home() {
           />
           <label
             htmlFor="terms"
-            className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
           >
             50レベル
           </label>
@@ -104,7 +104,7 @@ export default function Home() {
           />
           <label
             htmlFor="terms"
-            className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
           >
             オープンレベル
           </label>
@@ -114,7 +114,7 @@ export default function Home() {
             onValueChange={(value) => handleTimesChange(Number(value))}
             defaultValue={'0'}
           >
-            <SelectTrigger className="w-[180px] bg-white">
+            <SelectTrigger className="w-[180px] bg-white text-black">
               <SelectValue placeholder="周回回数を選択" />
             </SelectTrigger>
             <SelectContent>
@@ -145,16 +145,20 @@ export default function Home() {
           <div className="xl:mt-0">
             <div>
               <div className="flex items-center bg-white rounded-lg my-2 border">
-                <ShieldPlus className="w-10 h-10 mx-2 " />
-                <h1 className="text-3xl font-bold ml-3 my-4 ">Defender</h1>
+                <ShieldPlus className="w-10 h-10 mx-2 text-black" />
+                <h1 className="text-3xl font-bold ml-3 my-4 text-black">
+                  Defender
+                </h1>
               </div>
               <DefenderReserve />
               <DefenderCard />
             </div>
             <div>
               <div className="flex items-center bg-white rounded-lg my-2 border">
-                <CloudSunRain className="w-10 h-10 mx-2 " />
-                <h1 className="text-3xl font-bold ml-3 my-4 ">Environment</h1>
+                <CloudSunRain className="w-10 h-10 mx-2 text-black" />
+                <h1 className="text-3xl font-bold ml-3 my-4 text-black">
+                  Environment
+                </h1>
               </div>
               <EnvCard />
             </div>

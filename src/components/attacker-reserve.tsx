@@ -64,23 +64,30 @@ export const AttackerReserve = () => {
         variant="outline"
         onValueChange={(value) => setSelectedId(value)}
       >
-        {spares.map((spare) => {
-          return (
-            <ToggleGroupItem
-              value={spare.id.toString()}
-              aria-label={spare.id.toString()}
-              onClick={() => handleClickSelectedPoke(spare)}
-              key={spare.id}
-            >
-              <Avatar>
-                <AvatarImage src={spare.pokemon.imageSrc} className="w-9 h-9" />
-                <AvatarFallback>
-                  {spare.pokemon.name.slice(0, 2)}
-                </AvatarFallback>
-              </Avatar>
-            </ToggleGroupItem>
-          );
-        })}
+        {spares.length == 0 ? (
+          <div className='text-black'>スペアのポケモンを入力してください</div>
+        ) : (
+          spares.map((spare) => {
+            return (
+              <ToggleGroupItem
+                value={spare.id.toString()}
+                aria-label={spare.id.toString()}
+                onClick={() => handleClickSelectedPoke(spare)}
+                key={spare.id}
+              >
+                <Avatar>
+                  <AvatarImage
+                    src={spare.pokemon.imageSrc}
+                    className="w-9 h-9"
+                  />
+                  <AvatarFallback>
+                    {spare.pokemon.name.slice(0, 2)}
+                  </AvatarFallback>
+                </Avatar>
+              </ToggleGroupItem>
+            );
+          })
+        )}
       </ToggleGroup>
       <div className="flex items-center gap-2">
         <AutoComplete

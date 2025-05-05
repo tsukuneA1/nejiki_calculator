@@ -9,6 +9,29 @@ type MultiProgressProps = React.ComponentProps<
   value2: number; // 0〜100
 };
 
+
+function retColor({type, percentage}: {type: string, percentage: number}) {
+  if (100-percentage >= 52.01) {
+    if (type == "main") {
+      return "bg-green-500"
+    }else {
+      return "bg-green-400"
+    }
+  }else if(100-percentage >= 21.00){
+    if (type == "main") {
+      return "bg-yellow-500"
+    }else {
+      return "bg-yellow-400"
+    }
+  }else {
+    if (type == "main") {
+      return "bg-red-500"
+    }else {
+      return "bg-red-400"
+    }
+  }
+}
+
 function MultiProgress({
   className,
   value1,
@@ -29,13 +52,13 @@ function MultiProgress({
     >
       {/* First range: 0〜value1 */}
       <div
-        className="absolute left-0 top-0 h-full bg-primary transition-all"
+        className={`absolute left-0 top-0 h-full ${retColor({type: "main", percentage: clampedValue1})} transition-all`}
         style={{ width: `${clampedValue1}%` }}
       />
 
       {/* Second range: value1〜value2 */}
       <div
-        className="absolute top-0 h-full bg-zinc-400 transition-all"
+        className={`absolute top-0 h-full ${retColor({type: "sub", percentage: clampedValue1})} transition-all`}
         style={{
           left: `${clampedValue1}%`,
           width: `${clampedValue2 - clampedValue1}%`,
