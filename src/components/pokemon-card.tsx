@@ -139,7 +139,7 @@ export const PokemonCard = ({
                 badgeName="ランク補正"
                 setRank={handleRankChange}
               />
-              <Badge className="w-18">技</Badge>
+              <Badge className="w-18 h-9">技</Badge>
               <div className="sm:grid sm:grid-cols-2 gap-2 ">
                 <MoveCard
                   move={pokemon.moves[0]}

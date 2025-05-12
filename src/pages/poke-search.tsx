@@ -24,6 +24,7 @@ import { CardTitle } from '@/components/ui/card';
 import { AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Avatar } from '@radix-ui/react-avatar';
 import { CardLayout } from '@/layouts/card/card-layout';
+import { TypeBadge } from '@/components/type-badge';
 
 export default function PokeSearch() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
@@ -317,7 +318,16 @@ const ListItem = ({
       }
       content={
         <div className="space-y-2">
-          <DescriptionBadge badge="タイプ" description={types} />
+          <div className="flex items-center gap-2">
+            <Badge className="w-18 h-9">タイプ</Badge>
+            <div className="flex gap-1">
+              <TypeBadge type={pokemon.pokemon.type1} />
+
+              {pokemon.pokemon.type2 && (
+                <TypeBadge type={pokemon.pokemon.type2} />
+              )}
+            </div>
+          </div>
           <DescriptionBadge
             badge="ステータス"
             description={statusComponent()}

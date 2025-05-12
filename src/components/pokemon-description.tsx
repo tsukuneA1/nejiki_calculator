@@ -10,6 +10,7 @@ import { Select } from './ui/select';
 import { SelectContent } from './ui/select';
 import { Badge } from './ui/badge';
 import { ivItems } from '@/constants/ivs';
+import { TypeBadge } from './type-badge';
 
 type PokemonDescriptionProps = {
   factroyPokemon: FactoryPokemon;
@@ -44,9 +45,12 @@ export const PokemonDescription = ({
     <div className="space-y-2">
       <div className="flex items-center gap-2">
         <Badge className="w-18 h-9">タイプ</Badge>
-        <div>
-          {factroyPokemon.pokemon.type1}
-          {factroyPokemon.pokemon.type2 && ` / ${factroyPokemon.pokemon.type2}`}
+        <div className="flex gap-1">
+          <TypeBadge type={factroyPokemon.pokemon.type1} />
+
+          {factroyPokemon.pokemon.type2 && (
+            <TypeBadge type={factroyPokemon.pokemon.type2} />
+          )}
         </div>
       </div>
       <div className="flex items-center gap-2">
