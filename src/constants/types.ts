@@ -40,7 +40,7 @@ export const TypeItems: TypeItem[] = [
     color: 'bg-pink-400',
     icon: 'images/typeIcon/フェアリー.png',
   },
-  { type: 'はがね', color: 'bg-gray-400', icon: 'images/typeIcon/はがね.png' },
+  { type: 'はがね', color: 'bg-slate-400', icon: 'images/typeIcon/はがね.png' },
   {
     type: 'じめん',
     color: 'bg-yellow-800',

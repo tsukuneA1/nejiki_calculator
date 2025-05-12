@@ -24,6 +24,7 @@ import { CardTitle } from '@/components/ui/card';
 import { AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Avatar } from '@radix-ui/react-avatar';
 import { CardLayout } from '@/layouts/card/card-layout';
+import { TypeBadge } from '@/components/type-badge';
 
 export default function PokeSearch() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
@@ -269,7 +270,6 @@ const ListItem = ({
   times: number;
 }) => {
   const status = calculateStatus(pokemon, level, 4 * (times - 1));
-  const types = `${pokemon.pokemon.type1}${pokemon.pokemon.type2 ? `/${pokemon.pokemon.type2}` : ''}`;
   const statusSummary = [
     `H:${status.hp}(${pokemon.hp})`,
     `A:${status.attack}(${pokemon.attack})`,
@@ -317,7 +317,17 @@ const ListItem = ({
       }
       content={
         <div className="space-y-2">
-          <DescriptionBadge badge='タイプ' description={types} />
+          <div className="flex items-center gap-2">
+            <Badge className="w-18 h-9">タイプ</Badge>
+            <div className="flex gap-1">
+              {pokemon.pokemon.type1 && (
+                <TypeBadge type={pokemon.pokemon.type1} />
+              )}
+              {pokemon.pokemon.type2 && (
+                <TypeBadge type={pokemon.pokemon.type2} />
+              )}
+            </div>
+          </div>
           <DescriptionBadge
             badge="ステータス"
             description={statusComponent()}
@@ -361,7 +371,7 @@ const MoveItem = ({ move }: { move: Move }) => {
         </div>
         <div className="flex gap-2 items-center">
           <div className="w-16">タイプ</div>
-          <div>: {move.type}</div>
+          <div>: <TypeBadge type={move.type}/></div>
         </div>
         <div className="flex gap-2 items-center">
           <div className="w-16">威力</div>
