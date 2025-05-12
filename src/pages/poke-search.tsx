@@ -318,16 +318,7 @@ const ListItem = ({
       }
       content={
         <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <Badge className="w-18 h-9">タイプ</Badge>
-            <div className="flex gap-1">
-              <TypeBadge type={pokemon.pokemon.type1} />
-
-              {pokemon.pokemon.type2 && (
-                <TypeBadge type={pokemon.pokemon.type2} />
-              )}
-            </div>
-          </div>
+          <DescriptionBadge badge='タイプ' description={types} />
           <DescriptionBadge
             badge="ステータス"
             description={statusComponent()}

@@ -1,5 +1,4 @@
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
-import { Badge } from './ui/badge';
 import { Move } from '@/types/move';
 import { TypeBadge } from './type-badge';
 
