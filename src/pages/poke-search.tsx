@@ -24,7 +24,6 @@ import { CardTitle } from '@/components/ui/card';
 import { AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Avatar } from '@radix-ui/react-avatar';
 import { CardLayout } from '@/layouts/card/card-layout';
-import { TypeBadge } from '@/components/type-badge';
 
 export default function PokeSearch() {
   const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
