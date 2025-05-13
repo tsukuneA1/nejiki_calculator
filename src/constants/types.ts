@@ -19,7 +19,7 @@ export const TypeItems: TypeItem[] = [
   },
   {
     type: 'エスパー',
-    color: 'bg-purple-400',
+    color: 'bg-pink-500',
     icon: 'images/typeIcon/エスパー.png',
   },
   { type: 'むし', color: 'bg-lime-400', icon: 'images/typeIcon/むし.png' },

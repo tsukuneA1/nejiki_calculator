@@ -271,21 +271,21 @@ const ListItem = ({
 }) => {
   const status = calculateStatus(pokemon, level, 4 * (times - 1));
   const statusSummary = [
-    `H:${status.hp}(${pokemon.hp})`,
-    `A:${status.attack}(${pokemon.attack})`,
-    `B:${status.defense}(${pokemon.defense})`,
-    `C:${status.spAttack}(${pokemon.spAttack})`,
-    `D:${status.spDefense}(${pokemon.spDefense})`,
-    `S:${status.speed}(${pokemon.speed})`,
-  ].join(' ');
+    `${status.hp}(${pokemon.hp})`,
+    `${status.attack}(${pokemon.attack})`,
+    `${status.defense}(${pokemon.defense})`,
+    `${status.spAttack}(${pokemon.spAttack})`,
+    `${status.spDefense}(${pokemon.spDefense})`,
+    `${status.speed}(${pokemon.speed})`,
+  ].join('-');
   const breafStatus = [
-    `H:${status.hp}`,
-    `A:${status.attack}`,
-    `B:${status.defense}`,
-    `C:${status.spAttack}`,
-    `D:${status.spDefense}`,
-    `S:${status.speed}`,
-  ].join(' ');
+    `${status.hp}`,
+    `${status.attack}`,
+    `${status.defense}`,
+    `${status.spAttack}`,
+    `${status.spDefense}`,
+    `${status.speed}`,
+  ].join('-');
   const statusComponent = () => {
     return (
       <>
