@@ -1,3 +1,5 @@
+import { CardTypeStyles } from "@/constants/cardTypeStyles";
+import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import { addAttacker, deleteAttacker } from "@/store/slices/attackerSlice";
 import type { RootState } from "@/store/store";
 import { Swords } from "lucide-react";
@@ -17,30 +19,42 @@ export const Attackers = () => {
 	};
 
 	return (
-		<div>
-			<div className="flex items-center bg-gradient-to-r from-red-500 to-orange-500 text-white rounded-t-lg my-2 border">
-				<Swords className="w-7 h-7 mx-2 " />
-				<h1 className="text-2xl font-bold ml-3 my-4">Attacker</h1>
-			</div>
-			<AttackerReserve />
-			{attackers.map((_, index) => (
-				<div key={index}>
-					<PokemonCard pos={index} handleDelete={() => handleDelete(index)} />
+		<div className="flex flex-col gap-2">
+			<MainCardLayout
+				cardStyle={CardTypeStyles[0]}
+				header={
+					<>
+						<Swords className="w-7 h-7 mx-2" />
+						<h1 className="text-2xl font-bold ml-3 my-4">Attacker</h1>
+					</>
+				}
+				content={
+					<>
+						<AttackerReserve />
+						<PokemonCard pos={0} handleDelete={() => handleDelete(0)} />
+					</>
+				}
+			/>
+			<div className="flex flex-col gap-2">
+				{attackers.slice(1).map((_, index) => (
+					<div key={index+1}>
+						<PokemonCard pos={index+1} handleDelete={() => handleDelete(index)} />
+					</div>
+				))}
+				<div className="flex justify-center">
+					<Button
+						onClick={() =>
+							dispatch(
+								addAttacker({
+									pokemon: attackers[attackers.length - 1].factoryPokemon!,
+									iv: attackers[attackers.length - 1].iv,
+								}),
+							)
+						}
+					>
+						追加
+					</Button>
 				</div>
-			))}
-			<div className="flex justify-center">
-				<Button
-					onClick={() =>
-						dispatch(
-							addAttacker({
-								pokemon: attackers[attackers.length - 1].factoryPokemon!,
-								iv: attackers[attackers.length - 1].iv,
-							}),
-						)
-					}
-				>
-					追加
-				</Button>
 			</div>
 		</div>
 	);

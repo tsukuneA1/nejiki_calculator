@@ -10,7 +10,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
 				<AppSidebar />
 				<div className="flex flex-col flex-grow">
 					<MainHeader />
-					<main className="flex flex-col flex-grow py-4 px-2 mb-18 sm:px-5 min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 dark:from-slate-950 dark:to-slate-900">
+					<main className="py-4 px-2 mb-18 sm:px-5 min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 dark:from-slate-950 dark:to-slate-900">
 						{children}
 					</main>
 					<MainFooter />

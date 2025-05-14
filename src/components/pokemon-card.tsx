@@ -1,3 +1,4 @@
+import { CardTypeStyles } from "@/constants/cardTypeStyles";
 import { CardLayout } from "@/layouts/card/card-layout";
 import {
 	setAbility,
@@ -27,6 +28,7 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { CardTitle } from "./ui/card";
 import { Checkbox } from "./ui/checkbox";
+import clsx from "clsx";
 
 export const PokemonCard = ({
 	pos,
@@ -79,10 +81,11 @@ export const PokemonCard = ({
 	const data = pokemon.pokemon;
 
 	return (
-		<CardLayout
-			header={
-				<div className="flex items-center justify-between w-full">
-					<div className="flex items-center gap-2">
+		<div className={`${pos != 0 && clsx(CardTypeStyles[0].cardStyle, "bg-white rounded-lg p-4")}`}>
+			<div className="flex items-center justify-between w-full mb-2">
+				<div className="flex items-center justify-between gap-2 p-2 border rounded-lg w-full">
+          <div className="flex items-center gap-2">
+          <div className="w-16 h-16 rounded-lg flex items-center justify-center">
 						<Avatar>
 							<AvatarImage
 								src={data.imageSrc}
@@ -90,119 +93,116 @@ export const PokemonCard = ({
 							/>
 							<AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
 						</Avatar>
-						<CardTitle>
-							<AutoComplete
-								setPokemon={handlePokemonChange}
-								level={settings.level}
-								times={settings.times}
-								isNejiki={settings.isNejiki}
-								trigger={
-									<Button
-										variant="ghost"
-										className="w-[150px] justify-start text-lg border-1 border-gray-300 w-"
-									>
-										{pokemon ? <>{pokemon.pokemon.name}</> : <>Set Pokemon</>}
-									</Button>
-								}
-							/>
-						</CardTitle>
 					</div>
-
-					<div className="flex justify-end gap-2">
-						<Button size="icon" onClick={handleDelete}>
-							<MaterialSymbolsDeleteOutline />
+					<AutoComplete
+						setPokemon={handlePokemonChange}
+						level={settings.level}
+						times={settings.times}
+						isNejiki={settings.isNejiki}
+						trigger={
+							<Button
+								variant="ghost"
+								className="w-[150px] justify-start text-lg border-1 border-gray-300 w-"
+							>
+								{pokemon ? <>{pokemon.pokemon.name}</> : <>Set Pokemon</>}
+							</Button>
+						}
+					/>
+          </div>
+					<div className="flex items-center gap-2">
+          <Button size="icon" onClick={handleDelete}>
+						<MaterialSymbolsDeleteOutline />
+					</Button>
+					{isExpanded ? (
+						<Button size="icon" onClick={handleExpand}>
+							<FamiconsChevronCollapseOutline />
 						</Button>
-						{isExpanded ? (
-							<Button size="icon" onClick={handleExpand}>
-								<FamiconsChevronCollapseOutline />
-							</Button>
-						) : (
-							<Button size="icon" onClick={handleExpand}>
-								<IonChevronExpandOutline />
-							</Button>
-						)}
-					</div>
+					) : (
+						<Button size="icon" onClick={handleExpand}>
+							<IonChevronExpandOutline />
+						</Button>
+					)}
+          </div>
+					
 				</div>
-			}
-			content={
-				isExpanded && (
-					<>
-						<PokemonDescription
-							factroyPokemon={pokemon}
-							setAbility={handleAbilityChange}
-							setItem={handleItemChange}
-							setIv={(iv) => dispatch(setIv({ iv: iv, pos: pos }))}
-							currentAbility={attacker.ability || "なし"}
-							currentItem={attacker.item || "なし"}
-							currentIv={attacker.iv}
+			</div>
+			{isExpanded && (
+				<div className="flex flex-col gap-2">
+					<PokemonDescription
+						factroyPokemon={pokemon}
+						setAbility={handleAbilityChange}
+						setItem={handleItemChange}
+						setIv={(iv) => dispatch(setIv({ iv: iv, pos: pos }))}
+						currentAbility={attacker.ability || "なし"}
+						currentItem={attacker.item || "なし"}
+						currentIv={attacker.iv}
+					/>
+					<Rank
+						rank={attacker.rank}
+						badgeName="ランク補正"
+						setRank={handleRankChange}
+					/>
+					<Badge className="w-full h-9">技</Badge>
+					<div className="sm:grid sm:grid-cols-2 gap-2 ">
+						<MoveCard
+							move={pokemon.moves[0]}
+							handleMoveChange={handleMoveChange}
+							isSelected={move === pokemon.moves[0]}
 						/>
-						<Rank
-							rank={attacker.rank}
-							badgeName="ランク補正"
-							setRank={handleRankChange}
+						<MoveCard
+							move={pokemon.moves[1]}
+							handleMoveChange={handleMoveChange}
+							isSelected={move === pokemon.moves[1]}
 						/>
-						<Badge className="w-full h-9">技</Badge>
-						<div className="sm:grid sm:grid-cols-2 gap-2 ">
-							<MoveCard
-								move={pokemon.moves[0]}
-								handleMoveChange={handleMoveChange}
-								isSelected={move === pokemon.moves[0]}
-							/>
-							<MoveCard
-								move={pokemon.moves[1]}
-								handleMoveChange={handleMoveChange}
-								isSelected={move === pokemon.moves[1]}
-							/>
-							<MoveCard
-								move={pokemon.moves[2]}
-								handleMoveChange={handleMoveChange}
-								isSelected={move === pokemon.moves[2]}
-							/>
-							<MoveCard
-								move={pokemon.moves[3]}
-								handleMoveChange={handleMoveChange}
-								isSelected={move === pokemon.moves[3]}
-							/>
-						</div>
-						<div>
-							<div className="flex gap-2">
-								<div className="flex items-center gap-2">
-									<Checkbox
-										id="terms"
-										checked={isCriticalHit}
-										onClick={() =>
-											dispatch(
-												setCriticalHit({ isCritical: !isCriticalHit, pos }),
-											)
-										}
-										className="w-5 h-5 border-2"
-									/>
-									<label
-										htmlFor="terms"
-										className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-									>
-										急所
-									</label>
-									<Checkbox
-										id="terms"
-										checked={isBurned}
-										onClick={() =>
-											dispatch(setBurned({ isBurned: !isBurned, pos }))
-										}
-										className="w-5 h-5 border-2"
-									/>
-									<label
-										htmlFor="terms"
-										className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-									>
-										やけど
-									</label>
-								</div>
+						<MoveCard
+							move={pokemon.moves[2]}
+							handleMoveChange={handleMoveChange}
+							isSelected={move === pokemon.moves[2]}
+						/>
+						<MoveCard
+							move={pokemon.moves[3]}
+							handleMoveChange={handleMoveChange}
+							isSelected={move === pokemon.moves[3]}
+						/>
+					</div>
+					<div>
+						<div className="flex gap-2">
+							<div className="flex items-center gap-2">
+								<Checkbox
+									id="terms"
+									checked={isCriticalHit}
+									onClick={() =>
+										dispatch(
+											setCriticalHit({ isCritical: !isCriticalHit, pos }),
+										)
+									}
+									className="w-5 h-5 border-2"
+								/>
+								<label
+									htmlFor="terms"
+									className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+								>
+									急所
+								</label>
+								<Checkbox
+									id="terms"
+									checked={isBurned}
+									onClick={() =>
+										dispatch(setBurned({ isBurned: !isBurned, pos }))
+									}
+									className="w-5 h-5 border-2"
+								/>
+								<label
+									htmlFor="terms"
+									className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+								>
+									やけど
+								</label>
 							</div>
 						</div>
-					</>
-				)
-			}
-		/>
+					</div>
+				</div>
+			)}
+		</div>
 	);
 };

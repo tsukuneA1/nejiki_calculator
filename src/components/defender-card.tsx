@@ -1,4 +1,6 @@
+import { CardTypeStyles } from "@/constants/cardTypeStyles";
 import { CardLayout } from "@/layouts/card/card-layout";
+import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import {
 	setBRank,
 	setDRank,
@@ -10,13 +12,14 @@ import {
 import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { Avatar } from "@radix-ui/react-avatar";
+import { ShieldPlus } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { AutoComplete } from "./auto-complete";
+import { DefenderReserve } from "./defender-reserve";
 import { PokemonDescription } from "./pokemon-description";
 import { Rank } from "./rank";
 import { AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
-import { CardTitle } from "./ui/card";
 
 export const DefenderCard = () => {
 	const defender = useSelector((state: RootState) => state.defender);
@@ -30,36 +33,44 @@ export const DefenderCard = () => {
 
 	const data = pokemon.pokemon;
 	return (
-		<CardLayout
+		<MainCardLayout
+			cardStyle={CardTypeStyles[1]}
 			header={
 				<>
-					<Avatar>
-						<AvatarImage
-							src={data.imageSrc}
-							className="w-15 h-15 border-1 border-gray-300 rounded-lg"
-						/>
-						<AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
-					</Avatar>
-					<CardTitle>
-						<AutoComplete
-							setPokemon={handlePokemonChange}
-							level={settings.level}
-							times={settings.times}
-							isNejiki={settings.isNejiki}
-							trigger={
-								<Button
-									variant="ghost"
-									className="w-[150px] justify-start text-lg border-1 border-gray-300"
-								>
-									{pokemon ? <>{pokemon.pokemon.name}</> : <>Set Pokemon</>}
-								</Button>
-							}
-						/>
-					</CardTitle>
+					<ShieldPlus className="w-7 h-7 mx-2" />
+					<h1 className="text-2xl font-bold ml-3 my-4">Defender</h1>
 				</>
 			}
 			content={
 				<>
+					<DefenderReserve />
+
+					<div className="flex items-center border rounded-lg px-2 py-2">
+						<Avatar>
+							<AvatarImage
+								src={data.imageSrc}
+								className="w-15 h-15 border-1 border-gray-300 rounded-lg"
+							/>
+							<AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
+						</Avatar>
+						<div>
+							<AutoComplete
+								setPokemon={handlePokemonChange}
+								level={settings.level}
+								times={settings.times}
+								isNejiki={settings.isNejiki}
+								trigger={
+									<Button
+										variant="ghost"
+										className="w-[150px] justify-start text-lg border-1 border-gray-300"
+									>
+										{pokemon ? <>{pokemon.pokemon.name}</> : <>Set Pokemon</>}
+									</Button>
+								}
+							/>
+						</div>
+					</div>
+
 					<PokemonDescription
 						factroyPokemon={pokemon}
 						setAbility={(value: string) => {

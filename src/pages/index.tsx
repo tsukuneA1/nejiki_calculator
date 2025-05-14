@@ -2,9 +2,8 @@ import { Attackers } from "@/components/attackers";
 import { DefenderCard } from "@/components/defender-card";
 import { DefenderReserve } from "@/components/defender-reserve";
 import { EnvCard } from "@/components/env-card";
-import { SystemUiconsReverse } from "@/components/icons/reverse";
-import { SystemUiconsSort } from "@/components/icons/sort-icon";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
 	Select,
@@ -21,7 +20,12 @@ import { clearAttacker, setAttacker } from "@/store/slices/attackerSlice";
 import { setDefender } from "@/store/slices/defenderSlice";
 import { setIsNejiki, setLevel, setTimes } from "@/store/slices/settingsSlice";
 import type { RootState } from "@/store/store";
-import { CloudSunRain, ShieldPlus } from "lucide-react";
+import {
+	ArrowLeftRight,
+	ArrowUpDown,
+	CloudSunRain,
+	ShieldPlus,
+} from "lucide-react";
 import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -83,33 +87,35 @@ export default function Home() {
 				<link rel="canonical" href="https://nejiki-calculator.com/" />
 			</Head>
 			<MainLayout>
-				<div className="flex items-center space-x-2">
-					<Checkbox
-						id="terms"
-						checked={settings.level === 50}
-						onClick={() => handleLevelChange(50)}
-						className="w-5 h-5 border-2 bg-white"
-					/>
-					<label
-						htmlFor="terms"
-						className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
-					>
-						50レベル
-					</label>
-					<Checkbox
-						id="terms"
-						checked={settings.level === 100}
-						onClick={() => handleLevelChange(100)}
-						className="w-5 h-5 border-2 bg-white"
-					/>
-					<label
-						htmlFor="terms"
-						className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
-					>
-						オープンレベル
-					</label>
-				</div>
-				<div className="mt-2">
+				<div className="w-auto max-w-xl flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-lg shadow-sm border dark:border-slate-800">
+					<div className="flex items-center gap-2">
+						<Checkbox
+							id="terms"
+							checked={settings.level === 50}
+							onClick={() => handleLevelChange(50)}
+							className="w-5 h-5 border-2 bg-white"
+						/>
+						<label
+							htmlFor="terms"
+							className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
+						>
+							50レベル
+						</label>
+					</div>
+					<div className="flex items-center gap-2">
+						<Checkbox
+							id="terms"
+							checked={settings.level === 100}
+							onClick={() => handleLevelChange(100)}
+							className="w-5 h-5 border-2 bg-white"
+						/>
+						<label
+							htmlFor="terms"
+							className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
+						>
+							オープンレベル
+						</label>
+					</div>
 					<Select
 						onValueChange={(value) => handleTimesChange(Number(value))}
 						defaultValue={"0"}
@@ -130,26 +136,23 @@ export default function Home() {
 					</Select>
 				</div>
 
-				<div className="xl:flex flex flex-col items-center xl:flex-row xl:items-start xl:justify-center">
-					<div>
-						<Attackers />
+				<div className="xl:flex flex flex-col items-center xl:flex-row xl:items-start xl:justify-center mt-4">
+					<Attackers />
+
+					<div className="flex items-center justify-center w-10 h-10 my-10 xl:mt-6 xl:mx-8">
+						<Button
+							size="icon"
+							variant="outline"
+							className="h-12 w-12 rounded-full"
+							onClick={handleReverse}
+						>
+							<ArrowUpDown className="h-6 w-6 xl:hidden" />
+							<ArrowLeftRight className="h-6 w-6 hidden xl:block" />
+						</Button>
 					</div>
-					<Button
-						onClick={handleReverse}
-						className="w-10 h-10 my-10 xl:mt-6 xl:mx-8"
-					>
-						<SystemUiconsSort className="xl:hidden w-8 h-8" />
-						<SystemUiconsReverse className="xl:block hidden w-8 h-8" />
-					</Button>
 
 					<div className="xl:mt-0">
-						<div className="flex items-center bg-white bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-t-lg my-2 border">
-							<ShieldPlus className="w-7 h-7 mx-2" />
-							<h1 className="text-2xl font-bold ml-3 my-4">Defender</h1>
-						</div>
-						<DefenderReserve />
 						<DefenderCard />
-
 						<div>
 							<div className="flex items-center bg-white bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-t-lg my-2 border">
 								<CloudSunRain className="w-7 h-7 mx-2 text-black" />
