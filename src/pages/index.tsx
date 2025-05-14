@@ -1,9 +1,7 @@
 import { Attackers } from "@/components/attackers";
 import { DefenderCard } from "@/components/defender-card";
-import { DefenderReserve } from "@/components/defender-reserve";
 import { EnvCard } from "@/components/env-card";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
 	Select,
@@ -23,8 +21,6 @@ import type { RootState } from "@/store/store";
 import {
 	ArrowLeftRight,
 	ArrowUpDown,
-	CloudSunRain,
-	ShieldPlus,
 } from "lucide-react";
 import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
@@ -151,17 +147,9 @@ export default function Home() {
 						</Button>
 					</div>
 
-					<div className="xl:mt-0">
+					<div className="flex flex-col gap-2 xl:mt-0">
 						<DefenderCard />
-						<div>
-							<div className="flex items-center bg-white bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-t-lg my-2 border">
-								<CloudSunRain className="w-7 h-7 mx-2 text-black" />
-								<h1 className="text-2xl font-bold ml-3 my-4 text-black">
-									Environment
-								</h1>
-							</div>
 							<EnvCard />
-						</div>
 					</div>
 				</div>
 			</MainLayout>

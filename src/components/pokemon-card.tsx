@@ -1,5 +1,4 @@
 import { CardTypeStyles } from "@/constants/cardTypeStyles";
-import { CardLayout } from "@/layouts/card/card-layout";
 import {
 	setAbility,
 	setAttacker,
@@ -26,7 +25,6 @@ import { Rank } from "./rank";
 import { AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import { CardTitle } from "./ui/card";
 import { Checkbox } from "./ui/checkbox";
 import clsx from "clsx";
 

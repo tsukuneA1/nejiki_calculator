@@ -8,7 +8,6 @@ import {
 import type { RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { Badge } from "./ui/badge";
-import { Card, CardContent } from "./ui/card";
 import { Checkbox } from "./ui/checkbox";
 import {
 	Select,
@@ -19,6 +18,9 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "./ui/select";
+import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
+import { CardTypeStyles } from "@/constants/cardTypeStyles";
+import { CloudSunRain } from "lucide-react";
 
 export const EnvCard = () => {
 	const weather = useSelector((state: RootState) => state.env.weather);
@@ -30,9 +32,19 @@ export const EnvCard = () => {
 
 	const weathers = ["なし", "にほんばれ", "あめ", "すなあらし", "あられ"];
 	return (
-		<Card className="my-2 max-w-xl">
-			<CardContent className="space-y-2">
-				<BadgeDescription
+    <MainCardLayout
+      cardStyle={CardTypeStyles[2]}
+      header={
+        <>
+          <CloudSunRain className="w-7 h-7 mx-2" />
+								<h1 className="text-2xl font-bold ml-3 my-4">
+									Environment
+								</h1>
+        </>
+      }
+      content={
+        <>
+        <BadgeDescription
 					badgeName="天候"
 					content={
 						<Select
@@ -131,8 +143,9 @@ export const EnvCard = () => {
 						</div>
 					}
 				/>
-			</CardContent>
-		</Card>
+        </>
+      }
+    />
 	);
 };
 

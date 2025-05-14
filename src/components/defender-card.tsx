@@ -1,5 +1,4 @@
 import { CardTypeStyles } from "@/constants/cardTypeStyles";
-import { CardLayout } from "@/layouts/card/card-layout";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import {
 	setBRank,
@@ -45,7 +44,7 @@ export const DefenderCard = () => {
 				<>
 					<DefenderReserve />
 
-					<div className="flex items-center border rounded-lg px-2 py-2">
+					<div className="flex gap-2 items-center border rounded-lg px-2 py-2">
 						<Avatar>
 							<AvatarImage
 								src={data.imageSrc}
