@@ -83,11 +83,11 @@ export const PokemonCard = ({
 			<div className="flex items-center justify-between w-full mb-2">
 				<div className="flex items-center justify-between gap-2 p-2 border rounded-lg w-full">
           <div className="flex items-center gap-2">
-          <div className="w-16 h-16 rounded-lg flex items-center justify-center">
+          <div className="rounded-lg flex items-center justify-center">
 						<Avatar>
 							<AvatarImage
 								src={data.imageSrc}
-								className="w-10 h-10 md:w-15 md:h-15 border-1 border-gray-300 rounded-lg"
+								className="w-10 h-10 md:w-15 md:h-15 border border-gray-300 rounded-lg"
 							/>
 							<AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
 						</Avatar>

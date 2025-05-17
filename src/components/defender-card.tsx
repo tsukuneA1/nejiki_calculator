@@ -48,7 +48,7 @@ export const DefenderCard = () => {
 						<Avatar>
 							<AvatarImage
 								src={data.imageSrc}
-								className="w-15 h-15 border-1 border-gray-300 rounded-lg"
+								className="w-10 h-10 md:w-15 md:h-15 border-1 border-gray-300 rounded-lg"
 							/>
 							<AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
 						</Avatar>
