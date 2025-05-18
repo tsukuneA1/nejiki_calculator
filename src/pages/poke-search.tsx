@@ -14,7 +14,6 @@ import { SelectGroup } from "@/components/ui/select";
 import { SelectContent } from "@/components/ui/select";
 import { Select, SelectValue } from "@/components/ui/select";
 import { SelectTrigger } from "@/components/ui/select";
-import { Skeleton } from "@/components/ui/skeleton";
 import { abilities } from "@/constants/abilities";
 import { items } from "@/constants/items";
 import { findItems, timesItems } from "@/constants/ivs";
@@ -23,7 +22,7 @@ import { toggleKana } from "@/functions/convert_hiragana_katakana";
 import { SubLayout } from "@/layouts/sub/sub-layout";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
-import { Filter, LoaderCircle, Search } from "lucide-react";
+import { Filter,  Search } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function PokeSearch() {
