@@ -1,8 +1,6 @@
 import { filterFactoryPokemons } from "@/components/auto-complete";
 import { TypeBadge } from "@/components/type-badge";
-import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -365,11 +363,11 @@ export const ListPokemonCard = ({
 			className="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/10 transition-colors"
 		>
 			<div className="flex items-center gap-3 mb-2">
-				<div className="w-12 h-12 bg-slate-100 dark:bg-slate-800/30 rounded-full flex items-center justify-center">
+				<div className="w-14 h-14 bg-slate-100 dark:bg-slate-800/30 rounded-lg flex items-center justify-center">
 					<img
 						src={pokemon.pokemon.imageSrc}
 						alt={pokemon.pokemon.name}
-						className="w-10 h-10"
+						className="w-12 h-12"
 					/>
 				</div>
 				<div>
