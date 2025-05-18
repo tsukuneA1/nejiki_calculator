@@ -281,7 +281,7 @@ export default function PokeSearch() {
 						<CardContent className="p-0">
 							<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 p-4">
 								{filteredSortedFactoryPokemons.map((pokemon) => (
-									<div className="border rounded-lg">
+									<div className="border rounded-lg" key={pokemon.id}>
 										<ListPokemonCard
 											key={pokemon.id}
 											pokemon={pokemon}
@@ -360,7 +360,7 @@ export const ListPokemonCard = ({
 	return (
 		<div
 			key={pokemon.id}
-			className="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/10 transition-colors"
+			className="p-4"
 		>
 			<div className="flex items-center gap-3 mb-2">
 				<div className="w-14 h-14 bg-slate-100 dark:bg-slate-800/30 rounded-lg flex items-center justify-center">
