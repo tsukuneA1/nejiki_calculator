@@ -1,4 +1,5 @@
 import { filterFactoryPokemons } from "@/components/auto-complete";
+import Loading from "@/components/loading";
 import { TypeBadge } from "@/components/type-badge";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,6 +14,7 @@ import { SelectGroup } from "@/components/ui/select";
 import { SelectContent } from "@/components/ui/select";
 import { Select, SelectValue } from "@/components/ui/select";
 import { SelectTrigger } from "@/components/ui/select";
+import { Skeleton } from "@/components/ui/skeleton";
 import { abilities } from "@/constants/abilities";
 import { items } from "@/constants/items";
 import { findItems, timesItems } from "@/constants/ivs";
@@ -103,7 +105,7 @@ export default function PokeSearch() {
 
 	return (
 		<SubLayout>
-			<div className="min-h-screen bg-slate-50 dark:bg-slate-900 max-w-6xl flex flex-col gap-4">
+			<div className="min-h-screen bg-inherit max-w-6xl flex flex-col gap-4">
 				<Card className="border-blue-200 dark:border-blue-900/50 shadow-sm py-0">
 					<CardHeader className="bg-indigo-600 gap-0 text-white rounded-t-lg py-4">
 						<CardTitle className="flex items-center gap-2">
@@ -262,9 +264,7 @@ export default function PokeSearch() {
 					</CardContent>
 				</Card>
 				{factoryPokemons.length === 0 ? (
-					<div className="flex justify-center items-center h-full">
-						<LoaderCircle className="w-10 h-10 animate-spin" />
-					</div>
+					<Loading/>
 				) : (
 					<Card className="border-indigo-200 dark:border-indigo-900/50 shadow-sm py-0">
 						<CardHeader className="bg-indigo-600 text-white rounded-t-lg py-4 gap-0">
