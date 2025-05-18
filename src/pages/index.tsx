@@ -18,10 +18,7 @@ import { clearAttacker, setAttacker } from "@/store/slices/attackerSlice";
 import { setDefender } from "@/store/slices/defenderSlice";
 import { setIsNejiki, setLevel, setTimes } from "@/store/slices/settingsSlice";
 import type { RootState } from "@/store/store";
-import {
-	ArrowLeftRight,
-	ArrowUpDown,
-} from "lucide-react";
+import { ArrowLeftRight, ArrowUpDown } from "lucide-react";
 import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -149,7 +146,7 @@ export default function Home() {
 
 					<div className="flex flex-col gap-2 xl:mt-0">
 						<DefenderCard />
-							<EnvCard />
+						<EnvCard />
 					</div>
 				</div>
 			</MainLayout>

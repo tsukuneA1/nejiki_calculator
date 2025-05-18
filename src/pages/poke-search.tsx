@@ -2,9 +2,11 @@ import { filterFactoryPokemons } from "@/components/auto-complete";
 import { TypeBadge } from "@/components/type-badge";
 import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Popover } from "@/components/ui/popover";
 import { SelectItem } from "@/components/ui/select";
@@ -18,12 +20,10 @@ import { items } from "@/constants/items";
 import { findItems, timesItems } from "@/constants/ivs";
 import { calculateStatus } from "@/functions/calculate_status";
 import { toggleKana } from "@/functions/convert_hiragana_katakana";
-import { CardLayout } from "@/layouts/card/card-layout";
 import { SubLayout } from "@/layouts/sub/sub-layout";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
-import { Avatar } from "@radix-ui/react-avatar";
-import { LoaderCircle } from "lucide-react";
+import { Filter, LoaderCircle, Search } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function PokeSearch() {
@@ -105,265 +105,210 @@ export default function PokeSearch() {
 
 	return (
 		<SubLayout>
-			<div className="flex flex-col items-start">
-				<h1>検索したいポケモンの情報を入力してください</h1>
-				<div className="space-y-2">
-					<div className="flex items-center gap-2">
-						<Badge className="w-18 h-9">ポケモン名</Badge>
-						<Input
-							value={selectedPokemon}
-							onChange={(e) => setSelectedPokemon(e.target.value)}
-							className="w-[180px] bg-white"
-						/>
-					</div>
-					<div className="flex items-center gap-2">
-						<Badge className="w-18 h-9">周回回数</Badge>
-						<Select
-							onValueChange={(value) =>
-								handleTimesChange(Number.parseInt(value))
-							}
-							defaultValue={"0"}
-						>
-							<SelectTrigger className="w-[180px] bg-white">
-								<SelectValue placeholder="周回回数を選択" />
-							</SelectTrigger>
-							<SelectContent>
-								<SelectGroup>
-									<SelectLabel>周回回数</SelectLabel>
-									{timesItems.map((timesItem, i) => (
-										<SelectItem key={i} value={i.toString()}>
-											{timesItem}
-										</SelectItem>
-									))}
-								</SelectGroup>
-							</SelectContent>
-						</Select>
-					</div>
-					<div className="flex items-center gap-2">
-						<Badge className="w-18 h-9">特性</Badge>
-						<Select
-							onValueChange={(value) => setAbility(value)}
-							defaultValue={"なし"}
-						>
-							<SelectTrigger className="w-[180px] bg-white">
-								<SelectValue placeholder="特性を選択" />
-							</SelectTrigger>
-							<SelectContent>
-								<SelectGroup>
-									<SelectLabel>特性</SelectLabel>
-									{abilities.map((ability) => (
-										<SelectItem key={ability} value={ability}>
-											{ability}
-										</SelectItem>
-									))}
-								</SelectGroup>
-							</SelectContent>
-						</Select>
-					</div>
-					<div className="flex items-center gap-2">
-						<Badge className="w-18 h-9">アイテム</Badge>
-						<Select
-							onValueChange={(value) => setItem(value)}
-							defaultValue={"なし"}
-						>
-							<SelectTrigger className="w-[180px] bg-white">
-								<SelectValue placeholder="アイテムを選択" />
-							</SelectTrigger>
-							<SelectContent>
-								<SelectGroup>
-									<SelectLabel>アイテム</SelectLabel>
-									{items.map((item) => (
-										<SelectItem key={item} value={item}>
-											{item}
-										</SelectItem>
-									))}
-								</SelectGroup>
-							</SelectContent>
-						</Select>
-					</div>
-					<div className="flex items-center gap-2">
-						<Badge className="w-18 h-9">レベル</Badge>
-						<Checkbox
-							id="terms"
-							checked={level === 50}
-							onClick={() => handleLevelChange(50)}
-							className="w-5 h-5 border-2 bg-white"
-						/>
-						<label
-							htmlFor="terms"
-							className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-						>
-							50レベル
-						</label>
-						<Checkbox
-							id="terms"
-							checked={level === 100}
-							onClick={() => handleLevelChange(100)}
-							className="w-5 h-5 border-2 bg-white"
-						/>
-						<label
-							htmlFor="terms"
-							className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-						>
-							オープンレベル
-						</label>
-					</div>
-				</div>
-				<h1>並べ替え</h1>
-				<div className="space-y-2">
-					<div className="flex items-center gap-2">
-						<Badge className="w-18 h-9">項目</Badge>
-						<Select
-							onValueChange={(value) => setSortItem(value)}
-							defaultValue={"なし"}
-						>
-							<SelectTrigger className="w-[180px] bg-white">
-								<SelectValue placeholder="項目を選択" />
-							</SelectTrigger>
-							<SelectContent>
-								<SelectGroup>
-									<SelectLabel>並べ替え項目</SelectLabel>
-									{sortItems.map((item) => (
-										<SelectItem key={item} value={item}>
-											{item}
-										</SelectItem>
-									))}
-								</SelectGroup>
-							</SelectContent>
-						</Select>
-					</div>
-				</div>
-				<div className="flex flex-col items-center my-5">
-					<h2 className="text-bold text-xl">検索結果</h2>
-					{factoryPokemons.length === 0 ? (
-						<div className="flex justify-center items-center h-full">
-							<LoaderCircle className="w-10 h-10 animate-spin" />
-						</div>
-					) : (
-						<div>
-							<div className="text-center">
-								{filteredSortedFactoryPokemons.length}
-								件見つかりました
+			<div className="min-h-screen bg-slate-50 dark:bg-slate-900 max-w-6xl flex flex-col gap-4">
+				<Card className="border-blue-200 dark:border-blue-900/50 shadow-sm py-0">
+					<CardHeader className="bg-indigo-600 gap-0 text-white rounded-t-lg py-4">
+						<CardTitle className="flex items-center gap-2">
+							<Search className="h-5 w-5" />
+							検索したいポケモンの情報を入力してください
+						</CardTitle>
+					</CardHeader>
+					<CardContent className="p-4">
+						<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+							<div className="space-y-2">
+								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+									ポケモン名
+								</Label>
+								<div className="relative">
+									<Input
+										placeholder="ポケモン名を入力"
+										className="pl-10"
+										value={selectedPokemon}
+										onChange={(e) => setSelectedPokemon(e.target.value)}
+									/>
+									<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+								</div>
 							</div>
-							{filteredSortedFactoryPokemons.map((pokemon) => (
-								<ListItem
-									key={pokemon.id}
-									pokemon={pokemon}
-									level={level}
-									times={times}
-								/>
-							))}
+
+							<div className="space-y-2">
+								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+									周回数
+								</Label>
+								<Select
+									onValueChange={(value) =>
+										handleTimesChange(Number.parseInt(value))
+									}
+									defaultValue={"0"}
+								>
+									<SelectTrigger className="w-full">
+										<SelectValue placeholder="周回数を選択" />
+									</SelectTrigger>
+									<SelectContent>
+										<SelectGroup>
+											<SelectLabel>周回回数</SelectLabel>
+											{timesItems.map((timesItem, i) => (
+												<SelectItem key={i} value={i.toString()}>
+													{timesItem}
+												</SelectItem>
+											))}
+										</SelectGroup>
+									</SelectContent>
+								</Select>
+							</div>
+
+							<div className="space-y-2">
+								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+									特性
+								</Label>
+								<Select
+									onValueChange={(value) => setAbility(value)}
+									defaultValue={"なし"}
+								>
+									<SelectTrigger className="w-full">
+										<SelectValue placeholder="特性を選択" />
+									</SelectTrigger>
+									<SelectContent>
+										<SelectGroup>
+											<SelectLabel>特性</SelectLabel>
+											{abilities.map((ability) => (
+												<SelectItem key={ability} value={ability}>
+													{ability}
+												</SelectItem>
+											))}
+										</SelectGroup>
+									</SelectContent>
+								</Select>
+							</div>
+
+							<div className="space-y-2">
+								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+									アイテム
+								</Label>
+								<Select
+									onValueChange={(value) => setItem(value)}
+									defaultValue={"なし"}
+								>
+									<SelectTrigger className="w-full">
+										<SelectValue placeholder="アイテムを選択" />
+									</SelectTrigger>
+
+									<SelectContent>
+										<SelectGroup>
+											<SelectLabel>アイテム</SelectLabel>
+											{items.map((item) => (
+												<SelectItem key={item} value={item}>
+													{item}
+												</SelectItem>
+											))}
+										</SelectGroup>
+									</SelectContent>
+								</Select>
+							</div>
+
+							<div className="space-y-2">
+								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+									レベル
+								</Label>
+								<div className="flex items-center gap-4">
+									<Checkbox
+										id="terms"
+										checked={level === 50}
+										onClick={() => handleLevelChange(50)}
+										className="w-5 h-5 border-2 bg-white"
+									/>
+									<label
+										htmlFor="terms"
+										className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+									>
+										50レベル
+									</label>
+									<Checkbox
+										id="terms"
+										checked={level === 100}
+										onClick={() => handleLevelChange(100)}
+										className="w-5 h-5 border-2 bg-white"
+									/>
+									<label
+										htmlFor="terms"
+										className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+									>
+										オープンレベル
+									</label>
+								</div>
+							</div>
+
+							<div className="space-y-2">
+								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+									項目
+								</Label>
+								<Select
+									onValueChange={(value) => setSortItem(value)}
+									defaultValue={"なし"}
+								>
+									<SelectTrigger className="w-full">
+										<SelectValue placeholder="項目を選択" />
+									</SelectTrigger>
+									<SelectContent>
+										<SelectGroup>
+											<SelectLabel>並べ替え項目</SelectLabel>
+											{sortItems.map((item) => (
+												<SelectItem key={item} value={item}>
+													{item}
+												</SelectItem>
+											))}
+										</SelectGroup>
+									</SelectContent>
+								</Select>
+							</div>
 						</div>
-					)}
-				</div>
+					</CardContent>
+				</Card>
+				{factoryPokemons.length === 0 ? (
+					<div className="flex justify-center items-center h-full">
+						<LoaderCircle className="w-10 h-10 animate-spin" />
+					</div>
+				) : (
+					<Card className="border-indigo-200 dark:border-indigo-900/50 shadow-sm py-0">
+						<CardHeader className="bg-indigo-600 text-white rounded-t-lg py-4 gap-0">
+							<CardTitle className="flex items-center justify-between">
+								<span className="flex items-center gap-2">
+									<Filter className="h-5 w-5" />
+									検索結果
+								</span>
+								<Badge className="bg-white text-indigo-700 hover:bg-white/90">
+									{filteredSortedFactoryPokemons.length}件見つかりました
+								</Badge>
+							</CardTitle>
+						</CardHeader>
+						<CardContent className="p-0">
+							<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 p-4">
+								{filteredSortedFactoryPokemons.map((pokemon) => (
+									<div className="border rounded-lg">
+										<ListPokemonCard
+											key={pokemon.id}
+											pokemon={pokemon}
+											level={level}
+											times={times}
+										/>
+									</div>
+								))}
+							</div>
+						</CardContent>
+					</Card>
+				)}
 			</div>
 		</SubLayout>
 	);
 }
 
-const ListItem = ({
-	pokemon,
-	level,
-	times,
-}: {
-	pokemon: FactoryPokemon;
-	level: number;
-	times: number;
-}) => {
-	const status = calculateStatus(pokemon, level, 4 * (times - 1));
-	const statusSummary = [
-		`${status.hp}(${pokemon.hp})`,
-		`${status.attack}(${pokemon.attack})`,
-		`${status.defense}(${pokemon.defense})`,
-		`${status.spAttack}(${pokemon.spAttack})`,
-		`${status.spDefense}(${pokemon.spDefense})`,
-		`${status.speed}(${pokemon.speed})`,
-	].join("-");
-	const breafStatus = [
-		`${status.hp}`,
-		`${status.attack}`,
-		`${status.defense}`,
-		`${status.spAttack}`,
-		`${status.spDefense}`,
-		`${status.speed}`,
-	].join("-");
-	const statusComponent = () => {
-		return (
-			<>
-				<div className="hidden md:block">{statusSummary}</div>
-				<div className="md:hidden">{breafStatus}</div>
-			</>
-		);
-	};
-	const abilities = `${pokemon.pokemon.ability1}${pokemon.pokemon.ability2 ? `/${pokemon.pokemon.ability2}` : ""}`;
-
-	return (
-		<CardLayout
-			header={
-				<>
-					<Avatar>
-						<AvatarImage
-							src={pokemon.pokemon.imageSrc}
-							className="border-1 border-gray-300 w-12 h-12 border-1 rounded-lg"
-						/>
-						<AvatarFallback>{pokemon.pokemon.name.slice(0, 2)}</AvatarFallback>
-					</Avatar>
-					<CardTitle className="flex items-center gap-1">
-						<h2 className="text-bold text-lg md:text-xl">
-							{pokemon.pokemon.name}
-						</h2>
-						<span>@{pokemon.item}</span>
-					</CardTitle>
-				</>
-			}
-			content={
-				<div className="space-y-2">
-					<div className="flex items-center gap-2">
-						<Badge className="w-18 h-9">タイプ</Badge>
-						<div className="flex gap-1">
-							{pokemon.pokemon.type1 && (
-								<TypeBadge type={pokemon.pokemon.type1} />
-							)}
-							{pokemon.pokemon.type2 && (
-								<TypeBadge type={pokemon.pokemon.type2} />
-							)}
-						</div>
-					</div>
-					<DescriptionBadge
-						badge="ステータス"
-						description={statusComponent()}
-					/>
-					<DescriptionBadge badge="特性" description={abilities} />
-					<div className="flex items-center gap-2">
-						<Badge className="w-18 h-9">技</Badge>
-						<div className="grid grid-cols-2 gap-2 md:flex">
-							{pokemon.moves.map((move, index) => (
-								<>
-									{index === 0 ? (
-										<>
-											<MoveItem key={move.id} move={move} />
-										</>
-									) : (
-										<div className="flex">
-											<span className="hidden md:block">/</span>
-											<MoveItem key={move.id} move={move} />
-										</div>
-									)}
-								</>
-							))}
-						</div>
-					</div>
-				</div>
-			}
-		/>
-	);
-};
-
-const MoveItem = ({ move }: { move: Move }) => {
+const MoveItem = ({ move, index }: { move: Move; index: number }) => {
 	return (
 		<Popover>
 			<PopoverTrigger>
-				<div className="text-sm md:text-base">{move.name}</div>
+				<span key={index} className="whitespace-nowrap">
+					{move.name}
+					{index < 3 && " / "}
+				</span>
 			</PopoverTrigger>
 			<PopoverContent className="w-60">
 				<div className="flex gap-2 items-center">
@@ -372,9 +317,7 @@ const MoveItem = ({ move }: { move: Move }) => {
 				</div>
 				<div className="flex gap-2 items-center">
 					<div className="w-16">タイプ</div>
-					<div>
-						: <TypeBadge type={move.type} />
-					</div>
+					<div>: {move.type}</div>
 				</div>
 				<div className="flex gap-2 items-center">
 					<div className="w-16">威力</div>
@@ -397,17 +340,86 @@ const MoveItem = ({ move }: { move: Move }) => {
 	);
 };
 
-const DescriptionBadge = ({
-	badge,
-	description,
+export const ListPokemonCard = ({
+	pokemon,
+	level,
+	times,
 }: {
-	badge: string;
-	description: React.ReactNode;
+	pokemon: FactoryPokemon;
+	level: number;
+	times: number;
 }) => {
+	const status = calculateStatus(pokemon, level, 4 * (times - 1));
+	const statusSummary = [
+		`${status.hp}(${pokemon.hp})`,
+		`${status.attack}(${pokemon.attack})`,
+		`${status.defense}(${pokemon.defense})`,
+		`${status.spAttack}(${pokemon.spAttack})`,
+		`${status.spDefense}(${pokemon.spDefense})`,
+		`${status.speed}(${pokemon.speed})`,
+	].join("-");
+
 	return (
-		<div className="flex items-center gap-2">
-			<Badge className="w-18 h-9">{badge}</Badge>
-			<div className="text-sm md:text-base">{description}</div>
+		<div
+			key={pokemon.id}
+			className="p-4 hover:bg-slate-50 dark:hover:bg-slate-800/10 transition-colors"
+		>
+			<div className="flex items-center gap-3 mb-2">
+				<div className="w-12 h-12 bg-slate-100 dark:bg-slate-800/30 rounded-full flex items-center justify-center">
+					<img
+						src={pokemon.pokemon.imageSrc}
+						alt={pokemon.pokemon.name}
+						className="w-10 h-10"
+					/>
+				</div>
+				<div>
+					<h3 className="text-lg font-semibold flex items-center gap-2">
+						{pokemon.pokemon.name}
+						<span className="text-sm font-normal text-slate-500">
+							@{pokemon.item}
+						</span>
+					</h3>
+					<div className="flex gap-1 mt-1">
+						{pokemon.pokemon.type1 && (
+							<TypeBadge type={pokemon.pokemon.type1} />
+						)}
+						{pokemon.pokemon.type2 && (
+							<TypeBadge type={pokemon.pokemon.type2} />
+						)}
+					</div>
+				</div>
+			</div>
+
+			<div className="grid gap-2 mt-3">
+				<div>
+					<div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+						ステータス
+					</div>
+					<div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
+						{statusSummary}
+					</div>
+				</div>
+				<div>
+					<div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+						特性
+					</div>
+					<div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
+						{pokemon.pokemon.ability1}
+						{pokemon.pokemon.ability2 && `/${pokemon.pokemon.ability2}`}
+					</div>
+				</div>
+				<div>
+					<div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+						技
+					</div>
+					<div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded flex flex-wrap gap-1">
+						{pokemon.moves.map((move, index) => (
+							<MoveItem key={index} move={move} index={index} />
+						))}
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };
+

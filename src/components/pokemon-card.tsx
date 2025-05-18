@@ -13,6 +13,7 @@ import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
 import { Avatar } from "@radix-ui/react-avatar";
+import clsx from "clsx";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AutoComplete } from "./auto-complete";
@@ -26,7 +27,6 @@ import { AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Checkbox } from "./ui/checkbox";
-import clsx from "clsx";
 
 export const PokemonCard = ({
 	pos,
@@ -79,49 +79,50 @@ export const PokemonCard = ({
 	const data = pokemon.pokemon;
 
 	return (
-		<div className={`${pos != 0 && clsx(CardTypeStyles[0].cardStyle, "bg-white rounded-lg p-4")}`}>
+		<div
+			className={`${pos !== 0 && clsx(CardTypeStyles[0].cardStyle, "bg-white rounded-lg p-4")}`}
+		>
 			<div className="flex items-center justify-between w-full mb-2">
 				<div className="flex items-center justify-between gap-2 p-2 border rounded-lg w-full">
-          <div className="flex items-center gap-2">
-          <div className="rounded-lg flex items-center justify-center">
-						<Avatar>
-							<AvatarImage
-								src={data.imageSrc}
-								className="w-10 h-10 md:w-15 md:h-15 border border-gray-300 rounded-lg"
-							/>
-							<AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
-						</Avatar>
-					</div>
-					<AutoComplete
-						setPokemon={handlePokemonChange}
-						level={settings.level}
-						times={settings.times}
-						isNejiki={settings.isNejiki}
-						trigger={
-							<Button
-								variant="ghost"
-								className="w-[150px] justify-start text-lg border-1 border-gray-300 w-"
-							>
-								{pokemon ? <>{pokemon.pokemon.name}</> : <>Set Pokemon</>}
-							</Button>
-						}
-					/>
-          </div>
 					<div className="flex items-center gap-2">
-          <Button size="icon" onClick={handleDelete}>
-						<MaterialSymbolsDeleteOutline />
-					</Button>
-					{isExpanded ? (
-						<Button size="icon" onClick={handleExpand}>
-							<FamiconsChevronCollapseOutline />
+						<div className="rounded-lg flex items-center justify-center">
+							<Avatar>
+								<AvatarImage
+									src={data.imageSrc}
+									className="w-10 h-10 md:w-15 md:h-15 border border-gray-300 rounded-lg"
+								/>
+								<AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
+							</Avatar>
+						</div>
+						<AutoComplete
+							setPokemon={handlePokemonChange}
+							level={settings.level}
+							times={settings.times}
+							isNejiki={settings.isNejiki}
+							trigger={
+								<Button
+									variant="ghost"
+									className="w-[150px] justify-start text-lg border-1 border-gray-300 w-"
+								>
+									{pokemon ? <>{pokemon.pokemon.name}</> : <>Set Pokemon</>}
+								</Button>
+							}
+						/>
+					</div>
+					<div className="flex items-center gap-2">
+						<Button size="icon" onClick={handleDelete}>
+							<MaterialSymbolsDeleteOutline />
 						</Button>
-					) : (
-						<Button size="icon" onClick={handleExpand}>
-							<IonChevronExpandOutline />
-						</Button>
-					)}
-          </div>
-					
+						{isExpanded ? (
+							<Button size="icon" onClick={handleExpand}>
+								<FamiconsChevronCollapseOutline />
+							</Button>
+						) : (
+							<Button size="icon" onClick={handleExpand}>
+								<IonChevronExpandOutline />
+							</Button>
+						)}
+					</div>
 				</div>
 			</div>
 			{isExpanded && (

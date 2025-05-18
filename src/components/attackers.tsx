@@ -37,8 +37,11 @@ export const Attackers = () => {
 			/>
 			<div className="flex flex-col gap-2">
 				{attackers.slice(1).map((_, index) => (
-					<div key={index+1}>
-						<PokemonCard pos={index+1} handleDelete={() => handleDelete(index)} />
+					<div key={index + 1}>
+						<PokemonCard
+							pos={index + 1}
+							handleDelete={() => handleDelete(index)}
+						/>
 					</div>
 				))}
 				<div className="flex justify-center">
