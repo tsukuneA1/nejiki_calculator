@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { SubLayout } from "@/layouts/sub/sub-layout";
+import { MainLayout } from "@/layouts/main/main-layout";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 
@@ -17,7 +17,7 @@ export async function getStaticProps() {
 
 export default function InstructionManual({ markdown }: { markdown: string }) {
 	return (
-		<SubLayout>
+		<MainLayout>
 			<div className="prose min-h-80 w-full rounded-lg border-2 border-gray-300 p-5 max-w-3xl bg-white">
 				<ReactMarkdown
 					rehypePlugins={[rehypeRaw]}
@@ -70,6 +70,6 @@ export default function InstructionManual({ markdown }: { markdown: string }) {
 					{markdown}
 				</ReactMarkdown>
 			</div>
-		</SubLayout>
+		</MainLayout>
 	);
 }

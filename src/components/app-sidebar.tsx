@@ -12,8 +12,7 @@ import {
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 
-// Menu items.
-const items = [
+export const menuItems = [
 	{
 		title: "ダメージ計算",
 		url: "/",
@@ -49,7 +48,7 @@ export function AppSidebar() {
 					<SidebarGroupLabel>Menu</SidebarGroupLabel>
 					<SidebarGroupContent>
 						<SidebarMenu>
-							{items.map((item) => (
+							{menuItems.map((item) => (
 								<SidebarMenuItem key={item.title}>
 									<SidebarMenuButton asChild>
 										<Link href={item.url}>

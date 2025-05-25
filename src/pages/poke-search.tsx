@@ -19,10 +19,10 @@ import { items } from "@/constants/items";
 import { findItems, timesItems } from "@/constants/ivs";
 import { calculateStatus } from "@/functions/calculate_status";
 import { toggleKana } from "@/functions/convert_hiragana_katakana";
-import { SubLayout } from "@/layouts/sub/sub-layout";
+import { MainLayout } from "@/layouts/main/main-layout";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
-import { Filter,  Search } from "lucide-react";
+import { Filter, Search } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function PokeSearch() {
@@ -103,7 +103,7 @@ export default function PokeSearch() {
 	const sortItems = ["なし", "HP", "攻撃", "防御", "特攻", "特防", "素早さ"];
 
 	return (
-		<SubLayout>
+		<MainLayout>
 			<div className="min-h-screen bg-inherit max-w-6xl flex flex-col gap-4">
 				<Card className="border-blue-200 dark:border-blue-900/50 shadow-sm py-0">
 					<CardHeader className="bg-indigo-600 gap-0 text-white rounded-t-lg py-4">
@@ -263,7 +263,7 @@ export default function PokeSearch() {
 					</CardContent>
 				</Card>
 				{factoryPokemons.length === 0 ? (
-					<Loading/>
+					<Loading />
 				) : (
 					<Card className="border-indigo-200 dark:border-indigo-900/50 shadow-sm py-0">
 						<CardHeader className="bg-indigo-600 text-white rounded-t-lg py-4 gap-0">
@@ -294,7 +294,7 @@ export default function PokeSearch() {
 					</Card>
 				)}
 			</div>
-		</SubLayout>
+		</MainLayout>
 	);
 }
 
@@ -357,10 +357,7 @@ export const ListPokemonCard = ({
 	].join("-");
 
 	return (
-		<div
-			key={pokemon.id}
-			className="p-4"
-		>
+		<div key={pokemon.id} className="p-4">
 			<div className="flex items-center gap-3 mb-2">
 				<div className="w-14 h-14 bg-slate-100 dark:bg-slate-800/30 rounded-lg flex items-center justify-center">
 					<img
@@ -419,4 +416,3 @@ export const ListPokemonCard = ({
 		</div>
 	);
 };
-

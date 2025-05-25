@@ -11,9 +11,11 @@ export const MainCardLayout = ({
 	content: React.ReactNode;
 }) => {
 	return (
-		<Card className={`${cardStyle.cardStyle} py-0 gap-0`}>
+		<Card className={"py-0 gap-0 w-full md:w-lg"}>
 			<div
-				className={`flex items-center rounded-t-lg ${cardStyle.headerStyle}`}
+				className={
+					"flex items-center rounded-t-lg bg-primary text-primary-foreground text-white"
+				}
 			>
 				{header}
 			</div>

@@ -8,8 +8,8 @@ const kanit = Kanit({
 });
 export const MainHeader = () => {
 	return (
-		<header className="font-bold text-4xl flex items-center border-b-2 border-gray-200 py-4">
-			<SidebarTrigger className="mx-4 cursor-pointer">
+		<header className="font-bold text-4xl flex items-center border-b-2 border-gray-200 py-4 px-4 gap-4">
+			<SidebarTrigger className="cursor-pointer sm:hidden">
 				<SolarHamburgerMenuLinear />
 			</SidebarTrigger>
 			<div className="flex items-center">
