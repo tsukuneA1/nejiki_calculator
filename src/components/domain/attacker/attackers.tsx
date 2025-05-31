@@ -1,12 +1,11 @@
-import { CardTypeStyles } from "@/constants/cardTypeStyles";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import { addAttacker, deleteAttacker } from "@/store/slices/attackerSlice";
 import type { RootState } from "@/store/store";
 import { Swords } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { AttackerReserve } from "./attacker-reserve";
-import { PokemonCard } from "./pokemon-card";
-import { Button } from "./ui/button";
+import { PokemonCard } from "@/components/general/pokemon-card";
+import { Button } from "@/components/ui/button";
 
 export const Attackers = () => {
 	const attackers = useSelector((state: RootState) => state.attacker);
@@ -21,7 +20,6 @@ export const Attackers = () => {
 	return (
 		<div className="flex flex-col gap-2">
 			<MainCardLayout
-				cardStyle={CardTypeStyles[0]}
 				header={
 					<>
 						<Swords className="w-7 h-7 mx-2" />

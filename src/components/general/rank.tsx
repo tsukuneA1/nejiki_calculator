@@ -8,7 +8,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 type RankProps = {
 	rank: number;
@@ -29,13 +29,13 @@ export const Rank = ({ rank, badgeName, setRank }: RankProps) => {
 		}
 	};
 	return (
-		<div className="flex items-center gap-2">
+		<div className="flex items-center gap-2 w-full">
 			<Badge className="w-18 h-9">{badgeName}</Badge>
 			<Select
 				value={rank.toString()}
 				onValueChange={(value) => setRank(Number(value))}
 			>
-				<SelectTrigger className="w-40">
+				<SelectTrigger className="w-full">
 					<SelectValue placeholder="ランク補正を選択" />
 				</SelectTrigger>
 				<SelectContent>

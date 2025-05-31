@@ -6,7 +6,7 @@ import type { Attacker } from "@/types/attacker";
 import type { Defender } from "@/types/defender";
 import type { Env } from "@/types/env";
 import { useSelector } from "react-redux";
-import MultiProgress from "./ui/multiprogress";
+import MultiProgress from "../../ui/multiprogress";
 
 export const Damage = () => {
 	const attackers = useSelector((state: RootState) => state.attacker);

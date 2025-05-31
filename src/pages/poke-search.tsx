@@ -1,6 +1,6 @@
-import { filterFactoryPokemons } from "@/components/auto-complete";
-import Loading from "@/components/loading";
-import { TypeBadge } from "@/components/type-badge";
+import { filterFactoryPokemons } from "@/components/general/auto-complete";
+import Loading from "@/components/general/loading";
+import { TypeBadge } from "@/components/general/type-badge";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";

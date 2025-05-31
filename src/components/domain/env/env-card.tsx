@@ -1,4 +1,3 @@
-import { CardTypeStyles } from "@/constants/cardTypeStyles";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import {
 	setLifeOrb,
@@ -10,8 +9,8 @@ import {
 import type { RootState } from "@/store/store";
 import { CloudSunRain } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { Badge } from "./ui/badge";
-import { Checkbox } from "./ui/checkbox";
+import { Badge } from "../../ui/badge";
+import { Checkbox } from "../../ui/checkbox";
 import {
 	Select,
 	SelectContent,
@@ -20,7 +19,7 @@ import {
 	SelectLabel,
 	SelectTrigger,
 	SelectValue,
-} from "./ui/select";
+} from "../../ui/select";
 
 export const EnvCard = () => {
 	const weather = useSelector((state: RootState) => state.env.weather);
@@ -33,7 +32,6 @@ export const EnvCard = () => {
 	const weathers = ["なし", "にほんばれ", "あめ", "すなあらし", "あられ"];
 	return (
 		<MainCardLayout
-			cardStyle={CardTypeStyles[2]}
 			header={
 				<>
 					<CloudSunRain className="w-7 h-7 mx-2" />

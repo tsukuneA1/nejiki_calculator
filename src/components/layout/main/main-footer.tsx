@@ -1,4 +1,4 @@
-import { Damage } from "@/components/damage";
+import { Damage } from "@/components/domain/damage/damage";
 
 export const MainFooter = () => {
 	return (

@@ -1,12 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
-import type { CardStyle } from "@/types/cardStyle";
 
 export const MainCardLayout = ({
-	cardStyle,
 	header,
 	content,
 }: {
-	cardStyle: CardStyle;
 	header: React.ReactNode;
 	content: React.ReactNode;
 }) => {

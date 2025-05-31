@@ -1,7 +1,7 @@
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { PopoverTrigger } from "@radix-ui/react-popover";
 import { useEffect, useState } from "react";
-import { Popover, PopoverContent } from "./ui/popover";
+import { Popover, PopoverContent } from "../ui/popover";
 
 import { toggleKana } from "@/functions/convert_hiragana_katakana";
 import { useMediaQuery } from "@mui/material";
@@ -13,9 +13,9 @@ import {
 	CommandInput,
 	CommandItem,
 	CommandList,
-} from "./ui/command";
-import { Drawer, DrawerContent, DrawerTrigger } from "./ui/drawer";
-import { HoverCardTrigger } from "./ui/hover-card";
+} from "../ui/command";
+import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer";
+import { HoverCardTrigger } from "../ui/hover-card";
 
 export const AutoComplete = ({
 	trigger,

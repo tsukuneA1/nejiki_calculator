@@ -1,6 +1,6 @@
-import { Attackers } from "@/components/attackers";
-import { DefenderCard } from "@/components/defender-card";
-import { EnvCard } from "@/components/env-card";
+import { Attackers } from "@/components/domain/attacker/attackers";
+import { DefenderCard } from "@/components/domain/defender/defender-card";
+import { EnvCard } from "@/components/domain/env/env-card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
