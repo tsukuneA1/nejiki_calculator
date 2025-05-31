@@ -23,6 +23,7 @@ import { MainLayout } from "@/layouts/main/main-layout";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
 import { Filter, Search } from "lucide-react";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 
 export default function PokeSearch() {
@@ -103,198 +104,225 @@ export default function PokeSearch() {
 	const sortItems = ["なし", "HP", "攻撃", "防御", "特攻", "特防", "素早さ"];
 
 	return (
-		<MainLayout>
-			<div className="min-h-screen bg-inherit max-w-6xl flex flex-col gap-4">
-				<Card className="border-blue-200 dark:border-blue-900/50 shadow-sm py-0">
-					<CardHeader className="bg-indigo-600 gap-0 text-white rounded-t-lg py-4">
-						<CardTitle className="flex items-center gap-2">
-							<Search className="h-5 w-5" />
-							検索したいポケモンの情報を入力してください
-						</CardTitle>
-					</CardHeader>
-					<CardContent className="p-4">
-						<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-							<div className="space-y-2">
-								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
-									ポケモン名
-								</Label>
-								<div className="relative">
-									<Input
-										placeholder="ポケモン名を入力"
-										className="pl-10"
-										value={selectedPokemon}
-										onChange={(e) => setSelectedPokemon(e.target.value)}
-									/>
-									<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-								</div>
-							</div>
-
-							<div className="space-y-2">
-								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
-									周回数
-								</Label>
-								<Select
-									onValueChange={(value) =>
-										handleTimesChange(Number.parseInt(value))
-									}
-									defaultValue={"0"}
-								>
-									<SelectTrigger className="w-full">
-										<SelectValue placeholder="周回数を選択" />
-									</SelectTrigger>
-									<SelectContent>
-										<SelectGroup>
-											<SelectLabel>周回回数</SelectLabel>
-											{timesItems.map((timesItem, i) => (
-												<SelectItem key={i} value={i.toString()}>
-													{timesItem}
-												</SelectItem>
-											))}
-										</SelectGroup>
-									</SelectContent>
-								</Select>
-							</div>
-
-							<div className="space-y-2">
-								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
-									特性
-								</Label>
-								<Select
-									onValueChange={(value) => setAbility(value)}
-									defaultValue={"なし"}
-								>
-									<SelectTrigger className="w-full">
-										<SelectValue placeholder="特性を選択" />
-									</SelectTrigger>
-									<SelectContent>
-										<SelectGroup>
-											<SelectLabel>特性</SelectLabel>
-											{abilities.map((ability) => (
-												<SelectItem key={ability} value={ability}>
-													{ability}
-												</SelectItem>
-											))}
-										</SelectGroup>
-									</SelectContent>
-								</Select>
-							</div>
-
-							<div className="space-y-2">
-								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
-									アイテム
-								</Label>
-								<Select
-									onValueChange={(value) => setItem(value)}
-									defaultValue={"なし"}
-								>
-									<SelectTrigger className="w-full">
-										<SelectValue placeholder="アイテムを選択" />
-									</SelectTrigger>
-
-									<SelectContent>
-										<SelectGroup>
-											<SelectLabel>アイテム</SelectLabel>
-											{items.map((item) => (
-												<SelectItem key={item} value={item}>
-													{item}
-												</SelectItem>
-											))}
-										</SelectGroup>
-									</SelectContent>
-								</Select>
-							</div>
-
-							<div className="space-y-2">
-								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
-									レベル
-								</Label>
-								<div className="flex items-center gap-4">
-									<Checkbox
-										id="terms"
-										checked={level === 50}
-										onClick={() => handleLevelChange(50)}
-										className="w-5 h-5 border-2 bg-white"
-									/>
-									<label
-										htmlFor="terms"
-										className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-									>
-										50レベル
-									</label>
-									<Checkbox
-										id="terms"
-										checked={level === 100}
-										onClick={() => handleLevelChange(100)}
-										className="w-5 h-5 border-2 bg-white"
-									/>
-									<label
-										htmlFor="terms"
-										className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-									>
-										オープンレベル
-									</label>
-								</div>
-							</div>
-
-							<div className="space-y-2">
-								<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
-									項目
-								</Label>
-								<Select
-									onValueChange={(value) => setSortItem(value)}
-									defaultValue={"なし"}
-								>
-									<SelectTrigger className="w-full">
-										<SelectValue placeholder="項目を選択" />
-									</SelectTrigger>
-									<SelectContent>
-										<SelectGroup>
-											<SelectLabel>並べ替え項目</SelectLabel>
-											{sortItems.map((item) => (
-												<SelectItem key={item} value={item}>
-													{item}
-												</SelectItem>
-											))}
-										</SelectGroup>
-									</SelectContent>
-								</Select>
-							</div>
-						</div>
-					</CardContent>
-				</Card>
-				{factoryPokemons.length === 0 ? (
-					<Loading />
-				) : (
-					<Card className="border-indigo-200 dark:border-indigo-900/50 shadow-sm py-0">
-						<CardHeader className="bg-indigo-600 text-white rounded-t-lg py-4 gap-0">
-							<CardTitle className="flex items-center justify-between">
-								<span className="flex items-center gap-2">
-									<Filter className="h-5 w-5" />
-									検索結果
-								</span>
-								<Badge className="bg-white text-indigo-700 hover:bg-white/90">
-									{filteredSortedFactoryPokemons.length}件見つかりました
-								</Badge>
+		<>
+			<Head>
+				<title>バトルファクトリーのポケモン一覧 - 金ネジキ攻略</title>
+				<meta
+					name="description"
+					content="ポケモンバトルファクトリーに登場するポケモンの一覧・フィルター検索ページ。持ち物・特性・能力値でソート可能。金ネジキ攻略に役立つ便利ツール。"
+				/>
+				<meta property="og:title" content="バトルファクトリーのポケモン一覧" />
+				<meta
+					property="og:description"
+					content="ポケモンバトルファクトリーに登場するポケモンの情報を検索・比較できるツールです。金ネジキ戦の準備に最適。"
+				/>
+				<meta
+					property="og:image"
+					content="https://nejiki-calculator.com/ogp.png"
+				/>
+				<meta
+					property="og:url"
+					content="https://nejiki-calculator.com/poke-search"
+				/>
+				<meta name="twitter:card" content="summary_large_image" />
+				<link
+					rel="canonical"
+					href="https://nejiki-calculator.com/poke-search"
+				/>
+			</Head>
+			<MainLayout>
+				<div className="min-h-screen bg-inherit max-w-6xl flex flex-col gap-4">
+					<Card className="border-blue-200 dark:border-blue-900/50 shadow-sm py-0">
+						<CardHeader className="bg-indigo-600 gap-0 text-white rounded-t-lg py-4">
+							<CardTitle className="flex items-center gap-2">
+								<Search className="h-5 w-5" />
+								検索したいポケモンの情報を入力してください
 							</CardTitle>
 						</CardHeader>
-						<CardContent className="p-0">
-							<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 p-4">
-								{filteredSortedFactoryPokemons.map((pokemon) => (
-									<div className="border rounded-lg" key={pokemon.id}>
-										<ListPokemonCard
-											key={pokemon.id}
-											pokemon={pokemon}
-											level={level}
-											times={times}
+						<CardContent className="p-4">
+							<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+								<div className="space-y-2">
+									<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+										ポケモン名
+									</Label>
+									<div className="relative">
+										<Input
+											placeholder="ポケモン名を入力"
+											className="pl-10"
+											value={selectedPokemon}
+											onChange={(e) => setSelectedPokemon(e.target.value)}
 										/>
+										<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
 									</div>
-								))}
+								</div>
+
+								<div className="space-y-2">
+									<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+										周回数
+									</Label>
+									<Select
+										onValueChange={(value) =>
+											handleTimesChange(Number.parseInt(value))
+										}
+										defaultValue={"0"}
+									>
+										<SelectTrigger className="w-full">
+											<SelectValue placeholder="周回数を選択" />
+										</SelectTrigger>
+										<SelectContent>
+											<SelectGroup>
+												<SelectLabel>周回回数</SelectLabel>
+												{timesItems.map((timesItem, i) => (
+													<SelectItem key={i} value={i.toString()}>
+														{timesItem}
+													</SelectItem>
+												))}
+											</SelectGroup>
+										</SelectContent>
+									</Select>
+								</div>
+
+								<div className="space-y-2">
+									<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+										特性
+									</Label>
+									<Select
+										onValueChange={(value) => setAbility(value)}
+										defaultValue={"なし"}
+									>
+										<SelectTrigger className="w-full">
+											<SelectValue placeholder="特性を選択" />
+										</SelectTrigger>
+										<SelectContent>
+											<SelectGroup>
+												<SelectLabel>特性</SelectLabel>
+												{abilities.map((ability) => (
+													<SelectItem key={ability} value={ability}>
+														{ability}
+													</SelectItem>
+												))}
+											</SelectGroup>
+										</SelectContent>
+									</Select>
+								</div>
+
+								<div className="space-y-2">
+									<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+										アイテム
+									</Label>
+									<Select
+										onValueChange={(value) => setItem(value)}
+										defaultValue={"なし"}
+									>
+										<SelectTrigger className="w-full">
+											<SelectValue placeholder="アイテムを選択" />
+										</SelectTrigger>
+
+										<SelectContent>
+											<SelectGroup>
+												<SelectLabel>アイテム</SelectLabel>
+												{items.map((item) => (
+													<SelectItem key={item} value={item}>
+														{item}
+													</SelectItem>
+												))}
+											</SelectGroup>
+										</SelectContent>
+									</Select>
+								</div>
+
+								<div className="space-y-2">
+									<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+										レベル
+									</Label>
+									<div className="flex items-center gap-4">
+										<Checkbox
+											id="terms"
+											checked={level === 50}
+											onClick={() => handleLevelChange(50)}
+											className="w-5 h-5 border-2 bg-white"
+										/>
+										<label
+											htmlFor="terms"
+											className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+										>
+											50レベル
+										</label>
+										<Checkbox
+											id="terms"
+											checked={level === 100}
+											onClick={() => handleLevelChange(100)}
+											className="w-5 h-5 border-2 bg-white"
+										/>
+										<label
+											htmlFor="terms"
+											className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+										>
+											オープンレベル
+										</label>
+									</div>
+								</div>
+
+								<div className="space-y-2">
+									<Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+										項目
+									</Label>
+									<Select
+										onValueChange={(value) => setSortItem(value)}
+										defaultValue={"なし"}
+									>
+										<SelectTrigger className="w-full">
+											<SelectValue placeholder="項目を選択" />
+										</SelectTrigger>
+										<SelectContent>
+											<SelectGroup>
+												<SelectLabel>並べ替え項目</SelectLabel>
+												{sortItems.map((item) => (
+													<SelectItem key={item} value={item}>
+														{item}
+													</SelectItem>
+												))}
+											</SelectGroup>
+										</SelectContent>
+									</Select>
+								</div>
 							</div>
 						</CardContent>
 					</Card>
-				)}
-			</div>
-		</MainLayout>
+					{factoryPokemons.length === 0 ? (
+						<Loading />
+					) : (
+						<Card className="border-indigo-200 dark:border-indigo-900/50 shadow-sm py-0">
+							<CardHeader className="bg-indigo-600 text-white rounded-t-lg py-4 gap-0">
+								<CardTitle className="flex items-center justify-between">
+									<span className="flex items-center gap-2">
+										<Filter className="h-5 w-5" />
+										検索結果
+									</span>
+									<Badge className="bg-white text-indigo-700 hover:bg-white/90">
+										{filteredSortedFactoryPokemons.length}件見つかりました
+									</Badge>
+								</CardTitle>
+							</CardHeader>
+							<CardContent className="p-0">
+								<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 p-4">
+									{filteredSortedFactoryPokemons.map((pokemon) => (
+										<div className="border rounded-lg" key={pokemon.id}>
+											<ListPokemonCard
+												key={pokemon.id}
+												pokemon={pokemon}
+												level={level}
+												times={times}
+											/>
+										</div>
+									))}
+								</div>
+							</CardContent>
+						</Card>
+					)}
+				</div>
+			</MainLayout>
+		</>
 	);
 }
 

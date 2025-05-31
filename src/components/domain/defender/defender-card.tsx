@@ -1,3 +1,8 @@
+import { AutoComplete } from "@/components/general/auto-complete";
+import { PokemonDescription } from "@/components/general/pokemon-description";
+import { Rank } from "@/components/general/rank";
+import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import {
 	setBRank,
@@ -12,12 +17,7 @@ import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { Avatar } from "@radix-ui/react-avatar";
 import { ShieldPlus } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { AutoComplete } from "@/components/general/auto-complete";
 import { DefenderReserve } from "./defender-reserve";
-import { PokemonDescription } from "@/components/general/pokemon-description";
-import { Rank } from "@/components/general/rank";
-import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 
 export const DefenderCard = () => {
 	const defender = useSelector((state: RootState) => state.defender);

@@ -3,9 +3,17 @@ import { calculateStatus } from "@/functions/calculate_status";
 import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { useSelector } from "react-redux";
-import { TypeBadge } from "./type-badge";
 import { Badge } from "../ui/badge";
-import { SelectTrigger, SelectValue, SelectItem, SelectGroup, Select, SelectContent, SelectLabel } from "../ui/select";
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectLabel,
+	SelectTrigger,
+	SelectValue,
+} from "../ui/select";
+import { TypeBadge } from "./type-badge";
 
 type PokemonDescriptionProps = {
 	factroyPokemon: FactoryPokemon;

@@ -1,3 +1,4 @@
+import { AutoComplete } from "@/components/general/auto-complete";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { setDefender } from "@/store/slices/defenderSlice";
 import type { RootState } from "@/store/store";
@@ -5,7 +6,6 @@ import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { Avatar } from "@radix-ui/react-avatar";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AutoComplete } from "@/components/general/auto-complete";
 import { MaterialSymbolsDeleteOutline } from "../../icons/delete";
 import { AvatarFallback, AvatarImage } from "../../ui/avatar";
 import { Button } from "../../ui/button";
