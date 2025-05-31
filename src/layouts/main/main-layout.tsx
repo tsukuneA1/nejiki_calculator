@@ -5,7 +5,12 @@ import { Button } from "@/components/ui/button";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { useRouter } from "next/navigation";
 
-export const MainLayout = ({ children }: { children: React.ReactNode }) => {
+type Props = {
+	isTopPage?: boolean;
+	children: React.ReactNode;
+}
+
+export const MainLayout = ({ isTopPage = false, children }: Props) => {
 	const router = useRouter();
 	return (
 		<SidebarProvider>
@@ -15,7 +20,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
 				</div>
 				<div className="flex flex-col flex-grow">
 					<MainHeader />
-					<main className="flex py-4 px-2 mb-18 sm:px-5 min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 dark:from-slate-950 dark:to-slate-900 sm:gap-4">
+					<main className={`flex py-4 px-2 ${isTopPage && 'mb-18'} sm:px-5 min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 dark:from-slate-950 dark:to-slate-900 sm:gap-4`}>
 						<aside className="hidden sm:block">
 							<nav className="grid gap-1 p-2 bg-white dark:bg-slate-900 rounded-lg shadow-sm border dark:border-slate-800">
 								{menuItems.map((item) => (
@@ -35,7 +40,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
 						</aside>
 						<div>{children}</div>
 					</main>
-					<MainFooter />
+					{isTopPage && <MainFooter />}
 				</div>
 			</div>
 		</SidebarProvider>

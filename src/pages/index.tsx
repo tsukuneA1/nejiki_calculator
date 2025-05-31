@@ -79,7 +79,7 @@ export default function Home() {
 				<meta name="twitter:card" content="summary_large_image" />
 				<link rel="canonical" href="https://nejiki-calculator.com/" />
 			</Head>
-			<MainLayout>
+			<MainLayout isTopPage={true}>
 				<div className="w-auto max-w-xl flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-lg shadow-sm border dark:border-slate-800">
 					<div className="flex items-center gap-2">
 						<Checkbox
