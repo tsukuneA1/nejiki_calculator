@@ -132,8 +132,8 @@ export default function PokeSearch() {
 			</Head>
 			<MainLayout>
 				<div className="min-h-screen bg-inherit max-w-6xl flex flex-col gap-4">
-					<Card className="border-blue-200 dark:border-blue-900/50 shadow-sm py-0">
-						<CardHeader className="bg-indigo-600 gap-0 text-white rounded-t-lg py-4">
+					<Card className="shadow-sm py-0">
+						<CardHeader className="bg-primary gap-0 text-white rounded-t-lg py-4">
 							<CardTitle className="flex items-center gap-2">
 								<Search className="h-5 w-5" />
 								検索したいポケモンの情報を入力してください
@@ -292,8 +292,8 @@ export default function PokeSearch() {
 					{factoryPokemons.length === 0 ? (
 						<Loading />
 					) : (
-						<Card className="border-indigo-200 dark:border-indigo-900/50 shadow-sm py-0">
-							<CardHeader className="bg-indigo-600 text-white rounded-t-lg py-4 gap-0">
+						<Card className="shadow-sm py-0">
+							<CardHeader className="bg-primary text-white rounded-t-lg py-4 gap-0">
 								<CardTitle className="flex items-center justify-between">
 									<span className="flex items-center gap-2">
 										<Filter className="h-5 w-5" />
