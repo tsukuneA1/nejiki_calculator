@@ -1,4 +1,3 @@
-import { CardTypeStyles } from "@/constants/cardTypeStyles";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import { addAttacker, deleteAttacker } from "@/store/slices/attackerSlice";
 import type { RootState } from "@/store/store";
@@ -21,7 +20,6 @@ export const Attackers = () => {
 	return (
 		<div className="flex flex-col gap-2">
 			<MainCardLayout
-				cardStyle={CardTypeStyles[0]}
 				header={
 					<>
 						<Swords className="w-7 h-7 mx-2" />

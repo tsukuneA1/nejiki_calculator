@@ -1,4 +1,3 @@
-import { CardTypeStyles } from "@/constants/cardTypeStyles";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import {
 	setLifeOrb,
@@ -33,7 +32,6 @@ export const EnvCard = () => {
 	const weathers = ["なし", "にほんばれ", "あめ", "すなあらし", "あられ"];
 	return (
 		<MainCardLayout
-			cardStyle={CardTypeStyles[2]}
 			header={
 				<>
 					<CloudSunRain className="w-7 h-7 mx-2" />

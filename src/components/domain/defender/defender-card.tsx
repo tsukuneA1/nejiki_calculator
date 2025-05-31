@@ -1,4 +1,3 @@
-import { CardTypeStyles } from "@/constants/cardTypeStyles";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import {
 	setBRank,
@@ -33,7 +32,6 @@ export const DefenderCard = () => {
 	const data = pokemon.pokemon;
 	return (
 		<MainCardLayout
-			cardStyle={CardTypeStyles[1]}
 			header={
 				<>
 					<ShieldPlus className="w-7 h-7 mx-2" />
