@@ -17,16 +17,16 @@ import clsx from "clsx";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AutoComplete } from "./auto-complete";
-import { FamiconsChevronCollapseOutline } from "./icons/collapse";
-import { MaterialSymbolsDeleteOutline } from "./icons/delete";
-import { IonChevronExpandOutline } from "./icons/expand";
+import { FamiconsChevronCollapseOutline } from "../icons/collapse";
+import { MaterialSymbolsDeleteOutline } from "../icons/delete";
+import { IonChevronExpandOutline } from "../icons/expand";
 import { MoveCard } from "./move-card";
 import { PokemonDescription } from "./pokemon-description";
 import { Rank } from "./rank";
-import { AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
-import { Checkbox } from "./ui/checkbox";
+import { AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
+import { Checkbox } from "../ui/checkbox";
 
 export const PokemonCard = ({
 	pos,

@@ -5,8 +5,8 @@ import type { RootState } from "@/store/store";
 import { Swords } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { AttackerReserve } from "./attacker-reserve";
-import { PokemonCard } from "./pokemon-card";
-import { Button } from "./ui/button";
+import { PokemonCard } from "@/components/general/pokemon-card";
+import { Button } from "@/components/ui/button";
 
 export const Attackers = () => {
 	const attackers = useSelector((state: RootState) => state.attacker);

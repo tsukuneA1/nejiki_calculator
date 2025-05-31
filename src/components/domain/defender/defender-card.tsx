@@ -13,12 +13,12 @@ import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { Avatar } from "@radix-ui/react-avatar";
 import { ShieldPlus } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { AutoComplete } from "./auto-complete";
+import { AutoComplete } from "@/components/general/auto-complete";
 import { DefenderReserve } from "./defender-reserve";
-import { PokemonDescription } from "./pokemon-description";
-import { Rank } from "./rank";
-import { AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
+import { PokemonDescription } from "@/components/general/pokemon-description";
+import { Rank } from "@/components/general/rank";
+import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 
 export const DefenderCard = () => {
 	const defender = useSelector((state: RootState) => state.defender);

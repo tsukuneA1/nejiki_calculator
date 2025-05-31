@@ -4,13 +4,8 @@ import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { useSelector } from "react-redux";
 import { TypeBadge } from "./type-badge";
-import { Badge } from "./ui/badge";
-import { SelectLabel } from "./ui/select";
-import { SelectTrigger, SelectValue } from "./ui/select";
-import { SelectItem } from "./ui/select";
-import { SelectGroup } from "./ui/select";
-import { Select } from "./ui/select";
-import { SelectContent } from "./ui/select";
+import { Badge } from "../ui/badge";
+import { SelectTrigger, SelectValue, SelectItem, SelectGroup, Select, SelectContent, SelectLabel } from "../ui/select";
 
 type PokemonDescriptionProps = {
 	factroyPokemon: FactoryPokemon;
@@ -125,9 +120,9 @@ export const PokemonDescription = ({
 				</div>
 			</div>
 
-			<div className="flex items-center gap-2">
+			<div className="flex items-center gap-2 w-full">
 				<Badge className="w-18 h-9">ステータス</Badge>
-				<div className="border box-shadow p-2 rounded-md">
+				<div className="border box-shadow p-2 rounded-md w-full">
 					{status.hp}-{status.attack}-{status.defense}-{status.spAttack}-
 					{status.spDefense}-{status.speed}
 				</div>

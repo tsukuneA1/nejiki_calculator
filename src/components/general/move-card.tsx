@@ -1,6 +1,6 @@
 import type { Move } from "@/types/move";
 import { TypeBadge } from "./type-badge";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 export const MoveCard = ({
 	move,

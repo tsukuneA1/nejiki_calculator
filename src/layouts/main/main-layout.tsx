@@ -1,4 +1,4 @@
-import { AppSidebar, menuItems } from "@/components/app-sidebar";
+import { AppSidebar, menuItems } from "@/components/domain/sidebar/app-sidebar";
 import { MainFooter } from "@/components/layout/main/main-footer";
 import { MainHeader } from "@/components/layout/main/main-header";
 import { Button } from "@/components/ui/button";

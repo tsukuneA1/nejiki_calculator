@@ -5,10 +5,10 @@ import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { Avatar } from "@radix-ui/react-avatar";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AutoComplete } from "./auto-complete";
-import { MaterialSymbolsDeleteOutline } from "./icons/delete";
-import { AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
+import { AutoComplete } from "@/components/general/auto-complete";
+import { MaterialSymbolsDeleteOutline } from "@/components/icons/delete";
+import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 
 export const AttackerReserve = () => {
 	const settings = useSelector((state: RootState) => state.settings);

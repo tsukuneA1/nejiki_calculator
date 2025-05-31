@@ -10,8 +10,8 @@ import {
 import type { RootState } from "@/store/store";
 import { CloudSunRain } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { Badge } from "./ui/badge";
-import { Checkbox } from "./ui/checkbox";
+import { Badge } from "../../ui/badge";
+import { Checkbox } from "../../ui/checkbox";
 import {
 	Select,
 	SelectContent,
@@ -20,7 +20,7 @@ import {
 	SelectLabel,
 	SelectTrigger,
 	SelectValue,
-} from "./ui/select";
+} from "../../ui/select";
 
 export const EnvCard = () => {
 	const weather = useSelector((state: RootState) => state.env.weather);
