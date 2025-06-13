@@ -67,7 +67,7 @@ export default function InstructionManual() {
 				/>
 			<div className="prose min-h-80 w-full rounded-lg border-2 border-gray-300 p-8 max-w-4xl bg-white mx-auto">
 				<h1 className="flex items-center pb-4 text-4xl font-bold text-gray-800 border-b-2 border-gray-300">
-					🧮 ポケモンバトルファクトリー ダメージ計算機
+					ポケモンバトルファクトリー ダメージ計算機
 				</h1>
 				
 				<div className="text-lg text-gray-600 mb-8">
@@ -294,7 +294,7 @@ export default function InstructionManual() {
 							</div>
 							<div className="bg-red-50 p-4 rounded-lg">
 								<h3 className="font-semibold text-red-800 mb-2">タイプ相性</h3>
-								<p className="text-sm text-gray-700">タイプ相性は自動計算。「効果はばつぐんだ！」や「効果はいまひとつ」も表示されます。</p>
+								<p className="text-sm text-gray-700">タイプ相性は自動計算。</p>
 							</div>
 							<div className="bg-cyan-50 p-4 rounded-lg">
 								<h3 className="font-semibold text-cyan-800 mb-2">プログレスバー</h3>

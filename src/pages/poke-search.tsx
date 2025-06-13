@@ -116,13 +116,13 @@ export default function PokeSearch({ initialFactoryPokemons }: Props) {
 				<title>金ネジキ ポケモン一覧 | バトルファクトリー検索ツール【完全版】</title>
 				<meta
 					name="description"
-					content="金ネジキポケモン一覧の決定版！バトルファクトリーで使用可能なポケモン495匹を完全網羅。持ち物・特性・能力値で細かく検索可能。周回別フィルタリングで攻略的にポケモンを選択しよう！"
+					content="金ネジキポケモン一覧の決定版！バトルファクトリーで使用可能なポケモンを完全網羅。持ち物・特性・能力値で細かく検索可能。周回別フィルタリングで攻略的にポケモンを選択しよう！"
 				/>
 				<meta name="keywords" content="金ネジキ,ポケモン一覧,バトルファクトリー,検索,フィルター,ポケモン,特性,持ち物,能力値,プラチナ,HGSS,攻略" />
 				<meta property="og:title" content="金ネジキ ポケモン一覧 | バトルファクトリー検索ツール" />
 				<meta
 					property="og:description"
-					content="金ネジキ攻略に必須！バトルファクトリーで使用可能なポケモン495匹を完全網羅。持ち物・特性・能力値で細かく検索可能。"
+					content="金ネジキ攻略に必須！バトルファクトリーで使用可能なポケモンを完全網羅。持ち物・特性・能力値で細かく検索可能。"
 				/>
 				<meta property="og:type" content="website" />
 				<meta
@@ -136,7 +136,7 @@ export default function PokeSearch({ initialFactoryPokemons }: Props) {
 				<meta property="og:site_name" content="金ネジキ攻略ツール" />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:title" content="金ネジキ ポケモン一覧 | バトルファクトリー検索ツール" />
-				<meta name="twitter:description" content="金ネジキ攻略に必須！495匹のポケモンを完全網羅。持ち物・特性で細かく検索可能。" />
+				<meta name="twitter:description" content="金ネジキ攻略に必須！バトルファクトリーのポケモンを完全網羅。持ち物・特性で細かく検索可能。" />
 				<meta name="twitter:image" content="https://nejiki-calculator.com/images/nejiki_image.png" />
 				<link
 					rel="canonical"
@@ -153,7 +153,7 @@ export default function PokeSearch({ initialFactoryPokemons }: Props) {
 							"@context": "https://schema.org",
 							"@type": "WebPage",
 							name: "金ネジキ ポケモン一覧",
-							description: "バトルファクトリーで使用可能なポケモン495匹の詳細情報と検索機能。",
+							description: "バトルファクトリーで使用可能なポケモンの詳細情報と検索機能。",
 							url: "https://nejiki-calculator.com/poke-search",
 							isPartOf: {
 								"@type": "WebSite",
@@ -486,7 +486,6 @@ export const ListPokemonCard = ({
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	try {
-		// サーバーサイドでポケモンデータを取得
 		const baseUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000';
 		const response = await fetch(`${baseUrl}/api/factory_pokemon`);
 		
@@ -503,7 +502,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
 		};
 	} catch (error) {
 		console.error('Error in getServerSideProps:', error);
-		// エラーの場合は空配列を返す
 		return {
 			props: {
 				initialFactoryPokemons: [],
