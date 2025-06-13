@@ -61,25 +61,54 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>金ネジキダメージ計算機 - ポケモンプラチナ/HGSS対応</title>
+				<title>金ネジキ攻略 | ポケモンバトルファクトリー ダメージ計算機【プラチナ/HGSS対応】</title>
 				<meta
 					name="description"
-					content="ポケモンバトルファクトリー（金ネジキ）用のダメージ計算ツール。HGSS/プラチナ対応、技や特性、持ち物を設定して詳細なダメージをチェック！"
+					content="金ネジキ攻略の決定版！ポケモンバトルファクトリー専用ダメージ計算機。プラチナ/HGSS完全対応。技・特性・持ち物の詳細設定で正確なダメージ計算。周回別ポケモン自動フィルタリング搭載。"
 				/>
-				<meta property="og:title" content="金ネジキダメージ計算機" />
+				<meta name="keywords" content="金ネジキ,ポケモン,バトルファクトリー,ダメージ計算,プラチナ,HGSS,ハートゴールド,ソウルシルバー,攻略,計算機,ツール" />
+				<meta property="og:title" content="金ネジキ攻略 | ポケモンバトルファクトリー ダメージ計算機" />
 				<meta
 					property="og:description"
-					content="ポケモンバトルファクトリーのダメージ計算ができるツールです。"
+					content="金ネジキ攻略専用のダメージ計算機。ポケモンバトルファクトリーで使用可能なポケモンを完全網羅。正確なダメージ計算で戦略的に攻略しよう！"
 				/>
+				<meta property="og:type" content="website" />
 				<meta
 					property="og:image"
-					content="https://nejiki-calculator.com/ogp.png"
+					content="https://nejiki-calculator.com/images/nejiki_image.png"
 				/>
 				<meta property="og:url" content="https://nejiki-calculator.com/" />
+				<meta property="og:site_name" content="金ネジキ攻略ツール" />
 				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:title" content="金ネジキ攻略 | ポケモンバトルファクトリー ダメージ計算機" />
+				<meta name="twitter:description" content="金ネジキ攻略専用のダメージ計算機。プラチナ/HGSS対応、周回別自動フィルタリング搭載。" />
+				<meta name="twitter:image" content="https://nejiki-calculator.com/images/nejiki_image.png" />
 				<link rel="canonical" href="https://nejiki-calculator.com/" />
+				<meta name="author" content="金ネジキ攻略ツール" />
+				<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 			</Head>
 			<MainLayout isTopPage={true}>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "WebApplication",
+							name: "金ネジキ攻略 ダメージ計算機",
+							description: "ポケモンバトルファクトリー（金ネジキ）専用のダメージ計算ツール。プラチナ/HGSS対応。",
+							url: "https://nejiki-calculator.com",
+							applicationCategory: "GameApplication",
+							operatingSystem: "Web Browser",
+							offers: {
+								"@type": "Offer",
+								price: "0",
+								priceCurrency: "JPY"
+							},
+							keywords: "金ネジキ,ポケモン,バトルファクトリー,ダメージ計算,プラチナ,HGSS"
+						}),
+					}}
+				/>
+				<h1 className="sr-only">金ネジキ攻略 ポケモンバトルファクトリー ダメージ計算機</h1>
 				<div className="w-auto max-w-xl flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-lg shadow-sm border dark:border-slate-800">
 					<div className="flex items-center gap-2">
 						<Checkbox
