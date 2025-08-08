@@ -196,7 +196,7 @@ export default function PokeSearch({ initialFactoryPokemons }: Props) {
 					<h1 className="sr-only">
 						金ネジキ ポケモン一覧 バトルファクトリー検索ツール
 					</h1>
-					<Card className="shadow-sm py-0">
+					<Card className="shadow-sm py-0 w-full">
 						<CardHeader className="bg-primary gap-0 text-white rounded-t-lg py-4">
 							<CardTitle className="flex items-center gap-2">
 								<Search className="h-5 w-5" />
