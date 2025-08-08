@@ -1,5 +1,4 @@
 import { filterFactoryPokemons } from "@/components/general/auto-complete";
-import Loading from "@/components/general/loading";
 import { TypeBadge } from "@/components/general/type-badge";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,6 +14,7 @@ import { SelectContent } from "@/components/ui/select";
 import { Select, SelectValue } from "@/components/ui/select";
 import { SelectTrigger } from "@/components/ui/select";
 import { abilities } from "@/constants/abilities";
+import { FACTORY_POKEMONS } from "@/constants/factoryPokemon";
 import { items } from "@/constants/items";
 import { findItems, timesItems } from "@/constants/ivs";
 import { calculateStatus } from "@/functions/calculate_status";
@@ -23,18 +23,11 @@ import { MainLayout } from "@/layouts/main/main-layout";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
 import { Filter, Search } from "lucide-react";
-import type { GetServerSideProps } from "next";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-interface Props {
-	initialFactoryPokemons: FactoryPokemon[];
-}
-
-export default function PokeSearch({ initialFactoryPokemons }: Props) {
-	const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>(
-		initialFactoryPokemons,
-	);
+export default function PokeSearch() {
+	const [factoryPokemons] = useState<FactoryPokemon[]>(FACTORY_POKEMONS);
 	const [level, setLevel] = useState<number>(100);
 	const [times, setTimes] = useState<number>(1);
 	const [item, setItem] = useState<string>("なし");
@@ -42,17 +35,6 @@ export default function PokeSearch({ initialFactoryPokemons }: Props) {
 	const [sortItem, setSortItem] = useState<string>("なし");
 	const [selectedPokemon, setSelectedPokemon] = useState<string>("なし");
 	const [isNejiki, setIsNejiki] = useState(false);
-
-	useEffect(() => {
-		if (initialFactoryPokemons.length === 0) {
-			fetch("/api/factory_pokemon")
-				.then((res) => res.json())
-				.then((data) => setFactoryPokemons(data))
-				.catch((error) =>
-					console.error("Error fetching factory pokemons:", error),
-				);
-		}
-	}, [initialFactoryPokemons]);
 
 	const filteredSortedFactoryPokemons = factoryPokemons
 		.filter((pokemon) => {
@@ -353,37 +335,33 @@ export default function PokeSearch({ initialFactoryPokemons }: Props) {
 							</div>
 						</CardContent>
 					</Card>
-					{factoryPokemons.length === 0 ? (
-						<Loading />
-					) : (
-						<Card className="shadow-sm py-0">
-							<CardHeader className="bg-primary text-white rounded-t-lg py-4 gap-0">
-								<CardTitle className="flex items-center justify-between">
-									<span className="flex items-center gap-2">
-										<Filter className="h-5 w-5" />
-										検索結果
-									</span>
-									<Badge className="bg-white text-indigo-700 hover:bg-white/90">
-										{filteredSortedFactoryPokemons.length}件見つかりました
-									</Badge>
-								</CardTitle>
-							</CardHeader>
-							<CardContent className="p-0">
-								<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 p-4">
-									{filteredSortedFactoryPokemons.map((pokemon) => (
-										<div className="border rounded-lg" key={pokemon.id}>
-											<ListPokemonCard
-												key={pokemon.id}
-												pokemon={pokemon}
-												level={level}
-												times={times}
-											/>
-										</div>
-									))}
-								</div>
-							</CardContent>
-						</Card>
-					)}
+					<Card className="shadow-sm py-0">
+						<CardHeader className="bg-primary text-white rounded-t-lg py-4 gap-0">
+							<CardTitle className="flex items-center justify-between">
+								<span className="flex items-center gap-2">
+									<Filter className="h-5 w-5" />
+									検索結果
+								</span>
+								<Badge className="bg-white text-indigo-700 hover:bg-white/90">
+									{filteredSortedFactoryPokemons.length}件見つかりました
+								</Badge>
+							</CardTitle>
+						</CardHeader>
+						<CardContent className="p-0">
+							<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 p-4">
+								{filteredSortedFactoryPokemons.map((pokemon) => (
+									<div className="border rounded-lg" key={pokemon.id}>
+										<ListPokemonCard
+											key={pokemon.id}
+											pokemon={pokemon}
+											level={level}
+											times={times}
+										/>
+									</div>
+								))}
+							</div>
+						</CardContent>
+					</Card>
 				</div>
 			</MainLayout>
 		</>
@@ -509,28 +487,3 @@ export const ListPokemonCard = ({
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	try {
-		const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
-		const response = await fetch(`${baseUrl}/api/factory_pokemon`);
-
-		if (!response.ok) {
-			throw new Error("Failed to fetch factory pokemons");
-		}
-
-		const initialFactoryPokemons = await response.json();
-
-		return {
-			props: {
-				initialFactoryPokemons,
-			},
-		};
-	} catch (error) {
-		console.error("Error in getServerSideProps:", error);
-		return {
-			props: {
-				initialFactoryPokemons: [],
-			},
-		};
-	}
-};
