@@ -1,6 +1,7 @@
+import { FACTORY_POKEMONS } from "@/constants/factoryPokemon";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { PopoverTrigger } from "@radix-ui/react-popover";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Popover, PopoverContent } from "../ui/popover";
 
 import { toggleKana } from "@/functions/convert_hiragana_katakana";
@@ -31,19 +32,10 @@ export const AutoComplete = ({
 	isNejiki: boolean;
 }) => {
 	const [open, setOpen] = useState(false);
-	const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>([]);
+	const factoryPokemons = FACTORY_POKEMONS;
 
 	const isDesktop = useMediaQuery("(min-width: 768px)");
 	const stat = { level, times, isNejiki };
-
-	useEffect(() => {
-		fetch("/api/factory_pokemon")
-			.then((res) => res.json())
-			.then((data) => setFactoryPokemons(data))
-			.catch((error) =>
-				console.error("Error fetching factory pokemons:", error),
-			);
-	}, []);
 
 	const handleSelect = (pokemon: FactoryPokemon) => {
 		setPokemon(pokemon);
