@@ -23,16 +23,18 @@ import { MainLayout } from "@/layouts/main/main-layout";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
 import { Filter, Search } from "lucide-react";
+import type { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import type { GetServerSideProps } from "next";
 
 interface Props {
 	initialFactoryPokemons: FactoryPokemon[];
 }
 
 export default function PokeSearch({ initialFactoryPokemons }: Props) {
-	const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>(initialFactoryPokemons);
+	const [factoryPokemons, setFactoryPokemons] = useState<FactoryPokemon[]>(
+		initialFactoryPokemons,
+	);
 	const [level, setLevel] = useState<number>(100);
 	const [times, setTimes] = useState<number>(1);
 	const [item, setItem] = useState<string>("なし");
@@ -113,13 +115,21 @@ export default function PokeSearch({ initialFactoryPokemons }: Props) {
 	return (
 		<>
 			<Head>
-				<title>金ネジキ ポケモン一覧 | バトルファクトリー検索ツール【完全版】</title>
+				<title>
+					金ネジキ ポケモン一覧 | バトルファクトリー検索ツール【完全版】
+				</title>
 				<meta
 					name="description"
 					content="金ネジキポケモン一覧の決定版！バトルファクトリーで使用可能なポケモンを完全網羅。持ち物・特性・能力値で細かく検索可能。周回別フィルタリングで攻略的にポケモンを選択しよう！"
 				/>
-				<meta name="keywords" content="金ネジキ,ポケモン一覧,バトルファクトリー,検索,フィルター,ポケモン,特性,持ち物,能力値,プラチナ,HGSS,攻略" />
-				<meta property="og:title" content="金ネジキ ポケモン一覧 | バトルファクトリー検索ツール" />
+				<meta
+					name="keywords"
+					content="金ネジキ,ポケモン一覧,バトルファクトリー,検索,フィルター,ポケモン,特性,持ち物,能力値,プラチナ,HGSS,攻略"
+				/>
+				<meta
+					property="og:title"
+					content="金ネジキ ポケモン一覧 | バトルファクトリー検索ツール"
+				/>
 				<meta
 					property="og:description"
 					content="金ネジキ攻略に必須！バトルファクトリーで使用可能なポケモンを完全網羅。持ち物・特性・能力値で細かく検索可能。"
@@ -135,15 +145,27 @@ export default function PokeSearch({ initialFactoryPokemons }: Props) {
 				/>
 				<meta property="og:site_name" content="金ネジキ攻略ツール" />
 				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:title" content="金ネジキ ポケモン一覧 | バトルファクトリー検索ツール" />
-				<meta name="twitter:description" content="金ネジキ攻略に必須！バトルファクトリーのポケモンを完全網羅。持ち物・特性で細かく検索可能。" />
-				<meta name="twitter:image" content="https://nejiki-calculator.com/images/nejiki_image.png" />
+				<meta
+					name="twitter:title"
+					content="金ネジキ ポケモン一覧 | バトルファクトリー検索ツール"
+				/>
+				<meta
+					name="twitter:description"
+					content="金ネジキ攻略に必須！バトルファクトリーのポケモンを完全網羅。持ち物・特性で細かく検索可能。"
+				/>
+				<meta
+					name="twitter:image"
+					content="https://nejiki-calculator.com/images/nejiki_image.png"
+				/>
 				<link
 					rel="canonical"
 					href="https://nejiki-calculator.com/poke-search"
 				/>
 				<meta name="author" content="金ネジキ攻略ツール" />
-				<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+				<meta
+					name="robots"
+					content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+				/>
 			</Head>
 			<MainLayout>
 				<script
@@ -153,24 +175,27 @@ export default function PokeSearch({ initialFactoryPokemons }: Props) {
 							"@context": "https://schema.org",
 							"@type": "WebPage",
 							name: "金ネジキ ポケモン一覧",
-							description: "バトルファクトリーで使用可能なポケモンの詳細情報と検索機能。",
+							description:
+								"バトルファクトリーで使用可能なポケモンの詳細情報と検索機能。",
 							url: "https://nejiki-calculator.com/poke-search",
 							isPartOf: {
 								"@type": "WebSite",
 								name: "金ネジキ攻略ツール",
-								url: "https://nejiki-calculator.com"
+								url: "https://nejiki-calculator.com",
 							},
 							keywords: "金ネジキ,ポケモン一覧,バトルファクトリー,検索",
 							mainEntity: {
 								"@type": "ItemList",
 								name: "バトルファクトリーポケモン一覧",
-								numberOfItems: 495
-							}
+								numberOfItems: 495,
+							},
 						}),
 					}}
 				/>
 				<div className="min-h-screen bg-inherit max-w-6xl flex flex-col gap-4">
-					<h1 className="sr-only">金ネジキ ポケモン一覧 バトルファクトリー検索ツール</h1>
+					<h1 className="sr-only">
+						金ネジキ ポケモン一覧 バトルファクトリー検索ツール
+					</h1>
 					<Card className="shadow-sm py-0">
 						<CardHeader className="bg-primary gap-0 text-white rounded-t-lg py-4">
 							<CardTitle className="flex items-center gap-2">
@@ -486,22 +511,22 @@ export const ListPokemonCard = ({
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	try {
-		const baseUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000';
+		const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
 		const response = await fetch(`${baseUrl}/api/factory_pokemon`);
-		
+
 		if (!response.ok) {
-			throw new Error('Failed to fetch factory pokemons');
+			throw new Error("Failed to fetch factory pokemons");
 		}
-		
+
 		const initialFactoryPokemons = await response.json();
-		
+
 		return {
 			props: {
 				initialFactoryPokemons,
 			},
 		};
 	} catch (error) {
-		console.error('Error in getServerSideProps:', error);
+		console.error("Error in getServerSideProps:", error);
 		return {
 			props: {
 				initialFactoryPokemons: [],
