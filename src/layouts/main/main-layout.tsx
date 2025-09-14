@@ -1,9 +1,7 @@
-import { AppSidebar, menuItems } from "@/components/domain/sidebar/app-sidebar";
+import { AppSidebar } from "@/components/domain/sidebar/app-sidebar";
 import { MainFooter } from "@/components/layout/main/main-footer";
 import { MainHeader } from "@/components/layout/main/main-header";
-import { Button } from "@/components/ui/button";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { useRouter } from "next/navigation";
 
 type Props = {
   isTopPage?: boolean;
@@ -11,7 +9,6 @@ type Props = {
 };
 
 export const MainLayout = ({ isTopPage = false, children }: Props) => {
-  const router = useRouter();
   return (
     <SidebarProvider>
       <div className="flex min-h-screen w-full overflow-x-hidden">
