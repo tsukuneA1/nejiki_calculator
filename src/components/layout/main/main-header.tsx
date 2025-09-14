@@ -49,7 +49,7 @@ export const MainHeader = () => {
               href={item.url}
               className="flex items-center text-sm text-gray-600 hover:text-gray-900 gap-2"
             >
-              {item.icon && <item.icon />}
+              <item.icon />
               <span>{item.title}</span>
             </Link>
           </li>
