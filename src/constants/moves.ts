@@ -9,7 +9,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 1
+    super: 1,
   },
   {
     id: 7,
@@ -69,7 +69,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 8,
@@ -79,7 +79,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 9,
@@ -89,7 +89,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 10,
@@ -99,7 +99,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 11,
@@ -109,7 +109,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 12,
@@ -119,7 +119,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 13,
@@ -129,7 +129,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 14,
@@ -139,7 +139,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 15,
@@ -149,7 +149,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "物理",
-    super: -1
+    super: -1,
   },
   {
     id: 16,
@@ -159,7 +159,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 17,
@@ -169,7 +169,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 18,
@@ -179,7 +179,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 19,
@@ -189,7 +189,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 20,
@@ -199,7 +199,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 21,
@@ -209,7 +209,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 22,
@@ -219,7 +219,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 23,
@@ -229,7 +229,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 24,
@@ -239,7 +239,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 25,
@@ -249,7 +249,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 26,
@@ -259,7 +259,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 27,
@@ -269,7 +269,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 30,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 28,
@@ -279,7 +279,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 29,
@@ -289,7 +289,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 30,
@@ -299,7 +299,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 31,
@@ -309,7 +309,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 32,
@@ -319,7 +319,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 33,
@@ -329,7 +329,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 34,
@@ -339,7 +339,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 35,
@@ -349,7 +349,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 36,
@@ -359,7 +359,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 37,
@@ -369,7 +369,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 38,
@@ -379,7 +379,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 39,
@@ -389,7 +389,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 40,
@@ -399,7 +399,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 41,
@@ -409,7 +409,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 42,
@@ -419,7 +419,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 43,
@@ -429,7 +429,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 44,
@@ -439,7 +439,7 @@ export const MOVES: Move[] = [
     accuracy: 70,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 45,
@@ -449,7 +449,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 46,
@@ -459,7 +459,7 @@ export const MOVES: Move[] = [
     accuracy: 55,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 47,
@@ -469,7 +469,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 48,
@@ -479,7 +479,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 49,
@@ -489,7 +489,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 25,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 50,
@@ -499,7 +499,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 51,
@@ -509,7 +509,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 52,
@@ -519,7 +519,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 53,
@@ -529,7 +529,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 54,
@@ -539,7 +539,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 55,
@@ -549,7 +549,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 56,
@@ -559,7 +559,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 57,
@@ -569,7 +569,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 58,
@@ -579,7 +579,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 59,
@@ -589,7 +589,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 60,
@@ -599,7 +599,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 61,
@@ -609,7 +609,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 62,
@@ -619,7 +619,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 63,
@@ -629,7 +629,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 64,
@@ -639,7 +639,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 65,
@@ -649,7 +649,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 66,
@@ -659,7 +659,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 67,
@@ -669,7 +669,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 69,
@@ -679,7 +679,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 70,
@@ -689,7 +689,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 71,
@@ -699,7 +699,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 72,
@@ -709,7 +709,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 73,
@@ -719,7 +719,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 74,
@@ -729,7 +729,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: -5
+    super: -5,
   },
   {
     id: 75,
@@ -739,7 +739,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 25,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 76,
@@ -749,7 +749,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 77,
@@ -759,7 +759,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 78,
@@ -769,7 +769,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 79,
@@ -779,7 +779,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "物理",
-    super: 1
+    super: 1,
   },
   {
     id: 80,
@@ -789,7 +789,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 81,
@@ -799,7 +799,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 35,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 82,
@@ -809,7 +809,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 83,
@@ -819,7 +819,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 84,
@@ -829,7 +829,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 85,
@@ -839,7 +839,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "物理",
-    super: 1
+    super: 1,
   },
   {
     id: 86,
@@ -849,7 +849,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 87,
@@ -859,7 +859,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 25,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 88,
@@ -869,7 +869,7 @@ export const MOVES: Move[] = [
     accuracy: 70,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 89,
@@ -879,7 +879,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 90,
@@ -889,7 +889,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 91,
@@ -899,7 +899,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 92,
@@ -909,7 +909,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 93,
@@ -919,7 +919,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 25,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 94,
@@ -929,7 +929,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 95,
@@ -939,7 +939,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 96,
@@ -949,7 +949,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 35,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 97,
@@ -959,7 +959,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 98,
@@ -969,7 +969,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 99,
@@ -979,7 +979,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 100,
@@ -989,7 +989,7 @@ export const MOVES: Move[] = [
     accuracy: 70,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 101,
@@ -999,7 +999,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 102,
@@ -1009,7 +1009,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: -3
+    super: -3,
   },
   {
     id: 103,
@@ -1019,7 +1019,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 104,
@@ -1029,7 +1029,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 105,
@@ -1039,7 +1039,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 106,
@@ -1049,7 +1049,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 107,
@@ -1059,7 +1059,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 108,
@@ -1069,7 +1069,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 109,
@@ -1079,7 +1079,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 110,
@@ -1089,7 +1089,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 111,
@@ -1099,7 +1099,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 112,
@@ -1109,7 +1109,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 113,
@@ -1119,7 +1119,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 114,
@@ -1129,7 +1129,7 @@ export const MOVES: Move[] = [
     accuracy: 55,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 115,
@@ -1139,7 +1139,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 116,
@@ -1149,7 +1149,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 117,
@@ -1159,7 +1159,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 118,
@@ -1169,7 +1169,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 119,
@@ -1179,7 +1179,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 120,
@@ -1189,7 +1189,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 121,
@@ -1199,7 +1199,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 122,
@@ -1209,7 +1209,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 123,
@@ -1219,7 +1219,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 124,
@@ -1229,7 +1229,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 125,
@@ -1239,7 +1239,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 126,
@@ -1249,7 +1249,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 127,
@@ -1259,7 +1259,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 128,
@@ -1269,7 +1269,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 129,
@@ -1279,7 +1279,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 40,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 130,
@@ -1289,7 +1289,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 131,
@@ -1299,7 +1299,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "物理",
-    super: 1
+    super: 1,
   },
   {
     id: 132,
@@ -1309,7 +1309,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 133,
@@ -1319,7 +1319,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 134,
@@ -1329,7 +1329,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 135,
@@ -1339,7 +1339,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 136,
@@ -1349,7 +1349,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 25,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 137,
@@ -1359,7 +1359,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 3
+    super: 3,
   },
   {
     id: 138,
@@ -1369,7 +1369,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 139,
@@ -1379,7 +1379,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 3
+    super: 3,
   },
   {
     id: 140,
@@ -1389,7 +1389,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 141,
@@ -1399,7 +1399,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 142,
@@ -1409,7 +1409,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 143,
@@ -1419,7 +1419,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 144,
@@ -1429,7 +1429,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 145,
@@ -1439,7 +1439,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 146,
@@ -1449,7 +1449,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 147,
@@ -1459,7 +1459,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 148,
@@ -1469,7 +1469,7 @@ export const MOVES: Move[] = [
     accuracy: 60,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 149,
@@ -1479,7 +1479,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 150,
@@ -1489,7 +1489,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 151,
@@ -1499,7 +1499,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 152,
@@ -1509,7 +1509,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 153,
@@ -1519,7 +1519,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 154,
@@ -1529,7 +1529,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 155,
@@ -1539,7 +1539,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 156,
@@ -1549,7 +1549,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 157,
@@ -1559,7 +1559,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 158,
@@ -1569,7 +1569,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 25,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 159,
@@ -1579,7 +1579,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 160,
@@ -1589,7 +1589,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 161,
@@ -1599,7 +1599,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 162,
@@ -1609,7 +1609,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 163,
@@ -1619,7 +1619,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 164,
@@ -1629,7 +1629,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 165,
@@ -1639,7 +1639,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 166,
@@ -1649,7 +1649,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 167,
@@ -1659,7 +1659,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 168,
@@ -1669,7 +1669,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 169,
@@ -1679,7 +1679,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 170,
@@ -1689,7 +1689,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 171,
@@ -1699,7 +1699,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 172,
@@ -1709,7 +1709,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 173,
@@ -1719,7 +1719,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 174,
@@ -1729,7 +1729,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 175,
@@ -1739,7 +1739,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 176,
@@ -1749,7 +1749,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 177,
@@ -1759,7 +1759,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 178,
@@ -1769,7 +1769,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 179,
@@ -1779,7 +1779,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 180,
@@ -1789,7 +1789,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 181,
@@ -1799,7 +1799,7 @@ export const MOVES: Move[] = [
     accuracy: 30,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 182,
@@ -1809,7 +1809,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "特殊",
-    super: 1
+    super: 1,
   },
   {
     id: 183,
@@ -1819,7 +1819,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 1
+    super: 1,
   },
   {
     id: 184,
@@ -1829,7 +1829,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 185,
@@ -1839,7 +1839,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 25,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 186,
@@ -1849,7 +1849,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 25,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 187,
@@ -1859,7 +1859,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 188,
@@ -1869,7 +1869,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 189,
@@ -1879,7 +1879,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 1,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 190,
@@ -1889,7 +1889,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 191,
@@ -1899,7 +1899,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 192,
@@ -1909,7 +1909,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 193,
@@ -1919,7 +1919,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 194,
@@ -1929,7 +1929,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 195,
@@ -1939,7 +1939,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 196,
@@ -1949,7 +1949,7 @@ export const MOVES: Move[] = [
     accuracy: 70,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 197,
@@ -1959,7 +1959,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 198,
@@ -1969,7 +1969,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 199,
@@ -1979,7 +1979,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 200,
@@ -1989,7 +1989,7 @@ export const MOVES: Move[] = [
     accuracy: 70,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 201,
@@ -1999,7 +1999,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 202,
@@ -2009,7 +2009,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 203,
@@ -2019,7 +2019,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 204,
@@ -2029,7 +2029,7 @@ export const MOVES: Move[] = [
     accuracy: 30,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 205,
@@ -2039,7 +2039,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 206,
@@ -2049,7 +2049,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 207,
@@ -2059,7 +2059,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 208,
@@ -2069,7 +2069,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 209,
@@ -2079,7 +2079,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 35,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 210,
@@ -2089,7 +2089,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 211,
@@ -2099,7 +2099,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 212,
@@ -2109,7 +2109,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 213,
@@ -2119,7 +2119,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 214,
@@ -2129,7 +2129,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 215,
@@ -2139,7 +2139,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 216,
@@ -2149,7 +2149,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 217,
@@ -2159,7 +2159,7 @@ export const MOVES: Move[] = [
     accuracy: 70,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 218,
@@ -2169,7 +2169,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 219,
@@ -2179,7 +2179,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 220,
@@ -2189,7 +2189,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 221,
@@ -2199,7 +2199,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 222,
@@ -2209,7 +2209,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 223,
@@ -2219,7 +2219,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 224,
@@ -2229,7 +2229,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 225,
@@ -2239,7 +2239,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 226,
@@ -2249,7 +2249,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 227,
@@ -2259,7 +2259,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 228,
@@ -2269,7 +2269,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 229,
@@ -2279,7 +2279,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 230,
@@ -2289,7 +2289,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 231,
@@ -2299,7 +2299,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 232,
@@ -2309,7 +2309,7 @@ export const MOVES: Move[] = [
     accuracy: 55,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 233,
@@ -2319,7 +2319,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 234,
@@ -2329,7 +2329,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 235,
@@ -2339,7 +2339,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 236,
@@ -2349,7 +2349,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 237,
@@ -2359,7 +2359,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 35,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 238,
@@ -2369,7 +2369,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 239,
@@ -2379,7 +2379,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 25,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 240,
@@ -2389,7 +2389,7 @@ export const MOVES: Move[] = [
     accuracy: 30,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 241,
@@ -2399,7 +2399,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 35,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 242,
@@ -2409,7 +2409,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 243,
@@ -2419,7 +2419,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 244,
@@ -2429,7 +2429,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 245,
@@ -2439,7 +2439,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 246,
@@ -2449,7 +2449,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 247,
@@ -2459,7 +2459,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 248,
@@ -2469,7 +2469,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 249,
@@ -2479,7 +2479,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 5
+    super: 5,
   },
   {
     id: 250,
@@ -2489,7 +2489,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 251,
@@ -2499,7 +2499,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 252,
@@ -2509,7 +2509,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 253,
@@ -2519,7 +2519,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 254,
@@ -2529,7 +2529,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "物理",
-    super: 1
+    super: 1,
   },
   {
     id: 255,
@@ -2539,7 +2539,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 256,
@@ -2549,7 +2549,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 257,
@@ -2559,7 +2559,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 258,
@@ -2569,7 +2569,7 @@ export const MOVES: Move[] = [
     accuracy: 50,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 259,
@@ -2579,7 +2579,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 260,
@@ -2589,7 +2589,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 261,
@@ -2599,7 +2599,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 262,
@@ -2609,7 +2609,7 @@ export const MOVES: Move[] = [
     accuracy: 55,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 263,
@@ -2619,7 +2619,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 264,
@@ -2629,7 +2629,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 265,
@@ -2639,7 +2639,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 266,
@@ -2649,7 +2649,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 35,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 267,
@@ -2659,7 +2659,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 35,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 268,
@@ -2669,7 +2669,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 269,
@@ -2679,7 +2679,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 270,
@@ -2689,7 +2689,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 271,
@@ -2699,7 +2699,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 272,
@@ -2709,7 +2709,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 273,
@@ -2719,7 +2719,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 25,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 274,
@@ -2729,7 +2729,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 275,
@@ -2739,7 +2739,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 276,
@@ -2749,7 +2749,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 277,
@@ -2759,7 +2759,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 278,
@@ -2769,7 +2769,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 279,
@@ -2779,7 +2779,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 280,
@@ -2789,7 +2789,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: -7
+    super: -7,
   },
   {
     id: 281,
@@ -2799,7 +2799,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 282,
@@ -2809,7 +2809,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 283,
@@ -2819,7 +2819,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 284,
@@ -2829,7 +2829,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 285,
@@ -2839,7 +2839,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 286,
@@ -2849,7 +2849,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 287,
@@ -2859,7 +2859,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 288,
@@ -2869,7 +2869,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 289,
@@ -2879,7 +2879,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 290,
@@ -2889,7 +2889,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 291,
@@ -2899,7 +2899,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 292,
@@ -2909,7 +2909,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 293,
@@ -2919,7 +2919,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 294,
@@ -2929,7 +2929,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 295,
@@ -2939,7 +2939,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 296,
@@ -2949,7 +2949,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 297,
@@ -2959,7 +2959,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 298,
@@ -2969,7 +2969,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 299,
@@ -2979,7 +2979,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 300,
@@ -2989,7 +2989,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 301,
@@ -2999,7 +2999,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 302,
@@ -3009,7 +3009,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 303,
@@ -3019,7 +3019,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 1
+    super: 1,
   },
   {
     id: 304,
@@ -3029,7 +3029,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 305,
@@ -3039,7 +3039,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 306,
@@ -3049,7 +3049,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 307,
@@ -3059,7 +3059,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 308,
@@ -3069,7 +3069,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 309,
@@ -3079,7 +3079,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 310,
@@ -3089,7 +3089,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 311,
@@ -3099,7 +3099,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 25,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 312,
@@ -3109,7 +3109,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 313,
@@ -3119,7 +3119,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 314,
@@ -3129,7 +3129,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 315,
@@ -3139,7 +3139,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 316,
@@ -3149,7 +3149,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 317,
@@ -3159,7 +3159,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 318,
@@ -3169,7 +3169,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 319,
@@ -3179,7 +3179,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 320,
@@ -3189,7 +3189,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 321,
@@ -3199,7 +3199,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 322,
@@ -3209,7 +3209,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 25,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 323,
@@ -3219,7 +3219,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 324,
@@ -3229,7 +3229,7 @@ export const MOVES: Move[] = [
     accuracy: 50,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 325,
@@ -3239,7 +3239,7 @@ export const MOVES: Move[] = [
     accuracy: 30,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 326,
@@ -3249,7 +3249,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 327,
@@ -3259,7 +3259,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 328,
@@ -3269,7 +3269,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 35,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 329,
@@ -3279,7 +3279,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 330,
@@ -3289,7 +3289,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 25,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 331,
@@ -3299,7 +3299,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 332,
@@ -3309,7 +3309,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 333,
@@ -3319,7 +3319,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 334,
@@ -3329,7 +3329,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 335,
@@ -3339,7 +3339,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 336,
@@ -3349,7 +3349,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 337,
@@ -3359,7 +3359,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 338,
@@ -3369,7 +3369,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 339,
@@ -3379,7 +3379,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 340,
@@ -3389,7 +3389,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "物理",
-    super: 1
+    super: 1,
   },
   {
     id: 341,
@@ -3399,7 +3399,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 342,
@@ -3409,7 +3409,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 343,
@@ -3419,7 +3419,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 344,
@@ -3429,7 +3429,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 345,
@@ -3439,7 +3439,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 346,
@@ -3449,7 +3449,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 35,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 347,
@@ -3459,7 +3459,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 348,
@@ -3469,7 +3469,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 25,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 349,
@@ -3479,7 +3479,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 350,
@@ -3489,7 +3489,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 351,
@@ -3499,7 +3499,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 352,
@@ -3509,7 +3509,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "物理",
-    super: 1
+    super: 1,
   },
   {
     id: 353,
@@ -3519,7 +3519,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 354,
@@ -3529,7 +3529,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 2
+    super: 2,
   },
   {
     id: 355,
@@ -3539,7 +3539,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 356,
@@ -3549,7 +3549,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: -6
+    super: -6,
   },
   {
     id: 357,
@@ -3559,7 +3559,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 358,
@@ -3569,7 +3569,7 @@ export const MOVES: Move[] = [
     accuracy: 70,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 359,
@@ -3579,7 +3579,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 360,
@@ -3589,7 +3589,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 361,
@@ -3599,7 +3599,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 362,
@@ -3609,7 +3609,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 363,
@@ -3619,7 +3619,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 364,
@@ -3629,7 +3629,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 365,
@@ -3639,7 +3639,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 366,
@@ -3649,7 +3649,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 367,
@@ -3659,7 +3659,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 368,
@@ -3669,7 +3669,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 369,
@@ -3679,7 +3679,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 370,
@@ -3689,7 +3689,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 371,
@@ -3699,7 +3699,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 372,
@@ -3709,7 +3709,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 30,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 373,
@@ -3719,7 +3719,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 374,
@@ -3729,7 +3729,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 25,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 375,
@@ -3739,7 +3739,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 376,
@@ -3749,7 +3749,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 377,
@@ -3759,7 +3759,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: -6
+    super: -6,
   },
   {
     id: 378,
@@ -3769,7 +3769,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 379,
@@ -3779,7 +3779,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 380,
@@ -3789,7 +3789,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 40,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 381,
@@ -3799,7 +3799,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 382,
@@ -3809,7 +3809,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 383,
@@ -3819,7 +3819,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 384,
@@ -3829,7 +3829,7 @@ export const MOVES: Move[] = [
     accuracy: 70,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 385,
@@ -3839,7 +3839,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 386,
@@ -3849,7 +3849,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 387,
@@ -3859,7 +3859,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 388,
@@ -3869,7 +3869,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 389,
@@ -3879,7 +3879,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 390,
@@ -3889,7 +3889,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 391,
@@ -3899,7 +3899,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 392,
@@ -3909,7 +3909,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 393,
@@ -3919,7 +3919,7 @@ export const MOVES: Move[] = [
     accuracy: 70,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 394,
@@ -3929,7 +3929,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 395,
@@ -3939,7 +3939,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 15,
     classification: "変化",
-    super: 4
+    super: 4,
   },
   {
     id: 396,
@@ -3949,7 +3949,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 397,
@@ -3959,7 +3959,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "物理",
-    super: 1
+    super: 1,
   },
   {
     id: 398,
@@ -3969,7 +3969,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 399,
@@ -3979,7 +3979,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 3
+    super: 3,
   },
   {
     id: 400,
@@ -3989,7 +3989,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 401,
@@ -3999,7 +3999,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 402,
@@ -4009,7 +4009,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 403,
@@ -4019,7 +4019,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 404,
@@ -4029,7 +4029,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 3
+    super: 3,
   },
   {
     id: 405,
@@ -4039,7 +4039,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 406,
@@ -4049,7 +4049,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 407,
@@ -4059,7 +4059,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 25,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 408,
@@ -4069,7 +4069,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 409,
@@ -4079,7 +4079,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 410,
@@ -4089,7 +4089,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 411,
@@ -4099,7 +4099,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 412,
@@ -4109,7 +4109,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 413,
@@ -4119,7 +4119,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 40,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 414,
@@ -4129,7 +4129,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 415,
@@ -4139,7 +4139,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: -5
+    super: -5,
   },
   {
     id: 416,
@@ -4149,7 +4149,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 417,
@@ -4159,7 +4159,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 418,
@@ -4169,7 +4169,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 419,
@@ -4179,7 +4179,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 420,
@@ -4189,7 +4189,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 421,
@@ -4199,7 +4199,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 422,
@@ -4209,7 +4209,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 423,
@@ -4219,7 +4219,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 424,
@@ -4229,7 +4229,7 @@ export const MOVES: Move[] = [
     accuracy: 75,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 425,
@@ -4239,7 +4239,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 426,
@@ -4249,7 +4249,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 427,
@@ -4259,7 +4259,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 428,
@@ -4269,7 +4269,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 429,
@@ -4279,7 +4279,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 35,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 430,
@@ -4289,7 +4289,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 431,
@@ -4299,7 +4299,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 432,
@@ -4309,7 +4309,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 433,
@@ -4319,7 +4319,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 5,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 435,
@@ -4329,7 +4329,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 436,
@@ -4339,7 +4339,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 437,
@@ -4349,7 +4349,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: -4
+    super: -4,
   },
   {
     id: 438,
@@ -4359,7 +4359,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 439,
@@ -4369,7 +4369,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 440,
@@ -4379,7 +4379,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 30,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 441,
@@ -4389,7 +4389,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 442,
@@ -4399,7 +4399,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 4
+    super: 4,
   },
   {
     id: 443,
@@ -4409,7 +4409,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 444,
@@ -4419,7 +4419,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 445,
@@ -4429,7 +4429,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 446,
@@ -4439,7 +4439,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 447,
@@ -4449,7 +4449,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 10,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 448,
@@ -4459,7 +4459,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 449,
@@ -4469,7 +4469,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 450,
@@ -4479,7 +4479,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "物理",
-    super: -4
+    super: -4,
   },
   {
     id: 451,
@@ -4489,7 +4489,7 @@ export const MOVES: Move[] = [
     accuracy: 90,
     pp: 5,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 452,
@@ -4499,7 +4499,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 453,
@@ -4509,7 +4509,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 454,
@@ -4519,7 +4519,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 455,
@@ -4529,7 +4529,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 456,
@@ -4539,7 +4539,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 457,
@@ -4549,7 +4549,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 10,
     classification: "特殊",
-    super: 0
+    super: 0,
   },
   {
     id: 458,
@@ -4559,7 +4559,7 @@ export const MOVES: Move[] = [
     accuracy: 95,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 459,
@@ -4569,7 +4569,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 460,
@@ -4579,7 +4579,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 15,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 461,
@@ -4589,7 +4589,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 5,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 462,
@@ -4599,7 +4599,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 463,
@@ -4609,7 +4609,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 464,
@@ -4619,7 +4619,7 @@ export const MOVES: Move[] = [
     accuracy: 80,
     pp: 10,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 465,
@@ -4629,7 +4629,7 @@ export const MOVES: Move[] = [
     accuracy: 85,
     pp: 40,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 466,
@@ -4639,7 +4639,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 1,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 467,
@@ -4649,7 +4649,7 @@ export const MOVES: Move[] = [
     accuracy: 0,
     pp: 20,
     classification: "変化",
-    super: 0
+    super: 0,
   },
   {
     id: 68,
@@ -4659,7 +4659,7 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
+    super: 0,
   },
   {
     id: 434,
@@ -4669,6 +4669,6 @@ export const MOVES: Move[] = [
     accuracy: 100,
     pp: 20,
     classification: "物理",
-    super: 0
-  }
+    super: 0,
+  },
 ];

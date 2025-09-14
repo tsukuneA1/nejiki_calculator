@@ -2,23 +2,23 @@ import { typeStrengthen } from "@/constants/items";
 import type { Attacker } from "@/types/attacker";
 
 export const calculateMovePower = (attacker: Attacker) => {
-	const move = attacker.move;
-	const item = attacker.item;
+  const move = attacker.move;
+  const item = attacker.item;
 
-	if (!move || !item) {
-		throw new Error("move または item が未定義です");
-	}
+  if (!move || !item) {
+    throw new Error("move または item が未定義です");
+  }
 
-	let movePower = move.power!;
+  let movePower = move.power!;
 
-	if (attacker.ability === "テクニシャン" && movePower <= 60) {
-		movePower *= 1.5;
-	}
+  if (attacker.ability === "テクニシャン" && movePower <= 60) {
+    movePower *= 1.5;
+  }
 
-	movePower *= typeStrengthen({
-		type: move.type,
-		item,
-	});
+  movePower *= typeStrengthen({
+    type: move.type,
+    item,
+  });
 
-	return movePower;
+  return movePower;
 };

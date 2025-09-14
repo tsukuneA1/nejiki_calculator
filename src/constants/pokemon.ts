@@ -15,7 +15,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0001.png",
     type1: "くさ",
     type2: "どく",
-    weight: 6.9
+    weight: 6.9,
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0002.png",
     type1: "くさ",
     type2: "どく",
-    weight: 13
+    weight: 13,
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0003.png",
     type1: "くさ",
     type2: "どく",
-    weight: 100
+    weight: 100,
   },
   {
     id: 4,
@@ -63,7 +63,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0004.png",
     type1: "ほのお",
     type2: null,
-    weight: 8.5
+    weight: 8.5,
   },
   {
     id: 5,
@@ -79,7 +79,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0005.png",
     type1: "ほのお",
     type2: null,
-    weight: 19
+    weight: 19,
   },
   {
     id: 6,
@@ -95,7 +95,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0006.png",
     type1: "ほのお",
     type2: "ひこう",
-    weight: 90.5
+    weight: 90.5,
   },
   {
     id: 7,
@@ -111,7 +111,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0007.png",
     type1: "みず",
     type2: null,
-    weight: 9
+    weight: 9,
   },
   {
     id: 8,
@@ -127,7 +127,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0008.png",
     type1: "みず",
     type2: null,
-    weight: 22.5
+    weight: 22.5,
   },
   {
     id: 9,
@@ -143,7 +143,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0009.png",
     type1: "みず",
     type2: null,
-    weight: 85.5
+    weight: 85.5,
   },
   {
     id: 10,
@@ -159,7 +159,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0010.png",
     type1: "むし",
     type2: null,
-    weight: 2.9
+    weight: 2.9,
   },
   {
     id: 11,
@@ -175,7 +175,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0011.png",
     type1: "むし",
     type2: null,
-    weight: 9.9
+    weight: 9.9,
   },
   {
     id: 12,
@@ -191,7 +191,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0012.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 32
+    weight: 32,
   },
   {
     id: 13,
@@ -207,7 +207,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0013.png",
     type1: "むし",
     type2: "どく",
-    weight: 3.2
+    weight: 3.2,
   },
   {
     id: 14,
@@ -223,7 +223,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0014.png",
     type1: "むし",
     type2: "どく",
-    weight: 10
+    weight: 10,
   },
   {
     id: 15,
@@ -239,7 +239,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0015.png",
     type1: "むし",
     type2: "どく",
-    weight: 29.5
+    weight: 29.5,
   },
   {
     id: 16,
@@ -255,7 +255,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0016.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 1.8
+    weight: 1.8,
   },
   {
     id: 17,
@@ -271,7 +271,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0017.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 30
+    weight: 30,
   },
   {
     id: 18,
@@ -287,7 +287,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0018.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 39.5
+    weight: 39.5,
   },
   {
     id: 19,
@@ -303,7 +303,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0019.png",
     type1: "ノーマル",
     type2: null,
-    weight: 3.5
+    weight: 3.5,
   },
   {
     id: 20,
@@ -319,7 +319,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0020.png",
     type1: "ノーマル",
     type2: null,
-    weight: 18.5
+    weight: 18.5,
   },
   {
     id: 21,
@@ -335,7 +335,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0021.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 2
+    weight: 2,
   },
   {
     id: 22,
@@ -351,7 +351,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0022.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 38
+    weight: 38,
   },
   {
     id: 23,
@@ -367,7 +367,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0023.png",
     type1: "どく",
     type2: null,
-    weight: 6.9
+    weight: 6.9,
   },
   {
     id: 24,
@@ -383,7 +383,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0024.png",
     type1: "どく",
     type2: null,
-    weight: 65
+    weight: 65,
   },
   {
     id: 25,
@@ -399,7 +399,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0025.png",
     type1: "でんき",
     type2: null,
-    weight: 6
+    weight: 6,
   },
   {
     id: 26,
@@ -415,7 +415,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0026.png",
     type1: "でんき",
     type2: null,
-    weight: 30
+    weight: 30,
   },
   {
     id: 27,
@@ -431,7 +431,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0027.png",
     type1: "じめん",
     type2: null,
-    weight: 12
+    weight: 12,
   },
   {
     id: 28,
@@ -447,7 +447,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0028.png",
     type1: "じめん",
     type2: null,
-    weight: 29.5
+    weight: 29.5,
   },
   {
     id: 29,
@@ -463,7 +463,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0029.png",
     type1: "どく",
     type2: null,
-    weight: 7
+    weight: 7,
   },
   {
     id: 30,
@@ -479,7 +479,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0030.png",
     type1: "どく",
     type2: null,
-    weight: 20
+    weight: 20,
   },
   {
     id: 31,
@@ -495,7 +495,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0031.png",
     type1: "どく",
     type2: "じめん",
-    weight: 60
+    weight: 60,
   },
   {
     id: 32,
@@ -511,7 +511,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0032.png",
     type1: "どく",
     type2: null,
-    weight: 9
+    weight: 9,
   },
   {
     id: 33,
@@ -527,7 +527,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0033.png",
     type1: "どく",
     type2: null,
-    weight: 19.5
+    weight: 19.5,
   },
   {
     id: 34,
@@ -543,7 +543,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0034.png",
     type1: "どく",
     type2: "じめん",
-    weight: 62
+    weight: 62,
   },
   {
     id: 35,
@@ -559,7 +559,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0035.png",
     type1: "ノーマル",
     type2: null,
-    weight: 7.5
+    weight: 7.5,
   },
   {
     id: 36,
@@ -575,7 +575,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0036.png",
     type1: "ノーマル",
     type2: null,
-    weight: 40
+    weight: 40,
   },
   {
     id: 37,
@@ -591,7 +591,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0037.png",
     type1: "ほのお",
     type2: null,
-    weight: 9.9
+    weight: 9.9,
   },
   {
     id: 38,
@@ -607,7 +607,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0038.png",
     type1: "ほのお",
     type2: null,
-    weight: 19.9
+    weight: 19.9,
   },
   {
     id: 39,
@@ -623,7 +623,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0039.png",
     type1: "ノーマル",
     type2: null,
-    weight: 5.5
+    weight: 5.5,
   },
   {
     id: 40,
@@ -639,7 +639,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0040.png",
     type1: "ノーマル",
     type2: null,
-    weight: 12
+    weight: 12,
   },
   {
     id: 41,
@@ -655,7 +655,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0041.png",
     type1: "どく",
     type2: "ひこう",
-    weight: 7.5
+    weight: 7.5,
   },
   {
     id: 42,
@@ -671,7 +671,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0042.png",
     type1: "どく",
     type2: "ひこう",
-    weight: 55
+    weight: 55,
   },
   {
     id: 43,
@@ -687,7 +687,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0043.png",
     type1: "くさ",
     type2: "どく",
-    weight: 5.4
+    weight: 5.4,
   },
   {
     id: 44,
@@ -703,7 +703,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0044.png",
     type1: "くさ",
     type2: "どく",
-    weight: 8.6
+    weight: 8.6,
   },
   {
     id: 45,
@@ -719,7 +719,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0045.png",
     type1: "くさ",
     type2: "どく",
-    weight: 18.6
+    weight: 18.6,
   },
   {
     id: 46,
@@ -735,7 +735,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0046.png",
     type1: "むし",
     type2: "くさ",
-    weight: 5.4
+    weight: 5.4,
   },
   {
     id: 47,
@@ -751,7 +751,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0047.png",
     type1: "むし",
     type2: "くさ",
-    weight: 29.5
+    weight: 29.5,
   },
   {
     id: 48,
@@ -767,7 +767,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0048.png",
     type1: "むし",
     type2: "どく",
-    weight: 30
+    weight: 30,
   },
   {
     id: 49,
@@ -783,7 +783,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0049.png",
     type1: "むし",
     type2: "どく",
-    weight: 12.5
+    weight: 12.5,
   },
   {
     id: 50,
@@ -799,7 +799,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0050.png",
     type1: "じめん",
     type2: null,
-    weight: 0.8
+    weight: 0.8,
   },
   {
     id: 51,
@@ -815,7 +815,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0051.png",
     type1: "じめん",
     type2: null,
-    weight: 33.3
+    weight: 33.3,
   },
   {
     id: 52,
@@ -831,7 +831,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0052.png",
     type1: "ノーマル",
     type2: null,
-    weight: 4.2
+    weight: 4.2,
   },
   {
     id: 53,
@@ -847,7 +847,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0053.png",
     type1: "ノーマル",
     type2: null,
-    weight: 32
+    weight: 32,
   },
   {
     id: 54,
@@ -863,7 +863,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0054.png",
     type1: "みず",
     type2: null,
-    weight: 19.6
+    weight: 19.6,
   },
   {
     id: 55,
@@ -879,7 +879,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0055.png",
     type1: "みず",
     type2: null,
-    weight: 76.6
+    weight: 76.6,
   },
   {
     id: 56,
@@ -895,7 +895,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0056.png",
     type1: "かくとう",
     type2: null,
-    weight: 28
+    weight: 28,
   },
   {
     id: 57,
@@ -911,7 +911,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0057.png",
     type1: "かくとう",
     type2: null,
-    weight: 32
+    weight: 32,
   },
   {
     id: 58,
@@ -927,7 +927,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0058.png",
     type1: "ほのお",
     type2: null,
-    weight: 19
+    weight: 19,
   },
   {
     id: 59,
@@ -943,7 +943,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0059.png",
     type1: "ほのお",
     type2: null,
-    weight: 155
+    weight: 155,
   },
   {
     id: 60,
@@ -959,7 +959,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0060.png",
     type1: "みず",
     type2: null,
-    weight: 12.4
+    weight: 12.4,
   },
   {
     id: 61,
@@ -975,7 +975,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0061.png",
     type1: "みず",
     type2: null,
-    weight: 20
+    weight: 20,
   },
   {
     id: 62,
@@ -991,7 +991,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0062.png",
     type1: "みず",
     type2: "かくとう",
-    weight: 54
+    weight: 54,
   },
   {
     id: 63,
@@ -1007,7 +1007,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0063.png",
     type1: "エスパー",
     type2: null,
-    weight: 19.5
+    weight: 19.5,
   },
   {
     id: 64,
@@ -1023,7 +1023,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0064.png",
     type1: "エスパー",
     type2: null,
-    weight: 56.5
+    weight: 56.5,
   },
   {
     id: 65,
@@ -1039,7 +1039,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0065.png",
     type1: "エスパー",
     type2: null,
-    weight: 48
+    weight: 48,
   },
   {
     id: 66,
@@ -1055,7 +1055,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0066.png",
     type1: "かくとう",
     type2: null,
-    weight: 19.5
+    weight: 19.5,
   },
   {
     id: 67,
@@ -1071,7 +1071,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0067.png",
     type1: "かくとう",
     type2: null,
-    weight: 70.5
+    weight: 70.5,
   },
   {
     id: 68,
@@ -1087,7 +1087,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0068.png",
     type1: "かくとう",
     type2: null,
-    weight: 130
+    weight: 130,
   },
   {
     id: 69,
@@ -1103,7 +1103,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0069.png",
     type1: "くさ",
     type2: "どく",
-    weight: 4
+    weight: 4,
   },
   {
     id: 70,
@@ -1119,7 +1119,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0070.png",
     type1: "くさ",
     type2: "どく",
-    weight: 6.4
+    weight: 6.4,
   },
   {
     id: 71,
@@ -1135,7 +1135,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0071.png",
     type1: "くさ",
     type2: "どく",
-    weight: 15.5
+    weight: 15.5,
   },
   {
     id: 72,
@@ -1151,7 +1151,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0072.png",
     type1: "みず",
     type2: "どく",
-    weight: 45.5
+    weight: 45.5,
   },
   {
     id: 73,
@@ -1167,7 +1167,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0073.png",
     type1: "みず",
     type2: "どく",
-    weight: 55
+    weight: 55,
   },
   {
     id: 74,
@@ -1183,7 +1183,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0074.png",
     type1: "いわ",
     type2: "じめん",
-    weight: 20
+    weight: 20,
   },
   {
     id: 75,
@@ -1199,7 +1199,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0075.png",
     type1: "いわ",
     type2: "じめん",
-    weight: 105
+    weight: 105,
   },
   {
     id: 76,
@@ -1215,7 +1215,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0076.png",
     type1: "いわ",
     type2: "じめん",
-    weight: 300
+    weight: 300,
   },
   {
     id: 77,
@@ -1231,7 +1231,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0077.png",
     type1: "ほのお",
     type2: null,
-    weight: 30
+    weight: 30,
   },
   {
     id: 78,
@@ -1247,7 +1247,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0078.png",
     type1: "ほのお",
     type2: null,
-    weight: 95
+    weight: 95,
   },
   {
     id: 79,
@@ -1263,7 +1263,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0079.png",
     type1: "みず",
     type2: "エスパー",
-    weight: 36
+    weight: 36,
   },
   {
     id: 80,
@@ -1279,7 +1279,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0080.png",
     type1: "みず",
     type2: "エスパー",
-    weight: 78.5
+    weight: 78.5,
   },
   {
     id: 81,
@@ -1295,7 +1295,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0081.png",
     type1: "でんき",
     type2: "はがね",
-    weight: 6
+    weight: 6,
   },
   {
     id: 82,
@@ -1311,7 +1311,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0082.png",
     type1: "でんき",
     type2: "はがね",
-    weight: 60
+    weight: 60,
   },
   {
     id: 83,
@@ -1327,7 +1327,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0083.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 15
+    weight: 15,
   },
   {
     id: 84,
@@ -1343,7 +1343,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0084.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 39.2
+    weight: 39.2,
   },
   {
     id: 85,
@@ -1359,7 +1359,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0085.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 85.2
+    weight: 85.2,
   },
   {
     id: 86,
@@ -1375,7 +1375,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0086.png",
     type1: "みず",
     type2: null,
-    weight: 90
+    weight: 90,
   },
   {
     id: 87,
@@ -1391,7 +1391,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0087.png",
     type1: "みず",
     type2: "こおり",
-    weight: 120
+    weight: 120,
   },
   {
     id: 88,
@@ -1407,7 +1407,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0088.png",
     type1: "どく",
     type2: null,
-    weight: 30
+    weight: 30,
   },
   {
     id: 89,
@@ -1423,7 +1423,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0089.png",
     type1: "どく",
     type2: null,
-    weight: 30
+    weight: 30,
   },
   {
     id: 90,
@@ -1439,7 +1439,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0090.png",
     type1: "みず",
     type2: null,
-    weight: 4
+    weight: 4,
   },
   {
     id: 91,
@@ -1455,7 +1455,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0091.png",
     type1: "みず",
     type2: "こおり",
-    weight: 132.5
+    weight: 132.5,
   },
   {
     id: 92,
@@ -1471,7 +1471,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0092.png",
     type1: "ゴースト",
     type2: "どく",
-    weight: 0.1
+    weight: 0.1,
   },
   {
     id: 93,
@@ -1487,7 +1487,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0093.png",
     type1: "ゴースト",
     type2: "どく",
-    weight: 0.1
+    weight: 0.1,
   },
   {
     id: 94,
@@ -1503,7 +1503,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0094.png",
     type1: "ゴースト",
     type2: "どく",
-    weight: 40.5
+    weight: 40.5,
   },
   {
     id: 95,
@@ -1519,7 +1519,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0095.png",
     type1: "いわ",
     type2: "じめん",
-    weight: 210
+    weight: 210,
   },
   {
     id: 96,
@@ -1535,7 +1535,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0096.png",
     type1: "エスパー",
     type2: null,
-    weight: 32.4
+    weight: 32.4,
   },
   {
     id: 97,
@@ -1551,7 +1551,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0097.png",
     type1: "エスパー",
     type2: null,
-    weight: 75.6
+    weight: 75.6,
   },
   {
     id: 98,
@@ -1567,7 +1567,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0098.png",
     type1: "みず",
     type2: null,
-    weight: 6.5
+    weight: 6.5,
   },
   {
     id: 99,
@@ -1583,7 +1583,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0099.png",
     type1: "みず",
     type2: null,
-    weight: 60
+    weight: 60,
   },
   {
     id: 100,
@@ -1599,7 +1599,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0100.png",
     type1: "でんき",
     type2: null,
-    weight: 10.4
+    weight: 10.4,
   },
   {
     id: 101,
@@ -1615,7 +1615,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0101.png",
     type1: "でんき",
     type2: null,
-    weight: 66.6
+    weight: 66.6,
   },
   {
     id: 102,
@@ -1631,7 +1631,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0102.png",
     type1: "くさ",
     type2: "エスパー",
-    weight: 2.5
+    weight: 2.5,
   },
   {
     id: 103,
@@ -1647,7 +1647,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0103.png",
     type1: "くさ",
     type2: "エスパー",
-    weight: 120
+    weight: 120,
   },
   {
     id: 104,
@@ -1663,7 +1663,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0104.png",
     type1: "じめん",
     type2: null,
-    weight: 6.5
+    weight: 6.5,
   },
   {
     id: 105,
@@ -1679,7 +1679,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0105.png",
     type1: "じめん",
     type2: null,
-    weight: 45
+    weight: 45,
   },
   {
     id: 106,
@@ -1695,7 +1695,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0106.png",
     type1: "かくとう",
     type2: null,
-    weight: 49.8
+    weight: 49.8,
   },
   {
     id: 107,
@@ -1711,7 +1711,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0107.png",
     type1: "かくとう",
     type2: null,
-    weight: 50.2
+    weight: 50.2,
   },
   {
     id: 108,
@@ -1727,7 +1727,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0108.png",
     type1: "ノーマル",
     type2: null,
-    weight: 65.5
+    weight: 65.5,
   },
   {
     id: 109,
@@ -1743,7 +1743,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0109.png",
     type1: "どく",
     type2: null,
-    weight: 1
+    weight: 1,
   },
   {
     id: 110,
@@ -1759,7 +1759,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0110.png",
     type1: "どく",
     type2: null,
-    weight: 9.5
+    weight: 9.5,
   },
   {
     id: 111,
@@ -1775,7 +1775,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0111.png",
     type1: "じめん",
     type2: "いわ",
-    weight: 115
+    weight: 115,
   },
   {
     id: 112,
@@ -1791,7 +1791,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0112.png",
     type1: "じめん",
     type2: "いわ",
-    weight: 120
+    weight: 120,
   },
   {
     id: 113,
@@ -1807,7 +1807,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0113.png",
     type1: "ノーマル",
     type2: null,
-    weight: 34.6
+    weight: 34.6,
   },
   {
     id: 114,
@@ -1823,7 +1823,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0114.png",
     type1: "くさ",
     type2: null,
-    weight: 35
+    weight: 35,
   },
   {
     id: 115,
@@ -1839,7 +1839,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0115.png",
     type1: "ノーマル",
     type2: null,
-    weight: 80
+    weight: 80,
   },
   {
     id: 116,
@@ -1855,7 +1855,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0116.png",
     type1: "みず",
     type2: null,
-    weight: 8
+    weight: 8,
   },
   {
     id: 117,
@@ -1871,7 +1871,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0117.png",
     type1: "みず",
     type2: null,
-    weight: 25
+    weight: 25,
   },
   {
     id: 118,
@@ -1887,7 +1887,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0118.png",
     type1: "みず",
     type2: null,
-    weight: 15
+    weight: 15,
   },
   {
     id: 119,
@@ -1903,7 +1903,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0119.png",
     type1: "みず",
     type2: null,
-    weight: 39
+    weight: 39,
   },
   {
     id: 120,
@@ -1919,7 +1919,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0120.png",
     type1: "みず",
     type2: null,
-    weight: 34.5
+    weight: 34.5,
   },
   {
     id: 121,
@@ -1935,7 +1935,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0121.png",
     type1: "みず",
     type2: "エスパー",
-    weight: 80
+    weight: 80,
   },
   {
     id: 123,
@@ -1951,7 +1951,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0123.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 56
+    weight: 56,
   },
   {
     id: 124,
@@ -1967,7 +1967,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0124.png",
     type1: "こおり",
     type2: "エスパー",
-    weight: 40.6
+    weight: 40.6,
   },
   {
     id: 125,
@@ -1983,7 +1983,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0125.png",
     type1: "でんき",
     type2: null,
-    weight: 30
+    weight: 30,
   },
   {
     id: 126,
@@ -1999,7 +1999,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0126.png",
     type1: "ほのお",
     type2: null,
-    weight: 44.5
+    weight: 44.5,
   },
   {
     id: 127,
@@ -2015,7 +2015,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0127.png",
     type1: "むし",
     type2: null,
-    weight: 55
+    weight: 55,
   },
   {
     id: 128,
@@ -2031,7 +2031,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0128.png",
     type1: "ノーマル",
     type2: null,
-    weight: 88.4
+    weight: 88.4,
   },
   {
     id: 129,
@@ -2047,7 +2047,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0129.png",
     type1: "みず",
     type2: null,
-    weight: 10
+    weight: 10,
   },
   {
     id: 130,
@@ -2063,7 +2063,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0130.png",
     type1: "みず",
     type2: "ひこう",
-    weight: 235
+    weight: 235,
   },
   {
     id: 131,
@@ -2079,7 +2079,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0131.png",
     type1: "みず",
     type2: "こおり",
-    weight: 220
+    weight: 220,
   },
   {
     id: 132,
@@ -2095,7 +2095,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0132.png",
     type1: "ノーマル",
     type2: null,
-    weight: 4
+    weight: 4,
   },
   {
     id: 133,
@@ -2111,7 +2111,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0133.png",
     type1: "ノーマル",
     type2: null,
-    weight: 6.5
+    weight: 6.5,
   },
   {
     id: 134,
@@ -2127,7 +2127,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0134.png",
     type1: "みず",
     type2: null,
-    weight: 29
+    weight: 29,
   },
   {
     id: 135,
@@ -2143,7 +2143,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0135.png",
     type1: "でんき",
     type2: null,
-    weight: 24.5
+    weight: 24.5,
   },
   {
     id: 136,
@@ -2159,7 +2159,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0136.png",
     type1: "ほのお",
     type2: null,
-    weight: 25
+    weight: 25,
   },
   {
     id: 137,
@@ -2175,7 +2175,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0137.png",
     type1: "ノーマル",
     type2: null,
-    weight: 36.5
+    weight: 36.5,
   },
   {
     id: 138,
@@ -2191,7 +2191,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0138.png",
     type1: "いわ",
     type2: "みず",
-    weight: 7.5
+    weight: 7.5,
   },
   {
     id: 139,
@@ -2207,7 +2207,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0139.png",
     type1: "いわ",
     type2: "みず",
-    weight: 35
+    weight: 35,
   },
   {
     id: 140,
@@ -2223,7 +2223,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0140.png",
     type1: "いわ",
     type2: "みず",
-    weight: 11.5
+    weight: 11.5,
   },
   {
     id: 141,
@@ -2239,7 +2239,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0141.png",
     type1: "いわ",
     type2: "みず",
-    weight: 40.5
+    weight: 40.5,
   },
   {
     id: 142,
@@ -2255,7 +2255,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0142.png",
     type1: "いわ",
     type2: "ひこう",
-    weight: 59
+    weight: 59,
   },
   {
     id: 143,
@@ -2271,7 +2271,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0143.png",
     type1: "ノーマル",
     type2: null,
-    weight: 460
+    weight: 460,
   },
   {
     id: 144,
@@ -2287,7 +2287,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0144.png",
     type1: "こおり",
     type2: "ひこう",
-    weight: 55.4
+    weight: 55.4,
   },
   {
     id: 145,
@@ -2303,7 +2303,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0145.png",
     type1: "でんき",
     type2: "ひこう",
-    weight: 52.6
+    weight: 52.6,
   },
   {
     id: 146,
@@ -2319,7 +2319,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0146.png",
     type1: "ほのお",
     type2: "ひこう",
-    weight: 60
+    weight: 60,
   },
   {
     id: 147,
@@ -2335,7 +2335,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0147.png",
     type1: "ドラゴン",
     type2: null,
-    weight: 3.3
+    weight: 3.3,
   },
   {
     id: 148,
@@ -2351,7 +2351,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0148.png",
     type1: "ドラゴン",
     type2: null,
-    weight: 16.5
+    weight: 16.5,
   },
   {
     id: 149,
@@ -2367,7 +2367,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0149.png",
     type1: "ドラゴン",
     type2: "ひこう",
-    weight: 210
+    weight: 210,
   },
   {
     id: 150,
@@ -2383,7 +2383,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0150.png",
     type1: "エスパー",
     type2: null,
-    weight: 122
+    weight: 122,
   },
   {
     id: 151,
@@ -2399,7 +2399,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0151.png",
     type1: "エスパー",
     type2: null,
-    weight: 4
+    weight: 4,
   },
   {
     id: 152,
@@ -2415,7 +2415,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0152.png",
     type1: "くさ",
     type2: null,
-    weight: 6.4
+    weight: 6.4,
   },
   {
     id: 153,
@@ -2431,7 +2431,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0153.png",
     type1: "くさ",
     type2: null,
-    weight: 15.8
+    weight: 15.8,
   },
   {
     id: 154,
@@ -2447,7 +2447,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0154.png",
     type1: "くさ",
     type2: null,
-    weight: 100.5
+    weight: 100.5,
   },
   {
     id: 155,
@@ -2463,7 +2463,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0155.png",
     type1: "ほのお",
     type2: null,
-    weight: 7.9
+    weight: 7.9,
   },
   {
     id: 156,
@@ -2479,7 +2479,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0156.png",
     type1: "ほのお",
     type2: null,
-    weight: 19
+    weight: 19,
   },
   {
     id: 157,
@@ -2495,7 +2495,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0157.png",
     type1: "ほのお",
     type2: null,
-    weight: 79.5
+    weight: 79.5,
   },
   {
     id: 158,
@@ -2511,7 +2511,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0158.png",
     type1: "みず",
     type2: null,
-    weight: 9.5
+    weight: 9.5,
   },
   {
     id: 159,
@@ -2527,7 +2527,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0159.png",
     type1: "みず",
     type2: null,
-    weight: 25
+    weight: 25,
   },
   {
     id: 160,
@@ -2543,7 +2543,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0160.png",
     type1: "みず",
     type2: null,
-    weight: 88.8
+    weight: 88.8,
   },
   {
     id: 161,
@@ -2559,7 +2559,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0161.png",
     type1: "ノーマル",
     type2: null,
-    weight: 6
+    weight: 6,
   },
   {
     id: 162,
@@ -2575,7 +2575,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0162.png",
     type1: "ノーマル",
     type2: null,
-    weight: 32.5
+    weight: 32.5,
   },
   {
     id: 163,
@@ -2591,7 +2591,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0163.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 21.2
+    weight: 21.2,
   },
   {
     id: 164,
@@ -2607,7 +2607,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0164.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 40.8
+    weight: 40.8,
   },
   {
     id: 165,
@@ -2623,7 +2623,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0165.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 10.8
+    weight: 10.8,
   },
   {
     id: 166,
@@ -2639,7 +2639,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0166.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 35.6
+    weight: 35.6,
   },
   {
     id: 167,
@@ -2655,7 +2655,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0167.png",
     type1: "むし",
     type2: "どく",
-    weight: 8.5
+    weight: 8.5,
   },
   {
     id: 168,
@@ -2671,7 +2671,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0168.png",
     type1: "むし",
     type2: "どく",
-    weight: 33.5
+    weight: 33.5,
   },
   {
     id: 169,
@@ -2687,7 +2687,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0169.png",
     type1: "どく",
     type2: "ひこう",
-    weight: 75
+    weight: 75,
   },
   {
     id: 170,
@@ -2703,7 +2703,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0170.png",
     type1: "みず",
     type2: "でんき",
-    weight: 12
+    weight: 12,
   },
   {
     id: 171,
@@ -2719,7 +2719,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0171.png",
     type1: "みず",
     type2: "でんき",
-    weight: 22.5
+    weight: 22.5,
   },
   {
     id: 172,
@@ -2735,7 +2735,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0172.png",
     type1: "でんき",
     type2: null,
-    weight: 2
+    weight: 2,
   },
   {
     id: 177,
@@ -2751,7 +2751,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0177.png",
     type1: "エスパー",
     type2: "ひこう",
-    weight: 2
+    weight: 2,
   },
   {
     id: 178,
@@ -2767,7 +2767,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0178.png",
     type1: "エスパー",
     type2: "ひこう",
-    weight: 15
+    weight: 15,
   },
   {
     id: 179,
@@ -2783,7 +2783,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0179.png",
     type1: "でんき",
     type2: null,
-    weight: 7.8
+    weight: 7.8,
   },
   {
     id: 180,
@@ -2799,7 +2799,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0180.png",
     type1: "でんき",
     type2: null,
-    weight: 13.3
+    weight: 13.3,
   },
   {
     id: 181,
@@ -2815,7 +2815,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0181.png",
     type1: "でんき",
     type2: null,
-    weight: 61.5
+    weight: 61.5,
   },
   {
     id: 182,
@@ -2831,7 +2831,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0182.png",
     type1: "くさ",
     type2: null,
-    weight: 5.8
+    weight: 5.8,
   },
   {
     id: 185,
@@ -2847,7 +2847,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0185.png",
     type1: "いわ",
     type2: null,
-    weight: 38
+    weight: 38,
   },
   {
     id: 186,
@@ -2863,7 +2863,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0186.png",
     type1: "みず",
     type2: null,
-    weight: 33.9
+    weight: 33.9,
   },
   {
     id: 187,
@@ -2879,7 +2879,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0187.png",
     type1: "くさ",
     type2: "ひこう",
-    weight: 0.5
+    weight: 0.5,
   },
   {
     id: 188,
@@ -2895,7 +2895,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0188.png",
     type1: "くさ",
     type2: "ひこう",
-    weight: 1
+    weight: 1,
   },
   {
     id: 189,
@@ -2911,7 +2911,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0189.png",
     type1: "くさ",
     type2: "ひこう",
-    weight: 3
+    weight: 3,
   },
   {
     id: 190,
@@ -2927,7 +2927,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0190.png",
     type1: "ノーマル",
     type2: null,
-    weight: 11.5
+    weight: 11.5,
   },
   {
     id: 191,
@@ -2943,7 +2943,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0191.png",
     type1: "くさ",
     type2: null,
-    weight: 1.8
+    weight: 1.8,
   },
   {
     id: 192,
@@ -2959,7 +2959,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0192.png",
     type1: "くさ",
     type2: null,
-    weight: 8.5
+    weight: 8.5,
   },
   {
     id: 193,
@@ -2975,7 +2975,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0193.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 38
+    weight: 38,
   },
   {
     id: 194,
@@ -2991,7 +2991,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0194.png",
     type1: "みず",
     type2: "じめん",
-    weight: 8.5
+    weight: 8.5,
   },
   {
     id: 195,
@@ -3007,7 +3007,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0195.png",
     type1: "みず",
     type2: "じめん",
-    weight: 75
+    weight: 75,
   },
   {
     id: 196,
@@ -3023,7 +3023,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0196.png",
     type1: "エスパー",
     type2: null,
-    weight: 26.5
+    weight: 26.5,
   },
   {
     id: 197,
@@ -3039,7 +3039,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0197.png",
     type1: "あく",
     type2: null,
-    weight: 27
+    weight: 27,
   },
   {
     id: 198,
@@ -3055,7 +3055,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0198.png",
     type1: "あく",
     type2: "ひこう",
-    weight: 2.1
+    weight: 2.1,
   },
   {
     id: 199,
@@ -3071,7 +3071,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0199.png",
     type1: "みず",
     type2: "エスパー",
-    weight: 79.5
+    weight: 79.5,
   },
   {
     id: 200,
@@ -3087,7 +3087,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0200.png",
     type1: "ゴースト",
     type2: null,
-    weight: 1
+    weight: 1,
   },
   {
     id: 201,
@@ -3103,7 +3103,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0201.png",
     type1: "エスパー",
     type2: null,
-    weight: 5
+    weight: 5,
   },
   {
     id: 183,
@@ -3119,7 +3119,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0183.png",
     type1: "みず",
     type2: null,
-    weight: 8.5
+    weight: 8.5,
   },
   {
     id: 184,
@@ -3135,7 +3135,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0184.png",
     type1: "みず",
     type2: null,
-    weight: 28.5
+    weight: 28.5,
   },
   {
     id: 173,
@@ -3151,7 +3151,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0173.png",
     type1: "ノーマル",
     type2: null,
-    weight: 3
+    weight: 3,
   },
   {
     id: 175,
@@ -3167,7 +3167,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0175.png",
     type1: "ノーマル",
     type2: null,
-    weight: 1.5
+    weight: 1.5,
   },
   {
     id: 176,
@@ -3183,7 +3183,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0176.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 3.2
+    weight: 3.2,
   },
   {
     id: 202,
@@ -3199,7 +3199,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0202.png",
     type1: "エスパー",
     type2: null,
-    weight: 28.5
+    weight: 28.5,
   },
   {
     id: 203,
@@ -3215,7 +3215,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0203.png",
     type1: "ノーマル",
     type2: "エスパー",
-    weight: 41.5
+    weight: 41.5,
   },
   {
     id: 204,
@@ -3231,7 +3231,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0204.png",
     type1: "むし",
     type2: null,
-    weight: 7.2
+    weight: 7.2,
   },
   {
     id: 205,
@@ -3247,7 +3247,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0205.png",
     type1: "むし",
     type2: "はがね",
-    weight: 125.8
+    weight: 125.8,
   },
   {
     id: 206,
@@ -3263,7 +3263,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0206.png",
     type1: "ノーマル",
     type2: null,
-    weight: 14
+    weight: 14,
   },
   {
     id: 207,
@@ -3279,7 +3279,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0207.png",
     type1: "じめん",
     type2: "ひこう",
-    weight: 64.8
+    weight: 64.8,
   },
   {
     id: 208,
@@ -3295,7 +3295,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0208.png",
     type1: "はがね",
     type2: "じめん",
-    weight: 400
+    weight: 400,
   },
   {
     id: 211,
@@ -3311,7 +3311,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0211.png",
     type1: "みず",
     type2: "どく",
-    weight: 3.9
+    weight: 3.9,
   },
   {
     id: 212,
@@ -3327,7 +3327,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0212.png",
     type1: "むし",
     type2: "はがね",
-    weight: 118
+    weight: 118,
   },
   {
     id: 213,
@@ -3343,7 +3343,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0213.png",
     type1: "むし",
     type2: "いわ",
-    weight: 20.5
+    weight: 20.5,
   },
   {
     id: 214,
@@ -3359,7 +3359,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0214.png",
     type1: "むし",
     type2: "かくとう",
-    weight: 54
+    weight: 54,
   },
   {
     id: 215,
@@ -3375,7 +3375,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0215.png",
     type1: "あく",
     type2: "こおり",
-    weight: 28
+    weight: 28,
   },
   {
     id: 216,
@@ -3391,7 +3391,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0216.png",
     type1: "ノーマル",
     type2: null,
-    weight: 8.8
+    weight: 8.8,
   },
   {
     id: 217,
@@ -3407,7 +3407,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0217.png",
     type1: "ノーマル",
     type2: null,
-    weight: 125.8
+    weight: 125.8,
   },
   {
     id: 218,
@@ -3423,7 +3423,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0218.png",
     type1: "ほのお",
     type2: null,
-    weight: 35
+    weight: 35,
   },
   {
     id: 219,
@@ -3439,7 +3439,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0219.png",
     type1: "ほのお",
     type2: "いわ",
-    weight: 55
+    weight: 55,
   },
   {
     id: 220,
@@ -3455,7 +3455,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0220.png",
     type1: "こおり",
     type2: "じめん",
-    weight: 6.5
+    weight: 6.5,
   },
   {
     id: 221,
@@ -3471,7 +3471,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0221.png",
     type1: "こおり",
     type2: "じめん",
-    weight: 55.8
+    weight: 55.8,
   },
   {
     id: 222,
@@ -3487,7 +3487,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0222.png",
     type1: "みず",
     type2: "いわ",
-    weight: 5
+    weight: 5,
   },
   {
     id: 223,
@@ -3503,7 +3503,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0223.png",
     type1: "みず",
     type2: null,
-    weight: 12
+    weight: 12,
   },
   {
     id: 224,
@@ -3519,7 +3519,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0224.png",
     type1: "みず",
     type2: null,
-    weight: 28.5
+    weight: 28.5,
   },
   {
     id: 225,
@@ -3535,7 +3535,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0225.png",
     type1: "こおり",
     type2: "ひこう",
-    weight: 16
+    weight: 16,
   },
   {
     id: 226,
@@ -3551,7 +3551,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0226.png",
     type1: "みず",
     type2: "ひこう",
-    weight: 220
+    weight: 220,
   },
   {
     id: 227,
@@ -3567,7 +3567,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0227.png",
     type1: "はがね",
     type2: "ひこう",
-    weight: 50.5
+    weight: 50.5,
   },
   {
     id: 228,
@@ -3583,7 +3583,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0228.png",
     type1: "あく",
     type2: "ほのお",
-    weight: 10.8
+    weight: 10.8,
   },
   {
     id: 229,
@@ -3599,7 +3599,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0229.png",
     type1: "あく",
     type2: "ほのお",
-    weight: 35
+    weight: 35,
   },
   {
     id: 230,
@@ -3615,7 +3615,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0230.png",
     type1: "みず",
     type2: "ドラゴン",
-    weight: 152
+    weight: 152,
   },
   {
     id: 231,
@@ -3631,7 +3631,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0231.png",
     type1: "じめん",
     type2: null,
-    weight: 33.5
+    weight: 33.5,
   },
   {
     id: 232,
@@ -3647,7 +3647,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0232.png",
     type1: "じめん",
     type2: null,
-    weight: 120
+    weight: 120,
   },
   {
     id: 233,
@@ -3663,7 +3663,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0233.png",
     type1: "ノーマル",
     type2: null,
-    weight: 32.5
+    weight: 32.5,
   },
   {
     id: 234,
@@ -3679,7 +3679,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0234.png",
     type1: "ノーマル",
     type2: null,
-    weight: 71.2
+    weight: 71.2,
   },
   {
     id: 235,
@@ -3695,7 +3695,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0235.png",
     type1: "ノーマル",
     type2: null,
-    weight: 58
+    weight: 58,
   },
   {
     id: 236,
@@ -3711,7 +3711,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0236.png",
     type1: "かくとう",
     type2: null,
-    weight: 21
+    weight: 21,
   },
   {
     id: 237,
@@ -3727,7 +3727,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0237.png",
     type1: "かくとう",
     type2: null,
-    weight: 48
+    weight: 48,
   },
   {
     id: 238,
@@ -3743,7 +3743,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0238.png",
     type1: "こおり",
     type2: "エスパー",
-    weight: 6
+    weight: 6,
   },
   {
     id: 239,
@@ -3759,7 +3759,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0239.png",
     type1: "でんき",
     type2: null,
-    weight: 23.5
+    weight: 23.5,
   },
   {
     id: 240,
@@ -3775,7 +3775,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0240.png",
     type1: "ほのお",
     type2: null,
-    weight: 21.4
+    weight: 21.4,
   },
   {
     id: 241,
@@ -3791,7 +3791,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0241.png",
     type1: "ノーマル",
     type2: null,
-    weight: 75.5
+    weight: 75.5,
   },
   {
     id: 242,
@@ -3807,7 +3807,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0242.png",
     type1: "ノーマル",
     type2: null,
-    weight: 46.8
+    weight: 46.8,
   },
   {
     id: 243,
@@ -3823,7 +3823,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0243.png",
     type1: "でんき",
     type2: null,
-    weight: 178
+    weight: 178,
   },
   {
     id: 244,
@@ -3839,7 +3839,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0244.png",
     type1: "ほのお",
     type2: null,
-    weight: 198
+    weight: 198,
   },
   {
     id: 245,
@@ -3855,7 +3855,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0245.png",
     type1: "みず",
     type2: null,
-    weight: 187
+    weight: 187,
   },
   {
     id: 246,
@@ -3871,7 +3871,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0246.png",
     type1: "いわ",
     type2: "じめん",
-    weight: 72
+    weight: 72,
   },
   {
     id: 247,
@@ -3887,7 +3887,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0247.png",
     type1: "いわ",
     type2: "じめん",
-    weight: 152
+    weight: 152,
   },
   {
     id: 248,
@@ -3903,7 +3903,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0248.png",
     type1: "いわ",
     type2: "あく",
-    weight: 202
+    weight: 202,
   },
   {
     id: 249,
@@ -3919,7 +3919,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0249.png",
     type1: "エスパー",
     type2: "ひこう",
-    weight: 216
+    weight: 216,
   },
   {
     id: 250,
@@ -3935,7 +3935,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0250.png",
     type1: "ほのお",
     type2: "ひこう",
-    weight: 199
+    weight: 199,
   },
   {
     id: 210,
@@ -3951,7 +3951,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0210.png",
     type1: "ノーマル",
     type2: null,
-    weight: 48.7
+    weight: 48.7,
   },
   {
     id: 251,
@@ -3967,7 +3967,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0251.png",
     type1: "エスパー",
     type2: "くさ",
-    weight: 5
+    weight: 5,
   },
   {
     id: 252,
@@ -3983,7 +3983,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0252.png",
     type1: "くさ",
     type2: null,
-    weight: 5
+    weight: 5,
   },
   {
     id: 253,
@@ -3999,7 +3999,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0253.png",
     type1: "くさ",
     type2: null,
-    weight: 21.6
+    weight: 21.6,
   },
   {
     id: 254,
@@ -4015,7 +4015,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0254.png",
     type1: "くさ",
     type2: null,
-    weight: 52.2
+    weight: 52.2,
   },
   {
     id: 255,
@@ -4031,7 +4031,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0255.png",
     type1: "ほのお",
     type2: null,
-    weight: 2.5
+    weight: 2.5,
   },
   {
     id: 256,
@@ -4047,7 +4047,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0256.png",
     type1: "ほのお",
     type2: "かくとう",
-    weight: 19.5
+    weight: 19.5,
   },
   {
     id: 257,
@@ -4063,7 +4063,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0257.png",
     type1: "ほのお",
     type2: "かくとう",
-    weight: 52
+    weight: 52,
   },
   {
     id: 258,
@@ -4079,7 +4079,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0258.png",
     type1: "みず",
     type2: null,
-    weight: 7.6
+    weight: 7.6,
   },
   {
     id: 259,
@@ -4095,7 +4095,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0259.png",
     type1: "みず",
     type2: "じめん",
-    weight: 28
+    weight: 28,
   },
   {
     id: 260,
@@ -4111,7 +4111,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0260.png",
     type1: "みず",
     type2: "じめん",
-    weight: 81.9
+    weight: 81.9,
   },
   {
     id: 261,
@@ -4127,7 +4127,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0261.png",
     type1: "あく",
     type2: null,
-    weight: 13.6
+    weight: 13.6,
   },
   {
     id: 262,
@@ -4143,7 +4143,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0262.png",
     type1: "あく",
     type2: null,
-    weight: 37
+    weight: 37,
   },
   {
     id: 263,
@@ -4159,7 +4159,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0263.png",
     type1: "ノーマル",
     type2: null,
-    weight: 17.5
+    weight: 17.5,
   },
   {
     id: 264,
@@ -4175,7 +4175,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0264.png",
     type1: "ノーマル",
     type2: null,
-    weight: 32.5
+    weight: 32.5,
   },
   {
     id: 265,
@@ -4191,7 +4191,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0265.png",
     type1: "むし",
     type2: null,
-    weight: 3.6
+    weight: 3.6,
   },
   {
     id: 266,
@@ -4207,7 +4207,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0266.png",
     type1: "むし",
     type2: null,
-    weight: 10
+    weight: 10,
   },
   {
     id: 267,
@@ -4223,7 +4223,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0267.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 28.4
+    weight: 28.4,
   },
   {
     id: 268,
@@ -4239,7 +4239,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0268.png",
     type1: "むし",
     type2: null,
-    weight: 11.5
+    weight: 11.5,
   },
   {
     id: 269,
@@ -4255,7 +4255,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0269.png",
     type1: "むし",
     type2: "どく",
-    weight: 31.6
+    weight: 31.6,
   },
   {
     id: 270,
@@ -4271,7 +4271,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0270.png",
     type1: "みず",
     type2: "くさ",
-    weight: 2.6
+    weight: 2.6,
   },
   {
     id: 271,
@@ -4287,7 +4287,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0271.png",
     type1: "みず",
     type2: "くさ",
-    weight: 32.5
+    weight: 32.5,
   },
   {
     id: 272,
@@ -4303,7 +4303,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0272.png",
     type1: "みず",
     type2: "くさ",
-    weight: 55
+    weight: 55,
   },
   {
     id: 273,
@@ -4319,7 +4319,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0273.png",
     type1: "くさ",
     type2: null,
-    weight: 4
+    weight: 4,
   },
   {
     id: 274,
@@ -4335,7 +4335,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0274.png",
     type1: "くさ",
     type2: "あく",
-    weight: 28
+    weight: 28,
   },
   {
     id: 275,
@@ -4351,7 +4351,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0275.png",
     type1: "くさ",
     type2: "あく",
-    weight: 59.6
+    weight: 59.6,
   },
   {
     id: 276,
@@ -4367,7 +4367,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0276.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 2.3
+    weight: 2.3,
   },
   {
     id: 277,
@@ -4383,7 +4383,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0277.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 19.8
+    weight: 19.8,
   },
   {
     id: 278,
@@ -4399,7 +4399,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0278.png",
     type1: "みず",
     type2: "ひこう",
-    weight: 9.5
+    weight: 9.5,
   },
   {
     id: 279,
@@ -4415,7 +4415,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0279.png",
     type1: "みず",
     type2: "ひこう",
-    weight: 28
+    weight: 28,
   },
   {
     id: 283,
@@ -4431,7 +4431,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0283.png",
     type1: "むし",
     type2: "みず",
-    weight: 1.7
+    weight: 1.7,
   },
   {
     id: 284,
@@ -4447,7 +4447,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0284.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 3.6
+    weight: 3.6,
   },
   {
     id: 285,
@@ -4463,7 +4463,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0285.png",
     type1: "くさ",
     type2: null,
-    weight: 4.5
+    weight: 4.5,
   },
   {
     id: 286,
@@ -4479,7 +4479,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0286.png",
     type1: "くさ",
     type2: "かくとう",
-    weight: 39.2
+    weight: 39.2,
   },
   {
     id: 287,
@@ -4495,7 +4495,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0287.png",
     type1: "ノーマル",
     type2: null,
-    weight: 24
+    weight: 24,
   },
   {
     id: 288,
@@ -4511,7 +4511,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0288.png",
     type1: "ノーマル",
     type2: null,
-    weight: 46.5
+    weight: 46.5,
   },
   {
     id: 289,
@@ -4527,7 +4527,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0289.png",
     type1: "ノーマル",
     type2: null,
-    weight: 130.5
+    weight: 130.5,
   },
   {
     id: 290,
@@ -4543,7 +4543,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0290.png",
     type1: "むし",
     type2: "じめん",
-    weight: 5.5
+    weight: 5.5,
   },
   {
     id: 291,
@@ -4559,7 +4559,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0291.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 12
+    weight: 12,
   },
   {
     id: 292,
@@ -4575,7 +4575,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0292.png",
     type1: "むし",
     type2: "ゴースト",
-    weight: 1.2
+    weight: 1.2,
   },
   {
     id: 293,
@@ -4591,7 +4591,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0293.png",
     type1: "ノーマル",
     type2: null,
-    weight: 16.3
+    weight: 16.3,
   },
   {
     id: 294,
@@ -4607,7 +4607,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0294.png",
     type1: "ノーマル",
     type2: null,
-    weight: 40.5
+    weight: 40.5,
   },
   {
     id: 295,
@@ -4623,7 +4623,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0295.png",
     type1: "ノーマル",
     type2: null,
-    weight: 84
+    weight: 84,
   },
   {
     id: 296,
@@ -4639,7 +4639,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0296.png",
     type1: "かくとう",
     type2: null,
-    weight: 86.4
+    weight: 86.4,
   },
   {
     id: 297,
@@ -4655,7 +4655,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0297.png",
     type1: "かくとう",
     type2: null,
-    weight: 253.8
+    weight: 253.8,
   },
   {
     id: 299,
@@ -4671,7 +4671,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0299.png",
     type1: "いわ",
     type2: null,
-    weight: 97
+    weight: 97,
   },
   {
     id: 300,
@@ -4687,7 +4687,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0300.png",
     type1: "ノーマル",
     type2: null,
-    weight: 11
+    weight: 11,
   },
   {
     id: 281,
@@ -4703,7 +4703,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0281.png",
     type1: "エスパー",
     type2: null,
-    weight: 20.2
+    weight: 20.2,
   },
   {
     id: 282,
@@ -4719,7 +4719,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0282.png",
     type1: "エスパー",
     type2: null,
-    weight: 48.4
+    weight: 48.4,
   },
   {
     id: 298,
@@ -4735,7 +4735,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0298.png",
     type1: "ノーマル",
     type2: null,
-    weight: 2
+    weight: 2,
   },
   {
     id: 301,
@@ -4751,7 +4751,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0301.png",
     type1: "ノーマル",
     type2: null,
-    weight: 32.6
+    weight: 32.6,
   },
   {
     id: 302,
@@ -4767,7 +4767,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0302.png",
     type1: "あく",
     type2: "ゴースト",
-    weight: 11
+    weight: 11,
   },
   {
     id: 304,
@@ -4783,7 +4783,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0304.png",
     type1: "はがね",
     type2: "いわ",
-    weight: 60
+    weight: 60,
   },
   {
     id: 305,
@@ -4799,7 +4799,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0305.png",
     type1: "はがね",
     type2: "いわ",
-    weight: 120
+    weight: 120,
   },
   {
     id: 306,
@@ -4815,7 +4815,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0306.png",
     type1: "はがね",
     type2: "いわ",
-    weight: 360
+    weight: 360,
   },
   {
     id: 307,
@@ -4831,7 +4831,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0307.png",
     type1: "かくとう",
     type2: "エスパー",
-    weight: 11.2
+    weight: 11.2,
   },
   {
     id: 308,
@@ -4847,7 +4847,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0308.png",
     type1: "かくとう",
     type2: "エスパー",
-    weight: 31.5
+    weight: 31.5,
   },
   {
     id: 309,
@@ -4863,7 +4863,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0309.png",
     type1: "でんき",
     type2: null,
-    weight: 15.2
+    weight: 15.2,
   },
   {
     id: 310,
@@ -4879,7 +4879,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0310.png",
     type1: "でんき",
     type2: null,
-    weight: 40.2
+    weight: 40.2,
   },
   {
     id: 311,
@@ -4895,7 +4895,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0311.png",
     type1: "でんき",
     type2: null,
-    weight: 4.2
+    weight: 4.2,
   },
   {
     id: 312,
@@ -4911,7 +4911,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0312.png",
     type1: "でんき",
     type2: null,
-    weight: 4.2
+    weight: 4.2,
   },
   {
     id: 313,
@@ -4927,7 +4927,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0313.png",
     type1: "むし",
     type2: null,
-    weight: 17.7
+    weight: 17.7,
   },
   {
     id: 314,
@@ -4943,7 +4943,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0314.png",
     type1: "むし",
     type2: null,
-    weight: 17.7
+    weight: 17.7,
   },
   {
     id: 315,
@@ -4959,7 +4959,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0315.png",
     type1: "くさ",
     type2: "どく",
-    weight: 2
+    weight: 2,
   },
   {
     id: 316,
@@ -4975,7 +4975,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0316.png",
     type1: "どく",
     type2: null,
-    weight: 10.3
+    weight: 10.3,
   },
   {
     id: 317,
@@ -4991,7 +4991,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0317.png",
     type1: "どく",
     type2: null,
-    weight: 80
+    weight: 80,
   },
   {
     id: 318,
@@ -5007,7 +5007,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0318.png",
     type1: "みず",
     type2: "あく",
-    weight: 20.8
+    weight: 20.8,
   },
   {
     id: 319,
@@ -5023,7 +5023,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0319.png",
     type1: "みず",
     type2: "あく",
-    weight: 88.8
+    weight: 88.8,
   },
   {
     id: 320,
@@ -5039,7 +5039,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0320.png",
     type1: "みず",
     type2: null,
-    weight: 130
+    weight: 130,
   },
   {
     id: 321,
@@ -5055,7 +5055,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0321.png",
     type1: "みず",
     type2: null,
-    weight: 398
+    weight: 398,
   },
   {
     id: 322,
@@ -5071,7 +5071,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0322.png",
     type1: "ほのお",
     type2: "じめん",
-    weight: 24
+    weight: 24,
   },
   {
     id: 323,
@@ -5087,7 +5087,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0323.png",
     type1: "ほのお",
     type2: "じめん",
-    weight: 220
+    weight: 220,
   },
   {
     id: 324,
@@ -5103,7 +5103,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0324.png",
     type1: "ほのお",
     type2: null,
-    weight: 80.4
+    weight: 80.4,
   },
   {
     id: 325,
@@ -5119,7 +5119,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0325.png",
     type1: "エスパー",
     type2: null,
-    weight: 30.6
+    weight: 30.6,
   },
   {
     id: 326,
@@ -5135,7 +5135,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0326.png",
     type1: "エスパー",
     type2: null,
-    weight: 71.5
+    weight: 71.5,
   },
   {
     id: 327,
@@ -5151,7 +5151,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0327.png",
     type1: "ノーマル",
     type2: null,
-    weight: 5
+    weight: 5,
   },
   {
     id: 328,
@@ -5167,7 +5167,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0328.png",
     type1: "じめん",
     type2: null,
-    weight: 15
+    weight: 15,
   },
   {
     id: 329,
@@ -5183,7 +5183,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0329.png",
     type1: "じめん",
     type2: "ドラゴン",
-    weight: 15.3
+    weight: 15.3,
   },
   {
     id: 330,
@@ -5199,7 +5199,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0330.png",
     type1: "じめん",
     type2: "ドラゴン",
-    weight: 82
+    weight: 82,
   },
   {
     id: 331,
@@ -5215,7 +5215,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0331.png",
     type1: "くさ",
     type2: null,
-    weight: 51.3
+    weight: 51.3,
   },
   {
     id: 332,
@@ -5231,7 +5231,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0332.png",
     type1: "くさ",
     type2: "あく",
-    weight: 77.4
+    weight: 77.4,
   },
   {
     id: 333,
@@ -5247,7 +5247,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0333.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 1.2
+    weight: 1.2,
   },
   {
     id: 334,
@@ -5263,7 +5263,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0334.png",
     type1: "ドラゴン",
     type2: "ひこう",
-    weight: 20.6
+    weight: 20.6,
   },
   {
     id: 335,
@@ -5279,7 +5279,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0335.png",
     type1: "ノーマル",
     type2: null,
-    weight: 40.3
+    weight: 40.3,
   },
   {
     id: 336,
@@ -5295,7 +5295,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0336.png",
     type1: "どく",
     type2: null,
-    weight: 52.5
+    weight: 52.5,
   },
   {
     id: 337,
@@ -5311,7 +5311,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0337.png",
     type1: "いわ",
     type2: "エスパー",
-    weight: 168
+    weight: 168,
   },
   {
     id: 338,
@@ -5327,7 +5327,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0338.png",
     type1: "いわ",
     type2: "エスパー",
-    weight: 154
+    weight: 154,
   },
   {
     id: 339,
@@ -5343,7 +5343,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0339.png",
     type1: "みず",
     type2: "じめん",
-    weight: 1.9
+    weight: 1.9,
   },
   {
     id: 340,
@@ -5359,7 +5359,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0340.png",
     type1: "みず",
     type2: "じめん",
-    weight: 23.6
+    weight: 23.6,
   },
   {
     id: 341,
@@ -5375,7 +5375,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0341.png",
     type1: "みず",
     type2: null,
-    weight: 11.5
+    weight: 11.5,
   },
   {
     id: 342,
@@ -5391,7 +5391,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0342.png",
     type1: "みず",
     type2: "あく",
-    weight: 32.8
+    weight: 32.8,
   },
   {
     id: 343,
@@ -5407,7 +5407,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0343.png",
     type1: "じめん",
     type2: "エスパー",
-    weight: 21.5
+    weight: 21.5,
   },
   {
     id: 344,
@@ -5423,7 +5423,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0344.png",
     type1: "じめん",
     type2: "エスパー",
-    weight: 108
+    weight: 108,
   },
   {
     id: 345,
@@ -5439,7 +5439,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0345.png",
     type1: "いわ",
     type2: "くさ",
-    weight: 23.8
+    weight: 23.8,
   },
   {
     id: 346,
@@ -5455,7 +5455,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0346.png",
     type1: "いわ",
     type2: "くさ",
-    weight: 60.4
+    weight: 60.4,
   },
   {
     id: 347,
@@ -5471,7 +5471,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0347.png",
     type1: "いわ",
     type2: "むし",
-    weight: 12.5
+    weight: 12.5,
   },
   {
     id: 348,
@@ -5487,7 +5487,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0348.png",
     type1: "いわ",
     type2: "むし",
-    weight: 68.2
+    weight: 68.2,
   },
   {
     id: 349,
@@ -5503,7 +5503,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0349.png",
     type1: "みず",
     type2: null,
-    weight: 7.4
+    weight: 7.4,
   },
   {
     id: 350,
@@ -5519,7 +5519,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0350.png",
     type1: "みず",
     type2: null,
-    weight: 162
+    weight: 162,
   },
   {
     id: 351,
@@ -5535,7 +5535,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0351.png",
     type1: "ノーマル",
     type2: null,
-    weight: 0.8
+    weight: 0.8,
   },
   {
     id: 352,
@@ -5551,7 +5551,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0352.png",
     type1: "ノーマル",
     type2: null,
-    weight: 22
+    weight: 22,
   },
   {
     id: 353,
@@ -5567,7 +5567,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0353.png",
     type1: "ゴースト",
     type2: null,
-    weight: 2.3
+    weight: 2.3,
   },
   {
     id: 354,
@@ -5583,7 +5583,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0354.png",
     type1: "ゴースト",
     type2: null,
-    weight: 12.5
+    weight: 12.5,
   },
   {
     id: 355,
@@ -5599,7 +5599,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0355.png",
     type1: "ゴースト",
     type2: null,
-    weight: 15
+    weight: 15,
   },
   {
     id: 356,
@@ -5615,7 +5615,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0356.png",
     type1: "ゴースト",
     type2: null,
-    weight: 30.6
+    weight: 30.6,
   },
   {
     id: 357,
@@ -5631,7 +5631,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0357.png",
     type1: "くさ",
     type2: "ひこう",
-    weight: 100
+    weight: 100,
   },
   {
     id: 358,
@@ -5647,7 +5647,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0358.png",
     type1: "エスパー",
     type2: null,
-    weight: 1
+    weight: 1,
   },
   {
     id: 359,
@@ -5663,7 +5663,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0359.png",
     type1: "あく",
     type2: null,
-    weight: 47
+    weight: 47,
   },
   {
     id: 360,
@@ -5679,7 +5679,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0360.png",
     type1: "エスパー",
     type2: null,
-    weight: 14
+    weight: 14,
   },
   {
     id: 361,
@@ -5695,7 +5695,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0361.png",
     type1: "こおり",
     type2: null,
-    weight: 16.8
+    weight: 16.8,
   },
   {
     id: 362,
@@ -5711,7 +5711,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0362.png",
     type1: "こおり",
     type2: null,
-    weight: 256.5
+    weight: 256.5,
   },
   {
     id: 363,
@@ -5727,7 +5727,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0363.png",
     type1: "こおり",
     type2: "みず",
-    weight: 39.5
+    weight: 39.5,
   },
   {
     id: 364,
@@ -5743,7 +5743,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0364.png",
     type1: "こおり",
     type2: "みず",
-    weight: 87.6
+    weight: 87.6,
   },
   {
     id: 365,
@@ -5759,7 +5759,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0365.png",
     type1: "こおり",
     type2: "みず",
-    weight: 150.6
+    weight: 150.6,
   },
   {
     id: 366,
@@ -5775,7 +5775,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0366.png",
     type1: "みず",
     type2: null,
-    weight: 52.5
+    weight: 52.5,
   },
   {
     id: 367,
@@ -5791,7 +5791,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0367.png",
     type1: "みず",
     type2: null,
-    weight: 27
+    weight: 27,
   },
   {
     id: 368,
@@ -5807,7 +5807,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0368.png",
     type1: "みず",
     type2: null,
-    weight: 22.6
+    weight: 22.6,
   },
   {
     id: 369,
@@ -5823,7 +5823,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0369.png",
     type1: "みず",
     type2: "いわ",
-    weight: 23.4
+    weight: 23.4,
   },
   {
     id: 370,
@@ -5839,7 +5839,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0370.png",
     type1: "みず",
     type2: null,
-    weight: 8.7
+    weight: 8.7,
   },
   {
     id: 371,
@@ -5855,7 +5855,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0371.png",
     type1: "ドラゴン",
     type2: null,
-    weight: 42.1
+    weight: 42.1,
   },
   {
     id: 372,
@@ -5871,7 +5871,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0372.png",
     type1: "ドラゴン",
     type2: null,
-    weight: 110.5
+    weight: 110.5,
   },
   {
     id: 373,
@@ -5887,7 +5887,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0373.png",
     type1: "ドラゴン",
     type2: "ひこう",
-    weight: 102.6
+    weight: 102.6,
   },
   {
     id: 374,
@@ -5903,7 +5903,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0374.png",
     type1: "はがね",
     type2: "エスパー",
-    weight: 95.2
+    weight: 95.2,
   },
   {
     id: 375,
@@ -5919,7 +5919,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0375.png",
     type1: "はがね",
     type2: "エスパー",
-    weight: 202.5
+    weight: 202.5,
   },
   {
     id: 376,
@@ -5935,7 +5935,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0376.png",
     type1: "はがね",
     type2: "エスパー",
-    weight: 550
+    weight: 550,
   },
   {
     id: 377,
@@ -5951,7 +5951,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0377.png",
     type1: "いわ",
     type2: null,
-    weight: 230
+    weight: 230,
   },
   {
     id: 378,
@@ -5967,7 +5967,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0378.png",
     type1: "こおり",
     type2: null,
-    weight: 175
+    weight: 175,
   },
   {
     id: 379,
@@ -5983,7 +5983,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0379.png",
     type1: "はがね",
     type2: null,
-    weight: 205
+    weight: 205,
   },
   {
     id: 380,
@@ -5999,7 +5999,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0380.png",
     type1: "ドラゴン",
     type2: "エスパー",
-    weight: 40
+    weight: 40,
   },
   {
     id: 381,
@@ -6015,7 +6015,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0381.png",
     type1: "ドラゴン",
     type2: "エスパー",
-    weight: 60
+    weight: 60,
   },
   {
     id: 382,
@@ -6031,7 +6031,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0382.png",
     type1: "みず",
     type2: null,
-    weight: 352
+    weight: 352,
   },
   {
     id: 383,
@@ -6047,7 +6047,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0383.png",
     type1: "じめん",
     type2: null,
-    weight: 950
+    weight: 950,
   },
   {
     id: 384,
@@ -6063,7 +6063,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0384.png",
     type1: "ドラゴン",
     type2: "ひこう",
-    weight: 206.5
+    weight: 206.5,
   },
   {
     id: 385,
@@ -6079,7 +6079,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0385.png",
     type1: "はがね",
     type2: "エスパー",
-    weight: 1.1
+    weight: 1.1,
   },
   {
     id: 386,
@@ -6095,7 +6095,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0386.png",
     type1: "エスパー",
     type2: null,
-    weight: 60.8
+    weight: 60.8,
   },
   {
     id: 387,
@@ -6111,7 +6111,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0387.png",
     type1: "くさ",
     type2: null,
-    weight: 10.2
+    weight: 10.2,
   },
   {
     id: 388,
@@ -6127,7 +6127,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0388.png",
     type1: "くさ",
     type2: null,
-    weight: 97
+    weight: 97,
   },
   {
     id: 389,
@@ -6143,7 +6143,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0389.png",
     type1: "くさ",
     type2: "じめん",
-    weight: 310
+    weight: 310,
   },
   {
     id: 390,
@@ -6159,7 +6159,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0390.png",
     type1: "ほのお",
     type2: null,
-    weight: 6.2
+    weight: 6.2,
   },
   {
     id: 391,
@@ -6175,7 +6175,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0391.png",
     type1: "ほのお",
     type2: "かくとう",
-    weight: 22
+    weight: 22,
   },
   {
     id: 392,
@@ -6191,7 +6191,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0392.png",
     type1: "ほのお",
     type2: "かくとう",
-    weight: 55
+    weight: 55,
   },
   {
     id: 393,
@@ -6207,7 +6207,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0393.png",
     type1: "みず",
     type2: null,
-    weight: 5.2
+    weight: 5.2,
   },
   {
     id: 394,
@@ -6223,7 +6223,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0394.png",
     type1: "みず",
     type2: null,
-    weight: 23
+    weight: 23,
   },
   {
     id: 395,
@@ -6239,7 +6239,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0395.png",
     type1: "みず",
     type2: "はがね",
-    weight: 84.5
+    weight: 84.5,
   },
   {
     id: 396,
@@ -6255,7 +6255,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0396.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 2
+    weight: 2,
   },
   {
     id: 397,
@@ -6271,7 +6271,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0397.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 15.5
+    weight: 15.5,
   },
   {
     id: 398,
@@ -6287,7 +6287,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0398.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 24.9
+    weight: 24.9,
   },
   {
     id: 399,
@@ -6303,7 +6303,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0399.png",
     type1: "ノーマル",
     type2: null,
-    weight: 20
+    weight: 20,
   },
   {
     id: 400,
@@ -6319,7 +6319,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0400.png",
     type1: "ノーマル",
     type2: "みず",
-    weight: 31.5
+    weight: 31.5,
   },
   {
     id: 401,
@@ -6335,7 +6335,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0401.png",
     type1: "むし",
     type2: null,
-    weight: 2.2
+    weight: 2.2,
   },
   {
     id: 402,
@@ -6351,7 +6351,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0402.png",
     type1: "むし",
     type2: null,
-    weight: 25.5
+    weight: 25.5,
   },
   {
     id: 403,
@@ -6367,7 +6367,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0403.png",
     type1: "でんき",
     type2: null,
-    weight: 9.5
+    weight: 9.5,
   },
   {
     id: 404,
@@ -6383,7 +6383,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0404.png",
     type1: "でんき",
     type2: null,
-    weight: 30.5
+    weight: 30.5,
   },
   {
     id: 405,
@@ -6399,7 +6399,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0405.png",
     type1: "でんき",
     type2: null,
-    weight: 42
+    weight: 42,
   },
   {
     id: 406,
@@ -6415,7 +6415,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0406.png",
     type1: "くさ",
     type2: "どく",
-    weight: 1.2
+    weight: 1.2,
   },
   {
     id: 407,
@@ -6431,7 +6431,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0407.png",
     type1: "くさ",
     type2: "どく",
-    weight: 14.5
+    weight: 14.5,
   },
   {
     id: 408,
@@ -6447,7 +6447,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0408.png",
     type1: "いわ",
     type2: null,
-    weight: 31.5
+    weight: 31.5,
   },
   {
     id: 409,
@@ -6463,7 +6463,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0409.png",
     type1: "いわ",
     type2: null,
-    weight: 102.5
+    weight: 102.5,
   },
   {
     id: 410,
@@ -6479,7 +6479,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0410.png",
     type1: "いわ",
     type2: "はがね",
-    weight: 57
+    weight: 57,
   },
   {
     id: 411,
@@ -6495,7 +6495,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0411.png",
     type1: "いわ",
     type2: "はがね",
-    weight: 149.5
+    weight: 149.5,
   },
   {
     id: 412,
@@ -6511,7 +6511,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0412.png",
     type1: "むし",
     type2: null,
-    weight: 3.4
+    weight: 3.4,
   },
   {
     id: 413,
@@ -6527,7 +6527,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0413.png",
     type1: "むし",
     type2: "くさ",
-    weight: 6.5
+    weight: 6.5,
   },
   {
     id: 414,
@@ -6543,7 +6543,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0414.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 23.3
+    weight: 23.3,
   },
   {
     id: 415,
@@ -6559,7 +6559,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0415.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 5.5
+    weight: 5.5,
   },
   {
     id: 416,
@@ -6575,7 +6575,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0416.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 38.5
+    weight: 38.5,
   },
   {
     id: 417,
@@ -6591,7 +6591,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0417.png",
     type1: "でんき",
     type2: null,
-    weight: 3.9
+    weight: 3.9,
   },
   {
     id: 418,
@@ -6607,7 +6607,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0418.png",
     type1: "みず",
     type2: null,
-    weight: 29.5
+    weight: 29.5,
   },
   {
     id: 419,
@@ -6623,7 +6623,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0419.png",
     type1: "みず",
     type2: null,
-    weight: 33.5
+    weight: 33.5,
   },
   {
     id: 420,
@@ -6639,7 +6639,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0420.png",
     type1: "くさ",
     type2: null,
-    weight: 3.3
+    weight: 3.3,
   },
   {
     id: 421,
@@ -6655,7 +6655,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0421.png",
     type1: "くさ",
     type2: null,
-    weight: 9.3
+    weight: 9.3,
   },
   {
     id: 422,
@@ -6671,7 +6671,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0422.png",
     type1: "みず",
     type2: null,
-    weight: 6.3
+    weight: 6.3,
   },
   {
     id: 423,
@@ -6687,7 +6687,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0423.png",
     type1: "みず",
     type2: "じめん",
-    weight: 29.9
+    weight: 29.9,
   },
   {
     id: 424,
@@ -6703,7 +6703,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0424.png",
     type1: "ノーマル",
     type2: null,
-    weight: 20.3
+    weight: 20.3,
   },
   {
     id: 425,
@@ -6719,7 +6719,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0425.png",
     type1: "ゴースト",
     type2: "ひこう",
-    weight: 1.2
+    weight: 1.2,
   },
   {
     id: 426,
@@ -6735,7 +6735,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0426.png",
     type1: "ゴースト",
     type2: "ひこう",
-    weight: 15
+    weight: 15,
   },
   {
     id: 427,
@@ -6751,7 +6751,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0427.png",
     type1: "ノーマル",
     type2: null,
-    weight: 5.5
+    weight: 5.5,
   },
   {
     id: 428,
@@ -6767,7 +6767,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0428.png",
     type1: "ノーマル",
     type2: null,
-    weight: 33.3
+    weight: 33.3,
   },
   {
     id: 429,
@@ -6783,7 +6783,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0429.png",
     type1: "ゴースト",
     type2: null,
-    weight: 4.4
+    weight: 4.4,
   },
   {
     id: 430,
@@ -6799,7 +6799,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0430.png",
     type1: "あく",
     type2: "ひこう",
-    weight: 27.3
+    weight: 27.3,
   },
   {
     id: 431,
@@ -6815,7 +6815,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0431.png",
     type1: "ノーマル",
     type2: null,
-    weight: 3.9
+    weight: 3.9,
   },
   {
     id: 432,
@@ -6831,7 +6831,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0432.png",
     type1: "ノーマル",
     type2: null,
-    weight: 43.8
+    weight: 43.8,
   },
   {
     id: 433,
@@ -6847,7 +6847,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0433.png",
     type1: "エスパー",
     type2: null,
-    weight: 0.6
+    weight: 0.6,
   },
   {
     id: 434,
@@ -6863,7 +6863,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0434.png",
     type1: "どく",
     type2: "あく",
-    weight: 19.2
+    weight: 19.2,
   },
   {
     id: 435,
@@ -6879,7 +6879,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0435.png",
     type1: "どく",
     type2: "あく",
-    weight: 38
+    weight: 38,
   },
   {
     id: 436,
@@ -6895,7 +6895,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0436.png",
     type1: "はがね",
     type2: "エスパー",
-    weight: 60.5
+    weight: 60.5,
   },
   {
     id: 437,
@@ -6911,7 +6911,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0437.png",
     type1: "はがね",
     type2: "エスパー",
-    weight: 187
+    weight: 187,
   },
   {
     id: 438,
@@ -6927,7 +6927,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0438.png",
     type1: "いわ",
     type2: null,
-    weight: 15
+    weight: 15,
   },
   {
     id: 440,
@@ -6943,7 +6943,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0440.png",
     type1: "ノーマル",
     type2: null,
-    weight: 24.4
+    weight: 24.4,
   },
   {
     id: 441,
@@ -6959,7 +6959,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0441.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 1.9
+    weight: 1.9,
   },
   {
     id: 442,
@@ -6975,7 +6975,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0442.png",
     type1: "ゴースト",
     type2: "あく",
-    weight: 108
+    weight: 108,
   },
   {
     id: 443,
@@ -6991,7 +6991,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0443.png",
     type1: "ドラゴン",
     type2: "じめん",
-    weight: 20.5
+    weight: 20.5,
   },
   {
     id: 444,
@@ -7007,7 +7007,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0444.png",
     type1: "ドラゴン",
     type2: "じめん",
-    weight: 56
+    weight: 56,
   },
   {
     id: 445,
@@ -7023,7 +7023,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0445.png",
     type1: "ドラゴン",
     type2: "じめん",
-    weight: 95
+    weight: 95,
   },
   {
     id: 446,
@@ -7039,7 +7039,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0446.png",
     type1: "ノーマル",
     type2: null,
-    weight: 105
+    weight: 105,
   },
   {
     id: 447,
@@ -7055,7 +7055,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0447.png",
     type1: "かくとう",
     type2: null,
-    weight: 20.2
+    weight: 20.2,
   },
   {
     id: 448,
@@ -7071,7 +7071,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0448.png",
     type1: "かくとう",
     type2: "はがね",
-    weight: 54
+    weight: 54,
   },
   {
     id: 449,
@@ -7087,7 +7087,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0449.png",
     type1: "じめん",
     type2: null,
-    weight: 49.5
+    weight: 49.5,
   },
   {
     id: 450,
@@ -7103,7 +7103,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0450.png",
     type1: "じめん",
     type2: null,
-    weight: 300
+    weight: 300,
   },
   {
     id: 451,
@@ -7119,7 +7119,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0451.png",
     type1: "どく",
     type2: "むし",
-    weight: 12
+    weight: 12,
   },
   {
     id: 452,
@@ -7135,7 +7135,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0452.png",
     type1: "どく",
     type2: "あく",
-    weight: 61.5
+    weight: 61.5,
   },
   {
     id: 453,
@@ -7151,7 +7151,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0453.png",
     type1: "どく",
     type2: "かくとう",
-    weight: 23
+    weight: 23,
   },
   {
     id: 454,
@@ -7167,7 +7167,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0454.png",
     type1: "どく",
     type2: "かくとう",
-    weight: 44.4
+    weight: 44.4,
   },
   {
     id: 455,
@@ -7183,7 +7183,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0455.png",
     type1: "くさ",
     type2: null,
-    weight: 27
+    weight: 27,
   },
   {
     id: 456,
@@ -7199,7 +7199,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0456.png",
     type1: "みず",
     type2: null,
-    weight: 7
+    weight: 7,
   },
   {
     id: 457,
@@ -7215,7 +7215,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0457.png",
     type1: "みず",
     type2: null,
-    weight: 24
+    weight: 24,
   },
   {
     id: 458,
@@ -7231,7 +7231,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0458.png",
     type1: "みず",
     type2: "ひこう",
-    weight: 65
+    weight: 65,
   },
   {
     id: 459,
@@ -7247,7 +7247,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0459.png",
     type1: "くさ",
     type2: "こおり",
-    weight: 50.5
+    weight: 50.5,
   },
   {
     id: 460,
@@ -7263,7 +7263,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0460.png",
     type1: "くさ",
     type2: "こおり",
-    weight: 135.5
+    weight: 135.5,
   },
   {
     id: 461,
@@ -7279,7 +7279,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0461.png",
     type1: "あく",
     type2: "こおり",
-    weight: 34
+    weight: 34,
   },
   {
     id: 462,
@@ -7295,7 +7295,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0462.png",
     type1: "でんき",
     type2: "はがね",
-    weight: 180
+    weight: 180,
   },
   {
     id: 463,
@@ -7311,7 +7311,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0463.png",
     type1: "ノーマル",
     type2: null,
-    weight: 140
+    weight: 140,
   },
   {
     id: 464,
@@ -7327,7 +7327,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0464.png",
     type1: "じめん",
     type2: "いわ",
-    weight: 282.8
+    weight: 282.8,
   },
   {
     id: 465,
@@ -7343,7 +7343,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0465.png",
     type1: "くさ",
     type2: null,
-    weight: 128.6
+    weight: 128.6,
   },
   {
     id: 466,
@@ -7359,7 +7359,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0466.png",
     type1: "でんき",
     type2: null,
-    weight: 138.6
+    weight: 138.6,
   },
   {
     id: 467,
@@ -7375,7 +7375,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0467.png",
     type1: "ほのお",
     type2: null,
-    weight: 68
+    weight: 68,
   },
   {
     id: 469,
@@ -7391,7 +7391,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0469.png",
     type1: "むし",
     type2: "ひこう",
-    weight: 51.5
+    weight: 51.5,
   },
   {
     id: 470,
@@ -7407,7 +7407,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0470.png",
     type1: "くさ",
     type2: null,
-    weight: 25.5
+    weight: 25.5,
   },
   {
     id: 471,
@@ -7423,7 +7423,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0471.png",
     type1: "こおり",
     type2: null,
-    weight: 25.9
+    weight: 25.9,
   },
   {
     id: 472,
@@ -7439,7 +7439,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0472.png",
     type1: "じめん",
     type2: "ひこう",
-    weight: 42.5
+    weight: 42.5,
   },
   {
     id: 473,
@@ -7455,7 +7455,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0473.png",
     type1: "こおり",
     type2: "じめん",
-    weight: 291
+    weight: 291,
   },
   {
     id: 474,
@@ -7471,7 +7471,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0474.png",
     type1: "ノーマル",
     type2: null,
-    weight: 34
+    weight: 34,
   },
   {
     id: 475,
@@ -7487,7 +7487,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0475.png",
     type1: "エスパー",
     type2: "かくとう",
-    weight: 52
+    weight: 52,
   },
   {
     id: 476,
@@ -7503,7 +7503,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0476.png",
     type1: "いわ",
     type2: "はがね",
-    weight: 340
+    weight: 340,
   },
   {
     id: 477,
@@ -7519,7 +7519,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0477.png",
     type1: "ゴースト",
     type2: null,
-    weight: 106.6
+    weight: 106.6,
   },
   {
     id: 478,
@@ -7535,7 +7535,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0478.png",
     type1: "こおり",
     type2: "ゴースト",
-    weight: 26.6
+    weight: 26.6,
   },
   {
     id: 479,
@@ -7551,7 +7551,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0479.png",
     type1: "でんき",
     type2: "ゴースト",
-    weight: 0.3
+    weight: 0.3,
   },
   {
     id: 480,
@@ -7567,7 +7567,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0480.png",
     type1: "エスパー",
     type2: null,
-    weight: 0.3
+    weight: 0.3,
   },
   {
     id: 481,
@@ -7583,7 +7583,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0481.png",
     type1: "エスパー",
     type2: null,
-    weight: 0.3
+    weight: 0.3,
   },
   {
     id: 482,
@@ -7599,7 +7599,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0482.png",
     type1: "エスパー",
     type2: null,
-    weight: 0.3
+    weight: 0.3,
   },
   {
     id: 483,
@@ -7615,7 +7615,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0483.png",
     type1: "はがね",
     type2: "ドラゴン",
-    weight: 683
+    weight: 683,
   },
   {
     id: 484,
@@ -7631,7 +7631,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0484.png",
     type1: "みず",
     type2: "ドラゴン",
-    weight: 336
+    weight: 336,
   },
   {
     id: 485,
@@ -7647,7 +7647,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0485.png",
     type1: "ほのお",
     type2: "はがね",
-    weight: 430
+    weight: 430,
   },
   {
     id: 486,
@@ -7663,7 +7663,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0486.png",
     type1: "ノーマル",
     type2: null,
-    weight: 420
+    weight: 420,
   },
   {
     id: 487,
@@ -7679,7 +7679,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0487.png",
     type1: "ゴースト",
     type2: "ドラゴン",
-    weight: 750
+    weight: 750,
   },
   {
     id: 488,
@@ -7695,7 +7695,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0488.png",
     type1: "エスパー",
     type2: null,
-    weight: 85.6
+    weight: 85.6,
   },
   {
     id: 489,
@@ -7711,7 +7711,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0489.png",
     type1: "みず",
     type2: null,
-    weight: 3.1
+    weight: 3.1,
   },
   {
     id: 490,
@@ -7727,7 +7727,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0490.png",
     type1: "みず",
     type2: null,
-    weight: 1.4
+    weight: 1.4,
   },
   {
     id: 491,
@@ -7743,7 +7743,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0491.png",
     type1: "あく",
     type2: null,
-    weight: 50.5
+    weight: 50.5,
   },
   {
     id: 492,
@@ -7759,7 +7759,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0492.png",
     type1: "くさ",
     type2: null,
-    weight: 2.1
+    weight: 2.1,
   },
   {
     id: 493,
@@ -7775,7 +7775,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0493.png",
     type1: "ノーマル",
     type2: null,
-    weight: 320
+    weight: 320,
   },
   {
     id: 122,
@@ -7791,7 +7791,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0122.png",
     type1: "エスパー",
     type2: null,
-    weight: 54.5
+    weight: 54.5,
   },
   {
     id: 174,
@@ -7807,7 +7807,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0174.png",
     type1: "ノーマル",
     type2: null,
-    weight: 1
+    weight: 1,
   },
   {
     id: 280,
@@ -7823,7 +7823,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0280.png",
     type1: "エスパー",
     type2: null,
-    weight: 6.6
+    weight: 6.6,
   },
   {
     id: 303,
@@ -7839,7 +7839,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0303.png",
     type1: "はがね",
     type2: null,
-    weight: 11.5
+    weight: 11.5,
   },
   {
     id: 439,
@@ -7855,7 +7855,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0439.png",
     type1: "エスパー",
     type2: null,
-    weight: 13
+    weight: 13,
   },
   {
     id: 209,
@@ -7871,7 +7871,7 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0209.png",
     type1: "ノーマル",
     type2: null,
-    weight: 7.8
+    weight: 7.8,
   },
   {
     id: 468,
@@ -7887,6 +7887,6 @@ export const POKEMONS: Pokemon[] = [
     imageSrc: "/images/poke_image/poke0468.png",
     type1: "ノーマル",
     type2: "ひこう",
-    weight: 38
-  }
+    weight: 38,
+  },
 ];
