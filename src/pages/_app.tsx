@@ -9,7 +9,10 @@ export default function App({ Component, pageProps }: AppProps) {
 		<Provider store={store}>
 			<Head>
 				<meta charSet="utf-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1, shrink-to-fit=no"
+				/>
 				<meta name="theme-color" content="#3B82F6" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -23,7 +26,11 @@ export default function App({ Component, pageProps }: AppProps) {
 				<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
 				<link rel="manifest" href="/site.webmanifest" />
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+				<link
+					rel="preconnect"
+					href="https://fonts.gstatic.com"
+					crossOrigin="anonymous"
+				/>
 			</Head>
 			<Component {...pageProps} />
 		</Provider>
