@@ -175,7 +175,7 @@ export const filterFactoryPokemons = (
     );
   }
   if (stat.times === 7) {
-    return pokemon.group in [7, 8];
+    return [7, 8].includes(pokemon.group);
   }
   return pokemon.group === stat.times;
 };
