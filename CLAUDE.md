@@ -54,7 +54,7 @@ PostgreSQL with Prisma ORM. Key models:
 - Uses **Biome** for linting/formatting (not ESLint/Prettier)
 - **TypeScript** with strict mode disabled
 - **Tailwind CSS** for styling
-- **Tab indentation** and **double quotes**
+- **Space indentation (2 spaces)** and **double quotes**
 - Components organized by atomic design principles (ui → general → domain)
 
 ## Important Implementation Details

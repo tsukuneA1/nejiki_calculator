@@ -33,7 +33,7 @@ export default function PokeSearch() {
   const [item, setItem] = useState<string>("なし");
   const [ability, setAbility] = useState<string>("なし");
   const [sortItem, setSortItem] = useState<string>("なし");
-  const [selectedPokemon, setSelectedPokemon] = useState<string>("なし");
+  const [selectedPokemon, setSelectedPokemon] = useState<string>("");
   const [isNejiki, setIsNejiki] = useState(false);
 
   const filteredSortedFactoryPokemons = factoryPokemons
@@ -49,7 +49,7 @@ export default function PokeSearch() {
         pokemon.pokemon.ability1 === ability ||
         pokemon.pokemon.ability2 === ability;
       const isPokemon =
-        selectedPokemon === "なし" ||
+        !selectedPokemon ||
         toggleKana(pokemon.pokemon.name).includes(selectedPokemon) ||
         pokemon.pokemon.name.includes(selectedPokemon);
       return isItem && isLevel && isAbility && isPokemon;
