@@ -24,7 +24,7 @@ import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
 import { Filter, Search } from "lucide-react";
 import Head from "next/head";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export default function PokeSearch() {
   const [factoryPokemons] = useState<FactoryPokemon[]>(FACTORY_POKEMONS);
@@ -36,8 +36,11 @@ export default function PokeSearch() {
   const [selectedPokemon, setSelectedPokemon] = useState<string>("");
   const [isNejiki, setIsNejiki] = useState(false);
 
-  const filteredSortedFactoryPokemons = factoryPokemons
-    .filter((pokemon) => {
+  const filteredSortedFactoryPokemons = useMemo(() => {
+    const ivBonus = 4 * (times - 1);
+
+    // フィルタリング
+    const filtered = factoryPokemons.filter((pokemon) => {
       const isItem = item === "なし" || pokemon.item === item;
       const isLevel = filterFactoryPokemons(pokemon, {
         level,
@@ -53,10 +56,24 @@ export default function PokeSearch() {
         toggleKana(pokemon.pokemon.name).includes(selectedPokemon) ||
         pokemon.pokemon.name.includes(selectedPokemon);
       return isItem && isLevel && isAbility && isPokemon;
-    })
-    .sort((a, b) => {
-      const aStatus = calculateStatus(a, level, 4 * (times - 1));
-      const bStatus = calculateStatus(b, level, 4 * (times - 1));
+    });
+
+    // ソート項目が"なし"の場合はソートせずに返す
+    if (sortItem === "なし") {
+      return filtered;
+    }
+
+    // ステータスを事前計算してキャッシュ
+    const pokemonWithStatus = filtered.map((pokemon) => ({
+      pokemon,
+      status: calculateStatus(pokemon, level, ivBonus),
+    }));
+
+    // ソート
+    return pokemonWithStatus.sort((a, b) => {
+      const aStatus = a.status;
+      const bStatus = b.status;
+
       if (sortItem === "HP") {
         return bStatus.hp - aStatus.hp;
       }
@@ -76,7 +93,8 @@ export default function PokeSearch() {
         return bStatus.speed - aStatus.speed;
       }
       return 0;
-    });
+    }).map(({ pokemon }) => pokemon);
+  }, [factoryPokemons, level, times, item, ability, sortItem, selectedPokemon, isNejiki]);
 
   const handleLevelChange = (level: number) => {
     setLevel(level);
