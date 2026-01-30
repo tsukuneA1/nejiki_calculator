@@ -24,6 +24,7 @@ import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
 import { Filter, Search } from "lucide-react";
 import Head from "next/head";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 
 export default function PokeSearch() {
@@ -447,11 +448,14 @@ export const ListPokemonCard = ({
   return (
     <div key={pokemon.id} className="p-4">
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-14 h-14 bg-slate-100 dark:bg-slate-800/30 rounded-lg flex items-center justify-center">
-          <img
+        <div className="w-14 h-14 bg-slate-100 dark:bg-slate-800/30 rounded-lg flex items-center justify-center relative">
+          <Image
             src={pokemon.pokemon.imageSrc}
             alt={pokemon.pokemon.name}
+            width={48}
+            height={48}
             className="w-12 h-12"
+            loading="lazy"
           />
         </div>
         <div>
