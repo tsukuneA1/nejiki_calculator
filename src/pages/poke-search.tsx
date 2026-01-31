@@ -14,7 +14,6 @@ import { SelectContent } from "@/components/ui/select";
 import { Select, SelectValue } from "@/components/ui/select";
 import { SelectTrigger } from "@/components/ui/select";
 import { abilities } from "@/constants/abilities";
-import { FACTORY_POKEMONS } from "@/constants/factoryPokemon";
 import { items } from "@/constants/items";
 import { findItems, timesItems } from "@/constants/ivs";
 import { calculateStatus } from "@/functions/calculate_status";
@@ -23,12 +22,31 @@ import { MainLayout } from "@/layouts/main/main-layout";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
 import { Filter, Search } from "lucide-react";
+import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import { useMemo, useState } from "react";
 
-export default function PokeSearch() {
-  const [factoryPokemons] = useState<FactoryPokemon[]>(FACTORY_POKEMONS);
+interface PokeSearchProps {
+  factoryPokemons: FactoryPokemon[];
+}
+
+export const getStaticProps: GetStaticProps<PokeSearchProps> = async () => {
+  const filePath = path.join(process.cwd(), "public/data/factory-pokemons.json");
+  const fileContents = await fs.readFile(filePath, "utf8");
+  const factoryPokemons = JSON.parse(fileContents);
+
+  return {
+    props: {
+      factoryPokemons,
+    },
+  };
+};
+
+export default function PokeSearch({ factoryPokemons: initialFactoryPokemons }: PokeSearchProps) {
+  const [factoryPokemons] = useState<FactoryPokemon[]>(initialFactoryPokemons);
   const [level, setLevel] = useState<number>(100);
   const [times, setTimes] = useState<number>(1);
   const [item, setItem] = useState<string>("なし");

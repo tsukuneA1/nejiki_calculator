@@ -1,4 +1,3 @@
-import { FACTORY_POKEMONS } from "@/constants/factoryPokemon";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { PopoverTrigger } from "@radix-ui/react-popover";
 import { useState } from "react";
@@ -24,15 +23,16 @@ export const AutoComplete = ({
   level,
   times,
   isNejiki,
+  factoryPokemons,
 }: {
   trigger: React.ReactNode;
   setPokemon: (pokemon: FactoryPokemon) => void;
   level: number;
   times: number;
   isNejiki: boolean;
+  factoryPokemons: FactoryPokemon[];
 }) => {
   const [open, setOpen] = useState(false);
-  const factoryPokemons = FACTORY_POKEMONS;
 
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const stat = { level, times, isNejiki };

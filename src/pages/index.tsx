@@ -18,11 +18,31 @@ import { clearAttacker, setAttacker } from "@/store/slices/attackerSlice";
 import { setDefender } from "@/store/slices/defenderSlice";
 import { setIsNejiki, setLevel, setTimes } from "@/store/slices/settingsSlice";
 import type { RootState } from "@/store/store";
+import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { ArrowLeftRight, ArrowUpDown } from "lucide-react";
+import type { GetStaticProps } from "next";
 import Head from "next/head";
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function Home() {
+interface HomeProps {
+  factoryPokemons: FactoryPokemon[];
+}
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const filePath = path.join(process.cwd(), "public/data/factory-pokemons.json");
+  const fileContents = await fs.readFile(filePath, "utf8");
+  const factoryPokemons = JSON.parse(fileContents);
+
+  return {
+    props: {
+      factoryPokemons,
+    },
+  };
+};
+
+export default function Home({ factoryPokemons }: HomeProps) {
   const settings = useSelector((state: RootState) => state.settings);
   const attackers = useSelector((state: RootState) => state.attacker);
   const defender = useSelector((state: RootState) => state.defender);
@@ -184,7 +204,7 @@ export default function Home() {
         </div>
 
         <div className="xl:flex flex flex-col items-center xl:flex-row xl:items-start xl:justify-center mt-4">
-          <Attackers />
+          <Attackers factoryPokemons={factoryPokemons} />
 
           <div className="flex items-center justify-center w-10 h-10 my-10 xl:mt-6 xl:mx-8">
             <Button
@@ -199,7 +219,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-2 xl:mt-0">
-            <DefenderCard />
+            <DefenderCard factoryPokemons={factoryPokemons} />
             <EnvCard />
           </div>
         </div>

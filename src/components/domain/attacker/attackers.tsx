@@ -3,11 +3,12 @@ import { Button } from "@/components/ui/button";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import { addAttacker, deleteAttacker } from "@/store/slices/attackerSlice";
 import type { RootState } from "@/store/store";
+import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { Swords } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { AttackerReserve } from "./attacker-reserve";
 
-export const Attackers = () => {
+export const Attackers = ({ factoryPokemons }: { factoryPokemons: FactoryPokemon[] }) => {
   const attackers = useSelector((state: RootState) => state.attacker);
   const dispatch = useDispatch();
 
@@ -28,8 +29,8 @@ export const Attackers = () => {
         }
         content={
           <>
-            <AttackerReserve />
-            <PokemonCard pos={0} handleDelete={() => handleDelete(0)} />
+            <AttackerReserve factoryPokemons={factoryPokemons} />
+            <PokemonCard pos={0} handleDelete={() => handleDelete(0)} factoryPokemons={factoryPokemons} />
           </>
         }
       />
@@ -39,6 +40,7 @@ export const Attackers = () => {
             <PokemonCard
               pos={index + 1}
               handleDelete={() => handleDelete(index)}
+              factoryPokemons={factoryPokemons}
             />
           </div>
         ))}

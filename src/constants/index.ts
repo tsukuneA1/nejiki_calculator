@@ -5,4 +5,3 @@ export * from "./ivs";
 export * from "./types";
 export * from "./pokemon";
 export * from "./moves";
-export * from "./factoryPokemon";

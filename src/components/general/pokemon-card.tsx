@@ -28,13 +28,17 @@ import { MoveCard } from "./move-card";
 import { PokemonDescription } from "./pokemon-description";
 import { Rank } from "./rank";
 
+interface PokemonCardProps {
+  pos: number;
+  handleDelete: () => void;
+  factoryPokemons: FactoryPokemon[];
+}
+
 export const PokemonCard = ({
   pos,
   handleDelete,
-}: {
-  pos: number;
-  handleDelete: () => void;
-}) => {
+  factoryPokemons,
+}: PokemonCardProps) => {
   const attacker = useSelector((state: RootState) => state.attacker[pos]);
   const pokemon = attacker.factoryPokemon!;
   const move = useSelector((state: RootState) => state.attacker[pos].move);
@@ -99,6 +103,7 @@ export const PokemonCard = ({
               level={settings.level}
               times={settings.times}
               isNejiki={settings.isNejiki}
+              factoryPokemons={factoryPokemons}
               trigger={
                 <Button
                   variant="ghost"

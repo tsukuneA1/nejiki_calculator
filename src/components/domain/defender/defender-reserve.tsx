@@ -10,7 +10,7 @@ import { MaterialSymbolsDeleteOutline } from "../../icons/delete";
 import { AvatarFallback, AvatarImage } from "../../ui/avatar";
 import { Button } from "../../ui/button";
 
-export const DefenderReserve = () => {
+export const DefenderReserve = ({ factoryPokemons }: { factoryPokemons: FactoryPokemon[] }) => {
   const settings = useSelector((state: RootState) => state.settings);
   const [selectedId, setSelectedId] = useState("");
   const [spares, setSpares] = useState<FactoryPokemon[]>([]);
@@ -95,6 +95,7 @@ export const DefenderReserve = () => {
           times={settings.times}
           isNejiki={settings.isNejiki}
           setPokemon={handleAddSpare}
+          factoryPokemons={factoryPokemons}
         />
 
         <Button size="icon" onClick={handleDeleteSpare}>
