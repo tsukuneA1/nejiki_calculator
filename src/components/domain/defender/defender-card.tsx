@@ -19,7 +19,7 @@ import { ShieldPlus } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { DefenderReserve } from "./defender-reserve";
 
-export const DefenderCard = () => {
+export const DefenderCard = ({ factoryPokemons }: { factoryPokemons: FactoryPokemon[] }) => {
   const defender = useSelector((state: RootState) => state.defender);
   const pokemon = defender.factoryPokemon!;
   const settings = useSelector((state: RootState) => state.settings);
@@ -40,7 +40,7 @@ export const DefenderCard = () => {
       }
       content={
         <>
-          <DefenderReserve />
+          <DefenderReserve factoryPokemons={factoryPokemons} />
 
           <div className="flex gap-2 items-center border rounded-lg px-2 py-2">
             <Avatar>
@@ -56,6 +56,7 @@ export const DefenderCard = () => {
                 level={settings.level}
                 times={settings.times}
                 isNejiki={settings.isNejiki}
+                factoryPokemons={factoryPokemons}
                 trigger={
                   <Button
                     variant="ghost"
