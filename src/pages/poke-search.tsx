@@ -1,8 +1,18 @@
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import { filterFactoryPokemons } from "@/components/general/auto-complete";
 import { TypeBadge } from "@/components/general/type-badge";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -19,22 +29,28 @@ import { findItems, timesItems } from "@/constants/ivs";
 import { calculateStatus } from "@/functions/calculate_status";
 import { toggleKana } from "@/functions/convert_hiragana_katakana";
 import { MainLayout } from "@/layouts/main/main-layout";
+import { setAttacker } from "@/store/slices/attackerSlice";
+import { setDefender } from "@/store/slices/defenderSlice";
+import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
-import { Filter, Search } from "lucide-react";
+import { Filter, Search, Shield, Sword } from "lucide-react";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { promises as fs } from "node:fs";
-import path from "node:path";
+import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 interface PokeSearchProps {
   factoryPokemons: FactoryPokemon[];
 }
 
 export const getStaticProps: GetStaticProps<PokeSearchProps> = async () => {
-  const filePath = path.join(process.cwd(), "public/data/factory-pokemons.json");
+  const filePath = path.join(
+    process.cwd(),
+    "public/data/factory-pokemons.json",
+  );
   const fileContents = await fs.readFile(filePath, "utf8");
   const factoryPokemons = JSON.parse(fileContents);
 
@@ -45,7 +61,9 @@ export const getStaticProps: GetStaticProps<PokeSearchProps> = async () => {
   };
 };
 
-export default function PokeSearch({ factoryPokemons: initialFactoryPokemons }: PokeSearchProps) {
+export default function PokeSearch({
+  factoryPokemons: initialFactoryPokemons,
+}: PokeSearchProps) {
   const [factoryPokemons] = useState<FactoryPokemon[]>(initialFactoryPokemons);
   const [level, setLevel] = useState<number>(100);
   const [times, setTimes] = useState<number>(1);
@@ -89,31 +107,42 @@ export default function PokeSearch({ factoryPokemons: initialFactoryPokemons }: 
     }));
 
     // ソート
-    return pokemonWithStatus.sort((a, b) => {
-      const aStatus = a.status;
-      const bStatus = b.status;
+    return pokemonWithStatus
+      .sort((a, b) => {
+        const aStatus = a.status;
+        const bStatus = b.status;
 
-      if (sortItem === "HP") {
-        return bStatus.hp - aStatus.hp;
-      }
-      if (sortItem === "攻撃") {
-        return bStatus.attack - aStatus.attack;
-      }
-      if (sortItem === "防御") {
-        return bStatus.defense - aStatus.defense;
-      }
-      if (sortItem === "特攻") {
-        return bStatus.spAttack - aStatus.spAttack;
-      }
-      if (sortItem === "特防") {
-        return bStatus.spDefense - aStatus.spDefense;
-      }
-      if (sortItem === "素早さ") {
-        return bStatus.speed - aStatus.speed;
-      }
-      return 0;
-    }).map(({ pokemon }) => pokemon);
-  }, [factoryPokemons, level, times, item, ability, sortItem, selectedPokemon, isNejiki]);
+        if (sortItem === "HP") {
+          return bStatus.hp - aStatus.hp;
+        }
+        if (sortItem === "攻撃") {
+          return bStatus.attack - aStatus.attack;
+        }
+        if (sortItem === "防御") {
+          return bStatus.defense - aStatus.defense;
+        }
+        if (sortItem === "特攻") {
+          return bStatus.spAttack - aStatus.spAttack;
+        }
+        if (sortItem === "特防") {
+          return bStatus.spDefense - aStatus.spDefense;
+        }
+        if (sortItem === "素早さ") {
+          return bStatus.speed - aStatus.speed;
+        }
+        return 0;
+      })
+      .map(({ pokemon }) => pokemon);
+  }, [
+    factoryPokemons,
+    level,
+    times,
+    item,
+    ability,
+    sortItem,
+    selectedPokemon,
+    isNejiki,
+  ]);
 
   const handleLevelChange = (level: number) => {
     setLevel(level);
@@ -393,6 +422,7 @@ export default function PokeSearch({ factoryPokemons: initialFactoryPokemons }: 
                       pokemon={pokemon}
                       level={level}
                       times={times}
+                      isNejiki={isNejiki}
                     />
                   </div>
                 ))}
@@ -448,12 +478,19 @@ export const ListPokemonCard = ({
   pokemon,
   level,
   times,
+  isNejiki,
 }: {
   pokemon: FactoryPokemon;
   level: number;
   times: number;
+  isNejiki: boolean;
 }) => {
-  const status = calculateStatus(pokemon, level, 4 * (times - 1));
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const settings = useSelector((state: RootState) => state.settings);
+  const ivBonus = 4 * (times - 1);
+  const status = calculateStatus(pokemon, level, ivBonus);
   const statusSummary = [
     `${status.hp}(${pokemon.hp})`,
     `${status.attack}(${pokemon.attack})`,
@@ -463,66 +500,132 @@ export const ListPokemonCard = ({
     `${status.speed}(${pokemon.speed})`,
   ].join("-");
 
+  const handleSetAsAttacker = () => {
+    dispatch(
+      setAttacker({
+        attackerState: { pokemon: pokemon, pos: 0 },
+        iv: ivBonus,
+      }),
+    );
+    setIsDialogOpen(false);
+    router.push("/");
+  };
+
+  const handleSetAsDefender = () => {
+    dispatch(
+      setDefender({
+        pokemon: pokemon,
+        iv: ivBonus,
+      }),
+    );
+    setIsDialogOpen(false);
+    router.push("/");
+  };
+
   return (
-    <div key={pokemon.id} className="p-4">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-14 h-14 bg-slate-100 dark:bg-slate-800/30 rounded-lg flex items-center justify-center relative">
-          <Image
-            src={pokemon.pokemon.imageSrc}
-            alt={pokemon.pokemon.name}
-            width={48}
-            height={48}
-            className="w-12 h-12"
-            loading="lazy"
-          />
+    <>
+      <div
+        key={pokemon.id}
+        className="p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+        onClick={() => setIsDialogOpen(true)}
+      >
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-14 h-14 bg-slate-100 dark:bg-slate-800/30 rounded-lg flex items-center justify-center relative">
+            <Image
+              src={pokemon.pokemon.imageSrc}
+              alt={pokemon.pokemon.name}
+              width={48}
+              height={48}
+              className="w-12 h-12"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold flex items-center gap-2">
+              {pokemon.pokemon.name}
+              <span className="text-sm font-normal text-slate-500">
+                @{pokemon.item}
+              </span>
+            </h3>
+            <div className="flex gap-1 mt-1">
+              {pokemon.pokemon.type1 && (
+                <TypeBadge type={pokemon.pokemon.type1} />
+              )}
+              {pokemon.pokemon.type2 && (
+                <TypeBadge type={pokemon.pokemon.type2} />
+              )}
+            </div>
+          </div>
         </div>
-        <div>
-          <h3 className="text-lg font-semibold flex items-center gap-2">
-            {pokemon.pokemon.name}
-            <span className="text-sm font-normal text-slate-500">
-              @{pokemon.item}
-            </span>
-          </h3>
-          <div className="flex gap-1 mt-1">
-            {pokemon.pokemon.type1 && (
-              <TypeBadge type={pokemon.pokemon.type1} />
-            )}
-            {pokemon.pokemon.type2 && (
-              <TypeBadge type={pokemon.pokemon.type2} />
-            )}
+
+        <div className="grid gap-2 mt-3">
+          <div>
+            <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+              ステータス
+            </div>
+            <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
+              {statusSummary}
+            </div>
+          </div>
+          <div>
+            <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+              特性
+            </div>
+            <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
+              {pokemon.pokemon.ability1}
+              {pokemon.pokemon.ability2 && `/${pokemon.pokemon.ability2}`}
+            </div>
+          </div>
+          <div>
+            <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+              技
+            </div>
+            <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded flex flex-wrap gap-1">
+              {pokemon.moves.map((move, index) => (
+                <MoveItem key={index} move={move} index={index} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="grid gap-2 mt-3">
-        <div>
-          <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
-            ステータス
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Image
+                src={pokemon.pokemon.imageSrc}
+                alt={pokemon.pokemon.name}
+                width={32}
+                height={32}
+                className="w-8 h-8"
+              />
+              {pokemon.pokemon.name}をセット
+            </DialogTitle>
+            <DialogDescription>
+              ダメージ計算画面で攻撃側または防御側としてセットします
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex flex-col gap-3 mt-4">
+            <Button
+              onClick={handleSetAsAttacker}
+              className="w-full h-14 text-lg"
+              variant="default"
+            >
+              <Sword className="mr-2 h-5 w-5" />
+              攻撃側にセット
+            </Button>
+            <Button
+              onClick={handleSetAsDefender}
+              className="w-full h-14 text-lg"
+              variant="outline"
+            >
+              <Shield className="mr-2 h-5 w-5" />
+              防御側にセット
+            </Button>
           </div>
-          <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
-            {statusSummary}
-          </div>
-        </div>
-        <div>
-          <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
-            特性
-          </div>
-          <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
-            {pokemon.pokemon.ability1}
-            {pokemon.pokemon.ability2 && `/${pokemon.pokemon.ability2}`}
-          </div>
-        </div>
-        <div>
-          <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
-            技
-          </div>
-          <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded flex flex-wrap gap-1">
-            {pokemon.moves.map((move, index) => (
-              <MoveItem key={index} move={move} index={index} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };

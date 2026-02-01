@@ -8,7 +8,9 @@ import { Swords } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { AttackerReserve } from "./attacker-reserve";
 
-export const Attackers = ({ factoryPokemons }: { factoryPokemons: FactoryPokemon[] }) => {
+export const Attackers = ({
+  factoryPokemons,
+}: { factoryPokemons: FactoryPokemon[] }) => {
   const attackers = useSelector((state: RootState) => state.attacker);
   const dispatch = useDispatch();
 
@@ -30,7 +32,11 @@ export const Attackers = ({ factoryPokemons }: { factoryPokemons: FactoryPokemon
         content={
           <>
             <AttackerReserve factoryPokemons={factoryPokemons} />
-            <PokemonCard pos={0} handleDelete={() => handleDelete(0)} factoryPokemons={factoryPokemons} />
+            <PokemonCard
+              pos={0}
+              handleDelete={() => handleDelete(0)}
+              factoryPokemons={factoryPokemons}
+            />
           </>
         }
       />

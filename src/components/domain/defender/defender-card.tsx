@@ -19,7 +19,9 @@ import { ShieldPlus } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { DefenderReserve } from "./defender-reserve";
 
-export const DefenderCard = ({ factoryPokemons }: { factoryPokemons: FactoryPokemon[] }) => {
+export const DefenderCard = ({
+  factoryPokemons,
+}: { factoryPokemons: FactoryPokemon[] }) => {
   const defender = useSelector((state: RootState) => state.defender);
   const pokemon = defender.factoryPokemon!;
   const settings = useSelector((state: RootState) => state.settings);

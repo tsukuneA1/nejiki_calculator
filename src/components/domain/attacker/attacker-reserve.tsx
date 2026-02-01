@@ -10,7 +10,9 @@ import { Avatar } from "@radix-ui/react-avatar";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-export const AttackerReserve = ({ factoryPokemons }: { factoryPokemons: FactoryPokemon[] }) => {
+export const AttackerReserve = ({
+  factoryPokemons,
+}: { factoryPokemons: FactoryPokemon[] }) => {
   const settings = useSelector((state: RootState) => state.settings);
   const [selectedId, setSelectedId] = useState("");
   const [spares, setSpares] = useState<FactoryPokemon[]>([]);
