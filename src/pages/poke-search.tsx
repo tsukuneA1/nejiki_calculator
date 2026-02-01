@@ -519,9 +519,9 @@ export const ListPokemonCard = ({
 
   return (
     <>
-      <div
-        key={pokemon.id}
-        className="p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+      <button
+        type="button"
+        className="w-full text-left p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
         onClick={() => setIsDialogOpen(true)}
       >
         <div className="flex items-center gap-3 mb-2">
@@ -582,7 +582,7 @@ export const ListPokemonCard = ({
             </div>
           </div>
         </div>
-      </div>
+      </button>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="sm:max-w-md">
