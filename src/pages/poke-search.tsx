@@ -31,7 +31,6 @@ import { toggleKana } from "@/functions/convert_hiragana_katakana";
 import { MainLayout } from "@/layouts/main/main-layout";
 import { setAttacker } from "@/store/slices/attackerSlice";
 import { setDefender } from "@/store/slices/defenderSlice";
-import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
 import { Filter, Search, Shield, Sword } from "lucide-react";
@@ -40,7 +39,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 interface PokeSearchProps {
   factoryPokemons: FactoryPokemon[];
@@ -422,7 +421,6 @@ export default function PokeSearch({
                       pokemon={pokemon}
                       level={level}
                       times={times}
-                      isNejiki={isNejiki}
                     />
                   </div>
                 ))}
@@ -478,17 +476,14 @@ export const ListPokemonCard = ({
   pokemon,
   level,
   times,
-  isNejiki,
 }: {
   pokemon: FactoryPokemon;
   level: number;
   times: number;
-  isNejiki: boolean;
 }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
-  const settings = useSelector((state: RootState) => state.settings);
   const ivBonus = 4 * (times - 1);
   const status = calculateStatus(pokemon, level, ivBonus);
   const statusSummary = [
