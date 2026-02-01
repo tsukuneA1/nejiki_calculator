@@ -4,6 +4,34 @@
 
 Pokemon Battle Factory ダメージ計算機のpoke-search ページをSSG（Static Site Generation）化し、66,503行の定数ファイルをDBからのビルド時取得に置き換える。
 
+## 実装状況（2026-01-31更新）
+
+### ✅ Phase 0: JSON化（完了）
+
+**当初の計画では直接DBからSSG化する予定でしたが、実装の過程で中間ステップとしてJSON化を先行実施しました。**
+
+理由：
+- JSONインポートの方がシンプルで実装が早い
+- DBスキーマが未確定（将来的なカラム追加予定あり）
+- 即座にバンドルサイズの改善効果を確認できる
+
+実施内容：
+1. ✅ TypeScript定数（66,503行）をJSONファイル（1.4MB）に変換
+2. ✅ `public/data/factory-pokemons.json` に配置
+3. ✅ `getStaticProps` でJSONファイルを読み込み
+4. ✅ 全コンポーネントにprops経由でデータを伝播
+
+結果：
+- **バンドルサイズ削減**: index.js 289 kB → 205 kB (-84 KB)
+- **バンドルサイズ削減**: poke-search.js 287 kB → 204 kB (-83 KB)
+- **SSG化成功**: 両ページとも ● (SSG) マークで静的生成
+
+### 🔄 Phase 1以降: DB直接取得（将来対応）
+
+現在はJSON化で運用中。将来的にDBスキーマが確定したら、以下の移行を検討：
+- `public/data/factory-pokemons.json` → Prismaクエリに置き換え
+- データ更新時の自動反映（現在は手動JSON更新が必要）
+
 ## 現状分析
 
 ### ER図
@@ -170,11 +198,64 @@ erDiagram
 
 ## 実装内容
 
-### Phase 1: poke-search.tsx にSSG追加
+### ✅ 実装済み: JSON化 + SSG（Phase 0）
+
+**実際に実装した内容（DB直接取得ではなくJSON経由）**
+
+#### 変更ファイル一覧
+
+1. **データ移行**
+   - ✅ `src/constants/factoryPokemon.ts` → **削除**
+   - ✅ `public/data/factory-pokemons.json` → **新規作成**（1.4MB）
+   - ✅ `src/constants/index.ts` → factoryPokemons exportを削除
+
+2. **SSG実装**
+   - ✅ `src/pages/index.tsx` → getStaticPropsでJSON読み込み
+   - ✅ `src/pages/poke-search.tsx` → getStaticPropsでJSON読み込み
+
+3. **コンポーネント更新（props伝播）**
+   - ✅ `src/components/general/auto-complete.tsx` → factoryPokemonsをpropsで受け取る
+   - ✅ `src/components/general/pokemon-card.tsx` → factoryPokemonsをpropsで受け取る
+   - ✅ `src/components/domain/attacker/attackers.tsx` → propsを子に渡す
+   - ✅ `src/components/domain/attacker/attacker-reserve.tsx` → propsを受け取る
+   - ✅ `src/components/domain/defender/defender-card.tsx` → propsを子に渡す
+   - ✅ `src/components/domain/defender/defender-reserve.tsx` → propsを受け取る
+
+4. **開発ツール**
+   - ✅ `next.config.ts` → bundle analyzer設定追加
+   - ✅ `.claude/plans/ssg-migration.md` → 詳細プラン作成
+
+#### 実装コード例
+
+**getStaticProps（JSON読み込み版）**
+
+```typescript
+import type { GetStaticProps } from "next";
+import { promises as fs } from "node:fs";
+import path from "node:path";
+
+export const getStaticProps: GetStaticProps = async () => {
+  const filePath = path.join(process.cwd(), "public/data/factory-pokemons.json");
+  const fileContents = await fs.readFile(filePath, "utf8");
+  const factoryPokemons = JSON.parse(fileContents);
+
+  return {
+    props: {
+      factoryPokemons,
+    },
+  };
+};
+```
+
+---
+
+### 🔄 未実装: DB直接取得（Phase 1以降）
+
+**当初計画していた実装（将来的に移行予定）**
 
 #### 変更ファイル: `src/pages/poke-search.tsx`
 
-**1. getStaticPropsの追加**
+**1. getStaticPropsの追加（DB版）**
 
 ```typescript
 import prisma from "@/lib/prisma";
@@ -391,41 +472,51 @@ const filteredSortedFactoryPokemons = useMemo(() => {
 
 ## 実装スケジュール
 
-### Phase 1: SSG基礎実装（優先度: 高）
+### ✅ Phase 0: JSON化 + SSG実装（完了）
 
-- [ ] `poke-search.tsx`に`getStaticProps`追加
-- [ ] propsの型定義追加
-- [ ] FACTORY_POKEMONSインポート削除
-- [ ] ローカルでビルドテスト
+- [x] TypeScript定数をJSONに変換
+- [x] `public/data/factory-pokemons.json`作成
+- [x] `index.tsx`に`getStaticProps`追加
+- [x] `poke-search.tsx`に`getStaticProps`追加
+- [x] propsの型定義追加
+- [x] `auto-complete.tsx`をpropsベースに変更
+- [x] `pokemon-card.tsx`をpropsベースに変更
+- [x] 全7コンポーネントの更新
+- [x] `factoryPokemon.ts`削除
+- [x] ビルド成功確認
+- [x] バンドルサイズ検証
+
+**実際の所要時間:** 約1.5時間（2026-01-31実施）
+
+**成果:**
+- バンドルサイズ: -84 KB (index), -83 KB (poke-search)
+- SSG化完了: 両ページとも静的生成
+- PR #31 作成・マージ完了
+
+---
+
+### 🔄 Phase 1: DB直接取得への移行（将来実施）
+
+**前提条件:**
+- DBスキーマが確定している
+- 新規カラム追加が完了している
+
+**実施内容:**
+- [ ] `getStaticProps`をPrismaクエリに置き換え
+- [ ] `public/data/factory-pokemons.json`削除
+- [ ] データ更新時の自動反映確認
 
 **推定時間:** 30分
 
-### Phase 2: auto-complete対応（優先度: 中）
+---
 
-- [ ] `auto-complete.tsx`の使用箇所調査
-- [ ] propsベースに変更
-- [ ] 呼び出し元の更新
+### 🔄 Phase 2以降（オプション）
 
-**推定時間:** 1時間
-
-### Phase 3: クリーンアップ（優先度: 低）
-
-- [ ] `factoryPokemon.ts`削除
-- [ ] `factory_pokemon.ts` API削除
-- [ ] ビルドサイズ検証
-
-**推定時間:** 15分
-
-### Phase 4: テスト・検証
-
-- [ ] 機能テスト（フィルタリング・ソート）
+- [ ] `factory_pokemon.ts` API削除（現在未使用）
 - [ ] パフォーマンステスト
 - [ ] Lighthouse スコア測定
-- [ ] 本番デプロイ
 
 **推定時間:** 1時間
-
-**合計:** 約3時間
 
 ## テスト計画
 
@@ -500,5 +591,7 @@ npm run build
 
 - **作成日**: 2026-01-31
 - **承認者**: User
-- **ステータス**: 承認済み
-- **実装開始**: 2026-01-31
+- **ステータス**: ✅ Phase 0完了（JSON化 + SSG）
+- **実装日**: 2026-01-31
+- **PR**: #31 (マージ済み)
+- **次フェーズ**: DBスキーマ確定後にPhase 1実施予定
