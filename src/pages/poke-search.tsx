@@ -15,8 +15,6 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Popover } from "@/components/ui/popover";
 import { SelectItem } from "@/components/ui/select";
 import { SelectLabel } from "@/components/ui/select";
 import { SelectGroup } from "@/components/ui/select";
@@ -435,40 +433,10 @@ export default function PokeSearch({
 
 const MoveItem = ({ move, index }: { move: Move; index: number }) => {
   return (
-    <Popover>
-      <PopoverTrigger>
-        <span key={index} className="whitespace-nowrap">
-          {move.name}
-          {index < 3 && " / "}
-        </span>
-      </PopoverTrigger>
-      <PopoverContent className="w-60">
-        <div className="flex gap-2 items-center">
-          <div className="w-16">技名</div>
-          <div>: {move.name}</div>
-        </div>
-        <div className="flex gap-2 items-center">
-          <div className="w-16">タイプ</div>
-          <div>: {move.type}</div>
-        </div>
-        <div className="flex gap-2 items-center">
-          <div className="w-16">威力</div>
-          <div>: {move.power}</div>
-        </div>
-        <div className="flex gap-2 items-center">
-          <div className="w-16">命中率</div>
-          <div>: {move.accuracy}</div>
-        </div>
-        <div className="flex gap-2 items-center">
-          <div className="w-16">PP</div>
-          <div>: {move.pp}</div>
-        </div>
-        <div className="flex gap-2 items-center">
-          <div className="w-16">分類</div>
-          <div>: {move.classification}</div>
-        </div>
-      </PopoverContent>
-    </Popover>
+    <span key={index} className="whitespace-nowrap">
+      {move.name}
+      {index < 3 && " / "}
+    </span>
   );
 };
 
@@ -601,6 +569,75 @@ export const ListPokemonCard = ({
               ダメージ計算画面で攻撃側または防御側としてセットします
             </DialogDescription>
           </DialogHeader>
+
+          <div className="space-y-3 mt-2">
+            <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded-lg space-y-2">
+              <div className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                基本情報
+              </div>
+              <div className="text-sm space-y-1">
+                <div className="flex gap-2">
+                  <span className="text-slate-500 dark:text-slate-400 w-20">
+                    持ち物:
+                  </span>
+                  <span>{pokemon.item}</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-slate-500 dark:text-slate-400 w-20">
+                    特性:
+                  </span>
+                  <span>
+                    {pokemon.pokemon.ability1}
+                    {pokemon.pokemon.ability2 && `/${pokemon.pokemon.ability2}`}
+                  </span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-slate-500 dark:text-slate-400 w-20">
+                    性格:
+                  </span>
+                  <span>{pokemon.nature}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded-lg space-y-2">
+              <div className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                技一覧
+              </div>
+              <div className="space-y-2">
+                {pokemon.moves.map((move, index) => (
+                  <div
+                    key={index}
+                    className="text-sm bg-white dark:bg-slate-700 p-2 rounded space-y-1"
+                  >
+                    <div className="font-medium">{move.name}</div>
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-slate-600 dark:text-slate-400">
+                      <div>
+                        <span className="text-slate-500">タイプ:</span>{" "}
+                        {move.type}
+                      </div>
+                      <div>
+                        <span className="text-slate-500">分類:</span>{" "}
+                        {move.classification}
+                      </div>
+                      <div>
+                        <span className="text-slate-500">威力:</span>{" "}
+                        {move.power}
+                      </div>
+                      <div>
+                        <span className="text-slate-500">命中:</span>{" "}
+                        {move.accuracy}
+                      </div>
+                      <div>
+                        <span className="text-slate-500">PP:</span> {move.pp}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="flex flex-col gap-3 mt-4">
             <Button
               onClick={handleSetAsAttacker}
