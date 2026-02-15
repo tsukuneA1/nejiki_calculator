@@ -436,13 +436,17 @@ export default function PokeSearch({
 const MoveItem = ({ move, index }: { move: Move; index: number }) => {
   return (
     <Popover>
-      <PopoverTrigger>
-        <span key={index} className="whitespace-nowrap">
+      <PopoverTrigger asChild>
+        <button
+          type="button"
+          className="whitespace-nowrap hover:underline"
+          onClick={(e) => e.stopPropagation()}
+        >
           {move.name}
           {index < 3 && " / "}
-        </span>
+        </button>
       </PopoverTrigger>
-      <PopoverContent className="w-60">
+      <PopoverContent className="w-60" onClick={(e) => e.stopPropagation()}>
         <div className="flex gap-2 items-center">
           <div className="w-16">技名</div>
           <div>: {move.name}</div>
@@ -519,10 +523,17 @@ export const ListPokemonCard = ({
 
   return (
     <>
-      <button
-        type="button"
+      <div
         className="w-full text-left p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
         onClick={() => setIsDialogOpen(true)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setIsDialogOpen(true);
+          }
+        }}
+        role="button"
+        tabIndex={0}
       >
         <div className="flex items-center gap-3 mb-2">
           <div className="w-14 h-14 bg-slate-100 dark:bg-slate-800/30 rounded-lg flex items-center justify-center relative">
@@ -582,7 +593,7 @@ export const ListPokemonCard = ({
             </div>
           </div>
         </div>
-      </button>
+      </div>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="sm:max-w-md">
