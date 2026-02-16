@@ -1,0 +1,319 @@
+#!/bin/bash
+
+set -e
+
+# シンボリックリンクの実体を解決
+SCRIPT_PATH="${BASH_SOURCE[0]}"
+while [ -L "$SCRIPT_PATH" ]; do
+    SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
+    SCRIPT_PATH="$(readlink "$SCRIPT_PATH")"
+    [[ $SCRIPT_PATH != /* ]] && SCRIPT_PATH="$SCRIPT_DIR/$SCRIPT_PATH"
+done
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
+source "$SCRIPT_DIR/lib/common.sh"
+source "$SCRIPT_DIR/lib/ai.sh"
+
+# オプション解析
+MODE="create"
+IS_DRAFT=false
+SKIP_CONFIRM=false
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -c|--create)
+            MODE="create"
+            shift
+            ;;
+        -u|--update)
+            MODE="update"
+            shift
+            ;;
+        -d|--draft)
+            IS_DRAFT=true
+            shift
+            ;;
+        -y|--yes)
+            SKIP_CONFIRM=true
+            shift
+            ;;
+        -h|--help)
+            cat << EOF
+Usage: pr [OPTIONS]
+
+AI AgentがPRを作成/更新します
+
+OPTIONS:
+    -c, --create    PR新規作成 (デフォルト)
+    -u, --update    PR更新 (タイトルと説明を更新)
+    -d, --draft     Draft PRとして作成
+    -y, --yes       確認をスキップして自動実行
+    -h, --help      ヘルプを表示
+
+EXAMPLES:
+    pr              # 対話的にPR作成
+    pr -c           # PR新規作成
+    pr -u           # PR更新
+    pr -d           # Draft PRとして作成
+    pr -c -y        # 確認なしで自動PR作成
+EOF
+            exit 0
+            ;;
+        *)
+            log_error "不明なオプション: $1"
+            exit 1
+            ;;
+    esac
+done
+
+# gitリポジトリのチェック
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    log_error "gitリポジトリではありません"
+    exit 1
+fi
+
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
+
+# PRテンプレートのパス
+PR_TEMPLATE=".github/pull_request_template.md"
+
+if [[ "$MODE" == "create" ]]; then
+    # PR作成モード
+    log_info "PR作成モード"
+
+    # ブランチがプッシュされているか確認
+    if ! git rev-parse --verify "origin/$CURRENT_BRANCH" > /dev/null 2>&1; then
+        log_info "ブランチをプッシュします: $CURRENT_BRANCH"
+        git push -u origin "$CURRENT_BRANCH"
+    fi
+
+    # PRタイトル生成
+    log_info "PRタイトルを生成中..."
+    title_prompt="以下のgit logに基づいて、PRタイトルを生成してください。
+
+$(git log --oneline origin/main..HEAD 2>/dev/null || git log --oneline HEAD 2>/dev/null || echo "No commits")
+
+以下のフォーマットでPRタイトルを作成してください:
+- フォーマット: {type}({scope}): {description}
+- type: feat, fix, refactor, docs, test, chore, perf, style のいずれか
+- scope: backend, frontend, infra, docs, ci のいずれか (影響範囲を示す)
+- description: 変更内容を簡潔に説明 (日本語または英語)
+- 全体で50文字以内
+
+例:
+- feat(backend): GitHub OAuth認証機能を追加
+- fix(frontend): タイムラインの無限スクロールを修正
+- refactor(backend): Service層のエラーハンドリングを改善
+
+タイトルのみを出力し、余計な説明は含めないでください。"
+
+    PR_TITLE=$(run_ai_agent "$title_prompt")
+    # AI出力からPRタイトルをサニタイズ（先頭行のみ取得し前後の空白を除去）
+    PR_TITLE=$(printf '%s' "$PR_TITLE" | head -n 1 | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+    # PRタイトルのバリデーション
+    TITLE_PATTERN="^(feat|fix|refactor|docs|test|chore|perf|style)\((backend|frontend|infra|docs|ci)\): .+$"
+    if [[ ! "$PR_TITLE" =~ $TITLE_PATTERN ]]; then
+        log_warn "生成されたタイトルがフォーマットに従っていません"
+        log_warn "期待フォーマット: {type}({scope}): {description}"
+        log_warn "生成されたタイトル: $PR_TITLE"
+        log_info "タイトルを再生成中..."
+        PR_TITLE=$(run_ai_agent "$title_prompt")
+
+        # 再生成後も不正な場合は警告のみ表示
+        if [[ ! "$PR_TITLE" =~ $TITLE_PATTERN ]]; then
+            log_warn "再生成後もフォーマットに従っていません。そのまま続行します。"
+        fi
+    fi
+
+    # PR説明生成
+    log_info "PR説明を生成中..."
+    desc_prompt="Git log:
+$(git log --oneline origin/main..HEAD 2>/dev/null || git log --oneline HEAD 2>/dev/null || echo "No commits")
+
+Git diff:
+$(git diff origin/main...HEAD 2>/dev/null || git diff HEAD 2>/dev/null || echo "No diff available")
+
+PRテンプレート:
+---
+$(cat "$PR_TEMPLATE" 2>/dev/null || echo "テンプレートなし")
+---
+
+上記のGit logとdiffに基づいて、PRテンプレートの形式に従ってPR説明を生成してください。
+
+重要な指示:
+- PR説明の本文のみを出力してください
+- 前置き、説明、コードブロック記法は一切不要です
+- Optionalセクションで内容が空の場合はセクション全体を削除
+- コメント（<!-- -->）は全て削除
+- 「以下の」「生成しました」などの余計な文章は絶対に出力しないでください"
+
+    PR_DESC=$(run_ai_agent "$desc_prompt")
+
+    # 余計な前置きを削除（## 概要 から始まる本文のみ抽出）
+    if [[ "$PR_DESC" =~ (##[[:space:]]*概要.*)$ ]]; then
+        PR_DESC="${BASH_REMATCH[1]}"
+    fi
+
+    # PR内容を表示
+    echo
+    log_info "生成されたPR内容:"
+    echo "===== TITLE ====="
+    echo "$PR_TITLE"
+    echo
+    echo "===== DESCRIPTION ====="
+    echo "$PR_DESC"
+    echo "================="
+    echo
+
+    # 確認
+    if [[ "$SKIP_CONFIRM" == false ]]; then
+        read -p "このPRを作成しますか? (y/N): " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            log_warn "PR作成をキャンセルしました"
+            exit 0
+        fi
+    fi
+
+    # PR作成
+    log_info "PRを作成中..."
+
+    TMP_FILE=$(mktemp)
+    echo "$PR_DESC" > "$TMP_FILE"
+
+    GH_CMD="gh pr create --title \"$PR_TITLE\" --body-file \"$TMP_FILE\""
+
+    if [[ "$IS_DRAFT" == true ]]; then
+        GH_CMD="$GH_CMD --draft"
+    fi
+
+    PR_URL=$(eval $GH_CMD)
+    rm -f "$TMP_FILE"
+
+    log_success "PR作成完了"
+    log_success "PR URL: $PR_URL"
+
+elif [[ "$MODE" == "update" ]]; then
+    # PR更新モード
+    log_info "PR更新モード"
+
+    # ブランチに未プッシュの変更があればプッシュ
+    if git status --porcelain --branch | grep -q 'ahead'; then
+        log_info "未プッシュの変更をプッシュします"
+        git push
+    fi
+
+    # 現在のブランチに対応するPRを取得
+    PR_NUMBER=$(gh pr view --json number -q .number 2>/dev/null || echo "")
+
+    if [[ -z "$PR_NUMBER" ]]; then
+        log_error "このブランチに対応するPRが見つかりません"
+        log_info "PR作成は 'pr -c' を実行してください"
+        exit 1
+    fi
+
+    log_info "PR #$PR_NUMBER を更新します"
+
+    # PRタイトル生成
+    log_info "PRタイトルを生成中..."
+    title_prompt="以下のgit logに基づいて、PRタイトルを生成してください。
+
+$(git log --oneline origin/main..HEAD 2>/dev/null || git log --oneline HEAD 2>/dev/null || echo "No commits")
+
+以下のフォーマットでPRタイトルを作成してください:
+- フォーマット: {type}({scope}): {description}
+- type: feat, fix, refactor, docs, test, chore, perf, style のいずれか
+- scope: backend, frontend, infra, docs, ci のいずれか (影響範囲を示す)
+- description: 変更内容を簡潔に説明 (日本語または英語)
+- 全体で50文字以内
+
+例:
+- feat(backend): GitHub OAuth認証機能を追加
+- fix(frontend): タイムラインの無限スクロールを修正
+- refactor(backend): Service層のエラーハンドリングを改善
+
+タイトルのみを出力し、余計な説明は含めないでください。"
+
+    PR_TITLE=$(run_ai_agent "$title_prompt")
+    # AI出力からPRタイトルをサニタイズ（先頭行のみ取得し前後の空白を除去）
+    PR_TITLE=$(printf '%s' "$PR_TITLE" | head -n 1 | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+    # PRタイトルのバリデーション
+    TITLE_PATTERN="^(feat|fix|refactor|docs|test|chore|perf|style)\((backend|frontend|infra|docs|ci)\): .+$"
+    if [[ ! "$PR_TITLE" =~ $TITLE_PATTERN ]]; then
+        log_warn "生成されたタイトルがフォーマットに従っていません"
+        log_warn "期待フォーマット: {type}({scope}): {description}"
+        log_warn "生成されたタイトル: $PR_TITLE"
+        log_info "タイトルを再生成中..."
+        PR_TITLE=$(run_ai_agent "$title_prompt")
+
+        # 再生成後も不正な場合は警告のみ表示
+        if [[ ! "$PR_TITLE" =~ $TITLE_PATTERN ]]; then
+            log_warn "再生成後もフォーマットに従っていません。そのまま続行します。"
+        fi
+    fi
+
+    # PR説明生成
+    log_info "PR説明を生成中..."
+    desc_prompt="Git log:
+$(git log --oneline origin/main..HEAD 2>/dev/null || git log --oneline HEAD 2>/dev/null || echo "No commits")
+
+Git diff:
+$(git diff origin/main...HEAD 2>/dev/null || git diff HEAD 2>/dev/null || echo "No diff available")
+
+PRテンプレート:
+---
+$(cat "$PR_TEMPLATE" 2>/dev/null || echo "テンプレートなし")
+---
+
+上記のGit logとdiffに基づいて、PRテンプレートの形式に従ってPR説明を生成してください。
+
+重要な指示:
+- PR説明の本文のみを出力してください
+- 前置き、説明、コードブロック記法は一切不要です
+- Optionalセクションで内容が空の場合はセクション全体を削除
+- コメント（<!-- -->）は全て削除
+- 「以下の」「生成しました」などの余計な文章は絶対に出力しないでください"
+
+    PR_DESC=$(run_ai_agent "$desc_prompt")
+
+    # 余計な前置きを削除（## 概要 から始まる本文のみ抽出）
+    if [[ "$PR_DESC" =~ (##[[:space:]]*概要.*)$ ]]; then
+        PR_DESC="${BASH_REMATCH[1]}"
+    fi
+
+    # PR内容を表示
+    echo
+    log_info "更新後のPR内容:"
+    echo "===== TITLE ====="
+    echo "$PR_TITLE"
+    echo
+    echo "===== DESCRIPTION ====="
+    echo "$PR_DESC"
+    echo "================="
+    echo
+
+    # 確認
+    if [[ "$SKIP_CONFIRM" == false ]]; then
+        read -p "このPRを更新しますか? (y/N): " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            log_warn "PR更新をキャンセルしました"
+            exit 0
+        fi
+    fi
+
+    # PR更新
+    log_info "PRを更新中..."
+
+    REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+    gh api \
+      --method PATCH \
+      -H "Accept: application/vnd.github+json" \
+      "/repos/${REPO}/pulls/${PR_NUMBER}" \
+      -f title="${PR_TITLE}" \
+      -f body="${PR_DESC}" > /dev/null
+
+    log_success "PR更新完了"
+    log_success "PR URL: $(gh pr view --json url -q .url)"
+fi
