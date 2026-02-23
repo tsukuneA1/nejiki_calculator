@@ -109,6 +109,7 @@ export default function Home({ factoryPokemons }: HomeProps) {
           property="og:image"
           content="https://nejiki-calculator.com/images/nejiki_image.png"
         />
+        <meta property="og:locale" content="ja_JP" />
         <meta property="og:url" content="https://nejiki-calculator.com/" />
         <meta property="og:site_name" content="金ネジキ攻略ツール" />
         <meta name="twitter:card" content="summary_large_image" />

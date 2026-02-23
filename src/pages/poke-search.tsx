@@ -186,6 +186,7 @@ export default function PokeSearch({
           property="og:image"
           content="https://nejiki-calculator.com/images/nejiki_image.png"
         />
+        <meta property="og:locale" content="ja_JP" />
         <meta
           property="og:url"
           content="https://nejiki-calculator.com/poke-search"
