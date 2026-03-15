@@ -45,7 +45,7 @@ export const calculateMA = (
     }
   }
 
-  if (attacker.ability === "もらいび" && move.type === "ほのお") {
+  if (attacker.abilityEnabled && attacker.ability === "もらいび" && move.type === "ほのお") {
     ma *= 1.5;
   }
   return ma;

@@ -14,7 +14,7 @@ export const calculateDfActual = (
 ) => {
   const bSM = calculateSM(defender.bRank);
   const dSM = calculateSM(defender.dRank);
-  const am = calculateAM(defender.ability!, attacker.move!);
+  const am = defender.abilityEnabled ? calculateAM(defender.ability!, attacker.move!) : 1;
   const im = calculateIM(defender.item!);
 
   const status = calculateStatus(

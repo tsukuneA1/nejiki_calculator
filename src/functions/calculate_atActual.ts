@@ -8,8 +8,8 @@ export const calculateAtActual = (
   settings: { level: number; times: number },
 ) => {
   const sm = calculateSM(attacker.rank);
-  const am = calculateAM(attacker.ability!, attacker.move!);
-  const am2 = calculateAM2(attacker.ability!, attacker.move!);
+  const am = attacker.abilityEnabled ? calculateAM(attacker.ability!, attacker.move!) : 1;
+  const am2 = attacker.abilityEnabled ? calculateAM2(attacker.ability!, attacker.move!) : 1;
   const im = calculateIM(
     attacker.item!,
     attacker.move!,

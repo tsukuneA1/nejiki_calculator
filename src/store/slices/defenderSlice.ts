@@ -6,6 +6,7 @@ const initialState: Defender = {
   factoryPokemon: initialDefender,
   iv: 0,
   ability: initialDefender.pokemon.ability1,
+  abilityEnabled: true,
   item: initialDefender.item,
   bRank: 0,
   dRank: 0,
@@ -19,6 +20,7 @@ const defenderSlice = createSlice({
       const factoryPokemon = action.payload.pokemon;
       state.factoryPokemon = factoryPokemon;
       state.ability = factoryPokemon.pokemon.ability1;
+      state.abilityEnabled = true;
       state.iv = action.payload.iv;
       state.item = factoryPokemon.item;
       state.bRank = 0;
@@ -36,6 +38,9 @@ const defenderSlice = createSlice({
     setDfAbility: (state, action) => {
       state.ability = action.payload.ability;
     },
+    setDfAbilityEnabled: (state, action) => {
+      state.abilityEnabled = action.payload.enabled;
+    },
     setDfItem: (state, action) => {
       state.item = action.payload.item;
     },
@@ -47,6 +52,7 @@ export const {
   setBRank,
   setDRank,
   setDfAbility,
+  setDfAbilityEnabled,
   setDfItem,
   setDfIv,
 } = defenderSlice.actions;
