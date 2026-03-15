@@ -20,11 +20,12 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Codex Triage
+        id: triage
         uses: openai/codex-action@v1
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           sandbox: workspace-write
-          output-file: triage-result.txt
+          output-file: triage-result.json
           prompt: |
             あなたはPokemon Battle Factory計算機のフィードバックをトリアージするアシスタントです。
 
@@ -39,7 +40,17 @@ jobs:
 
             ---
 
-            このフィードバックを以下の3つのカテゴリに分類してください:
+            このフィードバックを以下の3つのカテゴリに分類し、JSON形式で出力してください:
+
+            ```json
+            {
+              "decision": "decline" | "pending" | "implement",
+              "reasoning": "判定理由（日本語）",
+              "comment": "Issueに投稿するコメント（日本語、マークダウン形式）",
+              "labels": ["triage:declined", ...],
+              "close_issue": true | false
+            }
+            ```
 
             ## 1. decline（対応不要・スルー）
             以下の場合はIssueにコメントして close してください:
@@ -85,6 +96,39 @@ jobs:
 
             **重要:**
             - 判定理由は必ず日本語で明確に説明してください
-            - 自動実装する場合は、既存コードの構造とスタイルに従ってください
-            - セキュリティ上の問題がないか慎重に確認してください
             - 不確実な場合は `pending` に分類してください
+            - 出力は必ずJSON形式にしてください
+
+      - name: Apply Triage Decision
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # JSON結果を読み取り
+          if [ ! -f triage-result.json ]; then
+            echo "Triage result not found"
+            exit 1
+          fi
+
+          DECISION=$(jq -r '.decision' triage-result.json)
+          COMMENT=$(jq -r '.comment' triage-result.json)
+          LABELS=$(jq -r '.labels | join(",")' triage-result.json)
+          CLOSE=$(jq -r '.close_issue' triage-result.json)
+
+          # Issueにコメント追加
+          gh issue comment ${{ github.event.issue.number }} --body "$COMMENT"
+
+          # ラベル追加
+          if [ -n "$LABELS" ]; then
+            IFS=',' read -ra LABEL_ARRAY <<< "$LABELS"
+            for label in "${LABEL_ARRAY[@]}"; do
+              gh issue edit ${{ github.event.issue.number }} --add-label "$label"
+            done
+          fi
+
+          # Issueをクローズ（必要な場合）
+          if [ "$CLOSE" = "true" ]; then
+            gh issue close ${{ github.event.issue.number }}
+          fi
+
+          echo "✅ Triage decision applied: $DECISION"
