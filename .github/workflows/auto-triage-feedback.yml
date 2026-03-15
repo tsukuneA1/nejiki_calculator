@@ -11,19 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
+      contents: read
       issues: write
       pull-requests: write
-      contents: write
-      id-token: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Claude Code Triage
-        uses: anthropics/claude-code-action@v1
+      - name: Codex Triage
+        uses: openai/codex-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          sandbox: workspace-write
+          output-file: triage-result.txt
           prompt: |
             あなたはPokemon Battle Factory計算機のフィードバックをトリアージするアシスタントです。
 
