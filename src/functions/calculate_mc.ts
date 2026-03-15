@@ -8,7 +8,7 @@ export const calculateMC = (
   compatibility: number,
 ) => {
   let mc = 1;
-  if (compatibility === 0.5 && attacker.ability === "いろめがね") {
+  if (attacker.abilityEnabled && compatibility === 0.5 && attacker.ability === "いろめがね") {
     mc *= 2;
   }
   if (compatibility >= 2) {
@@ -16,7 +16,7 @@ export const calculateMC = (
       mc *= 1.2;
     }
 
-    if (["ハードロック", "フィルター"].includes(defender.ability!)) {
+    if (defender.abilityEnabled && ["ハードロック", "フィルター"].includes(defender.ability!)) {
       mc *= 0.75;
     }
   }

@@ -9,6 +9,7 @@ import {
   setDRank,
   setDefender,
   setDfAbility,
+  setDfAbilityEnabled,
   setDfItem,
   setDfIv,
 } from "@/store/slices/defenderSlice";
@@ -76,11 +77,15 @@ export const DefenderCard = ({
             setAbility={(value: string) => {
               dispatch(setDfAbility({ ability: value }));
             }}
+            setAbilityEnabled={(enabled: boolean) => {
+              dispatch(setDfAbilityEnabled({ enabled: enabled }));
+            }}
             setItem={(value: string) => {
               dispatch(setDfItem({ item: value }));
             }}
             setIv={(iv) => dispatch(setDfIv(iv))}
-            currentAbility={defender.ability || "なし"}
+            currentAbility={defender.ability || pokemon.pokemon.ability1}
+            currentAbilityEnabled={defender.abilityEnabled}
             currentItem={defender.item || "なし"}
             currentIv={defender.iv}
           />

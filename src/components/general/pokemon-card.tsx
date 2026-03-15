@@ -1,6 +1,7 @@
 import { CardTypeStyles } from "@/constants/cardTypeStyles";
 import {
   setAbility,
+  setAbilityEnabled,
   setAttacker,
   setBurned,
   setCriticalHit,
@@ -72,6 +73,10 @@ export const PokemonCard = ({
     dispatch(setAbility({ ability: ability, pos: pos }));
   };
 
+  const handleAbilityEnabledChange = (enabled: boolean) => {
+    dispatch(setAbilityEnabled({ enabled: enabled, pos: pos }));
+  };
+
   const handleItemChange = (item: string) => {
     dispatch(setItem({ item: item, pos: pos }));
   };
@@ -135,9 +140,11 @@ export const PokemonCard = ({
           <PokemonDescription
             factroyPokemon={pokemon}
             setAbility={handleAbilityChange}
+            setAbilityEnabled={handleAbilityEnabledChange}
             setItem={handleItemChange}
             setIv={(iv) => dispatch(setIv({ iv: iv, pos: pos }))}
-            currentAbility={attacker.ability || "なし"}
+            currentAbility={attacker.ability || pokemon.pokemon.ability1}
+            currentAbilityEnabled={attacker.abilityEnabled}
             currentItem={attacker.item || "なし"}
             currentIv={attacker.iv}
           />

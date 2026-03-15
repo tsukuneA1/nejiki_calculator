@@ -13,14 +13,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { Switch } from "../ui/switch";
 import { TypeBadge } from "./type-badge";
 
 type PokemonDescriptionProps = {
   factroyPokemon: FactoryPokemon;
   currentAbility: string;
+  currentAbilityEnabled: boolean;
   currentItem: string;
   currentIv: number;
   setAbility: (ability: string) => void;
+  setAbilityEnabled: (enabled: boolean) => void;
   setItem: (item: string) => void;
   setIv: (iv: number) => void;
 };
@@ -28,16 +31,18 @@ type PokemonDescriptionProps = {
 export const PokemonDescription = ({
   factroyPokemon,
   currentAbility,
+  currentAbilityEnabled,
   currentItem,
   currentIv,
   setAbility,
+  setAbilityEnabled,
   setItem,
   setIv,
 }: PokemonDescriptionProps) => {
   const settings = useSelector((state: RootState) => state.settings);
   const status = calculateStatus(factroyPokemon, settings.level, currentIv);
 
-  const abilities = ["なし", factroyPokemon.pokemon.ability1];
+  const abilities = [factroyPokemon.pokemon.ability1];
 
   if (factroyPokemon.pokemon.ability2) {
     abilities.push(factroyPokemon.pokemon.ability2);
@@ -84,25 +89,31 @@ export const PokemonDescription = ({
       <div className="grid grid-cols-2 gap-2">
         <div>
           <Badge className="w-18 py-1 mb-1">特性</Badge>
-          <Select
-            onValueChange={(value) => setAbility(value)}
-            defaultValue={factroyPokemon.pokemon.ability1}
-            value={currentAbility}
-          >
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="特性を選択" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>特性</SelectLabel>
-                {abilities.map((ability, i) => (
-                  <SelectItem key={i} value={ability!}>
-                    {ability}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          <div className="flex gap-2 items-center">
+            <Select
+              onValueChange={(value) => setAbility(value)}
+              defaultValue={factroyPokemon.pokemon.ability1}
+              value={currentAbility}
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="特性を選択" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>特性</SelectLabel>
+                  {abilities.map((ability, i) => (
+                    <SelectItem key={i} value={ability!}>
+                      {ability}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+            <Switch
+              checked={currentAbilityEnabled}
+              onCheckedChange={setAbilityEnabled}
+            />
+          </div>
         </div>
         <div>
           <Badge className="w-18 py-1 mb-1">アイテム</Badge>

@@ -9,6 +9,7 @@ const initialState: Attacker[] = [
     factoryPokemon: initialAttacker,
     iv: 0,
     ability: initialAttacker.pokemon.ability1,
+    abilityEnabled: true,
     item: initialAttacker.item,
     attackRank: 0,
     move: initialAttacker.moves[0],
@@ -36,6 +37,7 @@ const attackerSlice = createSlice({
         factoryPokemon: pokemon,
         iv: action.payload.iv,
         ability: pokemon.pokemon.ability1,
+        abilityEnabled: true,
         item: pokemon.item,
         attackRank: 0,
         move: pokemon.moves[0],
@@ -79,6 +81,12 @@ const attackerSlice = createSlice({
     ) => {
       state[action.payload.pos].ability = action.payload.ability;
     },
+    setAbilityEnabled: (
+      state,
+      action: PayloadAction<{ enabled: boolean; pos: number }>,
+    ) => {
+      state[action.payload.pos].abilityEnabled = action.payload.enabled;
+    },
     setItem: (state, action: PayloadAction<{ item: string; pos: number }>) => {
       state[action.payload.pos].item = action.payload.item;
     },
@@ -102,6 +110,7 @@ export const {
   setMove,
   setRank,
   setAbility,
+  setAbilityEnabled,
   setItem,
   setIv,
   addAttacker,
