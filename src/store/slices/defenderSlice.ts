@@ -20,6 +20,7 @@ const defenderSlice = createSlice({
       const factoryPokemon = action.payload.pokemon;
       state.factoryPokemon = factoryPokemon;
       state.ability = factoryPokemon.pokemon.ability1;
+      state.abilityEnabled = true;
       state.iv = action.payload.iv;
       state.item = factoryPokemon.item;
       state.bRank = 0;

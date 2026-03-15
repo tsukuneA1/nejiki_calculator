@@ -63,6 +63,7 @@ const attackerSlice = createSlice({
       const factoryPokemon = attackerState.pokemon;
       state[attackerState.pos].factoryPokemon = factoryPokemon;
       state[attackerState.pos].ability = factoryPokemon.pokemon.ability1;
+      state[attackerState.pos].abilityEnabled = true;
       state[attackerState.pos].item = factoryPokemon.item;
       state[attackerState.pos].attackRank = 0;
       state[attackerState.pos].rank = 0;
