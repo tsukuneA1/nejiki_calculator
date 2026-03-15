@@ -1,0 +1,89 @@
+name: Auto Triage User Feedback
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  triage:
+    # user-feedbackラベルが付いたIssueのみ処理
+    if: contains(github.event.issue.labels.*.name, 'user-feedback')
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Claude Code Triage
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            あなたはPokemon Battle Factory計算機のフィードバックをトリアージするアシスタントです。
+
+            **Issue情報:**
+            - Repository: ${{ github.repository }}
+            - Issue #${{ github.event.issue.number }}
+            - Title: ${{ github.event.issue.title }}
+            - Author: ${{ github.event.issue.user.login }}
+
+            **Issue内容:**
+            ${{ github.event.issue.body }}
+
+            ---
+
+            このフィードバックを以下の3つのカテゴリに分類してください:
+
+            ## 1. decline（対応不要・スルー）
+            以下の場合はIssueにコメントして close してください:
+            - 重複報告
+            - 仕様上の正常動作（バグではない）
+            - 対応範囲外の要望
+            - スパムや無関係な内容
+
+            **対応方法:**
+            - 判定理由を丁寧に説明するコメントを追加
+            - `triage:declined` ラベルを付与
+            - Issueをcloseする
+
+            ## 2. pending（人間の判断が必要）
+            以下の場合はラベル付与して人間の確認を待ってください:
+            - 複雑な機能追加の要望
+            - 曖昧な報告（詳細確認が必要）
+            - アーキテクチャ変更を伴う提案
+            - セキュリティ関連の報告
+
+            **対応方法:**
+            - 判定理由と優先度を記載したコメントを追加
+            - `triage:pending` と優先度ラベル（`priority:low/medium/high`）を付与
+            - 適切なカテゴリラベル（`bug`, `enhancement`, `documentation`等）を付与
+            - Issueは開いたまま
+
+            ## 3. implement（自動実装可能）
+            以下の場合は自動実装を試みてください:
+            - 明確なバグ報告（再現手順あり）
+            - 簡単なUI改善（テキスト修正、スタイル調整等）
+            - タイポ修正
+            - 軽微な機能追加
+
+            **対応方法:**
+            - コードベースを確認して実装
+            - 新しいブランチ `automated/issue-${{ github.event.issue.number }}` を作成
+            - 変更をコミット
+            - Draft PRを作成（タイトル: `[Automated] ${{ github.event.issue.title }}`）
+            - PR本文に実装内容とレビューチェックリストを記載
+            - 元のIssueに `triage:automated-pr` ラベルを付与してPR URLをコメント
+
+            ---
+
+            **重要:**
+            - 判定理由は必ず日本語で明確に説明してください
+            - 自動実装する場合は、既存コードの構造とスタイルに従ってください
+            - セキュリティ上の問題がないか慎重に確認してください
+            - 不確実な場合は `pending` に分類してください
