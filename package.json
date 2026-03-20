@@ -7,9 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "db:seed": "node prisma/seed.js",
     "postbuild": "next-sitemap",
     "prettier": "npx prettier --write .",
     "lint:fix": "npx @biomejs/biome check . --write --unsafe"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
