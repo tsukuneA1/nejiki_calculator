@@ -1,5 +1,3 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
 import { Attackers } from "@/components/domain/attacker/attackers";
 import { DefenderCard } from "@/components/domain/defender/defender-card";
 import { EnvCard } from "@/components/domain/env/env-card";
@@ -21,6 +19,7 @@ import { setDefender } from "@/store/slices/defenderSlice";
 import { setIsNejiki, setLevel, setTimes } from "@/store/slices/settingsSlice";
 import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
+import { getFactoryPokemons } from "@/lib/queries";
 import { ArrowLeftRight, ArrowUpDown } from "lucide-react";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
@@ -31,12 +30,7 @@ interface HomeProps {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const filePath = path.join(
-    process.cwd(),
-    "public/data/factory-pokemons.json",
-  );
-  const fileContents = await fs.readFile(filePath, "utf8");
-  const factoryPokemons = JSON.parse(fileContents);
+  const factoryPokemons = await getFactoryPokemons();
 
   return {
     props: {

@@ -1,5 +1,3 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
 import { filterFactoryPokemons } from "@/components/general/auto-complete";
 import { TypeBadge } from "@/components/general/type-badge";
 import { Badge } from "@/components/ui/badge";
@@ -23,8 +21,6 @@ import { SelectGroup } from "@/components/ui/select";
 import { SelectContent } from "@/components/ui/select";
 import { Select, SelectValue } from "@/components/ui/select";
 import { SelectTrigger } from "@/components/ui/select";
-import { abilities } from "@/constants/abilities";
-import { items } from "@/constants/items";
 import { findItems, timesItems } from "@/constants/ivs";
 import { calculateStatus } from "@/functions/calculate_status";
 import { toggleKana } from "@/functions/convert_hiragana_katakana";
@@ -33,6 +29,7 @@ import { setAttacker } from "@/store/slices/attackerSlice";
 import { setDefender } from "@/store/slices/defenderSlice";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import type { Move } from "@/types/move";
+import { getFactoryPokemons, getAbilities, getItems } from "@/lib/queries";
 import { Filter, Search, Shield, Sword } from "lucide-react";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
@@ -43,27 +40,32 @@ import { useDispatch } from "react-redux";
 
 interface PokeSearchProps {
   factoryPokemons: FactoryPokemon[];
+  abilities: string[];
+  items: string[];
 }
 
 export const getStaticProps: GetStaticProps<PokeSearchProps> = async () => {
-  const filePath = path.join(
-    process.cwd(),
-    "public/data/factory-pokemons.json",
-  );
-  const fileContents = await fs.readFile(filePath, "utf8");
-  const factoryPokemons = JSON.parse(fileContents);
+  const factoryPokemons = await getFactoryPokemons();
+  const abilities = await getAbilities();
+  const items = await getItems();
 
   return {
     props: {
       factoryPokemons,
+      abilities,
+      items,
     },
   };
 };
 
 export default function PokeSearch({
   factoryPokemons: initialFactoryPokemons,
+  abilities: abilitiesProp,
+  items: itemsProp,
 }: PokeSearchProps) {
   const [factoryPokemons] = useState<FactoryPokemon[]>(initialFactoryPokemons);
+  const [abilities] = useState<string[]>(abilitiesProp);
+  const [items] = useState<string[]>(itemsProp);
   const [level, setLevel] = useState<number>(100);
   const [times, setTimes] = useState<number>(1);
   const [item, setItem] = useState<string>("なし");
