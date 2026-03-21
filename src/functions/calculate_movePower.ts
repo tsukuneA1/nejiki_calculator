@@ -1,4 +1,4 @@
-import { typeStrengthen } from "@/constants/items";
+import { typeStrengthen } from "@/functions/item_effects";
 import type { Attacker } from "@/types/attacker";
 
 export const calculateMovePower = (attacker: Attacker) => {
