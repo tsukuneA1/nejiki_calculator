@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps<PokeSearchProps> = async () => {
 
   return {
     props: {
-      factoryPokemons: JSON.parse(JSON.stringify(factoryPokemons)),
+      factoryPokemons,
       abilities,
       items,
     },

@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 
   return {
     props: {
-      factoryPokemons: JSON.parse(JSON.stringify(factoryPokemons)),
+      factoryPokemons,
     },
   };
 };
