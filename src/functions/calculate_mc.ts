@@ -1,4 +1,4 @@
-import { typeReduceHalf } from "@/constants/items";
+import { typeReduceHalf } from "@/functions/item_effects";
 import type { Attacker } from "@/types/attacker";
 import type { Defender } from "@/types/defender";
 
