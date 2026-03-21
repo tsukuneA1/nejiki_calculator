@@ -1,69 +1,83 @@
-// This is your Prisma schema file
-// Learn more: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Pokemon {
-  id        Int     @id @default(autoincrement())
-  name      String
-  hp        Int
-  attack    Int
-  defense   Int
-  spAttack  Int
-  spDefense Int
-  speed     Int
-  ability1  String
-  ability2  String?
-  imageSrc  String
-  type1     String
-  type2     String?
-  weight    Float
-  factoryPokemon Factory_Pokemon[]
+  id                   Int                    @id @default(autoincrement())
+  name                 String
+  hp                   Int
+  attack               Int
+  defense              Int
+  spAttack             Int
+  spDefense            Int
+  speed                Int
+  ability1Id           Int
+  ability2Id           Int?
+  ability1             Ability                @relation("PokemonAbility1", fields: [ability1Id], references: [id])
+  ability2             Ability?               @relation("PokemonAbility2", fields: [ability2Id], references: [id])
+  imageSrc             String
+  type1                String
+  type2                String?
+  weight               Float
+  battleFactoryPokemon BattleFactoryPokemon[]
 }
 
-model Factory_Pokemon {
-  id        Int     @id @default(autoincrement())
-  name      String
-  pokeId    Int
-  pokemon   Pokemon @relation(fields: [pokeId], references: [id])
-  hp        Int
-  attack    Int
-  defense   Int
-  spAttack  Int
-  spDefense Int
-  speed     Int
-  item      String?
-  nature    String
-  group     Int
-  moves     PokemonMove[]
+model Ability {
+  id              Int       @id @default(autoincrement())
+  name            String    @unique
+  pokemonAbility1 Pokemon[] @relation("PokemonAbility1")
+  pokemonAbility2 Pokemon[] @relation("PokemonAbility2")
+}
+
+model Item {
+  id                   Int                    @id @default(autoincrement())
+  name                 String                 @unique
+  battleFactoryPokemon BattleFactoryPokemon[]
+}
+
+model BattleFactoryPokemon {
+  id                 Int                        @id @default(autoincrement())
+  pokemonId          Int
+  itemId             Int?
+  pokemon            Pokemon                    @relation(fields: [pokemonId], references: [id])
+  item               Item?                      @relation(fields: [itemId], references: [id])
+  hpEv               Int
+  attackEv           Int
+  defenseEv          Int
+  spAttackEv         Int
+  spDefenseEv        Int
+  speedEv            Int
+  nature             String
+  group              Int
+  battleFactoryMoves BattleFactoryPokemonMove[]
 }
 
 model Move {
-  id             Int     @id @default(autoincrement())
-  name           String
-  type           String
-  power          Int?
-  accuracy       Int?
-  pp             Int?
-  classification String
-  super          Int
-  pokemonMoves   PokemonMove[]
+  id                 Int                        @id @default(autoincrement())
+  name               String
+  type               String
+  power              Int?
+  accuracy           Int?
+  pp                 Int?
+  classification     String
+  super              Int
+  battleFactoryMoves BattleFactoryPokemonMove[]
 }
 
-// Many-to-Many relation table for Factory_Pokemon and Move
-model PokemonMove {
-  id               Int              @id @default(autoincrement())
-  factoryPokemonId Int
-  moveId           Int
-  factoryPokemon   Factory_Pokemon @relation(fields: [factoryPokemonId], references: [id])
-  move             Move             @relation(fields: [moveId], references: [id])
+model BattleFactoryPokemonMove {
+  id                     Int                  @id @default(autoincrement())
+  battleFactoryPokemonId Int
+  moveId                 Int
+  slot                   Int
+  battleFactoryPokemon   BattleFactoryPokemon @relation(fields: [battleFactoryPokemonId], references: [id])
+  move                   Move                 @relation(fields: [moveId], references: [id])
 
-  @@unique([factoryPokemonId, moveId]) // ここに修正
+  @@unique([battleFactoryPokemonId, slot])
+  @@unique([battleFactoryPokemonId, moveId])
 }
