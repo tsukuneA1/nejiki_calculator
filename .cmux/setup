@@ -1,0 +1,7 @@
+#!/bin/bash
+REPO_ROOT="$(git rev-parse --git-common-dir | xargs dirname)"
+ln -sf "$REPO_ROOT/.env" .env
+# install exact deps from lockfile
+npm ci
+# generate Prisma client from schema
+npx prisma generate
