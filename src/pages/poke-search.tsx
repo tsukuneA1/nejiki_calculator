@@ -510,7 +510,7 @@ export const ListPokemonCard = ({
         iv: ivBonus,
       }),
     );
-    sendGAEvent("event", "set_pokemon", { role: "attacker", pokemon_name: pokemon.pokemon.name });
+    sendGAEvent("event", "set_pokemon_from_search_page", { role: "attacker" });
     setIsDialogOpen(false);
     router.push("/");
   };
@@ -522,7 +522,7 @@ export const ListPokemonCard = ({
         iv: ivBonus,
       }),
     );
-    sendGAEvent("event", "set_pokemon", { role: "defender", pokemon_name: pokemon.pokemon.name });
+    sendGAEvent("event", "set_pokemon_from_search_page", { role: "defender" });
     setIsDialogOpen(false);
     router.push("/");
   };
