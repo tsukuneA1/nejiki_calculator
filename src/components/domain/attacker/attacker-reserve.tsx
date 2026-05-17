@@ -6,6 +6,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { setAttacker } from "@/store/slices/attackerSlice";
 import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
+import { sendGAEvent } from "@next/third-parties/google";
 import { Avatar } from "@radix-ui/react-avatar";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,6 +27,7 @@ export const AttackerReserve = ({
       pokemon !== attacker.factoryPokemon
     ) {
       setSpares([...spares, pokemon]);
+      sendGAEvent("event", "spare_add", { role: "attacker" });
     }
   };
 
@@ -55,6 +57,7 @@ export const AttackerReserve = ({
         }),
       );
 
+      sendGAEvent("event", "spare_swap", { role: "attacker" });
       setSelectedId("");
     }
   };
