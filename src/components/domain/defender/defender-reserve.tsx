@@ -1,6 +1,7 @@
 import { AutoComplete } from "@/components/general/auto-complete";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { setDefender } from "@/store/slices/defenderSlice";
+import { sendGAEvent } from "@next/third-parties/google";
 import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { Avatar } from "@radix-ui/react-avatar";
@@ -26,6 +27,7 @@ export const DefenderReserve = ({
       pokemon !== defender.factoryPokemon
     ) {
       setSpares([...spares, pokemon]);
+      sendGAEvent("event", "spare_add", { role: "defender" });
     }
   };
 
@@ -50,6 +52,7 @@ export const DefenderReserve = ({
 
       dispatch(setDefender({ pokemon: pokemon, iv: 4 * (settings.times - 1) }));
 
+      sendGAEvent("event", "spare_swap", { role: "defender" });
       setSelectedId("");
     }
   };

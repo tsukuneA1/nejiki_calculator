@@ -32,6 +32,7 @@ import type { Move } from "@/types/move";
 import { getFactoryPokemons, getAbilities, getItems } from "@/lib/queries";
 import { Filter, Search, Shield, Sword } from "lucide-react";
 import type { GetStaticProps } from "next";
+import { sendGAEvent } from "@next/third-parties/google";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -509,6 +510,7 @@ export const ListPokemonCard = ({
         iv: ivBonus,
       }),
     );
+    sendGAEvent("event", "set_pokemon_from_search_page", { role: "attacker" });
     setIsDialogOpen(false);
     router.push("/");
   };
@@ -520,6 +522,7 @@ export const ListPokemonCard = ({
         iv: ivBonus,
       }),
     );
+    sendGAEvent("event", "set_pokemon_from_search_page", { role: "defender" });
     setIsDialogOpen(false);
     router.push("/");
   };
