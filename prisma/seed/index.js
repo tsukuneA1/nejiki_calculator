@@ -18,14 +18,12 @@ function loadFactoryPokemons() {
 }
 
 async function resetSequences() {
-  await prisma.$executeRawUnsafe(`
-    SELECT setval(pg_get_serial_sequence('"Pokemon"', 'id'), COALESCE((SELECT MAX("id") FROM "Pokemon"), 1), true);
-    SELECT setval(pg_get_serial_sequence('"Move"', 'id'), COALESCE((SELECT MAX("id") FROM "Move"), 1), true);
-    SELECT setval(pg_get_serial_sequence('"BattleFactoryPokemon"', 'id'), COALESCE((SELECT MAX("id") FROM "BattleFactoryPokemon"), 1), true);
-    SELECT setval(pg_get_serial_sequence('"Ability"', 'id'), COALESCE((SELECT MAX("id") FROM "Ability"), 1), true);
-    SELECT setval(pg_get_serial_sequence('"Item"', 'id'), COALESCE((SELECT MAX("id") FROM "Item"), 1), true);
-    SELECT setval(pg_get_serial_sequence('"BattleFactoryPokemonMove"', 'id'), COALESCE((SELECT MAX("id") FROM "BattleFactoryPokemonMove"), 1), true);
-  `);
+  const tables = ["Pokemon", "Move", "BattleFactoryPokemon", "Ability", "Item", "BattleFactoryPokemonMove"];
+  for (const table of tables) {
+    await prisma.$executeRawUnsafe(
+      `SELECT setval(pg_get_serial_sequence('"${table}"', 'id'), COALESCE((SELECT MAX("id") FROM "${table}"), 1), true)`,
+    );
+  }
 }
 
 async function main() {

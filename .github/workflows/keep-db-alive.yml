@@ -1,0 +1,15 @@
+name: Keep Supabase DB Alive
+
+on:
+  schedule:
+    - cron: "0 0 * * 0" # 毎週日曜 00:00 UTC
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping DB
+        run: psql "$DATABASE_URL" -c "SELECT 1"
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
