@@ -4,13 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -489,7 +482,6 @@ export const ListPokemonCard = ({
   level: number;
   times: number;
 }) => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
   const ivBonus = 4 * (times - 1);
@@ -511,7 +503,6 @@ export const ListPokemonCard = ({
       }),
     );
     sendGAEvent("event", "set_pokemon_from_search_page", { role: "attacker" });
-    setIsDialogOpen(false);
     router.push("/");
   };
 
@@ -523,121 +514,91 @@ export const ListPokemonCard = ({
       }),
     );
     sendGAEvent("event", "set_pokemon_from_search_page", { role: "defender" });
-    setIsDialogOpen(false);
     router.push("/");
   };
 
   return (
-    <>
-      <div
-        className="w-full text-left p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
-        onClick={() => setIsDialogOpen(true)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            setIsDialogOpen(true);
-          }
-        }}
-        role="button"
-        tabIndex={0}
-      >
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-14 h-14 bg-slate-100 dark:bg-slate-800/30 rounded-lg flex items-center justify-center relative">
-            <Image
-              src={pokemon.pokemon.imageSrc}
-              alt={pokemon.pokemon.name}
-              width={48}
-              height={48}
-              className="w-12 h-12"
-              loading="lazy"
-            />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold flex items-center gap-2">
-              {pokemon.pokemon.name}
-              <span className="text-sm font-normal text-slate-500">
-                @{pokemon.item}
-              </span>
-            </h3>
-            <div className="flex gap-1 mt-1">
-              {pokemon.pokemon.type1 && (
-                <TypeBadge type={pokemon.pokemon.type1} />
-              )}
-              {pokemon.pokemon.type2 && (
-                <TypeBadge type={pokemon.pokemon.type2} />
-              )}
-            </div>
-          </div>
+    <div className="w-full text-left p-4">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-14 h-14 bg-slate-100 dark:bg-slate-800/30 rounded-lg flex items-center justify-center relative">
+          <Image
+            src={pokemon.pokemon.imageSrc}
+            alt={pokemon.pokemon.name}
+            width={48}
+            height={48}
+            className="w-12 h-12"
+            loading="lazy"
+            unoptimized
+          />
         </div>
-
-        <div className="grid gap-2 mt-3">
-          <div>
-            <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
-              ステータス
-            </div>
-            <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
-              {statusSummary}
-            </div>
-          </div>
-          <div>
-            <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
-              特性
-            </div>
-            <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
-              {pokemon.pokemon.ability1}
-              {pokemon.pokemon.ability2 && `/${pokemon.pokemon.ability2}`}
-            </div>
-          </div>
-          <div>
-            <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
-              技
-            </div>
-            <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded flex flex-wrap gap-1">
-              {pokemon.moves.map((move, index) => (
-                <MoveItem key={index} move={move} index={index} />
-              ))}
-            </div>
+        <div>
+          <h3 className="text-lg font-semibold flex items-center gap-2">
+            {pokemon.pokemon.name}
+            <span className="text-sm font-normal text-slate-500">
+              @{pokemon.item}
+            </span>
+          </h3>
+          <div className="flex gap-1 mt-1">
+            {pokemon.pokemon.type1 && (
+              <TypeBadge type={pokemon.pokemon.type1} />
+            )}
+            {pokemon.pokemon.type2 && (
+              <TypeBadge type={pokemon.pokemon.type2} />
+            )}
           </div>
         </div>
       </div>
 
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">
-              <Image
-                src={pokemon.pokemon.imageSrc}
-                alt={pokemon.pokemon.name}
-                width={32}
-                height={32}
-                className="w-8 h-8"
-              />
-              {pokemon.pokemon.name}をセット
-            </DialogTitle>
-            <DialogDescription>
-              ダメージ計算画面で攻撃側または防御側としてセットします
-            </DialogDescription>
-          </DialogHeader>
-          <div className="flex flex-col gap-3 mt-4">
-            <Button
-              onClick={handleSetAsAttacker}
-              className="w-full h-14 text-lg"
-              variant="default"
-            >
-              <Sword className="mr-2 h-5 w-5" />
-              攻撃側にセット
-            </Button>
-            <Button
-              onClick={handleSetAsDefender}
-              className="w-full h-14 text-lg"
-              variant="outline"
-            >
-              <Shield className="mr-2 h-5 w-5" />
-              防御側にセット
-            </Button>
+      <div className="grid gap-2 mt-3">
+        <div>
+          <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+            ステータス
           </div>
-        </DialogContent>
-      </Dialog>
-    </>
+          <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
+            {statusSummary}
+          </div>
+        </div>
+        <div>
+          <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+            特性
+          </div>
+          <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
+            {pokemon.pokemon.ability1}
+            {pokemon.pokemon.ability2 && `/${pokemon.pokemon.ability2}`}
+          </div>
+        </div>
+        <div>
+          <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
+            技
+          </div>
+          <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded flex flex-wrap gap-1">
+            {pokemon.moves.map((move, index) => (
+              <MoveItem key={index} move={move} index={index} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="flex gap-2 mt-3">
+        <Button
+          onClick={handleSetAsAttacker}
+          className="flex-1"
+          variant="default"
+          size="sm"
+        >
+          <Sword className="mr-1 h-4 w-4" />
+          攻撃側にセット
+        </Button>
+        <Button
+          onClick={handleSetAsDefender}
+          className="flex-1"
+          variant="outline"
+          size="sm"
+        >
+          <Shield className="mr-1 h-4 w-4" />
+          防御側にセット
+        </Button>
+      </div>
+    </div>
   );
 };
