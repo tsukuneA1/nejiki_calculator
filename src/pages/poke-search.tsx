@@ -550,6 +550,7 @@ export const ListPokemonCard = ({
               height={48}
               className="w-12 h-12"
               loading="lazy"
+              unoptimized
             />
           </div>
           <div>
@@ -611,6 +612,7 @@ export const ListPokemonCard = ({
                 width={32}
                 height={32}
                 className="w-8 h-8"
+                unoptimized
               />
               {pokemon.pokemon.name}をセット
             </DialogTitle>
