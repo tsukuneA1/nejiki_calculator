@@ -600,6 +600,12 @@ export const ListPokemonCard = ({
             </div>
           </div>
         </div>
+
+        <div className="flex items-center justify-end gap-1 mt-3 text-xs text-slate-400">
+          <Sword className="h-3 w-3" />
+          <Shield className="h-3 w-3" />
+          <span>タップしてセット</span>
+        </div>
       </div>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
