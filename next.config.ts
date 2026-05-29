@@ -8,15 +8,20 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31536000, // 1年間キャッシュ
   },
   async headers() {
+    const cacheHeaders = [
+      {
+        key: "Cache-Control",
+        value: "public, max-age=31536000, immutable",
+      },
+    ];
     return [
       {
         source: "/_next/image(.*)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
+        headers: cacheHeaders,
+      },
+      {
+        source: "/images/poke-image(.*)",
+        headers: cacheHeaders,
       },
     ];
   },
