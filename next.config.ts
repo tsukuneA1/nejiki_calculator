@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
         headers: cacheHeaders,
       },
       {
-        source: "/images/poke-image(.*)",
+        source: "/images/poke_image(.*)",
         headers: cacheHeaders,
       },
     ];
