@@ -9,12 +9,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 ```bash
-npm run dev        # 開発サーバー起動
-npm run build      # 本番ビルド（postbuild でサイトマップ自動生成）
-npm run lint:fix   # Biome でリント＆フォーマット（推奨）
-npm run prettier   # Prettier フォーマット
-npm run db:seed    # DBシード（prisma/seed/index.js）
+pnpm dev        # 開発サーバー起動
+pnpm build      # 本番ビルド（postbuild でサイトマップ自動生成）
+pnpm lint:fix   # Biome でリント＆フォーマット（推奨）
+pnpm prettier   # Prettier フォーマット
+pnpm db:seed    # DBシード（prisma/seed/index.js）
 ```
+
+> パッケージマネージャは **pnpm**（`packageManager` フィールドで固定）。`npm` / `npx` は使わない。
 
 ## Architecture
 
