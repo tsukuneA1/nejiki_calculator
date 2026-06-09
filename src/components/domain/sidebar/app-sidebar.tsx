@@ -1,4 +1,4 @@
-import { Book, Home, Search } from "lucide-react";
+import { Home, Search } from "lucide-react";
 
 import {
   Sidebar,
@@ -22,11 +22,6 @@ export const menuItems = [
     title: "ポケモン検索",
     url: "/poke-search",
     icon: Search,
-  },
-  {
-    title: "説明書",
-    url: "/instruction-manual",
-    icon: Book,
   },
   {
     title: "問い合わせフォーム",
