@@ -22,11 +22,6 @@ const MENU_ITEMS: MenuItem[] = [
     url: "/poke-search",
     icon: Search,
   },
-  {
-    title: "説明書",
-    url: "/instruction-manual",
-    icon: Book,
-  },
 ] as const;
 
 const kanit = Kanit({
