@@ -2,7 +2,7 @@ import { SolarHamburgerMenuLinear } from "@/components/icons/hamburger";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Kanit } from "next/font/google";
 
-import { Book, Home, Search } from "lucide-react";
+import { Home, Search } from "lucide-react";
 import Link from "next/link";
 
 type MenuItem = {
