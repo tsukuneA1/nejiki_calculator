@@ -23,5 +23,14 @@ https://dic.pixiv.net/a/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%86%E3%82%A3%E3%82%A2%E
 ### バトルファクトリー
 
 ### 参考情報
-世界最長連勝記録者のhow2動画
-[How I Destroyed Pokemon Emerald's "Hardest World Record"](https://www.youtube.com/watch?v=7KXYKHNRr1U)
+
+- 世界最長連勝記録者のhow2動画
+    [How I Destroyed Pokemon Emerald's "Hardest World Record"](https://www.youtube.com/watch?v=7KXYKHNRr1U)
+
+- なんか乱数調整ツールがあるらしいぞ
+
+    - https://gist.github.com/niart120/cae39ba8dd9995089f57cbf6aab311b4
+    - https://oupo.github.io/tools/factory-search.html
+    - https://oupo.hatenadiary.com/entry/20141105/1415189893
+    - https://oupo.github.io/
+    - https://github.com/oupo/factory-tools
