@@ -2,8 +2,10 @@ import { ivItems } from "@/constants/ivs";
 import { calculateStatus } from "@/functions/calculate_status";
 import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
+import { useId } from "react";
 import { useSelector } from "react-redux";
-import { Badge } from "../ui/badge";
+import { Checkbox } from "../ui/checkbox";
+import { Label } from "../ui/label";
 import {
   Select,
   SelectContent,
@@ -13,8 +15,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { Switch } from "../ui/switch";
-import { TypeBadge } from "./type-badge";
 
 type PokemonDescriptionProps = {
   factroyPokemon: FactoryPokemon;
@@ -39,6 +39,7 @@ export const PokemonDescription = ({
   setItem,
   setIv,
 }: PokemonDescriptionProps) => {
+  const fieldId = useId();
   const settings = useSelector((state: RootState) => state.settings);
   const status = calculateStatus(factroyPokemon, settings.level, currentIv);
 
@@ -50,101 +51,102 @@ export const PokemonDescription = ({
 
   const items = ["なし", factroyPokemon.item];
   return (
-    <div className="space-y-2">
-      <div className="grid grid-cols-2 gap-2">
-        <div>
-          <Badge className="w-18 py-1 mb-1">タイプ</Badge>
-          <div className="flex gap-1">
-            <TypeBadge type={factroyPokemon.pokemon.type1} />
-
-            {factroyPokemon.pokemon.type2 && (
-              <TypeBadge type={factroyPokemon.pokemon.type2} />
-            )}
-          </div>
-        </div>
-        <div>
-          <Badge className="w-18 py-1 mb-1">個体値</Badge>
-          <Select
-            onValueChange={(value) => setIv(Number.parseInt(value))}
-            defaultValue={"0"}
-            value={currentIv.toString()}
-          >
-            <SelectTrigger className="w-full">
-              <SelectValue>{currentIv.toString()}</SelectValue>
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>個体値</SelectLabel>
-                {ivItems.map((iv, i) => (
-                  <SelectItem key={i} value={iv.toString()}>
-                    {iv}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
+    <div className="grid grid-cols-2 gap-x-3 gap-y-4">
+      <div className="space-y-1.5">
+        <Label className="text-xs text-muted-foreground">実数値</Label>
+        <output className="block h-9 w-full whitespace-nowrap rounded-md border bg-muted/30 px-2 py-2 text-[11px] tabular-nums sm:text-sm">
+          {status.hp}-{status.attack}-{status.defense}-{status.spAttack}-
+          {status.spDefense}-{status.speed}
+        </output>
+      </div>
+      <div className="space-y-1.5">
+        <Label
+          htmlFor={`${fieldId}-iv`}
+          className="text-xs text-muted-foreground"
+        >
+          個体値
+        </Label>
+        <Select
+          onValueChange={(value) => setIv(Number.parseInt(value))}
+          value={currentIv.toString()}
+        >
+          <SelectTrigger id={`${fieldId}-iv`} className="w-full">
+            <SelectValue>{currentIv.toString()}</SelectValue>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>個体値</SelectLabel>
+              {ivItems.map((iv) => (
+                <SelectItem key={iv} value={iv.toString()}>
+                  {iv}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </div>
 
-      <div className="grid grid-cols-2 gap-2">
-        <div>
-          <Badge className="w-18 py-1 mb-1">特性</Badge>
-          <div className="flex gap-2 items-center">
-            <Select
-              onValueChange={(value) => setAbility(value)}
-              defaultValue={factroyPokemon.pokemon.ability1}
-              value={currentAbility}
+      <div className="space-y-1.5">
+        <div className="flex items-center justify-between gap-2">
+          <Label
+            htmlFor={`${fieldId}-ability`}
+            className="text-xs text-muted-foreground"
+          >
+            特性
+          </Label>
+          <div className="flex items-center gap-1">
+            <Label
+              htmlFor={`${fieldId}-ability-enabled`}
+              className="text-xs font-normal text-muted-foreground"
             >
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="特性を選択" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>特性</SelectLabel>
-                  {abilities.map((ability, i) => (
-                    <SelectItem key={i} value={ability!}>
-                      {ability}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-            <Switch
+              発動
+            </Label>
+            <Checkbox
+              id={`${fieldId}-ability-enabled`}
               checked={currentAbilityEnabled}
-              onCheckedChange={setAbilityEnabled}
+              onCheckedChange={(checked) => setAbilityEnabled(checked === true)}
             />
           </div>
         </div>
-        <div>
-          <Badge className="w-18 py-1 mb-1">アイテム</Badge>
-          <Select
-            onValueChange={(value) => setItem(value)}
-            defaultValue={factroyPokemon.item}
-            value={currentItem}
-          >
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="アイテムを選択" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>アイテム</SelectLabel>
-                {items.map((item, i) => (
-                  <SelectItem key={i} value={item!}>
-                    {item}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
+        <Select onValueChange={setAbility} value={currentAbility}>
+          <SelectTrigger id={`${fieldId}-ability`} className="w-full">
+            <SelectValue placeholder="特性を選択" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>特性</SelectLabel>
+              {abilities.map((ability) => (
+                <SelectItem key={ability} value={ability}>
+                  {ability}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </div>
 
-      <div className="flex items-center gap-2 w-full">
-        <Badge className="w-18 h-9">ステータス</Badge>
-        <div className="border box-shadow p-2 rounded-md w-full">
-          {status.hp}-{status.attack}-{status.defense}-{status.spAttack}-
-          {status.spDefense}-{status.speed}
-        </div>
+      <div className="space-y-1.5">
+        <Label
+          htmlFor={`${fieldId}-item`}
+          className="text-xs text-muted-foreground"
+        >
+          持ち物
+        </Label>
+        <Select onValueChange={setItem} value={currentItem}>
+          <SelectTrigger id={`${fieldId}-item`} className="w-full">
+            <SelectValue placeholder="持ち物を選択" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>持ち物</SelectLabel>
+              {items.map((item) => (
+                <SelectItem key={item} value={item}>
+                  {item}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </div>
     </div>
   );

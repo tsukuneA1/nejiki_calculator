@@ -30,39 +30,41 @@ const kanit = Kanit({
 });
 export const MainHeader = () => {
   return (
-    <header className="font-bold text-4xl flex items-center border-b-2 border-gray-200 py-4 px-4 gap-4 justify-between px-6">
-      <Link href="/" className="flex items-center">
-        <h1 className={`${kanit.className} text-xl sm:text-2xl `}>
-          BattleFactory Calculator
-        </h1>
-        <span className="text-zinc-400 ml-2 text-lg">β</span>
-      </Link>
-      <ul className="items-center gap-4 hidden sm:flex">
-        {MENU_ITEMS.map((item) => (
-          <li key={item.title} className="inline-block ml-4">
-            <Link
-              href={item.url}
-              className="flex items-center text-sm text-gray-600 hover:text-gray-900 gap-2"
+    <header className="border-b-2 border-gray-200">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4 font-bold sm:px-6">
+        <Link href="/" className="flex items-center">
+          <h1 className={`${kanit.className} text-xl sm:text-2xl`}>
+            BattleFactory Calculator
+          </h1>
+          <span className="ml-2 text-lg text-zinc-400">β</span>
+        </Link>
+        <ul className="hidden items-center gap-8 sm:flex">
+          {MENU_ITEMS.map((item) => (
+            <li key={item.title}>
+              <Link
+                href={item.url}
+                className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900"
+              >
+                <item.icon />
+                <span>{item.title}</span>
+              </Link>
+            </li>
+          ))}
+          <li>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSc2CCe5aTpxMj_tg1Yk5N0l7K9p2bKot0l0-j21N1Q5akNL8A/viewform?usp=dialog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900"
             >
-              <item.icon />
-              <span>{item.title}</span>
-            </Link>
+              問い合わせフォーム
+            </a>
           </li>
-        ))}
-        <li className="inline-block ml-4">
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSc2CCe5aTpxMj_tg1Yk5N0l7K9p2bKot0l0-j21N1Q5akNL8A/viewform?usp=dialog"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center text-sm text-gray-600 hover:text-gray-900 gap-2"
-          >
-            問い合わせフォーム
-          </a>
-        </li>
-      </ul>
-      <SidebarTrigger className="cursor-pointer sm:hidden">
-        <SolarHamburgerMenuLinear />
-      </SidebarTrigger>
+        </ul>
+        <SidebarTrigger className="cursor-pointer sm:hidden">
+          <SolarHamburgerMenuLinear />
+        </SidebarTrigger>
+      </div>
     </header>
   );
 };

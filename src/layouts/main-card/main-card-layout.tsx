@@ -8,15 +8,11 @@ export const MainCardLayout = ({
   content: React.ReactNode;
 }) => {
   return (
-    <Card className={"py-0 gap-0 w-full md:w-lg"}>
-      <div
-        className={
-          "flex items-center rounded-t-lg bg-primary text-primary-foreground text-white"
-        }
-      >
+    <Card className="w-full gap-0 py-0 md:w-lg">
+      <div className="flex items-center justify-between px-4 pt-4 text-sm font-bold text-zinc-500 dark:text-zinc-400">
         {header}
       </div>
-      <CardContent className="p-4 space-y-4">{content}</CardContent>
+      <CardContent className="space-y-4 p-4">{content}</CardContent>
     </Card>
   );
 };

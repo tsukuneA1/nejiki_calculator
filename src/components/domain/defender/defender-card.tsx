@@ -1,6 +1,7 @@
 import { AutoComplete } from "@/components/general/auto-complete";
 import { PokemonDescription } from "@/components/general/pokemon-description";
 import { Rank } from "@/components/general/rank";
+import { TypeBadge } from "@/components/general/type-badge";
 import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
@@ -16,15 +17,13 @@ import {
 import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { Avatar } from "@radix-ui/react-avatar";
-import { ShieldPlus } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { DefenderReserve } from "./defender-reserve";
 
 export const DefenderCard = ({
   factoryPokemons,
 }: { factoryPokemons: FactoryPokemon[] }) => {
   const defender = useSelector((state: RootState) => state.defender);
-  const pokemon = defender.factoryPokemon!;
+  const pokemon = defender.factoryPokemon;
   const settings = useSelector((state: RootState) => state.settings);
   const dispatch = useDispatch();
 
@@ -32,28 +31,33 @@ export const DefenderCard = ({
     dispatch(setDefender({ pokemon: pokemon, iv: 4 * (settings.times - 1) }));
   };
 
+  if (!pokemon) {
+    return null;
+  }
+
   const data = pokemon.pokemon;
   return (
     <MainCardLayout
       header={
         <>
-          <ShieldPlus className="w-7 h-7 mx-2" />
-          <h1 className="text-2xl font-bold ml-3 my-4">Defender</h1>
+          <h2>防御側</h2>
+          <div className="flex gap-1">
+            <TypeBadge type={data.type1} />
+            {data.type2 && <TypeBadge type={data.type2} />}
+          </div>
         </>
       }
       content={
         <>
-          <DefenderReserve factoryPokemons={factoryPokemons} />
-
-          <div className="flex gap-2 items-center border rounded-lg px-2 py-2">
-            <Avatar>
-              <AvatarImage
-                src={data.imageSrc}
-                className="w-10 h-10 md:w-15 md:h-15 border-1 border-gray-300 rounded-lg"
-              />
-              <AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
-            </Avatar>
-            <div>
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2">
+              <Avatar>
+                <AvatarImage
+                  src={data.imageSrc}
+                  className="h-10 w-10 rounded-lg md:h-15 md:w-15"
+                />
+                <AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
+              </Avatar>
               <AutoComplete
                 setPokemon={handlePokemonChange}
                 level={settings.level}
@@ -62,10 +66,11 @@ export const DefenderCard = ({
                 factoryPokemons={factoryPokemons}
                 trigger={
                   <Button
-                    variant="ghost"
-                    className="w-[150px] justify-start text-lg border-1 border-gray-300"
+                    id="defender-pokemon"
+                    variant="outline"
+                    className="h-10 min-w-0 flex-1 justify-start px-3 text-base font-normal"
                   >
-                    {pokemon ? <>{pokemon.pokemon.name}</> : <>Set Pokemon</>}
+                    {pokemon ? pokemon.pokemon.name : "ポケモンを選択"}
                   </Button>
                 }
               />
@@ -91,14 +96,14 @@ export const DefenderCard = ({
           />
           <Rank
             rank={defender.bRank}
-            badgeName="防御ランク"
+            label="防御ランク"
             setRank={(rank: number) => {
               dispatch(setBRank({ rank: rank }));
             }}
           />
           <Rank
             rank={defender.dRank}
-            badgeName="特防ランク"
+            label="特防ランク"
             setRank={(rank: number) => {
               dispatch(setDRank({ rank: rank }));
             }}
