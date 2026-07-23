@@ -75,7 +75,7 @@ export const PokemonDescription = ({
           value={currentIv.toString()}
         >
           <SelectTrigger id={`${fieldId}-iv`} className="w-full">
-            <SelectValue />
+            <SelectValue>{currentIv.toString()}</SelectValue>
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
