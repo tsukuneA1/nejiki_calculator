@@ -1,9 +1,9 @@
 import { AutoComplete } from "@/components/general/auto-complete";
 import { PokemonDescription } from "@/components/general/pokemon-description";
 import { Rank } from "@/components/general/rank";
+import { TypeBadge } from "@/components/general/type-badge";
 import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import {
   setBRank,
@@ -17,9 +17,7 @@ import {
 import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { Avatar } from "@radix-ui/react-avatar";
-import { ShieldPlus } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { DefenderReserve } from "./defender-reserve";
 
 export const DefenderCard = ({
   factoryPokemons,
@@ -42,21 +40,16 @@ export const DefenderCard = ({
     <MainCardLayout
       header={
         <>
-          <ShieldPlus className="w-7 h-7 mx-2" />
-          <h1 className="text-2xl font-bold ml-3 my-4">Defender</h1>
+          <h2>Defender</h2>
+          <div className="flex gap-1">
+            <TypeBadge type={data.type1} />
+            {data.type2 && <TypeBadge type={data.type2} />}
+          </div>
         </>
       }
       content={
         <>
-          <DefenderReserve factoryPokemons={factoryPokemons} />
-
           <div className="space-y-1.5">
-            <Label
-              htmlFor="defender-pokemon"
-              className="text-xs text-muted-foreground"
-            >
-              ポケモン
-            </Label>
             <div className="flex items-center gap-2">
               <Avatar>
                 <AvatarImage

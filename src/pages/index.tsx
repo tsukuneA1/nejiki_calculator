@@ -1,5 +1,6 @@
 import { Attackers } from "@/components/domain/attacker/attackers";
 import { DefenderCard } from "@/components/domain/defender/defender-card";
+import { DefenderReserve } from "@/components/domain/defender/defender-reserve";
 import { EnvCard } from "@/components/domain/env/env-card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -14,12 +15,12 @@ import {
 } from "@/components/ui/select";
 import { findItems, timesItems } from "@/constants/ivs";
 import { MainLayout } from "@/layouts/main/main-layout";
+import { getFactoryPokemons } from "@/lib/queries";
 import { clearAttacker, setAttacker } from "@/store/slices/attackerSlice";
 import { setDefender } from "@/store/slices/defenderSlice";
 import { setIsNejiki, setLevel, setTimes } from "@/store/slices/settingsSlice";
 import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
-import { getFactoryPokemons } from "@/lib/queries";
 import { ArrowLeftRight, ArrowUpDown } from "lucide-react";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
@@ -50,16 +51,22 @@ export default function Home({ factoryPokemons }: HomeProps) {
   };
 
   const handleReverse = () => {
+    const attackerPokemon = attackers[0]?.factoryPokemon;
+    const defenderPokemon = defender.factoryPokemon;
+    if (!attackerPokemon || !defenderPokemon) {
+      return;
+    }
+
     dispatch(
       setAttacker({
-        attackerState: { pokemon: defender.factoryPokemon!, pos: 0 },
+        attackerState: { pokemon: defenderPokemon, pos: 0 },
         iv: defender.iv,
       }),
     );
     dispatch(clearAttacker());
     dispatch(
       setDefender({
-        pokemon: attackers[0].factoryPokemon!,
+        pokemon: attackerPokemon,
         iv: attackers[0].iv,
       }),
     );
@@ -129,6 +136,7 @@ export default function Home({ factoryPokemons }: HomeProps) {
       <MainLayout isTopPage={true}>
         <script
           type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Static JSON-LD contains no user input.
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
@@ -192,7 +200,7 @@ export default function Home({ factoryPokemons }: HomeProps) {
               <SelectGroup>
                 <SelectLabel>周回回数</SelectLabel>
                 {timesItems.map((timesItem, i) => (
-                  <SelectItem key={i} value={`${i}`}>
+                  <SelectItem key={timesItem} value={`${i}`}>
                     {timesItem}
                   </SelectItem>
                 ))}
@@ -217,6 +225,7 @@ export default function Home({ factoryPokemons }: HomeProps) {
           </div>
 
           <div className="flex flex-col gap-2 xl:mt-0">
+            <DefenderReserve factoryPokemons={factoryPokemons} />
             <DefenderCard factoryPokemons={factoryPokemons} />
             <EnvCard />
           </div>

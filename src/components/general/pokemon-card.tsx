@@ -96,12 +96,6 @@ export const PokemonCard = ({
       className={`${pos !== 0 && clsx(CardTypeStyles[0].cardStyle, "bg-white rounded-lg p-4")}`}
     >
       <div className="mb-4 space-y-1.5">
-        <Label
-          htmlFor={`attacker-pokemon-${pos}`}
-          className="text-xs text-muted-foreground"
-        >
-          ポケモン
-        </Label>
         <div className="flex items-center gap-2">
           <Avatar>
             <AvatarImage

@@ -7,7 +7,6 @@ import {
   setWeather,
 } from "@/store/slices/envSlice";
 import type { RootState } from "@/store/store";
-import { CloudSunRain } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { Checkbox } from "../../ui/checkbox";
 import { Label } from "../../ui/label";
@@ -32,12 +31,7 @@ export const EnvCard = () => {
   const weathers = ["なし", "にほんばれ", "あめ", "すなあらし", "あられ"];
   return (
     <MainCardLayout
-      header={
-        <>
-          <CloudSunRain className="w-7 h-7 mx-2" />
-          <h1 className="text-2xl font-bold ml-3 my-4">Environment</h1>
-        </>
-      }
+      header={<h2>Environment</h2>}
       content={
         <div className="grid gap-4 sm:grid-cols-2">
           <Field
