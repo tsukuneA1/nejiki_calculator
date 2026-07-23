@@ -4,6 +4,7 @@ import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { useId } from "react";
 import { useSelector } from "react-redux";
+import { Checkbox } from "../ui/checkbox";
 import { Label } from "../ui/label";
 import {
   Select,
@@ -14,7 +15,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { Switch } from "../ui/switch";
 
 type PokemonDescriptionProps = {
   factroyPokemon: FactoryPokemon;
@@ -95,17 +95,17 @@ export const PokemonDescription = ({
             特性
           </Label>
           <div className="flex items-center gap-1">
-            <Switch
-              id={`${fieldId}-ability-enabled`}
-              checked={currentAbilityEnabled}
-              onCheckedChange={setAbilityEnabled}
-            />
             <Label
               htmlFor={`${fieldId}-ability-enabled`}
               className="text-xs font-normal text-muted-foreground"
             >
               発動
             </Label>
+            <Checkbox
+              id={`${fieldId}-ability-enabled`}
+              checked={currentAbilityEnabled}
+              onCheckedChange={(checked) => setAbilityEnabled(checked === true)}
+            />
           </div>
         </div>
         <Select onValueChange={setAbility} value={currentAbility}>
