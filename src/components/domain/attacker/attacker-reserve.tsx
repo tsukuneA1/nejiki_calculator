@@ -20,7 +20,7 @@ export const AttackerReserve = ({
   const handleAddSpare = (pokemon: FactoryPokemon) => {
     if (
       !spares.includes(pokemon) &&
-      spares.length < 6 &&
+      spares.length < 5 &&
       pokemon !== attacker.factoryPokemon
     ) {
       setSpares([...spares, pokemon]);
@@ -82,7 +82,7 @@ export const AttackerReserve = ({
             </button>
           </div>
         ))}
-        {spares.length < 6 && (
+        {spares.length < 5 && (
           <AutoComplete
             trigger={
               <Button
