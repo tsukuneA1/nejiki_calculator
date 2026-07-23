@@ -3,6 +3,7 @@ import { PokemonDescription } from "@/components/general/pokemon-description";
 import { Rank } from "@/components/general/rank";
 import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import {
   setBRank,
@@ -24,13 +25,17 @@ export const DefenderCard = ({
   factoryPokemons,
 }: { factoryPokemons: FactoryPokemon[] }) => {
   const defender = useSelector((state: RootState) => state.defender);
-  const pokemon = defender.factoryPokemon!;
+  const pokemon = defender.factoryPokemon;
   const settings = useSelector((state: RootState) => state.settings);
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
     dispatch(setDefender({ pokemon: pokemon, iv: 4 * (settings.times - 1) }));
   };
+
+  if (!pokemon) {
+    return null;
+  }
 
   const data = pokemon.pokemon;
   return (
@@ -45,15 +50,21 @@ export const DefenderCard = ({
         <>
           <DefenderReserve factoryPokemons={factoryPokemons} />
 
-          <div className="flex gap-2 items-center border rounded-lg px-2 py-2">
-            <Avatar>
-              <AvatarImage
-                src={data.imageSrc}
-                className="w-10 h-10 md:w-15 md:h-15 border-1 border-gray-300 rounded-lg"
-              />
-              <AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
-            </Avatar>
-            <div>
+          <div className="space-y-1.5">
+            <Label
+              htmlFor="defender-pokemon"
+              className="text-xs text-muted-foreground"
+            >
+              ポケモン
+            </Label>
+            <div className="flex items-center gap-2">
+              <Avatar>
+                <AvatarImage
+                  src={data.imageSrc}
+                  className="h-10 w-10 rounded-lg border border-gray-300 md:h-15 md:w-15"
+                />
+                <AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
+              </Avatar>
               <AutoComplete
                 setPokemon={handlePokemonChange}
                 level={settings.level}
@@ -62,10 +73,11 @@ export const DefenderCard = ({
                 factoryPokemons={factoryPokemons}
                 trigger={
                   <Button
-                    variant="ghost"
-                    className="w-[150px] justify-start text-lg border-1 border-gray-300"
+                    id="defender-pokemon"
+                    variant="outline"
+                    className="h-10 min-w-0 flex-1 justify-start px-3 text-base font-normal"
                   >
-                    {pokemon ? <>{pokemon.pokemon.name}</> : <>Set Pokemon</>}
+                    {pokemon ? pokemon.pokemon.name : "ポケモンを選択"}
                   </Button>
                 }
               />
@@ -91,14 +103,14 @@ export const DefenderCard = ({
           />
           <Rank
             rank={defender.bRank}
-            badgeName="防御ランク"
+            label="防御ランク"
             setRank={(rank: number) => {
               dispatch(setBRank({ rank: rank }));
             }}
           />
           <Rank
             rank={defender.dRank}
-            badgeName="特防ランク"
+            label="特防ランク"
             setRank={(rank: number) => {
               dispatch(setDRank({ rank: rank }));
             }}

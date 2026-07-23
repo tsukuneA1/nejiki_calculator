@@ -21,9 +21,9 @@ import { FamiconsChevronCollapseOutline } from "../icons/collapse";
 import { MaterialSymbolsDeleteOutline } from "../icons/delete";
 import { IonChevronExpandOutline } from "../icons/expand";
 import { AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
+import { Label } from "../ui/label";
 import { AutoComplete } from "./auto-complete";
 import { MoveCard } from "./move-card";
 import { PokemonDescription } from "./pokemon-description";
@@ -41,7 +41,7 @@ export const PokemonCard = ({
   factoryPokemons,
 }: PokemonCardProps) => {
   const attacker = useSelector((state: RootState) => state.attacker[pos]);
-  const pokemon = attacker.factoryPokemon!;
+  const pokemon = attacker.factoryPokemon;
   const move = useSelector((state: RootState) => state.attacker[pos].move);
   const isCriticalHit = useSelector(
     (state: RootState) => state.attacker[pos].criticalHit,
@@ -85,14 +85,24 @@ export const PokemonCard = ({
     setIsExpanded(!isExpanded);
   };
 
+  if (!pokemon) {
+    return null;
+  }
+
   const data = pokemon.pokemon;
 
   return (
     <div
       className={`${pos !== 0 && clsx(CardTypeStyles[0].cardStyle, "bg-white rounded-lg p-4")}`}
     >
-      <div className="flex items-center justify-between w-full mb-2">
-        <div className="flex items-center justify-between gap-2 p-2 border rounded-lg w-full">
+      <div className="mb-4 flex w-full items-end justify-between gap-2">
+        <div className="min-w-0 flex-1 space-y-1.5">
+          <Label
+            htmlFor={`attacker-pokemon-${pos}`}
+            className="text-xs text-muted-foreground"
+          >
+            ポケモン
+          </Label>
           <div className="flex items-center gap-2">
             <div className="rounded-lg flex items-center justify-center">
               <Avatar>
@@ -111,32 +121,48 @@ export const PokemonCard = ({
               factoryPokemons={factoryPokemons}
               trigger={
                 <Button
-                  variant="ghost"
-                  className="w-[150px] justify-start text-lg border-1 border-gray-300 w-"
+                  id={`attacker-pokemon-${pos}`}
+                  variant="outline"
+                  className="h-10 min-w-0 flex-1 justify-start px-3 text-base font-normal"
                 >
-                  {pokemon ? <>{pokemon.pokemon.name}</> : <>Set Pokemon</>}
+                  {pokemon ? pokemon.pokemon.name : "ポケモンを選択"}
                 </Button>
               }
             />
           </div>
-          <div className="flex items-center gap-2">
-            <Button size="icon" onClick={handleDelete}>
-              <MaterialSymbolsDeleteOutline />
+        </div>
+        <div className="flex items-center gap-1">
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label="攻撃ポケモンを削除"
+            onClick={handleDelete}
+          >
+            <MaterialSymbolsDeleteOutline />
+          </Button>
+          {isExpanded ? (
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="攻撃ポケモンの設定を閉じる"
+              onClick={handleExpand}
+            >
+              <FamiconsChevronCollapseOutline />
             </Button>
-            {isExpanded ? (
-              <Button size="icon" onClick={handleExpand}>
-                <FamiconsChevronCollapseOutline />
-              </Button>
-            ) : (
-              <Button size="icon" onClick={handleExpand}>
-                <IonChevronExpandOutline />
-              </Button>
-            )}
-          </div>
+          ) : (
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="攻撃ポケモンの設定を開く"
+              onClick={handleExpand}
+            >
+              <IonChevronExpandOutline />
+            </Button>
+          )}
         </div>
       </div>
       {isExpanded && (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4">
           <PokemonDescription
             factroyPokemon={pokemon}
             setAbility={handleAbilityChange}
@@ -150,66 +176,66 @@ export const PokemonCard = ({
           />
           <Rank
             rank={attacker.rank}
-            badgeName="ランク補正"
+            label="ランク補正"
             setRank={handleRankChange}
           />
-          <Badge className="w-full h-9">技</Badge>
-          <div className="sm:grid sm:grid-cols-2 gap-2 ">
-            <MoveCard
-              move={pokemon.moves[0]}
-              handleMoveChange={handleMoveChange}
-              isSelected={move === pokemon.moves[0]}
-            />
-            <MoveCard
-              move={pokemon.moves[1]}
-              handleMoveChange={handleMoveChange}
-              isSelected={move === pokemon.moves[1]}
-            />
-            <MoveCard
-              move={pokemon.moves[2]}
-              handleMoveChange={handleMoveChange}
-              isSelected={move === pokemon.moves[2]}
-            />
-            <MoveCard
-              move={pokemon.moves[3]}
-              handleMoveChange={handleMoveChange}
-              isSelected={move === pokemon.moves[3]}
-            />
+          <div className="space-y-1.5">
+            <Label className="text-xs text-muted-foreground">技</Label>
+            <div className="grid gap-2 sm:grid-cols-2">
+              <MoveCard
+                move={pokemon.moves[0]}
+                handleMoveChange={handleMoveChange}
+                isSelected={move === pokemon.moves[0]}
+              />
+              <MoveCard
+                move={pokemon.moves[1]}
+                handleMoveChange={handleMoveChange}
+                isSelected={move === pokemon.moves[1]}
+              />
+              <MoveCard
+                move={pokemon.moves[2]}
+                handleMoveChange={handleMoveChange}
+                isSelected={move === pokemon.moves[2]}
+              />
+              <MoveCard
+                move={pokemon.moves[3]}
+                handleMoveChange={handleMoveChange}
+                isSelected={move === pokemon.moves[3]}
+              />
+            </div>
           </div>
-          <div>
-            <div className="flex gap-2">
-              <div className="flex items-center gap-2">
-                <Checkbox
-                  id="terms"
-                  checked={isCriticalHit}
-                  onClick={() =>
-                    dispatch(
-                      setCriticalHit({ isCritical: !isCriticalHit, pos }),
-                    )
-                  }
-                  className="w-5 h-5 border-2"
-                />
-                <label
-                  htmlFor="terms"
-                  className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  急所
-                </label>
-                <Checkbox
-                  id="terms"
-                  checked={isBurned}
-                  onClick={() =>
-                    dispatch(setBurned({ isBurned: !isBurned, pos }))
-                  }
-                  className="w-5 h-5 border-2"
-                />
-                <label
-                  htmlFor="terms"
-                  className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  やけど
-                </label>
-              </div>
+          <div className="flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-2">
+              <Checkbox
+                id={`critical-${pos}`}
+                checked={isCriticalHit}
+                onCheckedChange={() =>
+                  dispatch(setCriticalHit({ isCritical: !isCriticalHit, pos }))
+                }
+                className="w-5 h-5 border-2"
+              />
+              <label
+                htmlFor={`critical-${pos}`}
+                className="text-sm font-medium leading-none"
+              >
+                急所
+              </label>
+            </div>
+            <div className="flex items-center gap-2">
+              <Checkbox
+                id={`burned-${pos}`}
+                checked={isBurned}
+                onCheckedChange={() =>
+                  dispatch(setBurned({ isBurned: !isBurned, pos }))
+                }
+                className="w-5 h-5 border-2"
+              />
+              <label
+                htmlFor={`burned-${pos}`}
+                className="text-sm font-medium leading-none"
+              >
+                やけど
+              </label>
             </div>
           </div>
         </div>

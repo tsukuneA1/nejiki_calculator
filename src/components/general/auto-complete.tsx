@@ -49,10 +49,11 @@ export const AutoComplete = ({
   if (isDesktop) {
     return (
       <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild className="h-15 w-36">
-          {trigger}
-        </PopoverTrigger>
-        <PopoverContent className="w-[200px] p-0" align="start">
+        <PopoverTrigger asChild>{trigger}</PopoverTrigger>
+        <PopoverContent
+          className="w-[var(--radix-popover-trigger-width)] min-w-60 p-0"
+          align="start"
+        >
           <StatusList
             setOpen={setOpen}
             setSelectedStatus={handleSelect}
@@ -65,9 +66,7 @@ export const AutoComplete = ({
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild className="h-10 w-36">
-        {trigger}
-      </DrawerTrigger>
+      <DrawerTrigger asChild>{trigger}</DrawerTrigger>
       <DrawerContent>
         <div className="mt-4 border-t">
           <StatusList
@@ -92,10 +91,10 @@ function StatusList({
 }) {
   return (
     <Command>
-      <CommandInput placeholder="Search pokemon..." />
+      <CommandInput placeholder="ポケモン名・持ち物で検索" />
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Pokemons">
+        <CommandEmpty>該当するポケモンがいません</CommandEmpty>
+        <CommandGroup heading="ポケモン">
           {factoryPokemons.map((factoryPokemon) => (
             <CommandItem
               key={factoryPokemon.id}
