@@ -1,20 +1,10 @@
 import { filterFactoryPokemons } from "@/components/general/auto-complete";
 import { TypeBadge } from "@/components/general/type-badge";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Popover } from "@/components/ui/popover";
 import { SelectItem } from "@/components/ui/select";
 import { SelectLabel } from "@/components/ui/select";
 import { SelectGroup } from "@/components/ui/select";
@@ -25,25 +15,22 @@ import { findItems, timesItems } from "@/constants/ivs";
 import { calculateStatus } from "@/functions/calculate_status";
 import { toggleKana } from "@/functions/convert_hiragana_katakana";
 import { MainLayout } from "@/layouts/main/main-layout";
-import { setAttacker } from "@/store/slices/attackerSlice";
-import { setDefender } from "@/store/slices/defenderSlice";
+import { getAbilities, getFactoryPokemons, getItems } from "@/lib/queries";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
-import type { Move } from "@/types/move";
-import { getFactoryPokemons, getAbilities, getItems } from "@/lib/queries";
-import { Filter, Search, Shield, Sword } from "lucide-react";
+import { ChevronRight, Filter, Search } from "lucide-react";
 import type { GetStaticProps } from "next";
-import { sendGAEvent } from "@next/third-parties/google";
 import Head from "next/head";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import Link from "next/link";
 import { useMemo, useState } from "react";
-import { useDispatch } from "react-redux";
 
 interface PokeSearchProps {
   factoryPokemons: FactoryPokemon[];
   abilities: string[];
   items: string[];
 }
+
+const STAT_LABELS = ["HP", "攻撃", "防御", "特攻", "特防", "素早さ"] as const;
 
 export const getStaticProps: GetStaticProps<PokeSearchProps> = async () => {
   const factoryPokemons = await getFactoryPokemons();
@@ -221,6 +208,7 @@ export default function PokeSearch({
       <MainLayout>
         <script
           type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: This is static JSON-LD metadata.
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
@@ -243,7 +231,7 @@ export default function PokeSearch({
             }),
           }}
         />
-        <div className="min-h-screen bg-inherit max-w-6xl flex flex-col gap-4">
+        <div className="flex min-h-screen w-full max-w-[1600px] flex-col gap-4 bg-inherit">
           <h1 className="sr-only">
             金ネジキ ポケモン一覧 バトルファクトリー検索ツール
           </h1>
@@ -288,7 +276,7 @@ export default function PokeSearch({
                       <SelectGroup>
                         <SelectLabel>周回回数</SelectLabel>
                         {timesItems.map((timesItem, i) => (
-                          <SelectItem key={i} value={i.toString()}>
+                          <SelectItem key={timesItem} value={i.toString()}>
                             {timesItem}
                           </SelectItem>
                         ))}
@@ -417,17 +405,50 @@ export default function PokeSearch({
               </CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 p-4">
+              <div className="divide-y lg:hidden">
                 {filteredSortedFactoryPokemons.map((pokemon) => (
-                  <div className="border rounded-lg" key={pokemon.id}>
-                    <ListPokemonCard
-                      key={pokemon.id}
-                      pokemon={pokemon}
-                      level={level}
-                      times={times}
-                    />
-                  </div>
+                  <PokemonListRow
+                    key={pokemon.id}
+                    pokemon={pokemon}
+                    level={level}
+                    times={times}
+                  />
                 ))}
+              </div>
+              <div className="hidden overflow-x-auto lg:block">
+                <table className="w-full min-w-[1500px] border-collapse text-sm">
+                  <thead className="sticky top-0 z-10 bg-slate-100 text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                    <tr className="border-b">
+                      <th className="sticky left-0 z-20 min-w-44 bg-slate-100 px-3 py-3 text-left dark:bg-slate-800">
+                        ポケモン
+                      </th>
+                      <th className="min-w-32 px-3 py-3 text-left">持ち物</th>
+                      <th className="min-w-28 px-3 py-3 text-left">タイプ</th>
+                      {STAT_LABELS.map((label) => (
+                        <th key={label} className="w-16 px-2 py-3 text-right">
+                          {label}
+                        </th>
+                      ))}
+                      <th className="min-w-32 px-3 py-3 text-left">特性</th>
+                      {[1, 2, 3, 4].map((slot) => (
+                        <th key={slot} className="min-w-32 px-3 py-3 text-left">
+                          技{slot}
+                        </th>
+                      ))}
+                      <th className="w-20 px-3 py-3 text-right">詳細</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y">
+                    {filteredSortedFactoryPokemons.map((pokemon) => (
+                      <PokemonTableRow
+                        key={pokemon.id}
+                        pokemon={pokemon}
+                        level={level}
+                        times={times}
+                      />
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </CardContent>
           </Card>
@@ -437,50 +458,7 @@ export default function PokeSearch({
   );
 }
 
-const MoveItem = ({ move, index }: { move: Move; index: number }) => {
-  return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <button
-          type="button"
-          className="whitespace-nowrap hover:underline"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {move.name}
-          {index < 3 && " / "}
-        </button>
-      </PopoverTrigger>
-      <PopoverContent className="w-60" onClick={(e) => e.stopPropagation()}>
-        <div className="flex gap-2 items-center">
-          <div className="w-16">技名</div>
-          <div>: {move.name}</div>
-        </div>
-        <div className="flex gap-2 items-center">
-          <div className="w-16">タイプ</div>
-          <div>: {move.type}</div>
-        </div>
-        <div className="flex gap-2 items-center">
-          <div className="w-16">威力</div>
-          <div>: {move.power}</div>
-        </div>
-        <div className="flex gap-2 items-center">
-          <div className="w-16">命中率</div>
-          <div>: {move.accuracy}</div>
-        </div>
-        <div className="flex gap-2 items-center">
-          <div className="w-16">PP</div>
-          <div>: {move.pp}</div>
-        </div>
-        <div className="flex gap-2 items-center">
-          <div className="w-16">分類</div>
-          <div>: {move.classification}</div>
-        </div>
-      </PopoverContent>
-    </Popover>
-  );
-};
-
-export const ListPokemonCard = ({
+const PokemonTableRow = ({
   pokemon,
   level,
   times,
@@ -489,163 +467,149 @@ export const ListPokemonCard = ({
   level: number;
   times: number;
 }) => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const dispatch = useDispatch();
-  const router = useRouter();
   const ivBonus = 4 * (times - 1);
   const status = calculateStatus(pokemon, level, ivBonus);
-  const statusSummary = [
-    `${status.hp}(${pokemon.hp})`,
-    `${status.attack}(${pokemon.attack})`,
-    `${status.defense}(${pokemon.defense})`,
-    `${status.spAttack}(${pokemon.spAttack})`,
-    `${status.spDefense}(${pokemon.spDefense})`,
-    `${status.speed}(${pokemon.speed})`,
-  ].join("-");
-
-  const handleSetAsAttacker = () => {
-    dispatch(
-      setAttacker({
-        attackerState: { pokemon: pokemon, pos: 0 },
-        iv: ivBonus,
-      }),
-    );
-    sendGAEvent("event", "set_pokemon_from_search_page", { role: "attacker" });
-    setIsDialogOpen(false);
-    router.push("/");
-  };
-
-  const handleSetAsDefender = () => {
-    dispatch(
-      setDefender({
-        pokemon: pokemon,
-        iv: ivBonus,
-      }),
-    );
-    sendGAEvent("event", "set_pokemon_from_search_page", { role: "defender" });
-    setIsDialogOpen(false);
-    router.push("/");
-  };
+  const statusValues = [
+    { label: "HP", actual: status.hp, effort: pokemon.hp },
+    { label: "攻撃", actual: status.attack, effort: pokemon.attack },
+    { label: "防御", actual: status.defense, effort: pokemon.defense },
+    { label: "特攻", actual: status.spAttack, effort: pokemon.spAttack },
+    { label: "特防", actual: status.spDefense, effort: pokemon.spDefense },
+    { label: "素早さ", actual: status.speed, effort: pokemon.speed },
+  ];
+  const detailHref = `/pokemon/${pokemon.pokemon.id}#set-${pokemon.id}`;
 
   return (
-    <>
-      <div
-        className="w-full text-left p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
-        onClick={() => setIsDialogOpen(true)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            setIsDialogOpen(true);
-          }
-        }}
-        role="button"
-        tabIndex={0}
-      >
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-14 h-14 bg-slate-100 dark:bg-slate-800/30 rounded-lg flex items-center justify-center relative">
+    <tr className="transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50">
+      <th className="sticky left-0 z-[1] bg-white px-3 py-2 text-left dark:bg-slate-900">
+        <Link
+          href={detailHref}
+          className="flex items-center gap-2 hover:underline"
+        >
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-slate-100 dark:bg-slate-800">
             <Image
               src={pokemon.pokemon.imageSrc}
               alt={pokemon.pokemon.name}
-              width={48}
-              height={48}
-              className="w-12 h-12"
+              width={36}
+              height={36}
+              className="size-9 object-contain"
               loading="lazy"
               unoptimized
             />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold flex items-center gap-2">
+          </span>
+          <span>
+            <span className="block font-semibold">{pokemon.pokemon.name}</span>
+          </span>
+        </Link>
+      </th>
+      <td className="whitespace-nowrap px-3 py-2">{pokemon.item}</td>
+      <td className="px-3 py-2">
+        <div className="flex flex-col items-start gap-1">
+          <TypeBadge type={pokemon.pokemon.type1} />
+          {pokemon.pokemon.type2 && <TypeBadge type={pokemon.pokemon.type2} />}
+        </div>
+      </td>
+      {statusValues.map(({ label, actual, effort }) => (
+        <td key={label} className="px-2 py-2 text-right font-mono tabular-nums">
+          <span className="block font-semibold">{actual}</span>
+          <span className="block text-[10px] text-slate-500">({effort})</span>
+        </td>
+      ))}
+      <td className="px-3 py-2 text-xs">
+        <span className="block">{pokemon.pokemon.ability1}</span>
+        {pokemon.pokemon.ability2 && (
+          <span className="block text-slate-500">
+            {pokemon.pokemon.ability2}
+          </span>
+        )}
+      </td>
+      {[0, 1, 2, 3].map((slot) => (
+        <td key={slot} className="px-3 py-2 text-xs">
+          {pokemon.moves[slot]?.name ?? "—"}
+        </td>
+      ))}
+      <td className="px-3 py-2 text-right">
+        <Link
+          href={detailHref}
+          aria-label={`${pokemon.pokemon.name}の${pokemon.item}型を詳しく見る`}
+          className="inline-flex items-center gap-1 whitespace-nowrap font-medium text-blue-700 hover:underline dark:text-blue-300"
+        >
+          詳細
+          <ChevronRight className="size-3" />
+        </Link>
+      </td>
+    </tr>
+  );
+};
+
+const PokemonListRow = ({
+  pokemon,
+  level,
+  times,
+}: {
+  pokemon: FactoryPokemon;
+  level: number;
+  times: number;
+}) => {
+  const status = calculateStatus(pokemon, level, 4 * (times - 1));
+  const statusValues = [
+    { label: "HP", value: status.hp },
+    { label: "攻撃", value: status.attack },
+    { label: "防御", value: status.defense },
+    { label: "特攻", value: status.spAttack },
+    { label: "特防", value: status.spDefense },
+    { label: "素早さ", value: status.speed },
+  ];
+
+  return (
+    <Link
+      href={`/pokemon/${pokemon.pokemon.id}#set-${pokemon.id}`}
+      className="block p-4 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50"
+    >
+      <div className="flex items-center gap-3">
+        <span className="flex size-14 shrink-0 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800">
+          <Image
+            src={pokemon.pokemon.imageSrc}
+            alt={pokemon.pokemon.name}
+            width={48}
+            height={48}
+            className="size-12 object-contain"
+            loading="lazy"
+            unoptimized
+          />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="flex items-center justify-between gap-2">
+            <span className="truncate font-semibold">
               {pokemon.pokemon.name}
-              <span className="text-sm font-normal text-slate-500">
-                @{pokemon.item}
-              </span>
-            </h3>
-            <div className="flex gap-1 mt-1">
-              {pokemon.pokemon.type1 && (
-                <TypeBadge type={pokemon.pokemon.type1} />
-              )}
-              {pokemon.pokemon.type2 && (
-                <TypeBadge type={pokemon.pokemon.type2} />
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className="grid gap-2 mt-3">
-          <div>
-            <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
-              ステータス
-            </div>
-            <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
-              {statusSummary}
-            </div>
-          </div>
-          <div>
-            <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
-              特性
-            </div>
-            <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded">
-              {pokemon.pokemon.ability1}
-              {pokemon.pokemon.ability2 && `/${pokemon.pokemon.ability2}`}
-            </div>
-          </div>
-          <div>
-            <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
-              技
-            </div>
-            <div className="text-sm bg-slate-100 dark:bg-slate-800 p-2 rounded flex flex-wrap gap-1">
-              {pokemon.moves.map((move, index) => (
-                <MoveItem key={index} move={move} index={index} />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-end gap-1 mt-3 text-xs text-slate-400">
-          <Sword className="h-3 w-3" />
-          <Shield className="h-3 w-3" />
-          <span>タップしてセット</span>
-        </div>
+            </span>
+            <ChevronRight className="size-4 shrink-0 text-slate-400" />
+          </span>
+          <span className="block truncate text-sm text-slate-500">
+            @{pokemon.item}
+          </span>
+          <span className="mt-1 flex gap-1">
+            <TypeBadge type={pokemon.pokemon.type1} />
+            {pokemon.pokemon.type2 && (
+              <TypeBadge type={pokemon.pokemon.type2} />
+            )}
+          </span>
+        </span>
       </div>
-
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">
-              <Image
-                src={pokemon.pokemon.imageSrc}
-                alt={pokemon.pokemon.name}
-                width={32}
-                height={32}
-                className="w-8 h-8"
-                unoptimized
-              />
-              {pokemon.pokemon.name}をセット
-            </DialogTitle>
-            <DialogDescription>
-              ダメージ計算画面で攻撃側または防御側としてセットします
-            </DialogDescription>
-          </DialogHeader>
-          <div className="flex flex-col gap-3 mt-4">
-            <Button
-              onClick={handleSetAsAttacker}
-              className="w-full h-14 text-lg"
-              variant="default"
-            >
-              <Sword className="mr-2 h-5 w-5" />
-              攻撃側にセット
-            </Button>
-            <Button
-              onClick={handleSetAsDefender}
-              className="w-full h-14 text-lg"
-              variant="outline"
-            >
-              <Shield className="mr-2 h-5 w-5" />
-              防御側にセット
-            </Button>
+      <dl className="mt-3 grid grid-cols-6 overflow-hidden rounded-md border text-center">
+        {statusValues.map(({ label, value }) => (
+          <div key={label} className="border-r py-1 last:border-r-0">
+            <dt className="text-[10px] font-semibold text-slate-500">
+              {label}
+            </dt>
+            <dd className="font-mono text-xs font-semibold">{value}</dd>
           </div>
-        </DialogContent>
-      </Dialog>
-    </>
+        ))}
+      </dl>
+      <p className="mt-2 truncate text-xs text-slate-500">
+        {pokemon.pokemon.ability1}
+        {pokemon.pokemon.ability2 && ` / ${pokemon.pokemon.ability2}`}
+      </p>
+    </Link>
   );
 };

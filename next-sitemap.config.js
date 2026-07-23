@@ -1,3 +1,9 @@
+const factoryPokemons = require("./prisma/seed/source/factory-pokemons.json");
+
+const pokemonIds = [
+  ...new Set(factoryPokemons.map(({ pokemon }) => pokemon.id)),
+].sort((a, b) => a - b);
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: "https://nejiki-calculator.com",
@@ -21,6 +27,14 @@ module.exports = {
   changefreq: "weekly",
   priority: 0.8,
   sitemapSize: 5000,
+  exclude: ["/instruction-manual"],
+  additionalPaths: async () =>
+    pokemonIds.map((pokemonId) => ({
+      loc: `/pokemon/${pokemonId}`,
+      changefreq: "monthly",
+      priority: 0.7,
+      lastmod: new Date().toISOString(),
+    })),
   transform: async (config, path) => {
     // ページ別の優先度とメタデータを設定
     if (path === "/") {
@@ -37,15 +51,6 @@ module.exports = {
         loc: path,
         changefreq: "weekly",
         priority: 0.9,
-        lastmod: new Date().toISOString(),
-      };
-    }
-
-    if (path === "/instruction-manual") {
-      return {
-        loc: path,
-        changefreq: "monthly",
-        priority: 0.7,
         lastmod: new Date().toISOString(),
       };
     }
