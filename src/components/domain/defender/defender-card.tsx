@@ -40,7 +40,7 @@ export const DefenderCard = ({
     <MainCardLayout
       header={
         <>
-          <h2>Defender</h2>
+          <h2>防御側</h2>
           <div className="flex gap-1">
             <TypeBadge type={data.type1} />
             {data.type2 && <TypeBadge type={data.type2} />}

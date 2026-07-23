@@ -31,7 +31,7 @@ export const EnvCard = () => {
   const weathers = ["なし", "にほんばれ", "あめ", "すなあらし", "あられ"];
   return (
     <MainCardLayout
-      header={<h2>Environment</h2>}
+      header={<h2>場の状態</h2>}
       content={
         <div className="grid gap-4 sm:grid-cols-2">
           <Field

@@ -28,7 +28,7 @@ export const Attackers = ({
       <MainCardLayout
         header={
           <>
-            <h2>Attacker</h2>
+            <h2>攻撃側</h2>
             {pokemon && (
               <div className="flex gap-1">
                 <TypeBadge type={pokemon.type1} />
