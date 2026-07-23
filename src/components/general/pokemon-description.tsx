@@ -15,7 +15,6 @@ import {
   SelectValue,
 } from "../ui/select";
 import { Switch } from "../ui/switch";
-import { TypeBadge } from "./type-badge";
 
 type PokemonDescriptionProps = {
   factroyPokemon: FactoryPokemon;
@@ -54,14 +53,11 @@ export const PokemonDescription = ({
   return (
     <div className="grid grid-cols-2 gap-x-3 gap-y-4">
       <div className="space-y-1.5">
-        <Label className="text-xs text-muted-foreground">タイプ</Label>
-        <div className="flex h-9 items-center gap-1">
-          <TypeBadge type={factroyPokemon.pokemon.type1} />
-
-          {factroyPokemon.pokemon.type2 && (
-            <TypeBadge type={factroyPokemon.pokemon.type2} />
-          )}
-        </div>
+        <Label className="text-xs text-muted-foreground">実数値</Label>
+        <output className="block h-9 w-full whitespace-nowrap rounded-md border bg-muted/30 px-2 py-2 text-[11px] tabular-nums sm:text-sm">
+          {status.hp}-{status.attack}-{status.defense}-{status.spAttack}-
+          {status.spDefense}-{status.speed}
+        </output>
       </div>
       <div className="space-y-1.5">
         <Label
@@ -151,14 +147,6 @@ export const PokemonDescription = ({
             </SelectGroup>
           </SelectContent>
         </Select>
-      </div>
-
-      <div className="col-span-2 space-y-1.5">
-        <Label className="text-xs text-muted-foreground">実数値</Label>
-        <output className="block w-full rounded-md border bg-muted/30 px-3 py-2 text-sm tabular-nums">
-          {status.hp}-{status.attack}-{status.defense}-{status.spAttack}-
-          {status.spDefense}-{status.speed}
-        </output>
       </div>
     </div>
   );
