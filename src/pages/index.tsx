@@ -212,11 +212,13 @@ export default function Home({ factoryPokemons }: HomeProps) {
         <div className="xl:flex flex flex-col items-center xl:flex-row xl:items-start xl:justify-center mt-4">
           <Attackers factoryPokemons={factoryPokemons} />
 
-          <div className="flex items-center justify-center w-10 h-10 my-10 xl:mt-6 xl:mx-8">
+          <div className="my-10 flex h-10 w-10 items-center justify-center xl:mx-8 xl:mb-0 xl:mt-18">
             <Button
               size="icon"
               variant="outline"
               className="h-12 w-12 rounded-full"
+              aria-label="攻撃側と防御側を入れ替え"
+              title="攻撃側と防御側を入れ替え"
               onClick={handleReverse}
             >
               <ArrowUpDown className="h-6 w-6 xl:hidden" />
