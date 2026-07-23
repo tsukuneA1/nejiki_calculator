@@ -18,7 +18,9 @@ export const MainLayout = ({ isTopPage = false, children }: Props) => {
         <div className="flex flex-col flex-grow">
           <MainHeader />
           <main
-            className={`flex flex-col items-center py-4 px-2 ${isTopPage && "mb-18"} sm:px-5 min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 dark:from-slate-950 dark:to-slate-900 sm:gap-4`}
+            className={`flex min-h-screen flex-col items-center bg-gradient-to-b from-blue-50 to-blue-100 px-2 pt-4 dark:from-slate-950 dark:to-slate-900 sm:gap-4 sm:px-5 ${
+              isTopPage ? "pb-28" : "pb-4"
+            }`}
           >
             {children}
           </main>

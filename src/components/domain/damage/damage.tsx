@@ -26,13 +26,13 @@ export const Damage = () => {
 
   const damageText = `${minDamage}~${maxDamage} (${Math.ceil((minDamage / hActual) * 1000) / 10}%~${Math.ceil((maxDamage / hActual) * 1000) / 10}%)`;
   return (
-    <div>
+    <div className="w-full">
       <MultiProgress
         value1={(minDamage / status.hp) * 100}
         value2={(maxDamage / status.hp) * 100}
-        className="w-[80%]"
+        className="w-full"
       />
-      <div className="text-black">{damageText}</div>
+      <div className="mt-1 text-black dark:text-white">{damageText}</div>
     </div>
   );
 };
