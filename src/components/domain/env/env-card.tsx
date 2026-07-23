@@ -9,8 +9,8 @@ import {
 import type { RootState } from "@/store/store";
 import { CloudSunRain } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { Badge } from "../../ui/badge";
 import { Checkbox } from "../../ui/checkbox";
+import { Label } from "../../ui/label";
 import {
   Select,
   SelectContent,
@@ -39,9 +39,9 @@ export const EnvCard = () => {
         </>
       }
       content={
-        <>
-          <BadgeDescription
-            badgeName="天候"
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Field
+            label="天候"
             content={
               <Select
                 onValueChange={(value) => {
@@ -49,7 +49,7 @@ export const EnvCard = () => {
                 }}
                 value={weather}
               >
-                <SelectTrigger className="w-40">
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="天候を選択" />
                 </SelectTrigger>
                 <SelectContent>
@@ -66,20 +66,21 @@ export const EnvCard = () => {
             }
           />
 
-          <BadgeDescription
-            badgeName="壁"
+          <Field
+            label="壁"
             content={
-              <div className="flex flex-col sm:flex-row items-center gap-2">
+              <div className="flex min-h-9 flex-wrap items-center gap-x-4 gap-y-2">
                 <div className="flex items-center gap-2">
                   <Checkbox
+                    id="reflect"
                     checked={reflect}
                     onCheckedChange={(checked) => {
                       dispatch(setReflect(checked));
                     }}
                   />
                   <label
-                    htmlFor="terms"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:text-base"
+                    htmlFor="reflect"
+                    className="text-sm font-medium leading-none"
                   >
                     リフレクター
                   </label>
@@ -87,14 +88,15 @@ export const EnvCard = () => {
 
                 <div className="flex items-center gap-2">
                   <Checkbox
+                    id="light-screen"
                     checked={lightScreen}
                     onCheckedChange={(checked) => {
                       dispatch(setLightScreen(checked));
                     }}
                   />
                   <label
-                    htmlFor="terms"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:text-base"
+                    htmlFor="light-screen"
+                    className="text-sm font-medium leading-none"
                   >
                     ひかりのかべ
                   </label>
@@ -103,20 +105,22 @@ export const EnvCard = () => {
             }
           />
 
-          <BadgeDescription
-            badgeName="定数ダメ"
+          <Field
+            label="定数ダメージ"
+            className="sm:col-span-2"
             content={
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+              <div className="flex min-h-9 flex-wrap items-center gap-x-4 gap-y-2">
                 <div className="flex items-center gap-2">
                   <Checkbox
+                    id="stealth-rock"
                     checked={stealthRock}
                     onCheckedChange={(checked) => {
                       dispatch(setStealthRock(checked));
                     }}
                   />
                   <label
-                    htmlFor="terms"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:text-base"
+                    htmlFor="stealth-rock"
+                    className="text-sm font-medium leading-none"
                   >
                     ステルスロック
                   </label>
@@ -124,14 +128,15 @@ export const EnvCard = () => {
 
                 <div className="flex items-center gap-2">
                   <Checkbox
+                    id="life-orb"
                     checked={lifeOrb}
                     onCheckedChange={(checked) => {
                       dispatch(setLifeOrb(checked));
                     }}
                   />
                   <label
-                    htmlFor="terms"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:text-base"
+                    htmlFor="life-orb"
+                    className="text-sm font-medium leading-none"
                   >
                     いのちのたま
                   </label>
@@ -139,22 +144,24 @@ export const EnvCard = () => {
               </div>
             }
           />
-        </>
+        </div>
       }
     />
   );
 };
 
-const BadgeDescription = ({
-  badgeName,
+const Field = ({
+  label,
   content,
+  className,
 }: {
-  badgeName: string;
+  label: string;
   content: React.ReactNode;
+  className?: string;
 }) => {
   return (
-    <div className="flex items-center gap-2">
-      <Badge className="w-18 h-9">{badgeName}</Badge>
+    <div className={`space-y-1.5 ${className ?? ""}`}>
+      <Label className="text-xs text-muted-foreground">{label}</Label>
       {content}
     </div>
   );

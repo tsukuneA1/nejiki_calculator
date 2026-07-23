@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -8,34 +8,26 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Button } from "../ui/button";
-
+import { useId } from "react";
 type RankProps = {
   rank: number;
-  badgeName: string;
+  label: string;
   setRank: (rank: number) => void;
 };
 
-export const Rank = ({ rank, badgeName, setRank }: RankProps) => {
-  const rankPlus = (rank: number) => {
-    if (rank < 6) {
-      setRank(rank + 1);
-    }
-  };
+export const Rank = ({ rank, label, setRank }: RankProps) => {
+  const fieldId = useId();
 
-  const rankMinus = (rank: number) => {
-    if (rank > -6) {
-      setRank(rank - 1);
-    }
-  };
   return (
-    <div className="flex items-center gap-2 w-full">
-      <Badge className="w-18 h-9">{badgeName}</Badge>
+    <div className="space-y-1.5">
+      <Label htmlFor={fieldId} className="text-xs text-muted-foreground">
+        {label}
+      </Label>
       <Select
         value={rank.toString()}
         onValueChange={(value) => setRank(Number(value))}
       >
-        <SelectTrigger className="w-full">
+        <SelectTrigger id={fieldId} className="w-full">
           <SelectValue placeholder="ランク補正を選択" />
         </SelectTrigger>
         <SelectContent>
@@ -52,12 +44,6 @@ export const Rank = ({ rank, badgeName, setRank }: RankProps) => {
           </SelectGroup>
         </SelectContent>
       </Select>
-      <Button variant="default" size="icon" onClick={() => rankPlus(rank)}>
-        +
-      </Button>
-      <Button variant="default" size="icon" onClick={() => rankMinus(rank)}>
-        -
-      </Button>
     </div>
   );
 };
