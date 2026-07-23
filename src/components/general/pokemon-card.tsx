@@ -95,70 +95,66 @@ export const PokemonCard = ({
     <div
       className={`${pos !== 0 && clsx(CardTypeStyles[0].cardStyle, "bg-white rounded-lg p-4")}`}
     >
-      <div className="mb-4 flex w-full items-end justify-between gap-2">
-        <div className="min-w-0 flex-1 space-y-1.5">
-          <Label
-            htmlFor={`attacker-pokemon-${pos}`}
-            className="text-xs text-muted-foreground"
-          >
-            ポケモン
-          </Label>
-          <div className="flex items-center gap-2">
-            <div className="rounded-lg flex items-center justify-center">
-              <Avatar>
-                <AvatarImage
-                  src={data.imageSrc}
-                  className="w-10 h-10 md:w-15 md:h-15 border border-gray-300 rounded-lg"
-                />
-                <AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
-              </Avatar>
-            </div>
-            <AutoComplete
-              setPokemon={handlePokemonChange}
-              level={settings.level}
-              times={settings.times}
-              isNejiki={settings.isNejiki}
-              factoryPokemons={factoryPokemons}
-              trigger={
-                <Button
-                  id={`attacker-pokemon-${pos}`}
-                  variant="outline"
-                  className="h-10 min-w-0 flex-1 justify-start px-3 text-base font-normal"
-                >
-                  {pokemon ? pokemon.pokemon.name : "ポケモンを選択"}
-                </Button>
-              }
+      <div className="mb-4 space-y-1.5">
+        <Label
+          htmlFor={`attacker-pokemon-${pos}`}
+          className="text-xs text-muted-foreground"
+        >
+          ポケモン
+        </Label>
+        <div className="flex items-center gap-2">
+          <Avatar>
+            <AvatarImage
+              src={data.imageSrc}
+              className="h-10 w-10 rounded-lg md:h-15 md:w-15"
             />
+            <AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
+          </Avatar>
+          <AutoComplete
+            setPokemon={handlePokemonChange}
+            level={settings.level}
+            times={settings.times}
+            isNejiki={settings.isNejiki}
+            factoryPokemons={factoryPokemons}
+            trigger={
+              <Button
+                id={`attacker-pokemon-${pos}`}
+                variant="outline"
+                className="h-10 min-w-0 flex-1 justify-start px-3 text-base font-normal"
+              >
+                {pokemon ? pokemon.pokemon.name : "ポケモンを選択"}
+              </Button>
+            }
+          />
+          <div className="flex shrink-0 items-center gap-1">
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="攻撃ポケモンを削除"
+              onClick={handleDelete}
+            >
+              <MaterialSymbolsDeleteOutline />
+            </Button>
+            {isExpanded ? (
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="攻撃ポケモンの設定を閉じる"
+                onClick={handleExpand}
+              >
+                <FamiconsChevronCollapseOutline />
+              </Button>
+            ) : (
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="攻撃ポケモンの設定を開く"
+                onClick={handleExpand}
+              >
+                <IonChevronExpandOutline />
+              </Button>
+            )}
           </div>
-        </div>
-        <div className="flex items-center gap-1">
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="攻撃ポケモンを削除"
-            onClick={handleDelete}
-          >
-            <MaterialSymbolsDeleteOutline />
-          </Button>
-          {isExpanded ? (
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="攻撃ポケモンの設定を閉じる"
-              onClick={handleExpand}
-            >
-              <FamiconsChevronCollapseOutline />
-            </Button>
-          ) : (
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="攻撃ポケモンの設定を開く"
-              onClick={handleExpand}
-            >
-              <IonChevronExpandOutline />
-            </Button>
-          )}
         </div>
       </div>
       {isExpanded && (
