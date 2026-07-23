@@ -2,7 +2,7 @@ import { SolarHamburgerMenuLinear } from "@/components/icons/hamburger";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Kanit } from "next/font/google";
 
-import { BookOpen, Home, Search } from "lucide-react";
+import { Home, Search } from "lucide-react";
 import Link from "next/link";
 
 type MenuItem = {
@@ -21,11 +21,6 @@ const MENU_ITEMS: MenuItem[] = [
     title: "ポケモン検索",
     url: "/poke-search",
     icon: Search,
-  },
-  {
-    title: "攻略情報",
-    url: "/strategy-guide",
-    icon: BookOpen,
   },
 ] as const;
 

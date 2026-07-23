@@ -41,15 +41,6 @@ module.exports = {
       };
     }
 
-    if (path === "/strategy-guide") {
-      return {
-        loc: path,
-        changefreq: "monthly",
-        priority: 0.8,
-        lastmod: new Date().toISOString(),
-      };
-    }
-
     if (path === "/instruction-manual") {
       return {
         loc: path,
