@@ -1,0 +1,4 @@
+interface:
+  display_name: "Search Console Analytics"
+  short_description: "検索流入・クエリ・ページ・掲載順位を読み取り専用で分析"
+  default_prompt: "Use $search-console-analytics to analyze recent organic search performance for nejiki-calculator."
