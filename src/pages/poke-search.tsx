@@ -2,7 +2,6 @@ import { filterFactoryPokemons } from "@/components/general/auto-complete";
 import { TypeBadge } from "@/components/general/type-badge";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SelectItem } from "@/components/ui/select";
@@ -31,6 +30,16 @@ interface PokeSearchProps {
 }
 
 const STAT_LABELS = ["HP", "攻撃", "防御", "特攻", "特防", "素早さ"] as const;
+const SORT_ITEMS = ["なし", ...STAT_LABELS];
+
+type SearchFilters = {
+  level: number;
+  roundIndex: number;
+  item: string;
+  ability: string;
+  sortItem: string;
+  selectedPokemon: string;
+};
 
 export const getStaticProps: GetStaticProps<PokeSearchProps> = async () => {
   const factoryPokemons = await getFactoryPokemons();
@@ -47,20 +56,32 @@ export const getStaticProps: GetStaticProps<PokeSearchProps> = async () => {
 };
 
 export default function PokeSearch({
-  factoryPokemons: initialFactoryPokemons,
-  abilities: abilitiesProp,
-  items: itemsProp,
+  factoryPokemons,
+  abilities,
+  items,
 }: PokeSearchProps) {
-  const [factoryPokemons] = useState<FactoryPokemon[]>(initialFactoryPokemons);
-  const [abilities] = useState<string[]>(abilitiesProp);
-  const [items] = useState<string[]>(itemsProp);
-  const [level, setLevel] = useState<number>(100);
-  const [times, setTimes] = useState<number>(1);
-  const [item, setItem] = useState<string>("なし");
-  const [ability, setAbility] = useState<string>("なし");
-  const [sortItem, setSortItem] = useState<string>("なし");
-  const [selectedPokemon, setSelectedPokemon] = useState<string>("");
-  const [isNejiki, setIsNejiki] = useState(false);
+  const [filters, setFilters] = useState<SearchFilters>({
+    level: 100,
+    roundIndex: 0,
+    item: "なし",
+    ability: "なし",
+    sortItem: "なし",
+    selectedPokemon: "",
+  });
+  const { level, roundIndex, item, ability, sortItem, selectedPokemon } =
+    filters;
+  const times = findItems(roundIndex);
+  const isNejiki = roundIndex === 3;
+
+  const updateFilter = <K extends keyof SearchFilters>(
+    key: K,
+    value: SearchFilters[K],
+  ) => {
+    setFilters((currentFilters) => ({
+      ...currentFilters,
+      [key]: value,
+    }));
+  };
 
   const filteredSortedFactoryPokemons = useMemo(() => {
     const ivBonus = 4 * (times - 1);
@@ -132,22 +153,6 @@ export default function PokeSearch({
     selectedPokemon,
     isNejiki,
   ]);
-
-  const handleLevelChange = (level: number) => {
-    setLevel(level);
-  };
-
-  const handleTimesChange = (pos: number) => {
-    if (pos === 3) {
-      setIsNejiki(true);
-    } else {
-      setIsNejiki(false);
-    }
-
-    setTimes(findItems(pos));
-  };
-
-  const sortItems = ["なし", "HP", "攻撃", "防御", "特攻", "特防", "素早さ"];
 
   return (
     <>
@@ -243,33 +248,46 @@ export default function PokeSearch({
               </CardTitle>
             </CardHeader>
             <CardContent className="p-4">
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <form
+                className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+                onSubmit={(event) => event.preventDefault()}
+              >
                 <div className="space-y-2">
-                  <Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+                  <Label
+                    htmlFor="pokemon-name"
+                    className="text-xs text-muted-foreground"
+                  >
                     ポケモン名
                   </Label>
                   <div className="relative">
                     <Input
+                      id="pokemon-name"
+                      type="search"
                       placeholder="ポケモン名を入力"
                       className="pl-10"
                       value={selectedPokemon}
-                      onChange={(e) => setSelectedPokemon(e.target.value)}
+                      onChange={(event) =>
+                        updateFilter("selectedPokemon", event.target.value)
+                      }
                     />
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+                  <Label
+                    htmlFor="search-round"
+                    className="text-xs text-muted-foreground"
+                  >
                     周回数
                   </Label>
                   <Select
                     onValueChange={(value) =>
-                      handleTimesChange(Number.parseInt(value))
+                      updateFilter("roundIndex", Number.parseInt(value))
                     }
-                    defaultValue={"0"}
+                    value={`${roundIndex}`}
                   >
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger id="search-round" className="w-full">
                       <SelectValue placeholder="周回数を選択" />
                     </SelectTrigger>
                     <SelectContent>
@@ -286,14 +304,17 @@ export default function PokeSearch({
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+                  <Label
+                    htmlFor="search-ability"
+                    className="text-xs text-muted-foreground"
+                  >
                     特性
                   </Label>
                   <Select
-                    onValueChange={(value) => setAbility(value)}
-                    defaultValue={"なし"}
+                    onValueChange={(value) => updateFilter("ability", value)}
+                    value={ability}
                   >
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger id="search-ability" className="w-full">
                       <SelectValue placeholder="特性を選択" />
                     </SelectTrigger>
                     <SelectContent>
@@ -310,14 +331,17 @@ export default function PokeSearch({
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+                  <Label
+                    htmlFor="search-item"
+                    className="text-xs text-muted-foreground"
+                  >
                     アイテム
                   </Label>
                   <Select
-                    onValueChange={(value) => setItem(value)}
-                    defaultValue={"なし"}
+                    onValueChange={(value) => updateFilter("item", value)}
+                    value={item}
                   >
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger id="search-item" className="w-full">
                       <SelectValue placeholder="アイテムを選択" />
                     </SelectTrigger>
 
@@ -335,52 +359,49 @@ export default function PokeSearch({
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+                  <Label
+                    htmlFor="search-level"
+                    className="text-xs text-muted-foreground"
+                  >
                     レベル
                   </Label>
-                  <div className="flex items-center gap-4">
-                    <Checkbox
-                      id="terms"
-                      checked={level === 50}
-                      onClick={() => handleLevelChange(50)}
-                      className="w-5 h-5 border-2 bg-white"
-                    />
-                    <label
-                      htmlFor="terms"
-                      className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      50レベル
-                    </label>
-                    <Checkbox
-                      id="terms"
-                      checked={level === 100}
-                      onClick={() => handleLevelChange(100)}
-                      className="w-5 h-5 border-2 bg-white"
-                    />
-                    <label
-                      htmlFor="terms"
-                      className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      オープンレベル
-                    </label>
-                  </div>
+                  <Select
+                    onValueChange={(value) =>
+                      updateFilter("level", Number(value))
+                    }
+                    value={`${level}`}
+                  >
+                    <SelectTrigger id="search-level" className="w-full">
+                      <SelectValue placeholder="レベルを選択" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>レベル</SelectLabel>
+                        <SelectItem value="50">50レベル</SelectItem>
+                        <SelectItem value="100">オープンレベル</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="bg-slate-800 text-white px-3 py-1 rounded-md inline-block">
+                  <Label
+                    htmlFor="search-sort"
+                    className="text-xs text-muted-foreground"
+                  >
                     項目
                   </Label>
                   <Select
-                    onValueChange={(value) => setSortItem(value)}
-                    defaultValue={"なし"}
+                    onValueChange={(value) => updateFilter("sortItem", value)}
+                    value={sortItem}
                   >
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger id="search-sort" className="w-full">
                       <SelectValue placeholder="項目を選択" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectGroup>
                         <SelectLabel>並べ替え項目</SelectLabel>
-                        {sortItems.map((item) => (
+                        {SORT_ITEMS.map((item) => (
                           <SelectItem key={item} value={item}>
                             {item}
                           </SelectItem>
@@ -389,7 +410,7 @@ export default function PokeSearch({
                     </SelectContent>
                   </Select>
                 </div>
-              </div>
+              </form>
             </CardContent>
           </Card>
           <Card className="shadow-sm py-0">
