@@ -57,3 +57,11 @@ override.tf.json
 *_override.tf.json
 .terraformrc
 terraform.rc
+
+# Python tools
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
