@@ -4,6 +4,8 @@ import { Rank } from "@/components/general/rank";
 import { TypeBadge } from "@/components/general/type-badge";
 import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import { MainCardLayout } from "@/layouts/main-card/main-card-layout";
 import {
   setBRank,
@@ -14,6 +16,7 @@ import {
   setDfItem,
   setDfIv,
 } from "@/store/slices/defenderSlice";
+import { setLifeOrb, setStealthRock } from "@/store/slices/envSlice";
 import type { RootState } from "@/store/store";
 import type { FactoryPokemon } from "@/types/factoryPokemon";
 import { Avatar } from "@radix-ui/react-avatar";
@@ -25,6 +28,8 @@ export const DefenderCard = ({
   const defender = useSelector((state: RootState) => state.defender);
   const pokemon = defender.factoryPokemon;
   const settings = useSelector((state: RootState) => state.settings);
+  const stealthRock = useSelector((state: RootState) => state.env.stealthRock);
+  const lifeOrb = useSelector((state: RootState) => state.env.lifeOrb);
   const dispatch = useDispatch();
 
   const handlePokemonChange = (pokemon: FactoryPokemon) => {
@@ -108,6 +113,43 @@ export const DefenderCard = ({
               dispatch(setDRank({ rank: rank }));
             }}
           />
+          <div className="space-y-1.5">
+            <Label className="text-xs text-muted-foreground">
+              定数ダメージ
+            </Label>
+            <div className="flex min-h-9 flex-wrap items-center gap-x-4 gap-y-2">
+              <div className="flex items-center gap-2">
+                <Checkbox
+                  id="stealth-rock"
+                  checked={stealthRock}
+                  onCheckedChange={(checked) => {
+                    dispatch(setStealthRock(checked));
+                  }}
+                />
+                <label
+                  htmlFor="stealth-rock"
+                  className="text-sm font-medium leading-none"
+                >
+                  ステルスロック
+                </label>
+              </div>
+              <div className="flex items-center gap-2">
+                <Checkbox
+                  id="life-orb"
+                  checked={lifeOrb}
+                  onCheckedChange={(checked) => {
+                    dispatch(setLifeOrb(checked));
+                  }}
+                />
+                <label
+                  htmlFor="life-orb"
+                  className="text-sm font-medium leading-none"
+                >
+                  いのちのたま
+                </label>
+              </div>
+            </div>
+          </div>
         </>
       }
     />
