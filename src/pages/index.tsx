@@ -3,7 +3,6 @@ import { DefenderCard } from "@/components/domain/defender/defender-card";
 import { DefenderReserve } from "@/components/domain/defender/defender-reserve";
 import { EnvCard } from "@/components/domain/env/env-card";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -160,56 +159,65 @@ export default function Home({ factoryPokemons }: HomeProps) {
         <h1 className="sr-only">
           金ネジキ攻略 ポケモンバトルファクトリー ダメージ計算機
         </h1>
-        <div className="w-auto max-w-xl flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-lg shadow-sm border dark:border-slate-800">
-          <div className="flex items-center gap-2">
-            <Checkbox
-              id="terms"
-              checked={settings.level === 50}
-              onClick={() => handleLevelChange(50)}
-              className="w-5 h-5 border-2 bg-white"
-            />
+        <div className="flex w-auto max-w-xl items-end gap-3 rounded-lg border bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div className="space-y-1.5">
             <label
-              htmlFor="terms"
-              className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
+              htmlFor="level-select"
+              className="block text-xs font-medium text-zinc-600 dark:text-zinc-300"
             >
-              50レベル
+              レベル
             </label>
+            <Select
+              value={`${settings.level}`}
+              onValueChange={(value) => handleLevelChange(Number(value))}
+            >
+              <SelectTrigger
+                id="level-select"
+                className="w-40 bg-white text-black"
+              >
+                <SelectValue placeholder="レベルを選択" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>レベル</SelectLabel>
+                  <SelectItem value="50">50レベル</SelectItem>
+                  <SelectItem value="100">オープンレベル</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
-          <div className="flex items-center gap-2">
-            <Checkbox
-              id="terms"
-              checked={settings.level === 100}
-              onClick={() => handleLevelChange(100)}
-              className="w-5 h-5 border-2 bg-white"
-            />
+          <div className="space-y-1.5">
             <label
-              htmlFor="terms"
-              className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-black"
+              htmlFor="times-select"
+              className="block text-xs font-medium text-zinc-600 dark:text-zinc-300"
             >
-              オープンレベル
+              周回
             </label>
+            <Select
+              onValueChange={(value) => handleTimesChange(Number(value))}
+              defaultValue={"0"}
+            >
+              <SelectTrigger
+                id="times-select"
+                className="w-40 bg-white text-black"
+              >
+                <SelectValue placeholder="周回回数を選択" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>周回回数</SelectLabel>
+                  {timesItems.map((timesItem, i) => (
+                    <SelectItem key={timesItem} value={`${i}`}>
+                      {timesItem}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
-          <Select
-            onValueChange={(value) => handleTimesChange(Number(value))}
-            defaultValue={"0"}
-          >
-            <SelectTrigger className="w-[180px] bg-white text-black">
-              <SelectValue placeholder="周回回数を選択" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>周回回数</SelectLabel>
-                {timesItems.map((timesItem, i) => (
-                  <SelectItem key={timesItem} value={`${i}`}>
-                    {timesItem}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
         </div>
 
-        <div className="xl:flex flex flex-col items-center xl:flex-row xl:items-start xl:justify-center mt-4">
+        <div className="mt-4 flex w-full flex-col items-center xl:flex-row xl:items-start xl:justify-center">
           <Attackers factoryPokemons={factoryPokemons} />
 
           <div className="my-10 flex h-10 w-10 items-center justify-center xl:mx-8 xl:mb-0 xl:mt-18">
@@ -226,7 +234,7 @@ export default function Home({ factoryPokemons }: HomeProps) {
             </Button>
           </div>
 
-          <div className="flex flex-col gap-2 xl:mt-0">
+          <div className="flex w-full max-w-lg flex-col gap-2 xl:mt-0">
             <DefenderReserve factoryPokemons={factoryPokemons} />
             <DefenderCard factoryPokemons={factoryPokemons} />
             <EnvCard />

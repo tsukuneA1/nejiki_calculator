@@ -23,7 +23,7 @@ export const Attackers = ({
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex w-full max-w-lg flex-col gap-2">
       <AttackerReserve factoryPokemons={factoryPokemons} />
       <MainCardLayout
         header={

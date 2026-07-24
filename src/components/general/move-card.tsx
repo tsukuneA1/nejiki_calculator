@@ -17,7 +17,7 @@ export const MoveCard = ({
   return (
     <button
       type="button"
-      className={`w-full rounded-md border px-3 py-2 text-left transition-colors ${
+      className={`w-full rounded-md border px-3 py-2 text-left text-sm transition-colors ${
         isSelected
           ? "border-primary bg-primary/5 ring-1 ring-primary"
           : "border-border bg-background hover:bg-muted/50"
