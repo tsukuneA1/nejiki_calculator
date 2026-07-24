@@ -1,0 +1,30 @@
+[project]
+name = "search-console"
+version = "0.1.0"
+description = "Read-only Search Console API CLI for nejiki-calculator"
+requires-python = ">=3.13"
+dependencies = [
+    "google-auth[requests]>=2.40.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.14.0",
+    "pytest>=8.3.0",
+    "ruff>=0.9.0",
+]
+
+[project.scripts]
+search-console = "search_console.main:main"
+
+[build-system]
+requires = ["uv_build>=0.10.12,<0.11.0"]
+build-backend = "uv_build"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.mypy]
+files = ["src"]
+python_version = "3.13"
+ignore_missing_imports = true

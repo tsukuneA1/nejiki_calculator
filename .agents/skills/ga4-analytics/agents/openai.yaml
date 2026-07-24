@@ -1,0 +1,4 @@
+interface:
+  display_name: "GA4 Analytics"
+  short_description: "GA4の流入・ユーザー・セッション・イベントを読み取り専用で分析"
+  default_prompt: "Use $ga4-analytics to analyze recent traffic trends for nejiki-calculator."
